@@ -10,4 +10,4 @@ MSFT, NVDA, AMZN, META, AVGO, GOOG, DUOL, NFLX, NOW, SPOT, TLT, NKE, CSGP, CSCO,
 |--------|----------|------------|-------------|--------|
 | | | | | |
 
-*Run a portfolio sync (see [sync-sop.md](sync-sop.md)) to populate this table with live weights, then fill in scores from the latest [session log](../sessions/).*
+*Run `/sync-portfolio` (see [sync-sop.md](sync-sop.md)) to populate this table from the live [snapshots](snapshots/) with current weights, then fill in scores from the latest [session log](../sessions/).*
