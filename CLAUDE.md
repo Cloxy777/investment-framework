@@ -12,7 +12,7 @@ This repo is the single source of truth for the **Quality Value + Dynamic Trimmi
   - [operating-calendar.md](framework/operating-calendar.md) — when routine tasks are due, and the data templates to fill in
   - [graveyard-audit.md](framework/graveyard-audit.md) — survivorship-bias case studies (GE, Nokia, Valeant, Wirecard, IBM, ...) and the framework gaps each one closed; reviewed/expanded annually in Q1
   - [benchmark-comparison.md](framework/benchmark-comparison.md) — tracks the framework against MSCI Quality Index and the QMJ factor, not just the S&P 500; updated annually in Q1
-- **`portfolio/`** — [holdings.md](portfolio/holdings.md) (current positions/weights/scores), [sync-sop.md](portfolio/sync-sop.md) (how to pull live broker data into Notion), and [override-log.md](portfolio/override-log.md) (every position entered outside the framework's rules, tracked and reviewed annually)
+- **`portfolio/`** — [holdings.md](portfolio/holdings.md) (current positions/weights/scores), [sync-sop.md](portfolio/sync-sop.md) (how to pull live broker data into [`snapshots/`](portfolio/snapshots/) and refresh holdings), and [override-log.md](portfolio/override-log.md) (every position entered outside the framework's rules, tracked and reviewed annually)
 - **`sessions/`** — dated logs of every analysis session (screenings, re-scores, evaluations, rebalances)
 - **`decisions/`** — dated logs of actual actions taken and the reasoning, plus framework-change rationale
 
@@ -33,7 +33,7 @@ Use these instead of re-deriving the process each time (defined in `.claude/comm
 - `/new-position [ticker]` — full evaluation of a candidate, end-to-end through order setup
 - `/rescore [tickers]` — quarterly post-earnings re-score
 - `/rebalance` — portfolio-wide trim/exit review and capital recycling plan
-- `/sync-portfolio [broker]` — pull live broker positions into Notion and refresh `holdings.md`
+- `/sync-portfolio [broker]` — pull live broker positions into `portfolio/snapshots/` and refresh `holdings.md`, via PR
 
 Every session should be saved to `sessions/` and, where it leads to an actual trade, logged in `decisions/` — that's what lets the framework be audited and improved (Rule 10).
 
