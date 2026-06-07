@@ -1,11 +1,11 @@
 # Freedom Finance Portfolio Snapshot
 
 **Account:** Freedom24
-**Last synced:** 2026-06-07 (from user-provided screenshot of the Freedom24 app — Portfolio tab)
+**Last synced:** 2026-06-07 (from two user-provided screenshots of the Freedom24 app — Portfolio → Opened Positions view, and Portfolio → top-level Net Asset Valuation/Cash view)
 
-**Summary:** Opened Positions Value: $15,016.69 · Period Return: -$416.55 (-2.70%) · Securities in USD: -$416.55 (-2.70%)
+**Summary:** Net Asset Valuation: $15,123.54 · Opened Positions Value: $15,016.69 · Cash: $106.85 · Period Return: -$416.55 (-2.70%) · Securities in USD: -$416.55 (-2.70%)
 
-> **Note:** "$15,016.69" is the *opened positions* value shown on the Portfolio tab — it does **not** include cash. See Cash Balance section below.
+> **Note:** $15,016.69 (Opened Positions) + $106.85 (Cash) = $15,123.54 (Net Asset Valuation) — ties out exactly, confirming both screenshots are reading the same account at the same moment and nothing is double-counted or missing.
 
 | Ticker | Company | Qty | Avg Price | Current Value | Return % | Product Type | Currency |
 |--------|---------|-----|-----------|---------------|----------|--------------|----------|
@@ -19,8 +19,11 @@
 
 ## Cash Balance
 
-**Not captured this sync.** The screenshot provided was the Portfolio → Opened Positions view only, which doesn't show cash / "available for withdrawal" / total account value. To include Freedom24 cash in `holdings.md` (as a `CASH (Freedom24)` row, matching the IBKR side), the next sync needs an additional screenshot of the **Accounts** tab or wherever Freedom24 surfaces the cash balance — see [sync-sop.md](../sync-sop.md).
+| Currency | Cash Balance |
+|----------|--------------|
+| USD | 106.85 |
+| **Total** | **106.85** |
 
-Until then, treat the $15,016.69 figure above as *equity positions only*, not the full Freedom24 account value — `holdings.md` weights for Freedom24-held tickers are computed on that basis and will need a one-time recalculation once cash is captured.
+Source: second screenshot, Portfolio top-level view ("Net asset valuation $15,123.54" → "Cash" card → "USD 106.85"). Single-currency (USD), so no FX conversion needed. This is now folded into `holdings.md` as the `CASH (Freedom24)` row, and the broker's total account value used for weighting is the **Net Asset Valuation ($15,123.54)** — positions + cash — matching how the IBKR side uses Net Liquidation Value.
 
 *This file is overwritten on every Freedom Finance sync — see [sync-sop.md](../sync-sop.md). Prior snapshots live in git history, not as separate files.*
