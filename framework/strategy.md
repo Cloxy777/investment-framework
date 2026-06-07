@@ -80,16 +80,13 @@ Assign a valuation score (1–10) to each qualified company. Full scoring mechan
 
 ---
 
-## Phase 05 — Dynamic Trimming (Price-Target-Driven)
+## Phase 05 — Dynamic Trimming (Valuation-Driven)
 
-Trims are triggered by **price reaching a fair-value-derived target**, not by the valuation score crossing a band. The two trigger prices are the Primary Sell Target and Bull-Case Trim Target already defined in [fair-value-methodology.md](fair-value-methodology.md) Step 3:
-
-- **Price reaches Primary Sell Target** (= Fair Value, baseline): Trim 50% of the position. Recycle into Score 1–3 names.
-- **Price reaches Bull-Case Trim Target** (= Bull-Case Fair Value × 0.90): Trim the remainder to a tracking position — 1–2%.
-- **2x price milestone:** Trigger valuation re-score. If price has also crossed a Sell Target, accelerate the trim.
+- **Score 6–7:** Trim 25–30% of position. Recycle into Score 1–3 names.
+- **Score 8:** Trim to half-position (50% of original size)
+- **Score 9–10:** Trim to tracking position — 1–2%
+- **2x price milestone:** Trigger valuation re-score. If score also 7+, accelerate trim.
 - **Capital recycling:** Proceeds always reinvested into current Score 1–3 names only.
-
-The 1–10 valuation score still governs **BUY** sizing (Score 1–3 / 4–5 bands below) and is still refreshed on the 2x price milestone — it no longer mechanically triggers a trim on its own. Phase 06's "Score 10 sustained 2+ quarters" remains a separate, rarer full-**exit** backstop (see below), distinct from routine trimming.
 
 ---
 
@@ -110,13 +107,14 @@ The 1–10 valuation score still governs **BUY** sizing (Score 1–3 / 4–5 ban
 
 ## Action Table Summary
 
-| Score / Price Signal | Status | Action |
+| Score Range | Status | Action |
 |-------------|--------|--------|
-| Score 1–3 | Very Cheap | Full position (6–8%) |
-| Score 4–5 | Cheap | Standard position (3–5%) |
-| Price ≥ Primary Sell Target (Fair Value) | Fairly Valued | Trim 50% |
-| Price ≥ Bull-Case Trim Target (Bull-Case FV × 0.90) | Richly Valued | Trim remainder to 1–2% tracking |
-| Score 10 (2+ qtrs) | Extreme | Full Exit |
+| 1–3 | Very Cheap | Full position (6–8%) |
+| 4–5 | Cheap | Standard position (3–5%) |
+| 6–7 | Fair / Rich | Trim 25–30% |
+| 8 | Expensive | Trim to 50% |
+| 9–10 | Very Expensive | Trim to 1–2% tracking |
+| 10 (2+ qtrs) | Extreme | Full Exit |
 
 ---
 
@@ -176,9 +174,9 @@ Soft modifier — does not override quality gate.
 - Above 200-day MA → proceed with scored entry
 - Below 200-day MA → require ONE of: earnings beat >5%, new insider buy >$250K, or analyst upgrade with >30% target upside
 
-### 🔵 Upgrade 7 — Hard Position Cap at 15%
+### 🔵 Upgrade 7 — Position Cap Validated at 8% (HIGH)
 
-Hard cap: never exceed 15% in a single position under any circumstances. (Note: Verdad research empirically validated 8% across 10,000 simulated portfolios; 15% is a deliberate user override of that backing — see [decisions/2026-06-07-framework-change-cap-and-trim-rule.md](../decisions/2026-06-07-framework-change-cap-and-trim-rule.md) for the rationale.)
+Hard cap: never exceed 8% in a single position under any circumstances. Empirically validated by Verdad research (10,000 simulated portfolios).
 
 ---
 

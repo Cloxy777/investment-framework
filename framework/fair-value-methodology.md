@@ -85,8 +85,6 @@ Primary Sell Target = Fair Value (baseline)
 Bull-Case Trim Target = Bull-Case Fair Value × 0.90
 ```
 
-> These two levels aren't just for new-position order setup — they are also the **Phase 05 Dynamic Trimming triggers** for existing holdings (see [strategy.md](strategy.md) Phase 05): trim 50% when price reaches the Primary Sell Target, trim the remainder to a 1–2% tracking position when price reaches the Bull-Case Trim Target. Defined once here; referenced from there.
-
 **Fundamental Sell Triggers (override price target):**
 - ❌ Thesis broken — moat eroded, management change, key market lost
 - ❌ Margin compression — gross margin falls >3pp structurally

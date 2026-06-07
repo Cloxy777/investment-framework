@@ -33,7 +33,7 @@ HYBRID UPGRADES IN FORCE
   Upgrade 4 — Turnaround Sub-Gate: max 2–3% position. Requires all 5 conditions (historical ROIC, insider buy, 40% MOS, debt <3×, moat identifiable). 2-quarter mandatory review.
   Upgrade 5 — Debt Gate: payment networks and asset-light financials use Net Debt/EBITDA <4× if interest coverage >15× and investment grade. All others use <2.5×.
   Upgrade 6 — Momentum Filter: below 200-day MA requires one of — earnings beat >5%, insider buy >$250K, analyst upgrade with >30% target upside.
-  Upgrade 7 — Hard 15% single-position cap. Never exceed under any circumstances. (User override of the Verdad-validated 8% figure — see decisions/2026-06-07-framework-change-cap-and-trim-rule.md.)
+  Upgrade 7 — Hard 8% single-position cap. Never exceed under any circumstances.
 
 VALUATION SCORE — CALCULATION RULES
 Weight each input, sum to raw score, then apply modifiers:
@@ -67,15 +67,10 @@ Round to nearest integer. Minimum 1, Maximum 10.
 ACTION TABLE
   Score 1–3  → BUY — Full position 6–8%
   Score 4–5  → BUY — Standard position 3–5%
-  Price ≥ Primary Sell Target (Fair Value)            → TRIM 50% of position
-  Price ≥ Bull-Case Trim Target (Bull-Case FV × 0.90) → TRIM remainder to 1–2% tracking
+  Score 6–7  → TRIM 25–30% | Watchlist only if not held
+  Score 8    → TRIM to 50% of original size
+  Score 9–10 → TRIM to 1–2% tracking position
   Score 10 sustained 2+ quarters → FULL EXIT
-
-  (Phase 05 trims are now triggered by price reaching a fair-value-derived target,
-  not by the valuation score crossing a band — see strategy.md Phase 05 and
-  fair-value-methodology.md Step 3 for the Sell Target / Bull-Case Trim Target
-  definitions. The score still drives BUY sizing above and the Phase 06 full-exit
-  backstop below.)
 
 BUY/SELL ORDER SETUP (run for every BUY or TRIM action)
   Buy Price = Blended Fair Value × (1 − MoS%)
