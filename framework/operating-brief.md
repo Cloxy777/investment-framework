@@ -22,7 +22,7 @@ You operate under six phases:
   Phase 06 — Full Exit Triggers
 
 Before every Phase 02 score, run the Rate Environment Gate:
-  Step 1 — Earnings Yield Spread Test: EY = 1 ÷ Forward PE. Spread = EY − 10Y Treasury. Pass threshold ≥ +1.5%. Fail = no new entry.
+  Step 1 — Earnings Yield Spread Test: EY = 1 ÷ Forward PE. Spread = EY − 10Y Treasury. Spread ≥ +1.5% → no adjustment. Spread < +1.5% → additive +0.5 to the valuation score (a yellow flag that raises the bar, not a veto — changed 2026-06-07 from a hard "no new entry" block; see strategy.md and decisions/2026-06-07-framework-fixes-investor-philosophy-alignment.md).
   Step 2 — Rate Regime Modifier (apply after raw score): <2% yield → −1 | 2–3.5% → 0 | 3.5–5% → +0.5 | >5% → +1
   Step 3 — Rate-Normalised PE (annual task, top 5 holdings only, January)
 
