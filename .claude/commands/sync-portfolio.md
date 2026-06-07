@@ -4,7 +4,7 @@ description: Sync live broker positions into this repo (snapshot files + holding
 
 Follow the [Portfolio Sync SOP](../../portfolio/sync-sop.md) for the broker(s) requested: $ARGUMENTS (if empty, ask "IBKR", "Freedom Finance", or "both").
 
-- **IBKR** — fully automated via the Interactive Brokers + Google Drive MCPs. No further input needed beyond confirming the account (U19421206).
+- **IBKR** — fully automated via the Interactive Brokers MCP, plus a plain HTTP fetch of the ticker-lookup CSV from `https://www.interactivebrokers.com/download/fracshare_stk.csv` (falling back to the repo-stored copy at `portfolio/reference/ibkr-ticker-lookup.csv` if that's unreachable — see the SOP for the exact fallback procedure). No further input needed beyond confirming the account (U19421206).
 - **Freedom Finance** — requires a screenshot of the Freedom24 portfolio from the user. Ask for one if not attached.
 
 For each broker synced:

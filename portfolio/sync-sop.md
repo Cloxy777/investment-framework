@@ -4,7 +4,7 @@ Two brokers, two sync methods (IBKR has an API, Freedom Finance does not). Both 
 
 | Broker | Sync Method | Trigger Phrase |
 |--------|-------------|----------------|
-| **IBKR** | Automated via MCP (Interactive Brokers + Google Drive) | *"Re-sync my IBKR portfolio"* |
+| **IBKR** | Automated via MCP (Interactive Brokers) + a public IBKR ticker-lookup CSV | *"Re-sync my IBKR portfolio"* |
 | **Freedom Finance** | Manual — screenshot-based | *"Re-sync my Freedom Finance portfolio"* + attach screenshot |
 
 > Because `main` is protected, every sync lands as a commit on a short-lived branch with a PR opened against `main` (e.g. `sync/ibkr-2026-06-07`, titled `Sync IBKR portfolio — 2026-06-07`). Merge it once you've sanity-checked the numbers — it's a fast review since it's pure data refresh.
@@ -18,24 +18,29 @@ Two brokers, two sync methods (IBKR has an API, Freedom Finance does not). Both 
 | Resource | Value |
 |----------|-------|
 | IBKR Account | U19421206 |
-| Ticker Lookup CSV (Google Drive) | File ID: `1qXn-oQCMGIHemmzssoR4Eckw3xvXzugf` |
-| CSV columns | `#SYMBOL, MAIN_EXCHANGE, DESCRIPTION, IB_CONTRACT_ID, SCHEDULED_INELIGIBILITY_DATE` |
+| Ticker Lookup CSV (live source) | `https://www.interactivebrokers.com/download/fracshare_stk.csv` — IBKR's own public download, no auth/MCP needed |
+| Ticker Lookup CSV (stored fallback) | [`portfolio/reference/ibkr-ticker-lookup.csv`](../portfolio/reference/ibkr-ticker-lookup.csv) — last-known-good copy, committed to this repo |
+| CSV columns | `#SYMBOL, MAIN_EXCHANGE, DESCRIPTION, IB_CONTRACT_ID, SCHEDULED_INELIGIBILTY_DATE` |
 | Snapshot file | [`portfolio/snapshots/ibkr.md`](snapshots/ibkr.md) |
 
 ### Steps Claude Performs
 
 1. **Fetch live positions** — `get_account_positions` via the Interactive Brokers MCP for account U19421206 (contract IDs, shares, market prices, avg cost, unrealized P&L).
-2. **Resolve tickers** — download the ticker lookup CSV from Google Drive (`download_file_content`, file `1qXn-oQCMGIHemmzssoR4Eckw3xvXzugf`) and match contract IDs via the `IB_CONTRACT_ID` column. Anything unmatched gets flagged `CONID_XXXXXXX`.
+2. **Resolve tickers** — fetch the ticker lookup CSV from the live source (`https://www.interactivebrokers.com/download/fracshare_stk.csv`).
+   - **If the live fetch succeeds:** use it to resolve contract IDs → tickers via the `IB_CONTRACT_ID` column, *and* overwrite [`portfolio/reference/ibkr-ticker-lookup.csv`](../portfolio/reference/ibkr-ticker-lookup.csv) with the freshly fetched copy so it stays the up-to-date fallback (commit it alongside the snapshot in the same PR).
+   - **If the live fetch fails** (network error, IBKR changes/removes the URL, etc.): fall back to the stored copy at `portfolio/reference/ibkr-ticker-lookup.csv`, note in the PR description that the live source was unreachable and the stored copy was used (and how stale it is, per its last commit date), and don't overwrite it with anything.
+   - Anything still unmatched after lookup gets flagged `CONID_XXXXXXX`.
 3. **Write the snapshot** — overwrite [`portfolio/snapshots/ibkr.md`](snapshots/ibkr.md) with a header (account, sync timestamp) and a full positions table: Ticker · Shares · Market Price · Market Value · Avg Cost · Unrealized P&L · P&L % · Currency · Contract ID.
 4. **Refresh holdings.md** — recompute portfolio weights from the new snapshot and update the relevant rows in [holdings.md](holdings.md) (ticker, weight %, broker; leave score/last-review columns untouched — those come from `/rescore`).
-5. **Open a PR** — commit both files on a branch named `sync/ibkr-YYYY-MM-DD`, push, and open a PR titled `Sync IBKR portfolio — YYYY-MM-DD` against `main`.
+5. **Open a PR** — commit the snapshot, `holdings.md`, and (if refreshed) the lookup CSV on a branch named `sync/ibkr-YYYY-MM-DD`, push, and open a PR titled `Sync IBKR portfolio — YYYY-MM-DD` against `main`.
 
-**Required MCP connections:** Interactive Brokers, Google Drive.
+**Required MCP connections:** Interactive Brokers only — the ticker lookup is now a plain HTTP fetch (with a repo-stored fallback), no longer dependent on Google Drive or Notion.
 
 ### Troubleshooting
 
-- **"No approval received" (IBKR or Google Drive):** disconnect/reconnect the MCP, complete OAuth. For IBKR, verify consent at Client Portal → Settings → Manage Third-Party Consents (should list Anthropic + U19421206).
-- **New position shows `CONID_XXXXXXX`:** ticker missing from the CSV — look it up in IBKR Client Portal or TWS Positions tab and add it to the snapshot manually, noting the gap.
+- **"No approval received" (IBKR):** disconnect/reconnect the MCP in Settings → Connections, complete OAuth. Verify consent at Client Portal → Settings → Manage Third-Party Consents (should list Anthropic + U19421206).
+- **Ticker lookup URL unreachable or returns something unexpected:** use the stored fallback CSV (`portfolio/reference/ibkr-ticker-lookup.csv`), flag it clearly in the PR/snapshot ("live source unavailable, used fallback dated [last commit date]"), and consider opening a `decisions/` note if the URL appears to have permanently changed — that's a framework-infrastructure change worth tracking.
+- **New position shows `CONID_XXXXXXX`:** ticker missing from both the live and stored CSV — look it up in IBKR Client Portal or TWS Positions tab and add it to the snapshot manually, noting the gap.
 
 ---
 
