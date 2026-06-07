@@ -174,9 +174,9 @@ Soft modifier — does not override quality gate.
 - Above 200-day MA → proceed with scored entry
 - Below 200-day MA → require ONE of: earnings beat >5%, new insider buy >$250K, or analyst upgrade with >30% target upside
 
-### 🔵 Upgrade 7 — Position Cap Validated at 8% (HIGH)
+### 🔵 Upgrade 7 — Hard Position Cap at 15%
 
-Hard cap: never exceed 8% in a single position under any circumstances. Empirically validated by Verdad research (10,000 simulated portfolios).
+Hard cap: never exceed 15% in a single position under any circumstances. (Note: Verdad research empirically validated 8% across 10,000 simulated portfolios; 15% is a deliberate user override of that backing — see [decisions/2026-06-07-framework-change-position-cap.md](../decisions/2026-06-07-framework-change-position-cap.md) for the rationale.)
 
 ---
 

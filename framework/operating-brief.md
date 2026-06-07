@@ -33,7 +33,7 @@ HYBRID UPGRADES IN FORCE
   Upgrade 4 — Turnaround Sub-Gate: max 2–3% position. Requires all 5 conditions (historical ROIC, insider buy, 40% MOS, debt <3×, moat identifiable). 2-quarter mandatory review.
   Upgrade 5 — Debt Gate: payment networks and asset-light financials use Net Debt/EBITDA <4× if interest coverage >15× and investment grade. All others use <2.5×.
   Upgrade 6 — Momentum Filter: below 200-day MA requires one of — earnings beat >5%, insider buy >$250K, analyst upgrade with >30% target upside.
-  Upgrade 7 — Hard 8% single-position cap. Never exceed under any circumstances.
+  Upgrade 7 — Hard 15% single-position cap. Never exceed under any circumstances. (User override of the Verdad-validated 8% figure — see decisions/2026-06-07-framework-change-position-cap.md.)
 
 VALUATION SCORE — CALCULATION RULES
 Weight each input, sum to raw score, then apply modifiers:
