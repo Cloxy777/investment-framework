@@ -28,13 +28,19 @@ Two brokers, two sync methods (IBKR has an API, Freedom Finance does not). Both 
 ### Steps Claude Performs
 
 1. **Fetch live positions** — `get_account_positions` via the Interactive Brokers MCP for account U19421206 (contract IDs, shares, market prices, avg cost, unrealized P&L).
-2. **Resolve tickers** — fetch the ticker lookup CSV from the live source (`https://www.interactivebrokers.com/download/fracshare_stk.csv`).
+2. **Fetch cash balances** — `get_account_balances` via the same MCP. It returns one entry per currency (`cash_balance`, `settled_cash`, `net_liquidation_value`, `stock_market_value`, `unrealized_pnl`, `exchange_rate`), plus a `BASE` row that's the whole account consolidated into USD. This is also the *correct* way to get a live, broker-reported FX rate for any non-USD currency the account holds (e.g. EUR) — use the `exchange_rate` field directly to convert that currency's cash and position values to USD-equivalents. Never assume or look up an FX rate elsewhere; if `get_account_balances` doesn't return a rate for a currency you need, say so rather than estimating one (per the "never invent or estimate financial data" rule).
+3. **Resolve tickers** — fetch the ticker lookup CSV from the live source (`https://www.interactivebrokers.com/download/fracshare_stk.csv`).
    - **If the live fetch succeeds:** use it to resolve contract IDs → tickers via the `IB_CONTRACT_ID` column, *and* overwrite [`portfolio/reference/ibkr-ticker-lookup.csv`](../portfolio/reference/ibkr-ticker-lookup.csv) with the freshly fetched copy so it stays the up-to-date fallback (commit it alongside the snapshot in the same direct-to-`main` commit).
    - **If the live fetch fails** (network error, IBKR changes/removes the URL, etc.): fall back to the stored copy at `portfolio/reference/ibkr-ticker-lookup.csv`, note in the snapshot file and the commit message that the live source was unreachable and the stored copy was used (and how stale it is, per its last commit date), and don't overwrite it with anything.
    - Anything still unmatched after lookup gets flagged `CONID_XXXXXXX`.
-3. **Write the snapshot** — overwrite [`portfolio/snapshots/ibkr.md`](snapshots/ibkr.md) with a header (account, sync timestamp) and a full positions table: Ticker · Shares · Market Price · Market Value · Avg Cost · Unrealized P&L · P&L % · Currency · Contract ID.
-4. **Refresh holdings.md** — recompute portfolio weights from the new snapshot and update the relevant rows in [holdings.md](holdings.md) (ticker, weight %, broker; leave score/last-review columns untouched — those come from `/rescore`).
-5. **Commit straight to `main`** — stage the snapshot, `holdings.md`, and (if refreshed) the lookup CSV, and commit directly to `main` with the message `Sync IBKR portfolio — YYYY-MM-DD`. No branch, no PR — see the note at the top of this file for why.
+4. **Write the snapshot** — overwrite [`portfolio/snapshots/ibkr.md`](snapshots/ibkr.md) with:
+   - a header (account, sync timestamp, account-summary headline figures: net liquidation, gross position value, total cash);
+   - the positions table: Ticker · Shares · Market Price · Market Value · Avg Cost · Unrealized P&L · P&L % · Currency · Contract ID;
+   - a **Cash Balances** table, one row per currency the account holds: Currency · Cash Balance · Settled Cash · FX Rate → USD · USD Equivalent (the last column = `cash_balance × exchange_rate`, computed directly from `get_account_balances` — not estimated), plus a totals row.
+5. **Refresh holdings.md** — recompute portfolio weights (now over the *whole* account — positions **and** cash — using each broker's net liquidation value as the denominator) and update [holdings.md](holdings.md):
+   - the relevant ticker rows (weight %, broker; leave score/last-review columns untouched — those come from `/rescore`);
+   - a **`CASH (IBKR)`** row with its USD-equivalent total (sum of the USD-equivalent column from the Cash Balances table) and weight %.
+6. **Commit straight to `main`** — stage the snapshot, `holdings.md`, and (if refreshed) the lookup CSV, and commit directly to `main` with the message `Sync IBKR portfolio — YYYY-MM-DD`. No branch, no PR — see the note at the top of this file for why.
 
 **Required MCP connections:** Interactive Brokers only — the ticker lookup is now a plain HTTP fetch (with a repo-stored fallback), no longer dependent on Google Drive or Notion.
 
@@ -58,12 +64,13 @@ Two brokers, two sync methods (IBKR has an API, Freedom Finance does not). Both 
 
 ### Steps Claude Performs
 
-1. **Read the screenshot** — extract Ticker · Company · Qty · Avg Price · Current Value · Return. If unclear/incomplete, ask for a re-send rather than guess.
-2. **Parse the portfolio summary** — Total Value, Period Return, structured-product labels if visible.
-3. **Match tickers** — normalize format (`MSFT.US` → `MSFT`); flag unrecognized ones `UNKNOWN_TICKER`.
-4. **Write the snapshot** — overwrite [`portfolio/snapshots/freedom-finance.md`](snapshots/freedom-finance.md) with a header (account, sync timestamp), the summary block, and the positions table: Ticker · Company · Qty · Avg Price · Current Value · Return % · Product Type · Currency.
-5. **Refresh holdings.md** — same as IBKR: update weights/broker for the relevant rows.
-6. **Commit straight to `main`** — stage the snapshot and `holdings.md`, and commit directly to `main` with the message `Sync Freedom Finance portfolio — YYYY-MM-DD`. No branch, no PR — see the note at the top of this file for why.
+1. **Read the positions screenshot** — extract Ticker · Company · Qty · Avg Price · Current Value · Return. If unclear/incomplete, ask for a re-send rather than guess.
+2. **Get the cash balance too** — the "Opened positions" view only shows equity positions, not cash. Ask the user for a second screenshot of the account/balance view (e.g. the **Accounts** tab, or wherever Freedom24 shows "Available for withdrawal" / cash / total account value) so cash isn't silently dropped from the sync. If the user can't provide one, write the snapshot and `holdings.md` with positions only and **clearly flag that cash wasn't captured this round** — don't estimate or carry forward a stale figure.
+3. **Parse the portfolio summary** — Total Value, Period Return, structured-product labels if visible, plus whatever the balance screenshot shows (cash balance, total account value, currency).
+4. **Match tickers** — normalize format (`MSFT.US` → `MSFT`); flag unrecognized ones `UNKNOWN_TICKER`.
+5. **Write the snapshot** — overwrite [`portfolio/snapshots/freedom-finance.md`](snapshots/freedom-finance.md) with a header (account, sync timestamp), the summary block, the positions table (Ticker · Company · Qty · Avg Price · Current Value · Return % · Product Type · Currency), and a **Cash Balance** line/table (currency, amount, and — if the app shows it — total account value including cash). If cash wasn't captured this round, say so explicitly here rather than leaving it ambiguous.
+6. **Refresh holdings.md** — update the relevant ticker rows (weight %, broker — same method as IBKR, weight = value ÷ broker's total account value including cash), and add/update a **`CASH (Freedom24)`** row with its amount and weight %. If cash wasn't captured this sync, leave that row's figures as they were and note the staleness rather than guessing.
+7. **Commit straight to `main`** — stage the snapshot and `holdings.md`, and commit directly to `main` with the message `Sync Freedom Finance portfolio — YYYY-MM-DD`. No branch, no PR — see the note at the top of this file for why.
 
 **Required setup:** a clear screenshot of the Freedom24 portfolio. No MCP connections needed beyond what the session already has.
 
