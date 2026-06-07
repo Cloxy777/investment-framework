@@ -30,8 +30,10 @@ Filter the investable universe to only high-quality businesses.
 **Step 1 — Earnings Yield Spread Test (per company)**
 - Earnings Yield (EY) = 1 ÷ Forward PE
 - Spread = EY − 10Y US Treasury Yield
-- **Pass threshold: Spread ≥ +1.5%**
-- If Spread < +1.5%: do not open a new position
+- Spread ≥ +1.5%: no adjustment
+- Spread < +1.5%: apply **+0.5 to the valuation score** — a yellow flag that raises the bar the bottom-up case must clear, rather than an outright veto
+
+*Changed 2026-06-07 from a hard "do not open a new position" block to an additive modifier — see [investor-philosophy-alignment.md](investor-philosophy-alignment.md). Buffett treats interest rates as "gravity" on asset values — a valuation anchor, not a binary switch — and Lynch/Munger both warn against letting a macro read override a strong bottom-up case. This keeps the rate-sensitivity (the bar gets harder to clear) without letting it veto an exceptional company outright, and now mirrors how Step 2's Rate Regime Modifier already works.*
 
 **Step 2 — Rate Regime Modifier (updated quarterly)**
 
@@ -82,10 +84,13 @@ Assign a valuation score (1–10) to each qualified company. Full scoring mechan
 
 ## Phase 05 — Dynamic Trimming (Valuation-Driven)
 
-- **Score 6–7:** Trim 25–30% of position. Recycle into Score 1–3 names.
-- **Score 8:** Trim to half-position (50% of original size)
-- **Score 9–10:** Trim to tracking position — 1–2%
-- **2x price milestone:** Trigger valuation re-score. If score also 7+, accelerate trim.
+*Trim trigger raised 2026-06-07 from Score 6–7 to Score 8+ — see [investor-philosophy-alignment.md](investor-philosophy-alignment.md). Trimming the moment a position crosses from "Cheap" into merely "Fair Value" was a materially higher-turnover posture than Buffett ("favorite holding period is forever"), Munger ("sit on your ass investing" / the "croupier's take" on trading friction), or Terry Smith (~3–4% annual turnover, "do nothing") actually practice. Score 6–7 is now hold-and-watch only — it already carries a "Watchlist only, no new entry" label in Phase 03; there's no reason for it to also be a trim trigger. The framework keeps its teeth at the extremes, where even these long-term compounders do trim (e.g., Buffett's 2024 Apple cut once it became dramatically oversized and rich).*
+
+- **Score 6–7:** Hold. No new entry (Watchlist only — Phase 03). No trim — fair value alone is not a sell signal.
+- **Score 8:** Trim 25–30% of position. Recycle into Score 1–3 names.
+- **Score 9:** Trim to half-position (50% of original size)
+- **Score 10:** Trim to tracking position — 1–2%
+- **2x price milestone:** Trigger valuation re-score. If score also 8+, accelerate trim.
 - **Capital recycling:** Proceeds always reinvested into current Score 1–3 names only.
 
 ---
@@ -111,16 +116,17 @@ Assign a valuation score (1–10) to each qualified company. Full scoring mechan
 |-------------|--------|--------|
 | 1–3 | Very Cheap | Full position (6–8%) |
 | 4–5 | Cheap | Standard position (3–5%) |
-| 6–7 | Fair / Rich | Trim 25–30% |
-| 8 | Expensive | Trim to 50% |
-| 9–10 | Very Expensive | Trim to 1–2% tracking |
-| 10 (2+ qtrs) | Extreme | Full Exit |
+| 6–7 | Fair Value | Hold — watch only, no new entry, no trim |
+| 8 | Expensive | Trim 25–30% |
+| 9 | Very Expensive | Trim to 50% |
+| 10 | Extreme | Trim to 1–2% tracking |
+| 10 (2+ qtrs) | Sustained Extreme | Full Exit |
 
 ---
 
 ## 7 Hybrid Upgrades
 
-*Evidence-based upgrades from a 40-year cross-framework stress test vs Buffett · Munger · Lynch · Fisher · Marks.*
+*Evidence-based upgrades from a 40-year cross-framework stress test vs Buffett · Munger · Lynch · Fisher · Marks. See [investor-philosophy-alignment.md](investor-philosophy-alignment.md) for a high-level summary of each investor's core tenets and the alignment checklist used to keep these upgrades from drifting away from the philosophies they're built on.*
 
 ### 🔴 Upgrade 1 — Owner Earnings Adjustment (CRITICAL)
 
@@ -141,6 +147,8 @@ Practical impact: MSFT Owner Earnings ~$95B vs reported FCF ~$72B — a 32% diff
 | > 20% above average | +1 |
 
 May 2026 examples: MSFT 24.9× vs 31× avg (−20%) → Score −1. AAPL 37× vs 24.5× avg (+51%) → Score +1.
+
+**Structural Quality Override (added 2026-06-07 — see [investor-philosophy-alignment.md](investor-philosophy-alignment.md)):** Before applying the **+1 "expensive"** adjustment, check whether the multiple expansion is accompanied by a genuine *structural* improvement — margin expansion, ROIC improvement, or qualifying growth-CapEx reinvestment per Upgrade 1. If yes, do not apply the penalty: a higher multiple may simply reflect a better business, not euphoria. This is Howard Marks' "second-level thinking" (a historical average is only a useful anchor if the business hasn't structurally changed) — and it closes a quiet contradiction with Upgrade 1, which already concedes that raw multiples *understate* quality for moat-building reinvestment. Without this override, Upgrade 2 would mechanically penalize the very reinvestment Upgrade 1 credits.
 
 ### 🟠 Upgrade 3 — PEG Ratio for Fast Growers (HIGH)
 
@@ -168,11 +176,11 @@ Mandatory 2-quarter review. Full position only after quality gate fully re-passe
 
 For payment networks, exchanges, asset-light businesses where 100% of debt is financial: threshold → **Net Debt/EBITDA <4×**, provided interest coverage >15× and investment grade rated. Standard 2.5× unchanged for all other business models.
 
-### 🟡 Upgrade 6 — Momentum Filter: Entry Confirmation (MEDIUM)
+### ⚪ Upgrade 6 — *(Retired 2026-06-07)* ~~Momentum Filter: Entry Confirmation~~
 
-Soft modifier — does not override quality gate.
-- Above 200-day MA → proceed with scored entry
-- Below 200-day MA → require ONE of: earnings beat >5%, new insider buy >$250K, or analyst upgrade with >30% target upside
+Retired — see [decisions/2026-06-07-framework-fixes-investor-philosophy-alignment.md](../decisions/2026-06-07-framework-fixes-investor-philosophy-alignment.md) and [investor-philosophy-alignment.md](investor-philosophy-alignment.md). The original rule gated new-position entries on whether price sat above or below the 200-day moving average — a price-action/technical signal that (a) directly contradicted this framework's own non-negotiable Rule 0, *"act only on documented triggers — a valuation-score change or a fundamental event, never on price movement alone"* ([CLAUDE.md](../CLAUDE.md)), and (b) sits squarely against Buffett/Munger/Graham's lifelong, explicit rejection of chart-based decision triggers ("technical analysis is a bunch of nonsense" — Munger).
+
+Its protective intent — don't buy into a deteriorating situation — is already served by Phase 04's Quality Watch, Narrative Check, and Short Thesis Engagement, all of which are fundamentals-based. No replacement rule was added; the heading and number are kept (rather than renumbered) so existing references to Upgrade 7 (and any future ones) stay stable.
 
 ### 🔵 Upgrade 7 — Hard Position Cap at 15%
 

@@ -32,7 +32,7 @@ HYBRID UPGRADES IN FORCE
   Upgrade 3 — PEG (Fast Growers only, EPS growth >15% for 3+ yrs): PEG <0.8 → −1 | 0.8–1.2 → 0 | 1.2–1.8 → +0.5 | >2.0 → +1. Never apply to cyclicals.
   Upgrade 4 — Turnaround Sub-Gate: max 2–3% position. Requires all 5 conditions (historical ROIC, insider buy, 40% MOS, debt <3×, moat identifiable). 2-quarter mandatory review.
   Upgrade 5 — Debt Gate: payment networks and asset-light financials use Net Debt/EBITDA <4× if interest coverage >15× and investment grade. All others use <2.5×.
-  Upgrade 6 — Momentum Filter: below 200-day MA requires one of — earnings beat >5%, insider buy >$250K, analyst upgrade with >30% target upside.
+  Upgrade 6 — RETIRED 2026-06-07 (was a 200-day MA price-action gate; conflicted with Rule 0 "never act on price movement alone" and with Buffett/Munger/Graham's rejection of technical signals — see decisions/2026-06-07-framework-fixes-investor-philosophy-alignment.md). Its protective intent is already covered by Phase 04's Quality/Narrative/Short-thesis checks.
   Upgrade 7 — Hard 15% single-position cap. Never exceed under any circumstances. (User override of the Verdad-validated 8% figure — see decisions/2026-06-07-framework-change-position-cap.md.)
 
 VALUATION SCORE — CALCULATION RULES
@@ -67,9 +67,10 @@ Round to nearest integer. Minimum 1, Maximum 10.
 ACTION TABLE
   Score 1–3  → BUY — Full position 6–8%
   Score 4–5  → BUY — Standard position 3–5%
-  Score 6–7  → TRIM 25–30% | Watchlist only if not held
-  Score 8    → TRIM to 50% of original size
-  Score 9–10 → TRIM to 1–2% tracking position
+  Score 6–7  → HOLD — watch only, no new entry, no trim (Fair Value; raised from a trim trigger 2026-06-07)
+  Score 8    → TRIM 25–30%
+  Score 9    → TRIM to 50% of original size
+  Score 10   → TRIM to 1–2% tracking position
   Score 10 sustained 2+ quarters → FULL EXIT
 
 BUY/SELL ORDER SETUP (run for every BUY or TRIM action)
