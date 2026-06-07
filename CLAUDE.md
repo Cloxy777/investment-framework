@@ -10,7 +10,9 @@ This repo is the single source of truth for the **Quality Value + Dynamic Trimmi
   - [fair-value-methodology.md](framework/fair-value-methodology.md) — fair value, buy/sell/stop pricing, position sizing, the 10-rule FV framework
   - [operating-brief.md](framework/operating-brief.md) — the full system-prompt-style brief that governs how Claude should behave in analysis sessions
   - [operating-calendar.md](framework/operating-calendar.md) — when routine tasks are due, and the data templates to fill in
-- **`portfolio/`** — [holdings.md](portfolio/holdings.md) (current positions/weights/scores) and [sync-sop.md](portfolio/sync-sop.md) (how to pull live broker data into Notion)
+  - [graveyard-audit.md](framework/graveyard-audit.md) — survivorship-bias case studies (GE, Nokia, Valeant, Wirecard, IBM, ...) and the framework gaps each one closed; reviewed/expanded annually in Q1
+  - [benchmark-comparison.md](framework/benchmark-comparison.md) — tracks the framework against MSCI Quality Index and the QMJ factor, not just the S&P 500; updated annually in Q1
+- **`portfolio/`** — [holdings.md](portfolio/holdings.md) (current positions/weights/scores), [sync-sop.md](portfolio/sync-sop.md) (how to pull live broker data into Notion), and [override-log.md](portfolio/override-log.md) (every position entered outside the framework's rules, tracked and reviewed annually)
 - **`sessions/`** — dated logs of every analysis session (screenings, re-scores, evaluations, rebalances)
 - **`decisions/`** — dated logs of actual actions taken and the reasoning, plus framework-change rationale
 
@@ -41,4 +43,4 @@ When a framework rule changes (a new hybrid upgrade, a revised threshold, a less
 
 ## Source material
 
-`claude-projects/` contains the raw Notion export this framework was originally compiled from (kept for reference/traceability). The structured docs under `framework/` and `portfolio/` are the canonical, maintained versions — edit those, not the raw export.
+The structured docs under `framework/` and `portfolio/` are the canonical, maintained versions, fully migrated from the original Notion export (which has been removed from the repo — see git history at the migration commit if you need the raw source).
