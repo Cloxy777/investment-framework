@@ -8,28 +8,28 @@ Combined total ≈ **$53,893.38** = IBKR Net Liquidation Value $38,769.84 + Free
 
 | Ticker | Weight % | Last Score | Last Review | Broker |
 |--------|----------|------------|-------------|--------|
-| AMZN | 10.49% | | | IBKR + Freedom24 |
+| AMZN | 10.49% | 8 | Jun 2026 | IBKR + Freedom24 |
 | CASH (Freedom24) | 0.20% | | | Freedom24 |
 | CASH (IBKR) | 7.39% | | | IBKR |
-| CSGP | 1.57% | | | IBKR |
-| DUOL | 7.60% | | | IBKR + Freedom24 |
-| GOOG | 0.68% | | | IBKR |
-| META | 5.47% | | | IBKR + Freedom24 |
-| MSFT | 16.84% | | | IBKR + Freedom24 |
-| NFLX | 1.82% | | | IBKR |
-| NKE | 1.59% | | | IBKR |
-| NOW | 2.47% | | | IBKR |
-| NVDA | 5.30% | | | IBKR |
-| NVO | 0.40% | | | IBKR |
-| RBRK | 0.40% | | | IBKR |
-| SPGI | 0.79% | | | IBKR |
-| SPOT | 0.92% | | | IBKR |
-| STIM | 0.83% | | | IBKR |
-| TLT | 30.77% | | | IBKR + Freedom24 |
-| UBER | 0.39% | | | IBKR |
-| V | 0.60% | | | IBKR |
-| XEON | 3.19% | | | IBKR |
-| ZS | 0.24% | | | IBKR |
+| CSGP | 1.57% | 8 | Jun 2026 | IBKR |
+| DUOL | 7.60% | 4 | Jun 2026 | IBKR + Freedom24 |
+| GOOG | 0.68% | 8 | Jun 2026 | IBKR |
+| META | 5.47% | 5 | Jun 2026 | IBKR + Freedom24 |
+| MSFT | 16.84% | 6 | Jun 2026 | IBKR + Freedom24 |
+| NFLX | 1.82% | 7 | Jun 2026 | IBKR |
+| NKE | 1.59% | 4 | Jun 2026 | IBKR |
+| NOW | 2.47% | 6 | Jun 2026 | IBKR |
+| NVDA | 5.30% | 6 | Jun 2026 | IBKR |
+| NVO | 0.40% | 4 | Jun 2026 | IBKR |
+| RBRK | 0.40% | not scored — fails quality gates | Jun 2026 | IBKR |
+| SPGI | 0.79% | 5 | Jun 2026 | IBKR |
+| SPOT | 0.92% | 8 | Jun 2026 | IBKR |
+| STIM | 0.83% | not scored — going-concern override | Jun 2026 | IBKR |
+| TLT | 30.77% | not scored — non-equity, framework gap | Jun 2026 | IBKR + Freedom24 |
+| UBER | 0.39% | 6 | Jun 2026 | IBKR |
+| V | 0.60% | 6 | Jun 2026 | IBKR |
+| XEON | 3.19% | not scored — cash-equivalent, out of scope | Jun 2026 | IBKR |
+| ZS | 0.24% | 6 (low-confidence) | Jun 2026 | IBKR |
 
 **XEON is EUR-denominated** (€1,493.16 market value). Its USD-equivalent (**$1,720.46**, used for the weight above) comes from the *live* EUR→USD rate (1.152226) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
 
