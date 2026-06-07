@@ -7,7 +7,9 @@ Two brokers, two sync methods (IBKR has an API, Freedom Finance does not). Both 
 | **IBKR** | Automated via MCP (Interactive Brokers) + a public IBKR ticker-lookup CSV | *"Re-sync my IBKR portfolio"* |
 | **Freedom Finance** | Manual — screenshot-based | *"Re-sync my Freedom Finance portfolio"* + attach screenshot |
 
-> Because `main` is protected, every sync lands as a commit on a short-lived branch with a PR opened against `main` (e.g. `sync/ibkr-2026-06-07`, titled `Sync IBKR portfolio — 2026-06-07`). Merge it once you've sanity-checked the numbers — it's a fast review since it's pure data refresh.
+> **Syncs commit straight to `main`** — no branch, no PR. They're low-risk, frequent, machine-generated data refreshes (a snapshot file, `holdings.md`, occasionally the lookup CSV), and `main`'s branch protection isn't actually enforced on this private repo anyway (GitHub requires a paid plan — Pro/Team/Enterprise — for branch protection on private repos; it was silently dropped when this repo went private). A PR-per-sync would just be ceremony without a real guard rail behind it. Each sync still lands as one clean, descriptive commit (`Sync IBKR portfolio — 2026-06-07`), so `git log` / `git revert` is always there if a sync needs undoing.
+>
+> **Framework and process changes are different** — those still go through a feature branch + PR by convention (it's the audit trail for *why* the framework evolved, not a data refresh, and worth a review pass even without enforced protection). See [CLAUDE.md](../CLAUDE.md).
 
 ---
 
@@ -27,19 +29,19 @@ Two brokers, two sync methods (IBKR has an API, Freedom Finance does not). Both 
 
 1. **Fetch live positions** — `get_account_positions` via the Interactive Brokers MCP for account U19421206 (contract IDs, shares, market prices, avg cost, unrealized P&L).
 2. **Resolve tickers** — fetch the ticker lookup CSV from the live source (`https://www.interactivebrokers.com/download/fracshare_stk.csv`).
-   - **If the live fetch succeeds:** use it to resolve contract IDs → tickers via the `IB_CONTRACT_ID` column, *and* overwrite [`portfolio/reference/ibkr-ticker-lookup.csv`](../portfolio/reference/ibkr-ticker-lookup.csv) with the freshly fetched copy so it stays the up-to-date fallback (commit it alongside the snapshot in the same PR).
-   - **If the live fetch fails** (network error, IBKR changes/removes the URL, etc.): fall back to the stored copy at `portfolio/reference/ibkr-ticker-lookup.csv`, note in the PR description that the live source was unreachable and the stored copy was used (and how stale it is, per its last commit date), and don't overwrite it with anything.
+   - **If the live fetch succeeds:** use it to resolve contract IDs → tickers via the `IB_CONTRACT_ID` column, *and* overwrite [`portfolio/reference/ibkr-ticker-lookup.csv`](../portfolio/reference/ibkr-ticker-lookup.csv) with the freshly fetched copy so it stays the up-to-date fallback (commit it alongside the snapshot in the same direct-to-`main` commit).
+   - **If the live fetch fails** (network error, IBKR changes/removes the URL, etc.): fall back to the stored copy at `portfolio/reference/ibkr-ticker-lookup.csv`, note in the snapshot file and the commit message that the live source was unreachable and the stored copy was used (and how stale it is, per its last commit date), and don't overwrite it with anything.
    - Anything still unmatched after lookup gets flagged `CONID_XXXXXXX`.
 3. **Write the snapshot** — overwrite [`portfolio/snapshots/ibkr.md`](snapshots/ibkr.md) with a header (account, sync timestamp) and a full positions table: Ticker · Shares · Market Price · Market Value · Avg Cost · Unrealized P&L · P&L % · Currency · Contract ID.
 4. **Refresh holdings.md** — recompute portfolio weights from the new snapshot and update the relevant rows in [holdings.md](holdings.md) (ticker, weight %, broker; leave score/last-review columns untouched — those come from `/rescore`).
-5. **Open a PR** — commit the snapshot, `holdings.md`, and (if refreshed) the lookup CSV on a branch named `sync/ibkr-YYYY-MM-DD`, push, and open a PR titled `Sync IBKR portfolio — YYYY-MM-DD` against `main`.
+5. **Commit straight to `main`** — stage the snapshot, `holdings.md`, and (if refreshed) the lookup CSV, and commit directly to `main` with the message `Sync IBKR portfolio — YYYY-MM-DD`. No branch, no PR — see the note at the top of this file for why.
 
 **Required MCP connections:** Interactive Brokers only — the ticker lookup is now a plain HTTP fetch (with a repo-stored fallback), no longer dependent on Google Drive or Notion.
 
 ### Troubleshooting
 
 - **"No approval received" (IBKR):** disconnect/reconnect the MCP in Settings → Connections, complete OAuth. Verify consent at Client Portal → Settings → Manage Third-Party Consents (should list Anthropic + U19421206).
-- **Ticker lookup URL unreachable or returns something unexpected:** use the stored fallback CSV (`portfolio/reference/ibkr-ticker-lookup.csv`), flag it clearly in the PR/snapshot ("live source unavailable, used fallback dated [last commit date]"), and consider opening a `decisions/` note if the URL appears to have permanently changed — that's a framework-infrastructure change worth tracking.
+- **Ticker lookup URL unreachable or returns something unexpected:** use the stored fallback CSV (`portfolio/reference/ibkr-ticker-lookup.csv`), flag it clearly in the snapshot and commit message ("live source unavailable, used fallback dated [last commit date]"), and consider opening a `decisions/` note if the URL appears to have permanently changed — that's a framework-infrastructure change worth tracking (and would go through the normal branch + PR convention, since it's a process change, not a data sync).
 - **New position shows `CONID_XXXXXXX`:** ticker missing from both the live and stored CSV — look it up in IBKR Client Portal or TWS Positions tab and add it to the snapshot manually, noting the gap.
 
 ---
@@ -61,7 +63,7 @@ Two brokers, two sync methods (IBKR has an API, Freedom Finance does not). Both 
 3. **Match tickers** — normalize format (`MSFT.US` → `MSFT`); flag unrecognized ones `UNKNOWN_TICKER`.
 4. **Write the snapshot** — overwrite [`portfolio/snapshots/freedom-finance.md`](snapshots/freedom-finance.md) with a header (account, sync timestamp), the summary block, and the positions table: Ticker · Company · Qty · Avg Price · Current Value · Return % · Product Type · Currency.
 5. **Refresh holdings.md** — same as IBKR: update weights/broker for the relevant rows.
-6. **Open a PR** — branch `sync/freedom-finance-YYYY-MM-DD`, PR titled `Sync Freedom Finance portfolio — YYYY-MM-DD`.
+6. **Commit straight to `main`** — stage the snapshot and `holdings.md`, and commit directly to `main` with the message `Sync Freedom Finance portfolio — YYYY-MM-DD`. No branch, no PR — see the note at the top of this file for why.
 
 **Required setup:** a clear screenshot of the Freedom24 portfolio. No MCP connections needed beyond what the session already has.
 
@@ -69,4 +71,4 @@ Two brokers, two sync methods (IBKR has an API, Freedom Finance does not). Both 
 
 - **Blurry/cut-off screenshot:** ask for a clearer one. Never guess values.
 - **Unrecognized ticker:** flag `UNKNOWN_TICKER` in the snapshot, ask the user to confirm manually.
-- **Freedom24 UI changes layout:** update the extraction logic in steps 1–2 and note the change in the PR description.
+- **Freedom24 UI changes layout:** update the extraction logic in steps 1–2 and note the change in the sync commit message.
