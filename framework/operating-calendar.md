@@ -14,6 +14,8 @@
 | **Event-triggered** | **Short thesis engagement** | Short report published | **Yes** |
 | **Event-triggered** | **Turnaround sub-gate review** | Every 2 quarters after entry | **Yes** |
 
+> **"Full universe re-screen" = one full pass through the [global coverage matrix](screening-coverage-log.md).** Run `/screen` slice by slice (it self-selects the next least-recently-covered region/sector when called with no argument) until every row shows a current-year "Last screened" date — that's what makes the January target "global, not just US large-cap" in practice rather than in name only.
+
 ---
 
 ## Quarterly Post-Earnings Re-Score (Core Claude Task)
