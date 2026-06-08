@@ -5,10 +5,10 @@ How to compute the Phase 02 score (1–10) for a qualified company. See [strateg
 ## Final Score Formula
 
 ```
-Final Score = (FCF × 0.40) + (EV/EBIT × 0.25) + (FwdPE_adjusted × 0.20) + (PEG_or_fallback × 0.15) + Rate Regime Modifier
+Final Score = (FCF × 0.40) + (EV/EBIT × 0.40) + (FwdPE_adjusted × 0.20) + Rate Regime Modifier [+ PEG Modifier — Fast Growers only]
 ```
 
-> If PEG is not applicable (non-Fast Grower), redistribute its 15% weight to EV/EBIT (making EV/EBIT weight 40%).
+> EV/EBIT is always 40% — there is no separate PEG "slot" to redistribute from. PEG is **not** a weighted component of the raw score; it's a small additive modifier (identical in form and placement to the Historical PE Modifier and the Rate Regime Modifier below) that applies *only* when the company is a Lynch Fast Grower (EPS growth >15% for 3+ years). Non-Fast-Growers simply don't receive it. (Corrected 2026-06-08 — see decisions/2026-06-08-framework-fix-peg-weighting-inconsistency.md: the prior "(PEG_or_fallback × 0.15)" framing was incompatible with the −1…+1 modifier table that Upgrade 3 actually defines.)
 > Score boundary rule: if result falls on exactly X.5, round UP (more conservative). Min 1, max 10.
 
 ## Sub-score Tables
@@ -23,7 +23,7 @@ Final Score = (FCF × 0.40) + (EV/EBIT × 0.25) + (FwdPE_adjusted × 0.20) + (PE
 | 2–4% | 6–7 |
 | <2% | 8–10 |
 
-**EV/EBIT (25% weight):**
+**EV/EBIT (40% weight):**
 
 | EV/EBIT | Sub-score |
 |---------|-----------|
@@ -36,7 +36,7 @@ Final Score = (FCF × 0.40) + (EV/EBIT × 0.25) + (FwdPE_adjusted × 0.20) + (PE
 
 **Forward PE (20% weight):** Score 1–10 relative to sector historical norms, then apply the Historical PE Modifier (Upgrade 2 in [strategy.md](strategy.md)).
 
-**PEG (15% weight, Fast Growers only — EPS growth >15% for 3+ years):**
+**PEG Modifier (additive, not weighted — Fast Growers only, EPS growth >15% for 3+ years):** applied the same way as the Historical PE Modifier and Rate Regime Modifier — a small bolt-on adjustment to the raw weighted score, not a 1–10 sub-score multiplied by a weight.
 
 | PEG | Modifier |
 |-----|----------|

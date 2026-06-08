@@ -193,7 +193,7 @@ Hard cap: never exceed 15% in a single position under any circumstances. (Note: 
 | Input | Weight | Notes |
 |-------|--------|-------|
 | FCF Yield (Owner Earnings adjusted) | 40% | Primary signal |
-| EV/EBIT (<15× cheap · >30× expensive) | 25% | Unchanged |
+| EV/EBIT (<15× cheap · >30× expensive) | 40% | Always 40% — no separate PEG "slot" to redistribute from |
 | Forward PE + Historical PE Modifier | 20% | Adds mean-reversion signal |
-| PEG Modifier (Fast Growers only) | 15% | Lynch filter |
+| PEG Modifier (Fast Growers only) | Additive (−1…+1) | Lynch filter — small bolt-on adjustment, same form/placement as the Historical PE Modifier and Rate Regime Modifier; not a weighted 1–10 sub-score (corrected 2026-06-08, see [decisions/2026-06-08-framework-fix-peg-weighting-inconsistency.md](../decisions/2026-06-08-framework-fix-peg-weighting-inconsistency.md)) |
 | Rate Regime Modifier (post-score) | Additive | −1 / 0 / +0.5 / +1 based on 10Y Treasury |

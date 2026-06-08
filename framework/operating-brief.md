@@ -45,7 +45,7 @@ Weight each input, sum to raw score, then apply modifiers:
     2–4%      → sub-score 6–7
     <2%       → sub-score 8–10
 
-  EV/EBIT (25% weight):
+  EV/EBIT (40% weight):
     <12×      → sub-score 1–2
     12–18×    → sub-score 3–4
     18–22×    → sub-score 5
@@ -56,13 +56,15 @@ Weight each input, sum to raw score, then apply modifiers:
   Forward PE + Historical PE Modifier (20% weight):
     Score forward PE vs sector norms (1=very low, 10=very high), then apply Upgrade 2 modifier.
 
-  PEG Modifier (15% weight — Fast Growers only, else use EV/EBIT for this 15%):
-    Apply Upgrade 3 table.
+  PEG Modifier (additive, not weighted — Fast Growers only): apply the Upgrade 3 table (−1 / 0 / +0.5 / +1)
+    as a small bolt-on adjustment to the raw weighted score — same form and placement as the Historical PE
+    Modifier and Rate Regime Modifier. Non-Fast-Growers simply don't receive it (no redistribution needed,
+    since EV/EBIT is always 40% — there was never a separate PEG "slot" to redistribute from).
 
   Rate Regime Modifier — additive, applied after raw weighted score.
 
-Final Score = (FCF×0.40) + (EV/EBIT×0.25) + (FwdPE_adjusted×0.20) + (PEG_or_fallback×0.15) + Rate Modifier
-Round to nearest integer. Minimum 1, Maximum 10.
+Final Score = (FCF×0.40) + (EV/EBIT×0.40) + (FwdPE_adjusted×0.20) + Rate Modifier [+ PEG Modifier — Fast Growers only]
+Round to nearest integer. Minimum 1, Maximum 10. (Corrected 2026-06-08 — see decisions/2026-06-08-framework-fix-peg-weighting-inconsistency.md)
 
 ACTION TABLE
   Score 1–3  → BUY — Full position 6–8%
