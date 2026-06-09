@@ -6,23 +6,26 @@ Run a `SCREENING` session — Phase 01 of the [strategy](../../framework/strateg
 
 Universe / sector to screen: $ARGUMENTS
 
-**If $ARGUMENTS is empty:** don't default to asking — open [screening-coverage-log.md](../../framework/screening-coverage-log.md), take the rotation slice with the oldest "Last screened" date ("Never" counts as oldest), and screen that slice. State which slice you picked and why before starting, so the user can redirect to something specific instead.
+## Default workflow — screener output first, then analysis
 
-## Why rotation, not a fixed starting list
+The correct starting point is a **mechanically pre-filtered list from a real screener**, not a hand-picked set of familiar names. This is the only way to guarantee coverage of quality candidates that institutions haven't found yet — small/mid-caps not in major indices, low analyst coverage, pre-hype.
 
-The objective is to track every fittable candidate on the market — **any sector, any country** — so a great business is never missed just because it never appeared in a familiar US-large-cap pool. No single session can quantitatively pull all ~100k global tickers (see the methodology note in [sessions/2026-06-07-screening-broad-quality-universe.md](../../sessions/2026-06-07-screening-broad-quality-universe.md) on why a from-scratch S&P-500-wide pull isn't feasible). Coverage instead comes from **systematic rotation**: each session funnels one slice of the [global coverage matrix](../../framework/screening-coverage-log.md) from a broad pre-quality-screened pool down to a scored shortlist, and the matrix as a whole cycles through every region and sector at least once a year — this is what the existing "Annual full universe re-screen" on the [operating calendar](../../framework/operating-calendar.md) means in practice.
+**Step 0 — Check for screener output**
+
+If the user has pasted a ticker list from TIKR, Koyfin, Finviz, or Gurufocus at the start of this session: use that as the starting universe and proceed to Step 2.
+
+If no screener output was provided: **ask the user to run the global Phase 01 screener first** (setup instructions in [valuation-scoring.md — Global Phase 01 Screener Setup](../../framework/valuation-scoring.md)) and paste the results. Don't start from ETF holdings or a hand-picked list as a substitute — that reintroduces the selection bias we're trying to eliminate. The one exception: if the user explicitly wants a focused regional or sector pass and can't access a screener right now, fall back to regional quality-factor ETF holdings as an approximate starting pool (MOAT/QUAL/QGRW for US; IQLT/MSCI regional Quality indices for non-US), but flag prominently that this approach misses undiscovered names outside those ETFs.
+
+For "discovery mode" (finding candidates before institutions do), ask whether the user wants to also run the optional Discovery Filters (market cap $300M–$10B, institutional ownership <40%) — these are defined in [valuation-scoring.md](../../framework/valuation-scoring.md) and narrow the screener output to genuinely under-the-radar names.
 
 ## Steps
 
-1. **Build a broad starting pool for the chosen slice from existing published quality pre-screens — never hand-pick familiar names.**
-   - US/Canada slices: quality-factor ETF holdings (MOAT, QUAL, QGRW), Magic Formula screens (Gurufocus/Validea).
-   - Non-US slices: regional/country quality-factor pre-screens — e.g. MSCI International Quality Factor (IQLT), MSCI Europe/Japan/EM Quality indices, country-level quality or Magic-Formula screens — plus TIKR/Koyfin/Gurufocus filtered by region (all three cover 100k+ global tickers per [valuation-scoring.md](../../framework/valuation-scoring.md)).
-   - Name every source used, with links, the way the prior session did.
-2. **Triage structurally first** — eliminate names that plainly fail Phase 01 on well-documented business-model grounds (thin-margin volume retail, commodity cyclicals, patent-cliff pharma, heavily-regulated utilities, etc.) before spending research budget on detailed numbers. Flag every elimination transparently so any name can be pulled back in on request.
-3. **Apply the Phase 01 quantitative gate** (profitability, margins, growth, balance sheet, moat, FCF quality) with real, sourced numbers to produce a Qualified Quality List.
-4. For each candidate that passes, walk through the 5 qualitative questions in [valuation-scoring.md](../../framework/valuation-scoring.md).
+1. **Confirm and label the starting universe** — name the screener tool, the filters applied, the date, and the approximate number of tickers returned. If discovery filters were applied, note that too.
+2. **Structural triage** — before pulling detailed numbers, eliminate names that plainly fail Phase 01 on well-documented business-model grounds (thin-margin volume retail, commodity cyclicals, patent-cliff pharma, heavily-regulated utilities, etc.). Flag every elimination transparently so any name can be reinstated on request.
+3. **Apply the Phase 01 quantitative gate** — run the full set of Phase 01 filters from [valuation-scoring.md](../../framework/valuation-scoring.md) against real, sourced numbers (TIKR/Koyfin/Finviz data — no estimates). Produce a Qualified Quality List.
+4. **Qualitative pass** — for each name that clears the quantitative gate, walk through the 5 qualitative questions in [valuation-scoring.md](../../framework/valuation-scoring.md).
 5. Do NOT score valuations yet (that's `/new-position` or `/rescore`) — this command's output is the qualified shortlist plus qualitative notes.
-6. **Flag any company where data is missing rather than guessing** (CLAUDE.md Rule 0) — expect this more often for non-US small/mid-caps: currency translation, local filing standards (IFRS/local GAAP vs. US GAAP), ADR-vs-ordinary-share quirks all reduce third-party data coverage.
-7. **Update the rotation log** — record the slice's new "Last screened" date, qualified-name count, and sources used in [screening-coverage-log.md](../../framework/screening-coverage-log.md), and commit it alongside the session log.
+6. **Flag data gaps** — non-US small/mid-caps often have thinner third-party coverage: currency translation, local filing standards (IFRS/local GAAP vs. US GAAP), ADR-vs-ordinary-share quirks. Flag missing metrics; never estimate them (CLAUDE.md Rule 0).
+7. **Update the coverage log** — record the "Last screened" date, qualified-name count, and sources used for the relevant slice in [screening-coverage-log.md](../../framework/screening-coverage-log.md). Commit it alongside the session log.
 
 Save the result as `sessions/YYYY-MM-DD-screening-<universe>.md`.
