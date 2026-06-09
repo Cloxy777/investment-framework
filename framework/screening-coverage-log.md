@@ -19,6 +19,7 @@ Tracks which slice of the global investable universe each `/screen` session has 
 | JP | Japan | All sectors | Never | — | — |
 | APAC-EX-JP | Developed Asia-Pacific ex-Japan (Australia, Hong Kong, Singapore, South Korea, Taiwan) | All sectors | Never | — | — |
 | EM | Emerging Markets (China, India, Brazil, Mexico, and other major EM) | All sectors | Never | — | — |
+| SaaS-GLOBAL | Global (cross-geographic thematic) | SaaS / Cloud Software | 2026-06-09 | 6 — ADBE, INTU, TTD, QLYS, TNE.AX, CDNS (conditional — ROIC source divergence) | IGV/WCLD ETF fallback + WebSearch (EODHD blocked) — see [sessions/2026-06-09-screening-saas-cloud-global.md](../sessions/2026-06-09-screening-saas-cloud-global.md). ⚠️ Re-run with EODHD for complete small/mid-cap SaaS coverage. |
 
 *Add or split rows as coverage matures — e.g., once a region's "all sectors" pass turns up too many qualified names to triage in one session, split it into sector-focused slices the way NA was split into NA-1/NA-2.*
 
