@@ -17,7 +17,7 @@ Tracks which slice of the global investable universe each `/screen` session has 
 | NA-2 | North America (US + Canada) | Financials, Healthcare, Industrials, Energy, Materials, Real Estate/Utilities | 2026-06-09 | 5 — ISRG, VEEV, IDXX, MCO, CTAS (conditional) | ETF fallback (QUAL/MOAT/sector ETFs) — see [sessions/2026-06-09-screening-na2-healthcare-financials-industrials.md](../sessions/2026-06-09-screening-na2-healthcare-financials-industrials.md). ⚠️ Re-run with EODHD for small/mid-cap coverage. |
 | EU | Europe (UK, Eurozone, Switzerland, Nordics) | All sectors | Never | — | — |
 | JP | Japan | All sectors | Never | — | — |
-| APAC-EX-JP | Developed Asia-Pacific ex-Japan (Australia, Hong Kong, Singapore, South Korea, Taiwan) | All sectors | Never | — | — |
+| APAC-EX-JP | Developed Asia-Pacific ex-Japan (Australia, Hong Kong, Singapore, South Korea, Taiwan) | All sectors | 2026-06-09 | 4 confirmed — PME.AX, REA.AX, 388.HK (HKEX), 3008.TW (Largan); 2 conditional — TSM/2330.TW (FCF/NI growth-capex flag), 2454.TW (ROIC pending TIKR) | IQLT/regional knowledge + WebSearch (EODHD blocked) — see [sessions/2026-06-09-screening-apac-ex-jp.md](../sessions/2026-06-09-screening-apac-ex-jp.md). ⚠️ Re-run with EODHD for mid-cap ASX/Korea/Taiwan coverage. |
 | EM | Emerging Markets (China, India, Brazil, Mexico, and other major EM) | All sectors | Never | — | — |
 | SaaS-GLOBAL | Global (cross-geographic thematic) | SaaS / Cloud Software | 2026-06-09 | 6 — ADBE, INTU, TTD, QLYS, TNE.AX, CDNS (conditional — ROIC source divergence) | IGV/WCLD ETF fallback + WebSearch (EODHD blocked) — see [sessions/2026-06-09-screening-saas-cloud-global.md](../sessions/2026-06-09-screening-saas-cloud-global.md). ⚠️ Re-run with EODHD for complete small/mid-cap SaaS coverage. |
 
