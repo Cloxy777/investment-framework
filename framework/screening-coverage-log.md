@@ -14,7 +14,7 @@ Tracks which slice of the global investable universe each `/screen` session has 
 | Slice | Geography | Sector emphasis this pass | Last screened | Qualified names found | Sources used |
 |---|---|---|---|---|---|
 | NA-1 | North America (US + Canada) | Tech, Communication Services, Consumer Discretionary | 2026-06-07 | 11 — ABNB, AMAT, ANET, APP, AVGO, FTNT, KLAC, LLY, LRCX, MA, PLTR | MOAT/QUAL/QGRW ETF holdings + Finviz quantitative gate — see [sessions/2026-06-07-screening-broad-quality-universe.md](../sessions/2026-06-07-screening-broad-quality-universe.md) |
-| NA-2 | North America (US + Canada) | Financials, Healthcare, Industrials, Energy, Materials, Real Estate/Utilities | Never | — | — |
+| NA-2 | North America (US + Canada) | Financials, Healthcare, Industrials, Energy, Materials, Real Estate/Utilities | 2026-06-09 | 5 — ISRG, VEEV, IDXX, MCO, CTAS (conditional) | ETF fallback (QUAL/MOAT/sector ETFs) — see [sessions/2026-06-09-screening-na2-healthcare-financials-industrials.md](../sessions/2026-06-09-screening-na2-healthcare-financials-industrials.md). ⚠️ Re-run with EODHD for small/mid-cap coverage. |
 | EU | Europe (UK, Eurozone, Switzerland, Nordics) | All sectors | Never | — | — |
 | JP | Japan | All sectors | Never | — | — |
 | APAC-EX-JP | Developed Asia-Pacific ex-Japan (Australia, Hong Kong, Singapore, South Korea, Taiwan) | All sectors | Never | — | — |
