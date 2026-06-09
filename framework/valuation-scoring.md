@@ -73,48 +73,55 @@ EV/EBIT            < 20x
 
 ## Global Phase 01 Screener Setup
 
-The correct workflow is to **apply Phase 01 filters mechanically across the full global universe first**, then hand the output to Claude for triage and qualitative analysis. This surfaces quality candidates that haven't been discovered yet — small/mid-caps not in major indices, low institutional ownership, no analyst hype — rather than re-examining the same well-known names every time.
+`/screen` uses the **EODHD API** (key stored in `.claude/settings.local.json`) to automatically pull and filter the global universe — no manual export needed. The flow:
 
-**Workflow:**
-1. Run the saved screener below in TIKR (global) or Finviz (US-only fast pass)
-2. Export or copy the ticker list
-3. Paste it at the start of a `/screen` session — Claude takes it from there
+1. EODHD screener pre-filters ~70k+ global tickers → ~300–600 quality candidates
+2. Claude applies the full Phase 01 gate on that shortlist using the EODHD fundamentals endpoint
+3. Structural triage + qualitative pass produces the final Qualified Quality List
 
-### TIKR — Global Screener (primary, 100k+ tickers)
+### EODHD API — Screener Endpoint
 
-Set up a saved screen in TIKR Terminal → Screener with these filters:
+```
+GET https://eodhd.com/api/screener
+  ?api_token={EODHD_API_KEY}
+  &filters=[FILTER_ARRAY]
+  &limit=100&offset=0
+```
 
-| TIKR Filter | Operator | Value |
-|---|---|---|
-| Gross Profit Margin % (LTM) | ≥ | 40 |
-| Net Income Margin % (LTM) | ≥ | 12 |
-| Return on Invested Capital % (LTM) | ≥ | 15 |
-| Revenue Growth % (3Y CAGR) | ≥ | 8 |
-| Free Cash Flow (LTM) | > | 0 |
-| Free Cash Flow (1Y prior) | > | 0 |
-| Free Cash Flow (2Y prior) | > | 0 |
-| Net Debt / EBITDA (LTM) | ≤ | 2.5 |
+**Confirmed filter fields:** `exchange`, `sector`, `industry`, `market_capitalization`, `earnings_share`, `dividend_yield`
 
-*The valuation cuts (FCF yield >4%, EV/EBIT <20×) are intentionally excluded here — let Phase 02 score valuation. The goal of Phase 01 is to find every quality business, not pre-screen out expensive ones that might still belong on the watchlist.*
+**Quality filter fields to try** (supported on some plans — drop any that return an error):
+`ProfitMargin`, `ReturnOnEquityTTM`, `OperatingMarginTTM`, `QuarterlyRevenueGrowthYOY`
 
-Expected output: ~150–400 companies globally. Save this screen in TIKR for re-use.
+Default quality pre-filter values: `ProfitMargin ≥ 0.12`, `ReturnOnEquityTTM ≥ 0.15`, `OperatingMarginTTM ≥ 0.10`, `market_capitalization ≥ 300000000`
 
-### Finviz — US Fast Pass (secondary, US-only)
+Paginate by incrementing `offset` by 100 until a page returns < 100 results.
 
-Use for a quick US-only pass or to double-check TIKR output. Set filters at finviz.com/screener.ashx:
+### EODHD API — Fundamentals Endpoint (Phase 01 verification)
 
-| Finviz Filter | Setting |
+```
+GET https://eodhd.com/api/fundamentals/{TICKER}.{EXCHANGE}
+  ?api_token={EODHD_API_KEY}&filter=Highlights
+```
+
+Key Highlights fields and their Phase 01 mapping:
+
+| EODHD Field | Phase 01 Metric |
 |---|---|
-| Gross Margin | Over 40% |
-| Net Profit Margin | Over 12% |
-| Return on Equity | Over 15% *(closest proxy for ROIC available in Finviz)* |
-| Sales growth past 5 years | Over 10% |
-| Operating Margin | Over 15% |
-| Debt/Equity | Under 0.5 |
+| `ProfitMargin` | Net margin (threshold: >12%) |
+| `GrossProfitTTM / RevenueTTM` | Gross margin (threshold: >40%) — calculated |
+| `ReturnOnEquityTTM` | ROIC proxy (threshold: >15%) — flag if equity-heavy structure makes ROE unreliable |
+| `QuarterlyRevenueGrowthYOY` | Revenue growth proxy — flag divergence from 3yr CAGR |
+| `OperatingMarginTTM` | Operating margin (supporting signal) |
+| `FreeCashFlow` | FCF positive check — use `filter=Financials` for 3-year history |
 
-### Gurufocus — Global Alternative
+Metrics not available in Highlights (require `filter=Financials` or manual check): Net Debt/EBITDA, 3yr revenue CAGR, FCF/Net Income conversion ratio. Flag these as needing manual TIKR/Koyfin verification rather than estimating.
 
-Use All-in-One Screener with: Gross Margin > 40, Net Margin > 12, ROIC > 15, 5Y Revenue Growth > 8, Debt-to-EBITDA < 2.5. Adds Magic Formula rank and Buffett-style quality composite for additional context.
+### Manual fallback (if EODHD key missing or network restricted)
+
+TIKR saved screen: Gross Margin % ≥ 40, Net Margin % ≥ 12, ROIC ≥ 15, Revenue Growth 3Y CAGR ≥ 8%, FCF > 0 (3 years), Net Debt/EBITDA ≤ 2.5. Export and paste to `/screen`.
+
+Finviz (US fast pass): Gross Margin > 40%, Net Profit Margin > 12%, ROE > 15%, Sales 5Y > 10%, Operating Margin > 15%, Debt/Equity < 0.5.
 
 ---
 
