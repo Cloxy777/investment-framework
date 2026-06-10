@@ -1,7 +1,8 @@
 # IBKR Portfolio Snapshot
 
 **Account:** U19421206
-**Last synced:** 2026-06-07 (live via Interactive Brokers MCP — `get_account_positions` / `get_account_balances`)
+**Positions last synced:** 2026-06-07 (live via Interactive Brokers MCP — `get_account_positions`, via `/sync-positions`)
+**Cash balances last synced:** 2026-06-07 (live via Interactive Brokers MCP — `get_account_balances`, via `/sync-balances`)
 **Account summary:** Net Liquidation $38,769.84 · Gross Position Value $34,760.05 · Total Cash (USD-equiv) $3,983.37 · Unrealized P&L (sum of positions below, native currency) ≈ –$857.34
 
 **Ticker resolution note:** all 20 positions resolved directly from the MCP's `contract_description` field (already a clean ticker symbol — e.g. `AMZN`, `DUOL`). No `CONID_XXXXXXX` placeholders were needed, so the live/fallback ticker-lookup CSV fetch was not required for this sync.
@@ -43,4 +44,4 @@ Source: `get_account_balances` (one entry per currency the account holds, plus a
 
 *The same EUR→USD rate (1.152226) applied to XEON's €1,493.16 market value gives its USD-equivalent: **$1,720.46** — used in `holdings.md` for weighting. (For context: this matches, to the cent, the figure I'd previously back-derived by subtraction from IBKR's Gross Position Value before this MCP call was added to the SOP — good cross-check that the live rate is right.)*
 
-*This file is overwritten on every IBKR sync — see [sync-sop.md](../sync-sop.md). Prior snapshots live in git history, not as separate files.*
+*This file has two independently-refreshed sections — the positions table (via `/sync-positions`) and the Cash Balances table (via `/sync-balances`), each with its own "last synced" timestamp above. `/sync-portfolio` runs both together (plus `/sync-orders`). See [sync-sop.md](../sync-sop.md). Prior snapshots live in git history, not as separate files.*

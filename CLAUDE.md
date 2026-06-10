@@ -34,8 +34,10 @@ Use these instead of re-deriving the process each time (defined in `.claude/comm
 - `/new-position [ticker]` — full evaluation of a candidate, end-to-end through order setup
 - `/rescore [tickers]` — quarterly post-earnings re-score
 - `/rebalance` — portfolio-wide trim/exit review and capital recycling plan
-- `/sync-portfolio [broker]` — pull live broker positions into `portfolio/snapshots/` and refresh `holdings.md`, via PR
-- `/sync-orders` — pull current active/working IBKR orders into `portfolio/snapshots/ibkr-orders.md`
+- `/sync-portfolio [broker]` — full sync: for IBKR, runs positions + cash balances + active orders in one pass; for Freedom Finance, the manual screenshot flow. Refreshes `portfolio/snapshots/` and `holdings.md`
+- `/sync-positions` — IBKR positions only → `portfolio/snapshots/ibkr.md` + `holdings.md`
+- `/sync-balances` — IBKR cash balances only → `portfolio/snapshots/ibkr.md` + `holdings.md`
+- `/sync-orders` — IBKR active/working orders only → `portfolio/snapshots/ibkr-orders.md`
 
 Every session should be saved to `sessions/` and, where it leads to an actual trade, logged in `decisions/` — that's what lets the framework be audited and improved (Rule 10).
 
