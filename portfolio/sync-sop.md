@@ -5,6 +5,7 @@ Two brokers, two sync methods (IBKR has an API, Freedom Finance does not). Both 
 | Broker | Sync Method | Trigger Phrase |
 |--------|-------------|----------------|
 | **IBKR** | Automated via MCP (Interactive Brokers) + a public IBKR ticker-lookup CSV | *"Re-sync my IBKR portfolio"* |
+| **IBKR (active orders)** | Automated via MCP (Interactive Brokers) — `get_account_orders` | *"Sync my active IBKR orders"* (or `/sync-orders`) |
 | **Freedom Finance** | Manual — screenshot-based | *"Re-sync my Freedom Finance portfolio"* + attach screenshot |
 
 > **Syncs commit straight to `main`** — no branch, no PR. They're low-risk, frequent, machine-generated data refreshes (a snapshot file, `holdings.md`, occasionally the lookup CSV), and `main`'s branch protection isn't actually enforced on this private repo anyway (GitHub requires a paid plan — Pro/Team/Enterprise — for branch protection on private repos; it was silently dropped when this repo went private). A PR-per-sync would just be ceremony without a real guard rail behind it. Each sync still lands as one clean, descriptive commit (`Sync IBKR portfolio — 2026-06-07`), so `git log` / `git revert` is always there if a sync needs undoing.
@@ -49,6 +50,38 @@ Two brokers, two sync methods (IBKR has an API, Freedom Finance does not). Both 
 - **"No approval received" (IBKR):** disconnect/reconnect the MCP in Settings → Connections, complete OAuth. Verify consent at Client Portal → Settings → Manage Third-Party Consents (should list Anthropic + U19421206).
 - **Ticker lookup URL unreachable or returns something unexpected:** use the stored fallback CSV (`portfolio/reference/ibkr-ticker-lookup.csv`), flag it clearly in the snapshot and commit message ("live source unavailable, used fallback dated [last commit date]"), and consider opening a `decisions/` note if the URL appears to have permanently changed — that's a framework-infrastructure change worth tracking (and would go through the normal branch + PR convention, since it's a process change, not a data sync).
 - **New position shows `CONID_XXXXXXX`:** ticker missing from both the live and stored CSV — look it up in IBKR Client Portal or TWS Positions tab and add it to the snapshot manually, noting the gap.
+
+---
+
+## IBKR Active Orders Sync
+
+### Key Resources
+
+| Resource | Value |
+|----------|-------|
+| IBKR Account | U19421206 |
+| Snapshot file | [`portfolio/snapshots/ibkr-orders.md`](snapshots/ibkr-orders.md) |
+
+### Steps Claude Performs
+
+1. **Fetch all orders** — `get_account_orders` via the Interactive Brokers MCP for account U19421206. This returns *every* order on record (order ID, side, symbol, order type, status, quantity, fill quantities, limit price, time in force, order time) — not just the ones still live.
+2. **Filter to active/working orders** — keep only orders whose status means the order is still live and could fill (e.g. `NEW`, `SUBMITTED`, `PRESUBMITTED`, `PARTIALLY_FILLED`). Exclude:
+   - `REPLACED` — this specific order ID was superseded by a later modification (price/qty change creates a new order ID). If the replacement is still live, it appears separately with its own order ID and an active status.
+   - `CANCELLED`, `FILLED`, `EXPIRED`, `INACTIVE` — no longer working.
+   - If a status shows up that doesn't clearly fall into either bucket, don't guess — ask, then record the resolution here so future syncs handle it automatically.
+3. **Resolve tickers** — no separate lookup needed; each order's `primary_description` (e.g. `"Sell 20 NKE"`) already names the ticker.
+4. **Write the snapshot** — overwrite [`portfolio/snapshots/ibkr-orders.md`](snapshots/ibkr-orders.md) with:
+   - a header (account, sync timestamp, count of active orders, count of non-active orders excluded);
+   - the active-orders table: Order ID · Side · Ticker · Qty · Order Type · Limit Price · Time in Force · Status · Order Placed (UTC), sorted alphabetically by ticker (matching the positions table convention);
+   - a brief flag for any ticker whose only order(s) in the raw fetch are non-active (e.g. `REPLACED` with no live successor) — that's a signal a previously-placed order may no longer be working, worth a manual check in TWS/Client Portal if one was expected.
+5. **Commit straight to `main`** — same rationale as the portfolio sync (low-risk, frequent, machine-generated data refresh, no enforced branch protection on this private repo): commit message `Sync IBKR active orders — YYYY-MM-DD`. See the note at the top of this file.
+
+**Required MCP connections:** Interactive Brokers only.
+
+### Troubleshooting
+
+- **"No approval received" (IBKR):** same fix as the portfolio sync — disconnect/reconnect the MCP in Settings → Connections, complete OAuth.
+- **Unfamiliar order status:** don't classify it as active or inactive by guessing — ask the user, then add it to the active/non-active lists in step 2 above so it's handled automatically next time.
 
 ---
 
