@@ -6,7 +6,7 @@ This repo is the single source of truth for the **Quality Value + Dynamic Trimmi
 
 - **`framework/`** — the rules themselves. Read these before any analysis task:
   - [strategy.md](framework/strategy.md) — the 6-phase framework, Rate Environment Gate, 7 hybrid upgrades
-  - [valuation-scoring.md](framework/valuation-scoring.md) — how the 1–10 valuation score is computed
+  - [valuation-scoring.md](framework/valuation-scoring.md) — how the 0–100.0 valuation score is computed
   - [fair-value-methodology.md](framework/fair-value-methodology.md) — fair value, buy/sell/stop pricing, position sizing, the 10-rule FV framework
   - [operating-brief.md](framework/operating-brief.md) — the full system-prompt-style brief that governs how Claude should behave in analysis sessions
   - [operating-calendar.md](framework/operating-calendar.md) — when routine tasks are due, and the data templates to fill in
@@ -35,7 +35,10 @@ Use these instead of re-deriving the process each time (defined in `.claude/comm
 - `/new-position [ticker]` — full evaluation of a candidate, end-to-end through order setup
 - `/rescore [tickers]` — quarterly post-earnings re-score
 - `/rebalance` — portfolio-wide trim/exit review and capital recycling plan
-- `/sync-portfolio [broker]` — pull live broker positions into `portfolio/snapshots/` and refresh `holdings.md`, via PR
+- `/sync-portfolio [broker]` — full sync: for IBKR, runs positions + cash balances + active orders in one pass; for Freedom Finance, the manual screenshot flow. Refreshes `portfolio/snapshots/` and `holdings.md`
+- `/sync-positions` — IBKR positions only → `portfolio/snapshots/ibkr.md` + `holdings.md`
+- `/sync-balances` — IBKR cash balances only → `portfolio/snapshots/ibkr.md` + `holdings.md`
+- `/sync-orders` — IBKR active/working orders only → `portfolio/snapshots/ibkr-orders.md`
 
 Every session should be saved to `sessions/` and, where it leads to an actual trade, logged in `decisions/` — that's what lets the framework be audited and improved (Rule 10).
 
