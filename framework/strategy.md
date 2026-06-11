@@ -51,9 +51,9 @@ Recalculate using only periods where the 10Y was within ±1% of today's yield. I
 
 ## Phase 02 — Valuation Scoring
 
-Assign a valuation score (0–99.9) to each qualified company. Full scoring mechanics (formula, sub-score formulas, pre-screen filters, tools) live in [valuation-scoring.md](valuation-scoring.md).
+Assign a valuation score (0–100.0) to each qualified company. Full scoring mechanics (formula, sub-score formulas, pre-screen filters, tools) live in [valuation-scoring.md](valuation-scoring.md).
 
-> Score boundary rule: round to the nearest 0.1; if it falls exactly on a ".X5", round UP (more conservative). Min 0.0, max 99.9.
+> Score boundary rule: round to the nearest 0.1; if it falls exactly on a ".X5", round UP (more conservative). Min 0.0, max 100.0.
 
 ---
 
@@ -64,7 +64,7 @@ Assign a valuation score (0–99.9) to each qualified company. Full scoring mech
 | 0.0–29.9 | Very Cheap | Full position — 6–8% of portfolio |
 | 30.0–49.9 | Cheap | Standard position — 3–5% of portfolio |
 | 50.0–69.9 | Fair Value | Watchlist only — no new entry |
-| 70.0–99.9 | Expensive | Do not buy. Begin trim protocol if held. |
+| 70.0–100.0 | Expensive | Do not buy. Begin trim protocol if held. |
 
 **Rule:** Max 10–15 names. High conviction over diversification.
 
@@ -84,12 +84,12 @@ Assign a valuation score (0–99.9) to each qualified company. Full scoring mech
 
 ## Phase 05 — Dynamic Trimming (Valuation-Driven)
 
-*Trim trigger raised 2026-06-07 from Score 6–7 to Score 8+ (on the 1–10 scale then in force; equivalent to 50.0–69.9 → 70.0+ after the 2026-06-11 rescale to 0.0–99.9 — see [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md)) — see [investor-philosophy-alignment.md](investor-philosophy-alignment.md). Trimming the moment a position crosses from "Cheap" into merely "Fair Value" was a materially higher-turnover posture than Buffett ("favorite holding period is forever"), Munger ("sit on your ass investing" / the "croupier's take" on trading friction), or Terry Smith (~3–4% annual turnover, "do nothing") actually practice. Score 50.0–69.9 is now hold-and-watch only — it already carries a "Watchlist only, no new entry" label in Phase 03; there's no reason for it to also be a trim trigger. The framework keeps its teeth at the extremes, where even these long-term compounders do trim (e.g., Buffett's 2024 Apple cut once it became dramatically oversized and rich).*
+*Trim trigger raised 2026-06-07 from Score 6–7 to Score 8+ (on the 1–10 scale then in force; equivalent to 50.0–69.9 → 70.0+ after the 2026-06-11 rescale to 0.0–100.0 — see [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md)) — see [investor-philosophy-alignment.md](investor-philosophy-alignment.md). Trimming the moment a position crosses from "Cheap" into merely "Fair Value" was a materially higher-turnover posture than Buffett ("favorite holding period is forever"), Munger ("sit on your ass investing" / the "croupier's take" on trading friction), or Terry Smith (~3–4% annual turnover, "do nothing") actually practice. Score 50.0–69.9 is now hold-and-watch only — it already carries a "Watchlist only, no new entry" label in Phase 03; there's no reason for it to also be a trim trigger. The framework keeps its teeth at the extremes, where even these long-term compounders do trim (e.g., Buffett's 2024 Apple cut once it became dramatically oversized and rich).*
 
 - **Score 50.0–69.9:** Hold. No new entry (Watchlist only — Phase 03). No trim — fair value alone is not a sell signal.
 - **Score 70.0–79.9:** Trim 25–30% of position. Recycle into Score 0.0–29.9 names.
 - **Score 80.0–89.9:** Trim to half-position (50% of original size)
-- **Score 90.0–99.9:** Trim to tracking position — 1–2%
+- **Score 90.0–100.0:** Trim to tracking position — 1–2%
 - **2x price milestone:** Trigger valuation re-score. If score also 70.0+, accelerate trim.
 - **Capital recycling:** Proceeds always reinvested into current Score 0.0–29.9 names only.
 
@@ -100,7 +100,7 @@ Assign a valuation score (0–99.9) to each qualified company. Full scoring mech
 ✅ Valid exit reasons:
 - Fundamental deterioration — margins structurally broken, ROIC falls below cost of capital
 - Growth thesis broken — TAM shrinking, disruption visible, pricing power lost
-- Extreme overvaluation — Score 90.0–99.9 sustained for 2+ quarters
+- Extreme overvaluation — Score 90.0–100.0 sustained for 2+ quarters
 - Balance sheet crisis — leverage spikes, dilutive capital raise
 
 ❌ NOT valid exit reasons:
@@ -119,8 +119,8 @@ Assign a valuation score (0–99.9) to each qualified company. Full scoring mech
 | 50.0–69.9 | Fair Value | Hold — watch only, no new entry, no trim |
 | 70.0–79.9 | Expensive | Trim 25–30% |
 | 80.0–89.9 | Very Expensive | Trim to 50% |
-| 90.0–99.9 | Extreme | Trim to 1–2% tracking |
-| 90.0–99.9 (2+ qtrs) | Sustained Extreme | Full Exit |
+| 90.0–100.0 | Extreme | Trim to 1–2% tracking |
+| 90.0–100.0 (2+ qtrs) | Sustained Extreme | Full Exit |
 
 ---
 
@@ -157,16 +157,16 @@ Apply ONLY to Lynch Fast Grower category (EPS growth > 15% for 3+ years). ⚠️
 PEG is one of the four weighted sub-scores (15% weight), computed continuously rather than as a post-hoc modifier — see [valuation-scoring.md](valuation-scoring.md):
 
 ```
-PEG_Score = clamp((PEG − 0.5) / 2.0 × 99.9, 0, 99.9)
+PEG_Score = clamp((PEG − 0.5) / 2.0 × 100, 0, 100)
 ```
 
 | PEG | Score |
 |-----|-------|
 | ≤0.5 | 0.0 |
-| 1.0 | ≈25.0 |
-| 1.5 | ≈50.0 |
-| 2.0 | ≈75.0 |
-| ≥2.5 | 99.9 |
+| 1.0 | 25.0 |
+| 1.5 | 50.0 |
+| 2.0 | 75.0 |
+| ≥2.5 | 100.0 |
 
 ### 🟠 Upgrade 4 — Turnaround Sub-Gate / Fallen Angel Path (HIGH)
 
@@ -197,7 +197,7 @@ Hard cap: never exceed 15% in a single position under any circumstances. (Note: 
 
 ## Updated Valuation Score Weighting
 
-All four weighted inputs are continuous **0–99.9** sub-scores (see [valuation-scoring.md](valuation-scoring.md)).
+All four weighted inputs are continuous **0–100.0** sub-scores (see [valuation-scoring.md](valuation-scoring.md)).
 
 | Input | Weight | Notes |
 |-------|--------|-------|

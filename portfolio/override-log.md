@@ -12,10 +12,10 @@ This log tracks every override, its outcome, and the cumulative cost. **Reviewed
 
 | Type | Description |
 | --- | --- |
-| Valuation override | Bought at Score 50.0–99.9 (outside the entry zone) |
+| Valuation override | Bought at Score 50.0–100.0 (outside the entry zone) |
 | Quality waiver | Entered despite failing 1+ Phase 01 criteria |
 | Size override | Position sized above the score-band maximum |
-| Exit delay | Held a Score 70.0–99.9 position beyond the trim protocol timeline |
+| Exit delay | Held a Score 70.0–100.0 position beyond the trim protocol timeline |
 | Re-entry override | Re-bought a previously exited position without re-running Phase 01–02 |
 | Thesis extension | Continued holding after a Phase 06 exit signal was triggered |
 

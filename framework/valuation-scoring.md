@@ -1,8 +1,8 @@
 # Valuation Score Engine
 
-How to compute the Phase 02 score (0–99.9) for a qualified company. See [strategy.md](strategy.md) for where this fits in the overall framework.
+How to compute the Phase 02 score (0–100.0) for a qualified company. See [strategy.md](strategy.md) for where this fits in the overall framework.
 
-*Rescaled 2026-06-11 from the original 1–10 integer scale to a continuous 0–99.9 scale for more precision — see [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md).*
+*Rescaled 2026-06-11 from the original 1–10 integer scale to a continuous 0–100.0 scale for more precision — see [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md). Cap set to a clean 100.0 (rather than 99.9) so the EV/EBIT and PEG sub-score formulas land on round numbers at their defined extremes (EV/EBIT 35× → exactly 100.0, PEG 2.5 → exactly 100.0).*
 
 ## Final Score Formula
 
@@ -11,63 +11,82 @@ Final Score = (FCF_Score × 0.40) + (EV/EBIT_Score × 0.25) + (FwdPE_Score × 0.
 ```
 
 > If PEG is not applicable (non-Fast Grower), redistribute its 15% weight to EV/EBIT (making EV/EBIT weight 40%).
-> Score boundary rule: round the final result to the nearest 0.1. If it falls exactly on a ".X5" (e.g. 47.45), round UP to ".X+1" — e.g. 47.45 → 47.5 (more conservative). Min 0.0, max 99.9.
+> Score boundary rule: round the final result to the nearest 0.1. If it falls exactly on a ".X5" (e.g. 47.45), round UP to ".X+1" — e.g. 47.45 → 47.5 (more conservative). Min 0.0, max 100.0.
 
 ## Sub-score Formulas
 
-Each of the four inputs is computed on its own continuous **0.0–99.9** scale before weighting — **0 = cheapest/most attractive, 99.9 = most expensive.** This replaces the old discrete 1–10 bucket tables with one formula per metric, so two companies that previously landed in the same bucket (e.g. both "sub-score 6–7") are now distinguished.
+Each of the four inputs is computed on its own continuous **0.0–100.0** scale before weighting — **0 = cheapest/most attractive, 100.0 = most expensive.** This replaces the old discrete 1–10 bucket tables with one formula per metric, so two companies that previously landed in the same bucket (e.g. both "sub-score 6–7") are now distinguished.
 
 **FCF Yield (40% weight)** — use Owner Earnings yield where Upgrade 1 applies:
 
 ```
-FCF_Score = clamp(99.9 × (1 − FCF_Yield% / 10), 0, 99.9)
+FCF_Score = clamp(100 × (1 − FCF_Yield% / 10), 0, 100)
 ```
 
 | FCF Yield | Score |
 |-----------|-------|
 | ≥10% | 0.0 |
-| 8% | ≈20.0 |
-| 6% | ≈40.0 |
-| 5% | ≈50.0 |
-| 4% | ≈60.0 |
-| 2% | ≈80.0 |
-| ≤0% | 99.9 |
+| 8% | 20.0 |
+| 6% | 40.0 |
+| 5% | 50.0 |
+| 4% | 60.0 |
+| 2% | 80.0 |
+| ≤0% | 100.0 |
 
 **EV/EBIT (25% weight):**
 
 ```
-EV/EBIT_Score = clamp((EV/EBIT − 12) / 23 × 99.9, 0, 99.9)
+EV/EBIT_Score = clamp((EV/EBIT − 12) / 23 × 100, 0, 100)
 ```
 
 | EV/EBIT | Score |
 |---------|-------|
 | ≤12× | 0.0 |
-| 17.75× | ≈25.0 |
-| 23.5× | ≈50.0 |
-| 29.25× | ≈75.0 |
-| ≥35× | 99.9 |
+| 17.75× | 25.0 |
+| 23.5× | 50.0 |
+| 29.25× | 75.0 |
+| ≥35× | 100.0 |
 
 **Forward PE (20% weight):**
 
+**Primary formula** — used when a trailing 10-year PE *range* (low and high) is available:
+
 ```
-FwdPE_Score = clamp((Forward PE − 10yr Low PE) / (10yr High PE − 10yr Low PE) × 99.9, 0, 99.9)
+FwdPE_Score = clamp((Forward PE − 10yr Low PE) / (10yr High PE − 10yr Low PE) × 100, 0, 100)
 ```
 
-Position the company's forward PE within its own trailing 10-year PE range, then apply the **Historical PE Modifier** (Upgrade 2 in [strategy.md](strategy.md)), additive: >20% below 10yr avg PE → −10 | within ±10% → 0 | >20% above → +10 (subject to the Structural Quality Override). If the 10-year PE range is unavailable, do not estimate it — flag the gap and fall back to a qualitative placement against sector peers, stating the reasoning explicitly.
+Position the company's forward PE within its own trailing 10-year PE range, then apply the **Historical PE Modifier** (Upgrade 2 in [strategy.md](strategy.md)), additive: >20% below 10yr avg PE → −10 | within ±10% → 0 | >20% above → +10 (subject to the Structural Quality Override).
+
+**Fallback formula** — used when only a single 10-year *average* PE is available (no low/high range). In practice this is the common case:
+
+```
+Deviation% = (Forward PE − 10yr Avg PE) / 10yr Avg PE × 100
+FwdPE_Score = clamp(50 + Deviation% × 2.5, 0, 100)
+```
+
+This centers the score at 50.0 when forward PE equals the 10-year average and reaches the 0/100 extremes at ±20% deviation — a continuous generalisation of the original 5-row "vs. 10yr avg" bucket table (>20% below → cheap end, >20% above → expensive end). **This formula already folds in the Historical PE Modifier** (the deviation from the 10-year average *is* the signal Upgrade 2 is meant to capture) — do not separately apply the ±10 modifier on top of it, to avoid double-counting.
+
+**No-history fallback** — if neither a range nor a meaningful average PE exists (recent IPO, loss-making history, or a GAAP earnings base too distorted to be meaningful):
+
+```
+FwdPE_Score = 50.0  (neutral midpoint, flagged)
+```
+
+Do not estimate a 10-year range or average that doesn't exist — use the 50.0 neutral placeholder and flag it explicitly, consistent with "never invent or estimate financial data."
 
 **PEG (15% weight, Fast Growers only — EPS growth >15% for 3+ years):**
 
 ```
-PEG_Score = clamp((PEG − 0.5) / 2.0 × 99.9, 0, 99.9)
+PEG_Score = clamp((PEG − 0.5) / 2.0 × 100, 0, 100)
 ```
 
 | PEG | Score |
 |-----|-------|
 | ≤0.5 | 0.0 |
-| 1.0 | ≈25.0 |
-| 1.5 | ≈50.0 |
-| 2.0 | ≈75.0 |
-| ≥2.5 | 99.9 |
+| 1.0 | 25.0 |
+| 1.5 | 50.0 |
+| 2.0 | 75.0 |
+| ≥2.5 | 100.0 |
 
 If PEG is not applicable (not a Fast Grower), redistribute its 15% weight to EV/EBIT per the Final Score Formula note above.
 
@@ -77,19 +96,19 @@ If PEG is not applicable (not a Fast Grower), redistribute its 15% weight to EV/
 
 ## Converting Legacy 1–10 Scores
 
-Sessions and decisions logged before 2026-06-11 record scores on the old 1–10 integer scale. To compare against the new 0–99.9 scale:
+Sessions and decisions logged before 2026-06-11 record scores on the old 1–10 integer scale. To compare against the new 0–100.0 scale:
 
 ```
-New Score = (Old Score − 1) × 11.1
+New Score = (Old Score − 1) × 100/9
 ```
 
 | Old | New | Old | New |
 |-----|-----|-----|-----|
-| 1 | 0.0 | 6 | 55.5 |
-| 2 | 11.1 | 7 | 66.6 |
-| 3 | 22.2 | 8 | 77.7 |
-| 4 | 33.3 | 9 | 88.8 |
-| 5 | 44.4 | 10 | 99.9 |
+| 1 | 0.0 | 6 | 55.6 |
+| 2 | 11.1 | 7 | 66.7 |
+| 3 | 22.2 | 8 | 77.8 |
+| 4 | 33.3 | 9 | 88.9 |
+| 5 | 44.4 | 10 | 100.0 |
 
 ---
 

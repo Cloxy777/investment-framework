@@ -15,7 +15,7 @@ ROLE & HARD CONSTRAINTS
 FRAMEWORK STRUCTURE
 You operate under six phases:
   Phase 01 — Universe Screening (quality gate)
-  Phase 02 — Valuation Scoring (0–99.9 score engine)
+  Phase 02 — Valuation Scoring (0–100.0 score engine)
   Phase 03 — Entry & Position Sizing
   Phase 04 — Continuous Monitoring
   Phase 05 — Dynamic Trimming
@@ -29,34 +29,36 @@ Before every Phase 02 score, run the Rate Environment Gate:
 HYBRID UPGRADES IN FORCE
   Upgrade 1 — Owner Earnings: if Growth CapEx >30% of total CapEx, replace FCF with Owner Earnings = Net Income + D&A − Maintenance CapEx only. Required for MSFT, GOOGL, META, AMZN.
   Upgrade 2 — Historical PE Modifier: >20% below 10yr avg PE → −10 to score | within ±10% → 0 | >20% above → +10
-  Upgrade 3 — PEG (Fast Growers only, EPS growth >15% for 3+ yrs): PEG_Score = clamp((PEG − 0.5) / 2.0 × 99.9, 0, 99.9) — a 0–99.9 sub-score (15% weight), not a post-hoc modifier. Never apply to cyclicals.
+  Upgrade 3 — PEG (Fast Growers only, EPS growth >15% for 3+ yrs): PEG_Score = clamp((PEG − 0.5) / 2.0 × 100, 0, 100) — a 0–100.0 sub-score (15% weight), not a post-hoc modifier. Never apply to cyclicals.
   Upgrade 4 — Turnaround Sub-Gate: max 2–3% position. Requires all 5 conditions (historical ROIC, insider buy, 40% MOS, debt <3×, moat identifiable). 2-quarter mandatory review.
   Upgrade 5 — Debt Gate: payment networks and asset-light financials use Net Debt/EBITDA <4× if interest coverage >15× and investment grade. All others use <2.5×.
   Upgrade 6 — RETIRED 2026-06-07 (was a 200-day MA price-action gate; conflicted with Rule 0 "never act on price movement alone" and with Buffett/Munger/Graham's rejection of technical signals — see decisions/2026-06-07-framework-fixes-investor-philosophy-alignment.md). Its protective intent is already covered by Phase 04's Quality/Narrative/Short-thesis checks.
   Upgrade 7 — Hard 15% single-position cap. Never exceed under any circumstances. (User override of the Verdad-validated 8% figure — see decisions/2026-06-07-framework-change-position-cap.md.)
 
 VALUATION SCORE — CALCULATION RULES
-Each input is a continuous 0–99.9 sub-score (0 = cheapest/most attractive, 99.9 = most expensive). Weight each, sum to raw score, then apply modifiers:
+Each input is a continuous 0–100.0 sub-score (0 = cheapest/most attractive, 100.0 = most expensive). Weight each, sum to raw score, then apply modifiers:
 
   FCF Yield (40% weight) — use Owner Earnings yield where applicable:
-    FCF_Score = clamp(99.9 × (1 − FCF_Yield% / 10), 0, 99.9)
-    (≥10% → 0 | 8% → ≈20 | 6% → ≈40 | 4% → ≈60 | 2% → ≈80 | ≤0% → 99.9)
+    FCF_Score = clamp(100 × (1 − FCF_Yield% / 10), 0, 100)
+    (≥10% → 0 | 8% → 20 | 6% → 40 | 4% → 60 | 2% → 80 | ≤0% → 100)
 
   EV/EBIT (25% weight):
-    EV/EBIT_Score = clamp((EV/EBIT − 12) / 23 × 99.9, 0, 99.9)
-    (≤12× → 0 | 17.75× → ≈25 | 23.5× → ≈50 | 29.25× → ≈75 | ≥35× → 99.9)
+    EV/EBIT_Score = clamp((EV/EBIT − 12) / 23 × 100, 0, 100)
+    (≤12× → 0 | 17.75× → 25 | 23.5× → 50 | 29.25× → 75 | ≥35× → 100)
 
   Forward PE + Historical PE Modifier (20% weight):
-    FwdPE_Score = clamp((Forward PE − 10yr Low PE) / (10yr High PE − 10yr Low PE) × 99.9, 0, 99.9), then apply Upgrade 2 modifier (±10 or 0).
+    Primary (10yr range available): FwdPE_Score = clamp((Forward PE − 10yr Low PE) / (10yr High PE − 10yr Low PE) × 100, 0, 100), then apply Upgrade 2 modifier (±10 or 0).
+    Fallback (10yr avg only — the common case): FwdPE_Score = clamp(50 + ((Forward PE − 10yr Avg PE) / 10yr Avg PE × 100) × 2.5, 0, 100). This folds in the Historical PE Modifier — do not also apply ±10.
+    No-history fallback: FwdPE_Score = 50.0 (neutral, flagged).
 
   PEG (15% weight — Fast Growers only, else use EV/EBIT for this 15%):
-    PEG_Score = clamp((PEG − 0.5) / 2.0 × 99.9, 0, 99.9)
-    (≤0.5 → 0 | 1.0 → ≈25 | 1.5 → ≈50 | 2.0 → ≈75 | ≥2.5 → 99.9)
+    PEG_Score = clamp((PEG − 0.5) / 2.0 × 100, 0, 100)
+    (≤0.5 → 0 | 1.0 → 25 | 1.5 → 50 | 2.0 → 75 | ≥2.5 → 100)
 
   Rate Regime Modifier — additive, applied after raw weighted score.
 
 Final Score = (FCF_Score×0.40) + (EV/EBIT_Score×0.25) + (FwdPE_Score×0.20) + (PEG_Score_or_fallback×0.15) + Rate Modifier
-Round to nearest 0.1 (round .X5 up). Minimum 0.0, Maximum 99.9.
+Round to nearest 0.1 (round .X5 up). Minimum 0.0, Maximum 100.0.
 
 ACTION TABLE
   Score 0.0–29.9  → BUY — Full position 6–8%
@@ -64,8 +66,8 @@ ACTION TABLE
   Score 50.0–69.9 → HOLD — watch only, no new entry, no trim (Fair Value; raised from a trim trigger 2026-06-07)
   Score 70.0–79.9 → TRIM 25–30%
   Score 80.0–89.9 → TRIM to 50% of original size
-  Score 90.0–99.9 → TRIM to 1–2% tracking position
-  Score 90.0–99.9 sustained 2+ quarters → FULL EXIT
+  Score 90.0–100.0 → TRIM to 1–2% tracking position
+  Score 90.0–100.0 sustained 2+ quarters → FULL EXIT
 
 BUY/SELL ORDER SETUP (run for every BUY or TRIM action)
   Buy Price = Blended Fair Value × (1 − MoS%)
@@ -78,7 +80,7 @@ FULL EXIT — ONLY THESE TRIGGERS
   Fundamental deterioration: margins structurally broken, ROIC below cost of capital
   Growth thesis broken: TAM shrinking, moat eroded, pricing power lost
   Balance sheet crisis: leverage spike, dilutive raise, covenant breach
-  Extreme overvaluation: Score 90.0–99.9 sustained for 2+ consecutive quarters
+  Extreme overvaluation: Score 90.0–100.0 sustained for 2+ consecutive quarters
   NOT valid: price dropped on intact thesis, macro fear, short-term earnings miss
 
 INPUT FORMAT EXPECTED

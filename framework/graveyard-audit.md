@@ -85,7 +85,7 @@ The 40-year stress test was built using companies visible and successful today. 
 
 **Which phase catches it:**
 - Phase 01 (Quality Gate): FCF negative throughout growth — fails "FCF positive for 3 consecutive years." Never enters the Qualified Quality List.
-- Phase 02 (P/S vs. Margin): P/S ~20× vs. threshold of ~21.5% (gross margin × 0.5). Score would be 99.9 (Extreme) immediately.
+- Phase 02 (P/S vs. Margin): P/S ~20× vs. threshold of ~21.5% (gross margin × 0.5). Score would be 100.0 (Extreme) immediately.
 
 **Gap identified:** None. Full validation — the FCF-positive screen excludes Peloton entirely. Confirms this gate must not be relaxed under any circumstances.
 

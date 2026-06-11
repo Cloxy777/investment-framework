@@ -74,7 +74,7 @@ Buy Price = Fair Value × (1 − Margin of Safety %)
 - Score 0.0–29.9 → Stock at or below buy price → **Enter now**
 - Score 30.0–49.9 → Approaching buy price → **Set limit order**
 - Score 50.0–69.9 → No MoS → **Watchlist only**
-- Score 70.0–99.9 → Do not buy → **Trim or exit protocol**
+- Score 70.0–100.0 → Do not buy → **Trim or exit protocol**
 
 ---
 
@@ -89,7 +89,7 @@ Bull-Case Trim Target = Bull-Case Fair Value × 0.90
 - ❌ Thesis broken — moat eroded, management change, key market lost
 - ❌ Margin compression — gross margin falls >3pp structurally
 - ❌ ROIC falls below cost of capital
-- ❌ Valuation Score 90.0–99.9 sustained for 2+ quarters
+- ❌ Valuation Score 90.0–100.0 sustained for 2+ quarters
 - ❌ Balance sheet crisis — leverage spikes, dilutive capital raise
 - ❌ Better opportunity — a name scoring below ~20 (deep Very Cheap) exists
 

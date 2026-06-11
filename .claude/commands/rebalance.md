@@ -11,8 +11,8 @@ Steps:
    - Score 50.0–69.9 → hold, watch only — no trim (raised from a trim trigger 2026-06-07; fair value alone is not a sell signal)
    - Score 70.0–79.9 → trim 25–30%, recycle into Score 0.0–29.9 names
    - Score 80.0–89.9 → trim to 50%
-   - Score 90.0–99.9 → trim to 1–2% tracking
-   - Score 90.0–99.9 sustained 2+ quarters → full exit review
+   - Score 90.0–100.0 → trim to 1–2% tracking
+   - Score 90.0–100.0 sustained 2+ quarters → full exit review
 4. Check the 15% single-position hard cap (Upgrade 7) across the whole book.
 5. Propose a recycling plan: where trimmed capital should go (current Score 0.0–29.9 names only), and the resulting target weights.
 6. Show full reasoning per position — no black-box recommendations.
