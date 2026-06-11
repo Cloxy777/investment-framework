@@ -1,8 +1,8 @@
 # IBKR Active Orders Snapshot
 
 **Account:** U19421206
-**Last synced:** 2026-06-10 (live via Interactive Brokers MCP — `get_account_orders`)
-**Active orders:** 6 working (status `NEW`) · 9 non-active orders excluded (all `REPLACED` — see note below)
+**Last synced:** 2026-06-11 (live via Interactive Brokers MCP — `get_account_orders`)
+**Active orders:** 5 working (status `NEW`) · 9 non-active orders excluded (all `REPLACED` — see note below)
 
 | Order ID | Side | Ticker | Qty | Order Type | Limit Price | Time in Force | Status | Order Placed (UTC) |
 |----------|------|--------|-----|------------|--------------|---------------|--------|---------------------|
@@ -11,8 +11,9 @@
 | 1476719961 | BUY | NOW | 10 | LIMIT | 90.00 | GTC | NEW | 2026-05-26T17:46:20Z |
 | 934588780 | SELL | SPOT | 1 | LIMIT | 518.00 | GTC | NEW | 2026-06-07T18:26:38Z |
 | 1469698949 | BUY | V | 9 | LIMIT | 285.20 | GTC | NEW | 2026-05-27T05:02:52Z |
-| 1062781278 | BUY | VEEV | 3 | LIMIT | 164.50 | GTC | NEW | 2026-06-09T15:47:08Z |
 
+> **Filled since the last sync (2026-06-10) — VEEV:** the `BUY 3 VEEV @ 164.50 GTC` order (order ID 1062781278, placed 2026-06-09) no longer appears in `get_account_orders` — it has filled. The corresponding 3-share VEEV position now appears in [ibkr.md](ibkr.md) at avg cost $164.83.
+>
 > **On `REPLACED` orders:** `get_account_orders` returns every order on record, not just live ones. `REPLACED` means that specific order ID was superseded by a later modification (e.g. a price change creates a new order ID); if the replacement is still working, it shows up above under its own order ID with status `NEW` (this is the case for **NOW** — an older `REPLACED` order at $86.00 was superseded by the live `NEW` order at $90.00 shown above).
 >
 > **Tickers with only `REPLACED` orders and no live successor (flag — not currently active, verify in TWS/Client Portal if a live order was expected):**
