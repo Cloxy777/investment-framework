@@ -14,6 +14,7 @@ This repo is the single source of truth for the **Quality Value + Dynamic Trimmi
   - [benchmark-comparison.md](framework/benchmark-comparison.md) — tracks the framework against MSCI Quality Index and the QMJ factor, not just the S&P 500; updated annually in Q1
   - [investor-philosophy-alignment.md](framework/investor-philosophy-alignment.md) — high-level core tenets of Buffett/Munger/Lynch/Greenblatt/Marks plus an alignment checklist; check any new or revised framework rule against it before adopting it
 - **`portfolio/`** — [holdings.md](portfolio/holdings.md) (current positions/weights/scores), [sync-sop.md](portfolio/sync-sop.md) (how to pull live broker data into [`snapshots/`](portfolio/snapshots/) and refresh holdings), and [override-log.md](portfolio/override-log.md) (every position entered outside the framework's rules, tracked and reviewed annually)
+- **`watchlist/`** — [README.md](watchlist/README.md) explains the convention: a per-ticker, dated "current state" pointer (split into `in-portfolio/` and `not-in-portfolio/`) to the latest score/action for every ticker `/new-position` or `/rescore` has touched. Updated by those two commands and reconciled by `/sync-portfolio`; `sessions/` remains the canonical record of how each number was derived.
 - **`sessions/`** — dated logs of every analysis session (screenings, re-scores, evaluations, rebalances)
 - **`decisions/`** — dated logs of actual actions taken and the reasoning, plus framework-change rationale
 
