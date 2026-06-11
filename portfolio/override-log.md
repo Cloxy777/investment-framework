@@ -6,16 +6,16 @@ Every position entered outside the framework's rules is a human override. Overri
 
 This log tracks every override, its outcome, and the cumulative cost. **Reviewed annually in Q1.**
 
-> **Rule:** If a position was opened when the valuation score was 6+ (Watchlist or Expensive), or if any Phase 01 quality criterion was waived, it is an override. Log it here at time of entry — and record the reasoning in `decisions/` too.
+> **Rule:** If a position was opened when the valuation score was 50.0+ (Watchlist or Expensive), or if any Phase 01 quality criterion was waived, it is an override. Log it here at time of entry — and record the reasoning in `decisions/` too.
 
 ## What Counts as an Override
 
 | Type | Description |
 | --- | --- |
-| Valuation override | Bought at Score 6–10 (outside the entry zone) |
+| Valuation override | Bought at Score 50.0–99.9 (outside the entry zone) |
 | Quality waiver | Entered despite failing 1+ Phase 01 criteria |
 | Size override | Position sized above the score-band maximum |
-| Exit delay | Held a Score 8–10 position beyond the trim protocol timeline |
+| Exit delay | Held a Score 70.0–99.9 position beyond the trim protocol timeline |
 | Re-entry override | Re-bought a previously exited position without re-running Phase 01–02 |
 | Thesis extension | Continued holding after a Phase 06 exit signal was triggered |
 
@@ -31,11 +31,11 @@ Starting-point audit based on the May 2026 portfolio snapshot — verify with ac
 
 | Ticker | Override Type | Estimated Score at Entry | Current Status | Action |
 | --- | --- | --- | --- | --- |
-| DUOL | Quality waiver (FCF negative at entry) | Score 8–9 est. | Under review | Run Phase 06 analysis |
+| DUOL | Quality waiver (FCF negative at entry) | Score 77.7–88.8 est. | Under review | Run Phase 06 analysis |
 | STIM | Quality waiver (micro-cap, no FCF) | N/A | Monitoring | Exit at next review unless thesis documented |
 | RLYB | Quality waiver (pre-profit biotech) | N/A | Monitoring | Exit at next review unless thesis documented |
-| FSLY | Quality waiver (FCF borderline) | Score 7–8 est. | Monitoring | Run Phase 01 re-screen |
-| SOFI | Quality waiver (fintech, borderline) | Score 7+ est. | Monitoring | Run Phase 01 re-screen |
+| FSLY | Quality waiver (FCF borderline) | Score 66.6–77.7 est. | Monitoring | Run Phase 01 re-screen |
+| SOFI | Quality waiver (fintech, borderline) | Score 66.6+ est. | Monitoring | Run Phase 01 re-screen |
 | TLT | Asset class override (not an equity) | N/A | No exit criteria defined | Define exit rules or divest |
 
 ## Annual Override Review

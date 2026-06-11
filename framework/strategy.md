@@ -31,7 +31,7 @@ Filter the investable universe to only high-quality businesses.
 - Earnings Yield (EY) = 1 ÷ Forward PE
 - Spread = EY − 10Y US Treasury Yield
 - Spread ≥ +1.5%: no adjustment
-- Spread < +1.5%: apply **+0.5 to the valuation score** — a yellow flag that raises the bar the bottom-up case must clear, rather than an outright veto
+- Spread < +1.5%: apply **+5 to the valuation score** — a yellow flag that raises the bar the bottom-up case must clear, rather than an outright veto
 
 *Changed 2026-06-07 from a hard "do not open a new position" block to an additive modifier — see [investor-philosophy-alignment.md](investor-philosophy-alignment.md). Buffett treats interest rates as "gravity" on asset values — a valuation anchor, not a binary switch — and Lynch/Munger both warn against letting a macro read override a strong bottom-up case. This keeps the rate-sensitivity (the bar gets harder to clear) without letting it veto an exceptional company outright, and now mirrors how Step 2's Rate Regime Modifier already works.*
 
@@ -39,21 +39,21 @@ Filter the investable universe to only high-quality businesses.
 
 | 10Y Treasury Yield | Modifier | Rationale |
 |--------------------|----------|-----------|
-| < 2% | −1 | Easy money; valuations can stretch |
+| < 2% | −10 | Easy money; valuations can stretch |
 | 2–3.5% | 0 | Neutral / historical norm |
-| 3.5–5% | +0.5 | Capital has real cost |
-| > 5% | +1 | Strong competition from risk-free rate |
+| 3.5–5% | +5 | Capital has real cost |
+| > 5% | +10 | Strong competition from risk-free rate |
 
 **Step 3 — Rate-Normalised Historical PE** (annual task, January, top 5 holdings only)
-Recalculate using only periods where the 10Y was within ±1% of today's yield. If materially lower than raw average, apply +0.5 to that company's score for the year.
+Recalculate using only periods where the 10Y was within ±1% of today's yield. If materially lower than raw average, apply +5 to that company's score for the year.
 
 ---
 
 ## Phase 02 — Valuation Scoring
 
-Assign a valuation score (1–10) to each qualified company. Full scoring mechanics (formula, sub-score tables, pre-screen filters, tools) live in [valuation-scoring.md](valuation-scoring.md).
+Assign a valuation score (0–99.9) to each qualified company. Full scoring mechanics (formula, sub-score formulas, pre-screen filters, tools) live in [valuation-scoring.md](valuation-scoring.md).
 
-> Score boundary rule: if result falls on exactly X.5, round UP (more conservative). Min 1, max 10.
+> Score boundary rule: round to the nearest 0.1; if it falls exactly on a ".X5", round UP (more conservative). Min 0.0, max 99.9.
 
 ---
 
@@ -61,10 +61,10 @@ Assign a valuation score (1–10) to each qualified company. Full scoring mechan
 
 | Score | Label | Position Size |
 |-------|-------|---------------|
-| 1–3 | Very Cheap | Full position — 6–8% of portfolio |
-| 4–5 | Cheap | Standard position — 3–5% of portfolio |
-| 6–7 | Fair Value | Watchlist only — no new entry |
-| 8–10 | Expensive | Do not buy. Begin trim protocol if held. |
+| 0.0–29.9 | Very Cheap | Full position — 6–8% of portfolio |
+| 30.0–49.9 | Cheap | Standard position — 3–5% of portfolio |
+| 50.0–69.9 | Fair Value | Watchlist only — no new entry |
+| 70.0–99.9 | Expensive | Do not buy. Begin trim protocol if held. |
 
 **Rule:** Max 10–15 names. High conviction over diversification.
 
@@ -84,14 +84,14 @@ Assign a valuation score (1–10) to each qualified company. Full scoring mechan
 
 ## Phase 05 — Dynamic Trimming (Valuation-Driven)
 
-*Trim trigger raised 2026-06-07 from Score 6–7 to Score 8+ — see [investor-philosophy-alignment.md](investor-philosophy-alignment.md). Trimming the moment a position crosses from "Cheap" into merely "Fair Value" was a materially higher-turnover posture than Buffett ("favorite holding period is forever"), Munger ("sit on your ass investing" / the "croupier's take" on trading friction), or Terry Smith (~3–4% annual turnover, "do nothing") actually practice. Score 6–7 is now hold-and-watch only — it already carries a "Watchlist only, no new entry" label in Phase 03; there's no reason for it to also be a trim trigger. The framework keeps its teeth at the extremes, where even these long-term compounders do trim (e.g., Buffett's 2024 Apple cut once it became dramatically oversized and rich).*
+*Trim trigger raised 2026-06-07 from Score 6–7 to Score 8+ (on the 1–10 scale then in force; equivalent to 50.0–69.9 → 70.0+ after the 2026-06-11 rescale to 0.0–99.9 — see [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md)) — see [investor-philosophy-alignment.md](investor-philosophy-alignment.md). Trimming the moment a position crosses from "Cheap" into merely "Fair Value" was a materially higher-turnover posture than Buffett ("favorite holding period is forever"), Munger ("sit on your ass investing" / the "croupier's take" on trading friction), or Terry Smith (~3–4% annual turnover, "do nothing") actually practice. Score 50.0–69.9 is now hold-and-watch only — it already carries a "Watchlist only, no new entry" label in Phase 03; there's no reason for it to also be a trim trigger. The framework keeps its teeth at the extremes, where even these long-term compounders do trim (e.g., Buffett's 2024 Apple cut once it became dramatically oversized and rich).*
 
-- **Score 6–7:** Hold. No new entry (Watchlist only — Phase 03). No trim — fair value alone is not a sell signal.
-- **Score 8:** Trim 25–30% of position. Recycle into Score 1–3 names.
-- **Score 9:** Trim to half-position (50% of original size)
-- **Score 10:** Trim to tracking position — 1–2%
-- **2x price milestone:** Trigger valuation re-score. If score also 8+, accelerate trim.
-- **Capital recycling:** Proceeds always reinvested into current Score 1–3 names only.
+- **Score 50.0–69.9:** Hold. No new entry (Watchlist only — Phase 03). No trim — fair value alone is not a sell signal.
+- **Score 70.0–79.9:** Trim 25–30% of position. Recycle into Score 0.0–29.9 names.
+- **Score 80.0–89.9:** Trim to half-position (50% of original size)
+- **Score 90.0–99.9:** Trim to tracking position — 1–2%
+- **2x price milestone:** Trigger valuation re-score. If score also 70.0+, accelerate trim.
+- **Capital recycling:** Proceeds always reinvested into current Score 0.0–29.9 names only.
 
 ---
 
@@ -100,7 +100,7 @@ Assign a valuation score (1–10) to each qualified company. Full scoring mechan
 ✅ Valid exit reasons:
 - Fundamental deterioration — margins structurally broken, ROIC falls below cost of capital
 - Growth thesis broken — TAM shrinking, disruption visible, pricing power lost
-- Extreme overvaluation — Score 10 sustained for 2+ quarters
+- Extreme overvaluation — Score 90.0–99.9 sustained for 2+ quarters
 - Balance sheet crisis — leverage spikes, dilutive capital raise
 
 ❌ NOT valid exit reasons:
@@ -114,13 +114,13 @@ Assign a valuation score (1–10) to each qualified company. Full scoring mechan
 
 | Score Range | Status | Action |
 |-------------|--------|--------|
-| 1–3 | Very Cheap | Full position (6–8%) |
-| 4–5 | Cheap | Standard position (3–5%) |
-| 6–7 | Fair Value | Hold — watch only, no new entry, no trim |
-| 8 | Expensive | Trim 25–30% |
-| 9 | Very Expensive | Trim to 50% |
-| 10 | Extreme | Trim to 1–2% tracking |
-| 10 (2+ qtrs) | Sustained Extreme | Full Exit |
+| 0.0–29.9 | Very Cheap | Full position (6–8%) |
+| 30.0–49.9 | Cheap | Standard position (3–5%) |
+| 50.0–69.9 | Fair Value | Hold — watch only, no new entry, no trim |
+| 70.0–79.9 | Expensive | Trim 25–30% |
+| 80.0–89.9 | Very Expensive | Trim to 50% |
+| 90.0–99.9 | Extreme | Trim to 1–2% tracking |
+| 90.0–99.9 (2+ qtrs) | Sustained Extreme | Full Exit |
 
 ---
 
@@ -142,24 +142,31 @@ Practical impact: MSFT Owner Earnings ~$95B vs reported FCF ~$72B — a 32% diff
 
 | Forward PE vs 10yr Avg | Adjustment |
 |------------------------|------------|
-| > 20% below average | −1 |
+| > 20% below average | −10 |
 | Within ±10% | No change |
-| > 20% above average | +1 |
+| > 20% above average | +10 |
 
-May 2026 examples: MSFT 24.9× vs 31× avg (−20%) → Score −1. AAPL 37× vs 24.5× avg (+51%) → Score +1.
+May 2026 examples: MSFT 24.9× vs 31× avg (−20%) → Score −10. AAPL 37× vs 24.5× avg (+51%) → Score +10.
 
 **Structural Quality Override (added 2026-06-07 — see [investor-philosophy-alignment.md](investor-philosophy-alignment.md)):** Before applying the **+1 "expensive"** adjustment, check whether the multiple expansion is accompanied by a genuine *structural* improvement — margin expansion, ROIC improvement, or qualifying growth-CapEx reinvestment per Upgrade 1. If yes, do not apply the penalty: a higher multiple may simply reflect a better business, not euphoria. This is Howard Marks' "second-level thinking" (a historical average is only a useful anchor if the business hasn't structurally changed) — and it closes a quiet contradiction with Upgrade 1, which already concedes that raw multiples *understate* quality for moat-building reinvestment. Without this override, Upgrade 2 would mechanically penalize the very reinvestment Upgrade 1 credits.
 
-### 🟠 Upgrade 3 — PEG Ratio for Fast Growers (HIGH)
+### 🟠 Upgrade 3 — PEG Ratio Sub-Score for Fast Growers (HIGH)
 
 Apply ONLY to Lynch Fast Grower category (EPS growth > 15% for 3+ years). ⚠️ Never apply to cyclicals or stalwarts.
 
-| PEG | Modifier |
-|-----|----------|
-| < 0.8 | −1 |
-| 0.8–1.2 | No change |
-| 1.2–1.8 | +0.5 |
-| > 2.0 | +1 |
+PEG is one of the four weighted sub-scores (15% weight), computed continuously rather than as a post-hoc modifier — see [valuation-scoring.md](valuation-scoring.md):
+
+```
+PEG_Score = clamp((PEG − 0.5) / 2.0 × 99.9, 0, 99.9)
+```
+
+| PEG | Score |
+|-----|-------|
+| ≤0.5 | 0.0 |
+| 1.0 | ≈25.0 |
+| 1.5 | ≈50.0 |
+| 2.0 | ≈75.0 |
+| ≥2.5 | 99.9 |
 
 ### 🟠 Upgrade 4 — Turnaround Sub-Gate / Fallen Angel Path (HIGH)
 
@@ -190,10 +197,12 @@ Hard cap: never exceed 15% in a single position under any circumstances. (Note: 
 
 ## Updated Valuation Score Weighting
 
+All four weighted inputs are continuous **0–99.9** sub-scores (see [valuation-scoring.md](valuation-scoring.md)).
+
 | Input | Weight | Notes |
 |-------|--------|-------|
 | FCF Yield (Owner Earnings adjusted) | 40% | Primary signal |
 | EV/EBIT (<15× cheap · >30× expensive) | 25% | Unchanged |
 | Forward PE + Historical PE Modifier | 20% | Adds mean-reversion signal |
-| PEG Modifier (Fast Growers only) | 15% | Lynch filter |
-| Rate Regime Modifier (post-score) | Additive | −1 / 0 / +0.5 / +1 based on 10Y Treasury |
+| PEG Sub-score (Fast Growers only) | 15% | Lynch filter |
+| Rate Regime Modifier (post-score) | Additive | −10 / 0 / +5 / +10 based on 10Y Treasury |

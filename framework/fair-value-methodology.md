@@ -65,16 +65,16 @@ Buy Price = Fair Value × (1 − Margin of Safety %)
 
 | Company type | Margin of Safety |
 |-------------|------------------|
-| High quality, predictable FCF (Score 1–3) | 15–20% |
-| Good quality, moderate uncertainty (Score 4–5) | 25–30% |
+| High quality, predictable FCF (Score 0.0–29.9) | 15–20% |
+| Good quality, moderate uncertainty (Score 30.0–49.9) | 25–30% |
 | Turnaround / Fallen Angel sub-gate | 35–40% |
 | Speculative / pre-profit | 40–50% |
 
 **Integration with Valuation Score:**
-- Score 1–3 → Stock at or below buy price → **Enter now**
-- Score 4–5 → Approaching buy price → **Set limit order**
-- Score 6–7 → No MoS → **Watchlist only**
-- Score 8–10 → Do not buy → **Trim or exit protocol**
+- Score 0.0–29.9 → Stock at or below buy price → **Enter now**
+- Score 30.0–49.9 → Approaching buy price → **Set limit order**
+- Score 50.0–69.9 → No MoS → **Watchlist only**
+- Score 70.0–99.9 → Do not buy → **Trim or exit protocol**
 
 ---
 
@@ -89,9 +89,9 @@ Bull-Case Trim Target = Bull-Case Fair Value × 0.90
 - ❌ Thesis broken — moat eroded, management change, key market lost
 - ❌ Margin compression — gross margin falls >3pp structurally
 - ❌ ROIC falls below cost of capital
-- ❌ Valuation Score 10 sustained for 2+ quarters
+- ❌ Valuation Score 90.0–99.9 sustained for 2+ quarters
 - ❌ Balance sheet crisis — leverage spikes, dilutive capital raise
-- ❌ Better opportunity — Score 1–2 name exists
+- ❌ Better opportunity — a name scoring below ~20 (deep Very Cheap) exists
 
 ---
 
@@ -103,8 +103,8 @@ Stop Loss = Buy Price × (1 − Max Acceptable Loss %)
 
 | Position type | Max loss from buy price |
 |---------------|-------------------------|
-| High conviction, quality (Score 1–3) | 20–25% |
-| Standard position (Score 4–5) | 25–30% |
+| High conviction, quality (Score 0.0–29.9) | 20–25% |
+| Standard position (Score 30.0–49.9) | 25–30% |
 | Turnaround / Fallen Angel | 30–35% |
 
 ---
@@ -122,8 +122,8 @@ Position Size ($)     = Shares × Buy Price
 
 | Valuation Score | Max Position Size | Risk % |
 |-----------------|-------------------|--------|
-| Score 1–3 | 6–8% of portfolio | up to 2% |
-| Score 4–5 | 3–5% of portfolio | 1.5% |
+| Score 0.0–29.9 | 6–8% of portfolio | up to 2% |
+| Score 30.0–49.9 | 3–5% of portfolio | 1.5% |
 | Turnaround sub-gate | 2–3% of portfolio | 1% |
 
 ---
@@ -143,7 +143,7 @@ If R/R is below 2:1: wait for lower entry, find tighter stop, or pass on the tra
 ## Order Setup Checklist
 
 ```
-[ ] Valuation Score:                         ____  (must be ≤ 5 to enter)
+[ ] Valuation Score:                         ____  (must be ≤ 49.9 to enter)
 [ ] DCF Fair Value:                          $______
 [ ] Multiples-Based Fair Value:              $______
 [ ] Blended Fair Value:                      $______

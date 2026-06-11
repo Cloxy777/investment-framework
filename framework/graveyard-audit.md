@@ -55,7 +55,7 @@ The 40-year stress test was built using companies visible and successful today. 
 **Destruction period:** 2000–2002 · Peak to trough: −85%
 
 **Which phase catches it:**
-- Phase 02 (Valuation Scoring): FCF yield ~0.5%, EV/EBIT ~80×, PEG >5 → every metric scores 9–10 → Phase 03 blocks entry.
+- Phase 02 (Valuation Scoring): FCF yield ~0.5%, EV/EBIT ~80×, PEG >5 → every metric scores 90+ (deep into Extreme) → Phase 03 blocks entry.
 - Phase 05 (Trimming): Any position built at rational 1997–1998 valuations should have been trimmed to tracking size by 1999.
 
 **Gap identified:** None. Full validation — the framework as written would have excluded or trimmed Cisco before the crash. Confirms trim-on-score-expansion logic is structurally correct.
@@ -85,7 +85,7 @@ The 40-year stress test was built using companies visible and successful today. 
 
 **Which phase catches it:**
 - Phase 01 (Quality Gate): FCF negative throughout growth — fails "FCF positive for 3 consecutive years." Never enters the Qualified Quality List.
-- Phase 02 (P/S vs. Margin): P/S ~20× vs. threshold of ~21.5% (gross margin × 0.5). Score would be 10 immediately.
+- Phase 02 (P/S vs. Margin): P/S ~20× vs. threshold of ~21.5% (gross margin × 0.5). Score would be 99.9 (Extreme) immediately.
 
 **Gap identified:** None. Full validation — the FCF-positive screen excludes Peloton entirely. Confirms this gate must not be relaxed under any circumstances.
 
