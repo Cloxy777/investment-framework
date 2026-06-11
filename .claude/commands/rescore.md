@@ -14,3 +14,5 @@ Steps:
 5. Output in the order specified by the operating brief, ending with the next review trigger.
 
 When done, save the result as a session log under `sessions/YYYY-MM-DD-rescore-<ticker>.md` and update the score/review-date row in [holdings.md](../../portfolio/holdings.md).
+
+**Watchlist:** for each rescored ticker, create or update `watchlist/in-portfolio/<TICKER>/<TICKER>-YYYY-MM-DD.md` per [watchlist/README.md](../../watchlist/README.md). Add a new dated row only if the score, the scored↔unscored status, the action category, or a Rule 9 trigger changed from the ticker's last watchlist entry; otherwise append a "Last checked (no significant change)" line to the existing file.
