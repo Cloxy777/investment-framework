@@ -91,6 +91,8 @@ Run the complete set of Phase 01 filters with real, sourced numbers on the survi
 
 For each name that clears the quantitative gate, walk through the 5 qualitative questions in [valuation-scoring.md](../../framework/valuation-scoring.md).
 
+**Batch processing:** if this produces more than a couple of names needing a deep qualitative pass, do not launch a parallel subagent per name — run them in small batches (default 2 concurrent) per the batch-processing policy in [new-position.md](new-position.md), committing/pushing progress after each batch and adapting batch size based on observed token cost and whether the session usage limit is hit.
+
 ## Step 4 — Data gaps
 
 Do NOT score valuations yet (that's `/new-position` or `/rescore`). Flag any missing metric rather than estimating it (CLAUDE.md Rule 0) — expect this most often for non-US small/mid-caps: currency translation, local filing standards, ADR-vs-ordinary quirks.
