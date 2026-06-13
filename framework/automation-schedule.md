@@ -149,7 +149,7 @@ one GitHub issue summarizes the week ahead.
 
 | | |
 |---|---|
-| **Cadence** | Monthly, on the 1st — e.g. 12:00 UTC (self-gates to January/April/July/October — see prompt) |
+| **Cadence** | First weekday of January, April, July, October — e.g. 12:00 UTC |
 | **Repo** | `cloxy777/investment-framework`, default branch |
 | **Environment** | `investment-automation` |
 | **Branch permission** | Default (`claude/` branch + PR) |
@@ -158,12 +158,8 @@ one GitHub issue summarizes the week ahead.
 
 ```
 You are running the Quarterly Rate Environment Gate Review for
-cloxy777/investment-framework. This routine is scheduled to run on the 1st of
-every month at 12:00 UTC; before doing anything else, check whether the
-current month is January, April, July, or October. If it is not, end the
-session immediately - no action, no commit, no issue. (If the 1st falls on a
-weekend, FRED's "most recent non-blank value" will simply be the prior
-business day's yield - no special handling needed.)
+cloxy777/investment-framework. This runs on the first weekday of January,
+April, July, and October.
 
 1. Fetch the current 10-year US Treasury yield from FRED:
    https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10
@@ -211,7 +207,7 @@ if it changed, a PR + issue exist flagging the portfolio-wide re-score need.
 
 | | |
 |---|---|
-| **Cadence** | Weekly, Saturday — e.g. 14:00 UTC (self-gates to the first Saturday of the month — see prompt) |
+| **Cadence** | First Saturday of each month — e.g. 14:00 UTC |
 | **Repo** | `cloxy777/investment-framework`, default branch |
 | **Environment** | `investment-automation` (requires `EODHD_API_KEY`) |
 | **Branch permission** | Default (`claude/` branch + PR) |
@@ -220,11 +216,8 @@ if it changed, a PR + issue exist flagging the portfolio-wide re-score need.
 
 ```
 You are running the Monthly Universe Screening Slice for
-cloxy777/investment-framework. This routine is scheduled to run every
-Saturday at 14:00 UTC; before doing anything else, check whether today's date
-is between the 1st and 7th (inclusive) - i.e. this is the first Saturday of
-the month. If not, end the session immediately - no action, no commit, no PR,
-no issue.
+cloxy777/investment-framework. Runs the first Saturday of each month
+(markets closed).
 
 1. Run /screen with no argument. Per .claude/commands/screen.md, this
    self-selects the least-recently-screened slice from
@@ -257,7 +250,7 @@ run, with a PR and a summary issue.
 
 | | |
 |---|---|
-| **Cadence** | Weekly, Monday — e.g. 12:30 UTC, an hour after Routine 2 (self-gates to the first Monday of the month — see prompt) |
+| **Cadence** | First Monday of each month, after Routine 2's sync — e.g. 12:30 UTC |
 | **Repo** | `cloxy777/investment-framework`, default branch |
 | **Environment** | `investment-automation` |
 | **Branch permission** | Default (`claude/` branch + PR) |
@@ -266,11 +259,8 @@ run, with a PR and a summary issue.
 
 ```
 You are running the Monthly Rebalance / Trim Review for
-cloxy777/investment-framework. This routine is scheduled to run every Monday
-at 12:30 UTC, an hour after Routine 2's sync; before doing anything else,
-check whether today's date is between the 1st and 7th (inclusive) - i.e. this
-is the first Monday of the month. If not, end the session immediately - no
-action, no commit, no PR, no issue.
+cloxy777/investment-framework. Runs the first Monday of each month, after
+that day's Weekly Sync routine has refreshed holdings.md.
 
 1. Run /rebalance per .claude/commands/rebalance.md: pull current
    holdings/weights from portfolio/holdings.md, flag any holding whose Last
