@@ -1,20 +1,25 @@
 # Routine Operating Calendar
 
+> **Automation:** [`framework/automation-schedule.md`](automation-schedule.md) translates this table into 5 Claude Code Routines that run unattended and report via GitHub issues/PRs, plus a Google Calendar import. The "Automated via" column below points to the routine covering each row — see that doc's coverage map for exactly what each routine does and what's still manual.
+
 ## Schedule at a Glance
 
-| Frequency | Task | Trigger | Claude Needed? |
-|-----------|------|---------|----------------|
-| Daily (market days) | News & alert scan | Price move >5% intraday | No — human monitors |
-| Weekly (Monday) | Earnings calendar check | Calendar-based | No — human prep |
-| **After every earnings release** | **Quarterly Re-score** | Company reports earnings | **Yes — core task** |
-| **Quarterly (Jan, Apr, Jul, Oct)** | **Rate Environment Gate update** | Quarter begins | **Yes** |
-| **Annually (January)** | **Rate-Normalised PE recalc** | Year begins | **Yes** |
-| **Annually (January)** | **Full universe re-screen** | Year begins | **Yes** |
-| **Event-triggered** | **Rule 9 model refresh** | See triggers | **Yes** |
-| **Event-triggered** | **Short thesis engagement** | Short report published | **Yes** |
-| **Event-triggered** | **Turnaround sub-gate review** | Every 2 quarters after entry | **Yes** |
+| Frequency | Task | Trigger | Claude Needed? | Automated via |
+|-----------|------|---------|----------------|----------------|
+| Daily (market days) | News & alert scan | Price move >5% intraday | No — human monitors | Routine 1 (>15% unexplained moves trigger a `rescore-due` issue; 5–15% noted informationally) |
+| Weekly (Monday) | Earnings calendar check | Calendar-based | No — human prep | Routine 1 (detection) + Routine 2 (7-day look-ahead) |
+| **After every earnings release** | **Quarterly Re-score** | Company reports earnings | **Yes — core task** | Routine 1 opens a pre-filled `rescore-due` issue; finishing `/rescore` is manual |
+| **Quarterly (Jan, Apr, Jul, Oct)** | **Rate Environment Gate update** | Quarter begins | **Yes** | Routine 3 |
+| **Annually (January)** | **Rate-Normalised PE recalc** | Year begins | **Yes** | Routine 3's January checklist issue |
+| **Annually (January)** | **Full universe re-screen** | Year begins | **Yes** | Routine 4 (monthly slices year-round) |
+| **Event-triggered** | **Rule 9 model refresh** | See triggers | **Yes** | Routine 1 covers price-move and earnings triggers; guidance/M&A/management-change triggers still need human awareness |
+| **Event-triggered** | **Short thesis engagement** | Short report published | **Yes** | Not automated |
+| **Event-triggered** | **Turnaround sub-gate review** | Every 2 quarters after entry | **Yes** | Routine 5 |
+| **Monthly (first Monday)** | **Rebalance / trim review** | Calendar-based | **Yes** | Routine 5 |
 
 > **"Full universe re-screen" = one full pass through the [global coverage matrix](screening-coverage-log.md).** Run `/screen` slice by slice (it self-selects the next least-recently-covered region/sector when called with no argument) until every row shows a current-year "Last screened" date — that's what makes the January target "global, not just US large-cap" in practice rather than in name only.
+
+> **Monthly rebalance / trim review** is a new addition to this calendar — previously rebalances were ad hoc / human-triggered only. See [decisions/2026-06-13-automation-routine-schedule.md](../decisions/2026-06-13-automation-routine-schedule.md) for why a fixed monthly cadence was adopted alongside the rest of this automation.
 
 ---
 
