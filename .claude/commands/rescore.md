@@ -16,3 +16,15 @@ Steps:
 When done, save the result as a session log under `sessions/YYYY-MM-DD-rescore-<ticker>.md` and update the score/review-date row in [holdings.md](../../portfolio/holdings.md).
 
 **Watchlist:** for each rescored ticker, create or update `watchlist/in-portfolio/<TICKER>/<TICKER>-YYYY-MM-DD.md` per [watchlist/README.md](../../watchlist/README.md). Add a new dated row only if the score, the scored↔unscored status, the action category, or a Rule 9 trigger changed from the ticker's last watchlist entry; otherwise append a "Last checked (no significant change)" line to the existing file.
+
+## Batch processing (multiple tickers)
+
+If `$ARGUMENTS` lists more than one ticker, do **not** launch them all as parallel subagents at once — running too many heavy-research agents simultaneously has repeatedly hit the shared session usage limit ("You've hit your session limit · resets HH:MM (UTC)") and lost in-progress work.
+
+1. **Default batch size: 2 concurrent tickers.** A full re-score costs roughly 120-160K tokens per ticker (per-agent `subagent_tokens` reported on completion) — 2 in parallel leaves headroom; running many at once does not.
+2. **Adapt the batch size using observed cost**: after the first batch completes, check the reported token usage. If both agents finished comfortably under budget with no limit hit, the next batch may stay at 2 (or try 3 if there's a strong reason to believe more headroom exists); if a batch hits the limit, halve the size for the retry (down to 1 = fully sequential).
+3. **Commit and push after every batch** (or after every individual ticker if running sequentially) — never wait until all tickers are done. This locks in progress so a mid-run interruption costs at most one batch's worth of work.
+4. **Give the user a one-line status update after each batch** (e.g. "3/8 done") before starting the next — don't go silent between batches.
+5. **If a batch hits the session limit before finishing**: check the filesystem for which tickers actually produced output files, commit/push whatever completed, note the reset time from the error message, and retry the remaining tickers (with the reduced batch size from step 2) once that time has passed.
+6. **Defer `portfolio/holdings.md` updates to the orchestrator** after each batch completes, to avoid concurrent-edit conflicts between agents running in the same batch.
+7. Repeat until all requested tickers are done, then give a final consolidated summary covering every ticker.
