@@ -186,6 +186,29 @@ TIKR saved screen: Gross Margin % ≥ 40, Net Margin % ≥ 12, ROIC ≥ 15, Reve
 
 Finviz (US fast pass): Gross Margin > 40%, Net Profit Margin > 12%, ROE > 15%, Sales 5Y > 10%, Operating Margin > 15%, Debt/Equity < 0.5.
 
+### Free fallback — `yfinance` (no API key, verified working 2026-06-14)
+
+If the EODHD key's plan returns `403 — "Only EOD data allowed for free users"` on `/screener` or `/fundamentals` (a **plan limitation**, distinct from the "Host not in allowlist" network case above), use the free `yfinance` Python package as a drop-in for **Step 2 (per-candidate Phase 01 verification)**:
+
+```bash
+pip install --quiet yfinance   # one-time per session
+```
+
+```python
+import yfinance as yf
+t = yf.Ticker("0388.HK")   # works with exchange-suffixed tickers (.AX, .HK, .SI, .TW) and US ADRs
+info = t.financials   # annual income statement: Gross Profit, EBIT, EBITDA, Net Income, Total Revenue
+cf   = t.cashflow     # annual cash flow: Free Cash Flow, Operating Cash Flow, Capital Expenditure
+bs   = t.balance_sheet  # Total Debt, Cash And Cash Equivalents, Total Equity
+hi   = t.info         # current snapshot: marketCap, enterpriseValue, grossMargins, profitMargins,
+                       # returnOnEquity, revenueGrowth, freeCashflow, ebitda, enterpriseToEbitda,
+                       # trailingPE, forwardPE, pegRatio, debtToEquity, totalDebt, totalCash
+```
+
+Verified against this session's manually-sourced HKEX numbers (`grossMargins` 0.965, `returnOnEquity` 0.350, `profitMargins` 0.626 — all matched stockanalysis.com to 3 decimals). `t.financials`/`t.cashflow` provide multi-year history for the 3yr CAGR and "FCF positive 3 consecutive years" checks; `t.info["ebit"]`/`enterpriseValue` give EV/EBIT directly.
+
+**Do not use `yf.screen()` (the bulk Yahoo screener) for Phase 01 pre-filtering** — tested 2026-06-14 and its margin/ROE/growth filter predicates did not constrain results correctly (e.g. a query requiring net margin >12% and ROE >15% still returned Woolworths, which has ~0.85% net margin and ~11.9% ROE). For the bulk pre-filter step (Phase A-1, ~70k → ~300–600 candidates), continue using **structural triage from documented business-model characteristics** (Step 1) to build the candidate pool, then verify each candidate's real numbers with `yfinance` as above.
+
 ---
 
 ## Discovery Filters — Finding Undiscovered Names
