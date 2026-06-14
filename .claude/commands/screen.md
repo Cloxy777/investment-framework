@@ -67,7 +67,9 @@ Phase 01 metrics to verify for each candidate (see [valuation-scoring.md](../../
 - Net debt/EBITDA < 2.5x → derive from balance sheet if not returned directly
 - FCF/Net Income conversion > 70% for 2+ years
 
-**Network caveat:** If EODHD returns `Host not in allowlist`, the current session's network policy does not allow connections to `eodhd.com`. Either update the network policy for this session (see [claude.ai/code/docs](https://code.claude.com/docs)) or fall back to Path B below.
+**Plan-limit fallback — `yfinance`:** If EODHD's `/fundamentals` endpoint returns `403 — "Only EOD data allowed for free users"` (a plan limitation, not a network block), do not drop to Path B for this step. Instead, pull the same Phase 01 metrics per-candidate via the free `yfinance` Python package as documented in [valuation-scoring.md](../../framework/valuation-scoring.md#free-fallback-yfinance-no-api-key-verified-working-2026-06-14) (`t.info`, `t.financials`, `t.cashflow`, `t.balance_sheet` — works with exchange-suffixed tickers like `.AX`/`.HK`/`.SI`/`.TW`). Note `yf.screen()` is unreliable for bulk filtering, so it is not a substitute for Phase A-1/A-2 — only for this per-candidate verification step.
+
+**Network caveat:** If EODHD returns `Host not in allowlist`, the current session's network policy does not allow connections to `eodhd.com`. Try the `yfinance` fallback above (it hits `query1.finance.yahoo.com`, which may be allowed even when `eodhd.com` is not); if that host is also blocked, either update the network policy for this session (see [claude.ai/code/docs](https://code.claude.com/docs)) or fall back to Path B below.
 
 ---
 
