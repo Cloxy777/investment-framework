@@ -20,8 +20,8 @@ Five routines cover the entire "Schedule at a Glance" table in [operating-calend
 ## One-time setup
 
 1. **Create a cloud environment** (e.g. name it `investment-automation`) at claude.ai/code — used by all five routines:
-   - **Network access:** Custom → check "Also include default list of common package managers/Trusted domains", then add: `eodhd.com`, `fred.stlouisfed.org`, `www.interactivebrokers.com`
-   - **EODHD API key:** already committed in [`.claude/settings.json`](../.claude/settings.json) (`EODHD_API_KEY`) — every Claude Code session in this repo, including routines, picks it up automatically. No separate environment variable needed. Without it, Routine 1's earnings-data pre-fill and Routine 4's `/screen` automation fall back to their manual paths (see each routine's notes).
+   - **Network access:** Custom → check "Also include default list of common package managers/Trusted domains", then add: `eodhd.com`, `fred.stlouisfed.org`, `www.interactivebrokers.com`, `query1.finance.yahoo.com`, `query2.finance.yahoo.com` (the latter two are for the `yfinance` fallback used when EODHD's free plan 403s on `/fundamentals` — see framework/valuation-scoring.md "Free fallback — yfinance").
+   - **EODHD API key:** already committed in [`.claude/settings.json`](../.claude/settings.json) (`EODHD_API_KEY`) — every Claude Code session in this repo, including routines, picks it up automatically. No separate environment variable needed. Without it, Routine 1's earnings-data pre-fill and Routine 4's `/screen` automation fall back to their manual paths (see each routine's notes). Even with the key set, EODHD's free plan returns 403 on `/fundamentals` — Routines 1 and 4 should try the `yfinance` fallback (per-ticker, no key needed) before dropping to a fully manual path.
    - **Connectors:** keep the **Interactive Brokers** connector enabled (it's how Routines 1 and 2 get live prices/positions/balances/orders). GitHub access comes from your existing claude.ai ↔ GitHub connection.
 
 2. **Branch-push permission:** when creating **Routine 2 (Weekly Sync)**, enable **"Allow unrestricted branch pushes"** for `cloxy777/investment-framework`. It needs to commit straight to `main`, per the existing convention in [sync-sop.md](../portfolio/sync-sop.md) (syncs are low-risk data refreshes with `git revert` as the safety net). Routines 1, 3, 4, 5 only open issues or push to default `claude/`-prefixed branches + PRs — no special permission needed for those.
@@ -73,8 +73,10 @@ Dynamic Trimming investment framework (repo: cloxy777/investment-framework).
      days from the earnings date. Pre-fill it with whatever you can pull from
      EODHD fundamentals (FCF, EV/EBIT, forward PE, ROIC, margins, net
      debt/EBITDA - see framework/valuation-scoring.md "EODHD API -
-     Fundamentals Endpoint") plus current price and current weight from
-     holdings.md. Explicitly list every field from the "Data Input Template -
+     Fundamentals Endpoint"). If EODHD's `/fundamentals` returns 403 (free
+     plan limit), pull the same fields via the `yfinance` fallback in
+     framework/valuation-scoring.md ("Free fallback - yfinance") instead of
+     leaving them blank. Add current price and current weight from
      Standard Re-Score" (operating-calendar.md) you could NOT fill -
      especially 10yr average PE and FCF/NI conversion ratio, which usually
      need Macrotrends/TIKR/Koyfin. Label it `rescore-due`.
@@ -299,7 +301,7 @@ one-glance view of what (if anything) needs action this month.
 | Quarterly post-earnings re-score (within 3 business days) | Routine 1 opens a pre-filled `rescore-due` issue | Bring the issue into a normal session, supply the flagged gaps (10yr avg PE, FCF/NI conversion, etc. from Macrotrends/TIKR/Koyfin), and run `/rescore <TICKER>` to finish the scoring |
 | Quarterly Rate Environment Gate update | Routine 3 | If the regime changed, work through the portfolio-wide `/rescore` checklist the issue lists |
 | Annual Rate-Normalised PE recalc (Jan) | Routine 3's January checklist issue | Gather the top-5 rate-matched historical PE data (with Claude, interactively) |
-| Annual full universe re-screen (Jan target) | Routine 4, monthly slices year-round | Nothing if `EODHD_API_KEY` is configured; Path B (manual TIKR/Koyfin paste) otherwise |
+| Annual full universe re-screen (Jan target) | Routine 4, monthly slices year-round | Nothing if `EODHD_API_KEY` is configured (Phase A-3 verification falls back to `yfinance` if `/fundamentals` 403s); Path B (manual TIKR/Koyfin paste) only if both EODHD and `yfinance` are unreachable |
 | Rule 9 — price move >15% / earnings | Routine 1 | Guidance revisions, M&A, and management-change triggers aren't auto-detected — still need human awareness from news |
 | Rule 9 — short thesis engagement | Not automated | Optional future extension: add a weekly WebSearch ("`<TICKER>` short report") for top-weight holdings to Routine 1 or 2 |
 | Turnaround sub-gate review (every 2 quarters) | Routine 5 | Nothing, once `override-log.md` records entry dates for turnaround positions |
