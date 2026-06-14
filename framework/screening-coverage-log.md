@@ -17,7 +17,7 @@ Tracks which slice of the global investable universe each `/screen` session has 
 | NA-2 | North America (US + Canada) | Financials, Healthcare, Industrials, Energy, Materials, Real Estate/Utilities | Never | — | — |
 | EU | Europe (UK, Eurozone, Switzerland, Nordics) | All sectors | Never | — | — |
 | JP | Japan | All sectors | Never | — | — |
-| APAC-EX-JP | Developed Asia-Pacific ex-Japan (Australia, Hong Kong, Singapore, South Korea, Taiwan) | All sectors | Never | — | — |
+| APAC-EX-JP | Developed Asia-Pacific ex-Japan (Australia, Hong Kong, Singapore, South Korea, Taiwan) | All sectors | 2026-06-14 | 1 — HKEX (0388.HK); near-misses flagged: ResMed (RMD), Singapore Exchange (S68); data-gap case: CSL | Structural triage (domain knowledge) + sourced fundamentals from stockanalysis.com (EODHD free plan returned 403 on screener/fundamentals endpoints) — see [sessions/2026-06-14-screening-apac-ex-japan.md](../sessions/2026-06-14-screening-apac-ex-japan.md) |
 | EM | Emerging Markets (China, India, Brazil, Mexico, and other major EM) | All sectors | Never | — | — |
 
 *Add or split rows as coverage matures — e.g., once a region's "all sectors" pass turns up too many qualified names to triage in one session, split it into sector-focused slices the way NA was split into NA-1/NA-2.*
