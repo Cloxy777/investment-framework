@@ -136,59 +136,19 @@ EV/EBIT            < 20x
 
 ## Global Phase 01 Screener Setup
 
-`/screen` uses the **EODHD API** (key stored in `.claude/settings.local.json`) to automatically pull and filter the global universe — no manual export needed. The flow:
+`/screen` builds the starting universe manually — a TIKR/Koyfin saved-screen export, a Finviz fast pass, or quality-factor ETF holdings (MOAT/QUAL/QGRW/IQLT) when screener access isn't available (see [screen.md](../.claude/commands/screen.md) Step 0). There is no bulk-screener API wired up; `yf.screen()` (the bulk Yahoo screener) is unreliable for pre-filtering — see below.
 
-1. EODHD screener pre-filters ~70k+ global tickers → ~300–600 quality candidates
-2. Claude applies the full Phase 01 gate on that shortlist using the EODHD fundamentals endpoint
-3. Structural triage + qualitative pass produces the final Qualified Quality List
+Once a candidate list exists, verify each candidate's exact Phase 01 numbers with the free `yfinance` Python package — no API key needed.
 
-### EODHD API — Screener Endpoint
-
-```
-GET https://eodhd.com/api/screener
-  ?api_token={EODHD_API_KEY}
-  &filters=[FILTER_ARRAY]
-  &limit=100&offset=0
-```
-
-**Confirmed filter fields:** `exchange`, `sector`, `industry`, `market_capitalization`, `earnings_share`, `dividend_yield`
-
-**Quality filter fields to try** (supported on some plans — drop any that return an error):
-`ProfitMargin`, `ReturnOnEquityTTM`, `OperatingMarginTTM`, `QuarterlyRevenueGrowthYOY`
-
-Default quality pre-filter values: `ProfitMargin ≥ 0.12`, `ReturnOnEquityTTM ≥ 0.15`, `OperatingMarginTTM ≥ 0.10`, `market_capitalization ≥ 300000000`
-
-Paginate by incrementing `offset` by 100 until a page returns < 100 results.
-
-### EODHD API — Fundamentals Endpoint (Phase 01 verification)
-
-```
-GET https://eodhd.com/api/fundamentals/{TICKER}.{EXCHANGE}
-  ?api_token={EODHD_API_KEY}&filter=Highlights
-```
-
-Key Highlights fields and their Phase 01 mapping:
-
-| EODHD Field | Phase 01 Metric |
-|---|---|
-| `ProfitMargin` | Net margin (threshold: >12%) |
-| `GrossProfitTTM / RevenueTTM` | Gross margin (threshold: >40%) — calculated |
-| `ReturnOnEquityTTM` | ROIC proxy (threshold: >15%) — flag if equity-heavy structure makes ROE unreliable |
-| `QuarterlyRevenueGrowthYOY` | Revenue growth proxy — flag divergence from 3yr CAGR |
-| `OperatingMarginTTM` | Operating margin (supporting signal) |
-| `FreeCashFlow` | FCF positive check — use `filter=Financials` for 3-year history |
-
-Metrics not available in Highlights (require `filter=Financials` or manual check): Net Debt/EBITDA, 3yr revenue CAGR, FCF/Net Income conversion ratio. Flag these as needing manual TIKR/Koyfin verification rather than estimating.
-
-### Manual fallback (if EODHD key missing or network restricted)
+### Manual screening tools
 
 TIKR saved screen: Gross Margin % ≥ 40, Net Margin % ≥ 12, ROIC ≥ 15, Revenue Growth 3Y CAGR ≥ 8%, FCF > 0 (3 years), Net Debt/EBITDA ≤ 2.5. Export and paste to `/screen`.
 
 Finviz (US fast pass): Gross Margin > 40%, Net Profit Margin > 12%, ROE > 15%, Sales 5Y > 10%, Operating Margin > 15%, Debt/Equity < 0.5.
 
-### Free fallback — `yfinance` (no API key, verified working 2026-06-14)
+### `yfinance` — per-candidate Phase 01 verification (verified working 2026-06-14)
 
-If the EODHD key's plan returns `403 — "Only EOD data allowed for free users"` on `/screener` or `/fundamentals` (a **plan limitation**, distinct from the "Host not in allowlist" network case above), use the free `yfinance` Python package as a drop-in for **Step 2 (per-candidate Phase 01 verification)**:
+Use this for **Step 2 (per-candidate Phase 01 verification)** in [screen.md](../.claude/commands/screen.md):
 
 ```bash
 pip install --quiet yfinance   # one-time per session
@@ -207,7 +167,7 @@ hi   = t.info         # current snapshot: marketCap, enterpriseValue, grossMargi
 
 Verified against this session's manually-sourced HKEX numbers (`grossMargins` 0.965, `returnOnEquity` 0.350, `profitMargins` 0.626 — all matched stockanalysis.com to 3 decimals). `t.financials`/`t.cashflow` provide multi-year history for the 3yr CAGR and "FCF positive 3 consecutive years" checks; `t.info["ebit"]`/`enterpriseValue` give EV/EBIT directly.
 
-**Do not use `yf.screen()` (the bulk Yahoo screener) for Phase 01 pre-filtering** — tested 2026-06-14 and its margin/ROE/growth filter predicates did not constrain results correctly (e.g. a query requiring net margin >12% and ROE >15% still returned Woolworths, which has ~0.85% net margin and ~11.9% ROE). For the bulk pre-filter step (Phase A-1, ~70k → ~300–600 candidates), continue using **structural triage from documented business-model characteristics** (Step 1) to build the candidate pool, then verify each candidate's real numbers with `yfinance` as above.
+**Do not use `yf.screen()` (the bulk Yahoo screener) for Phase 01 pre-filtering** — tested 2026-06-14 and its margin/ROE/growth filter predicates did not constrain results correctly (e.g. a query requiring net margin >12% and ROE >15% still returned Woolworths, which has ~0.85% net margin and ~11.9% ROE). For the bulk pre-filter step, continue using **structural triage from documented business-model characteristics** ([screen.md](../.claude/commands/screen.md) Step 1) to build the candidate pool, then verify each candidate's real numbers with `yfinance` as above.
 
 ---
 

@@ -12,7 +12,7 @@ DTSTART:20260615T213000Z
 DURATION:PT15M
 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
 SUMMARY:Routine 1 — Daily Market & Earnings Check
-DESCRIPTION:Claude Code Routine 1 (cloxy777/investment-framework).\nChecks 1-day price moves and the EODHD earnings calendar for every equity holding in portfolio/holdings.md.\nOpens GitHub issues labeled rescore-due for >15% unexplained moves (Rule 9) or earnings releases in the last 2 business days\, pre-filled with whatever EODHD data is available.\nA quiet run with no issues opened is the normal case.\nDetails: framework/automation-schedule.md (Routine 1).
+DESCRIPTION:Claude Code Routine 1 (cloxy777/investment-framework).\nChecks 1-day price moves and earnings dates (via yfinance) for every equity holding in portfolio/holdings.md.\nOpens GitHub issues labeled rescore-due for >15% unexplained moves (Rule 9) or earnings releases in the last 2 business days\, pre-filled with whatever yfinance data is available.\nA quiet run with no issues opened is the normal case.\nDetails: framework/automation-schedule.md (Routine 1).
 END:VEVENT
 BEGIN:VEVENT
 UID:routine-2-weekly-sync-brief@investment-framework
@@ -21,7 +21,7 @@ DTSTART:20260615T110000Z
 DURATION:PT15M
 RRULE:FREQ=WEEKLY;BYDAY=MO
 SUMMARY:Routine 2 — Weekly Portfolio Sync & Brief
-DESCRIPTION:Claude Code Routine 2 (cloxy777/investment-framework).\nRuns the full IBKR sync (positions\, cash balances\, active orders) per portfolio/sync-sop.md and commits straight to main.\nPulls the 7-day EODHD earnings look-ahead\, flags overdue rescore-due issues\, writes sessions/weekly-briefs/YYYY-MM-DD-weekly-brief.md\, and opens/updates the "Weekly Portfolio Brief" issue.\nDetails: framework/automation-schedule.md (Routine 2).
+DESCRIPTION:Claude Code Routine 2 (cloxy777/investment-framework).\nRuns the full IBKR sync (positions\, cash balances\, active orders) per portfolio/sync-sop.md and commits straight to main.\nPulls the 7-day earnings look-ahead via yfinance\, flags overdue rescore-due issues\, writes sessions/weekly-briefs/YYYY-MM-DD-weekly-brief.md\, and opens/updates the "Weekly Portfolio Brief" issue.\nDetails: framework/automation-schedule.md (Routine 2).
 END:VEVENT
 BEGIN:VEVENT
 UID:routine-3-quarterly-rate-review@investment-framework
@@ -39,7 +39,7 @@ DTSTART:20260704T140000Z
 DURATION:PT15M
 RRULE:FREQ=MONTHLY;BYDAY=SA;BYSETPOS=1
 SUMMARY:Routine 4 — Monthly Universe Screening Slice
-DESCRIPTION:Claude Code Routine 4 (cloxy777/investment-framework).\nRuns /screen with no argument — self-selects the next least-recently-covered slice of framework/screening-coverage-log.md and runs the full EODHD-automated Phase 01 quality gate.\nUpdates the coverage log\, saves the session log\, opens a PR\, and opens an issue listing any qualified /new-position candidates (or a zero-result issue).\nDetails: framework/automation-schedule.md (Routine 4).
+DESCRIPTION:Claude Code Routine 4 (cloxy777/investment-framework).\nRuns /screen with no argument — self-selects the next least-recently-covered slice of framework/screening-coverage-log.md\, builds the starting universe from quality-factor ETF holdings\, and runs the full Phase 01 quality gate via yfinance.\nUpdates the coverage log\, saves the session log\, opens a PR\, and opens an issue listing any qualified /new-position candidates (or a zero-result issue).\nDetails: framework/automation-schedule.md (Routine 4).
 END:VEVENT
 BEGIN:VEVENT
 UID:routine-5-monthly-rebalance@investment-framework
@@ -66,6 +66,6 @@ DTSTART:20270115T120000Z
 DURATION:PT1H
 RRULE:FREQ=YEARLY;BYMONTH=1;BYMONTHDAY=15
 SUMMARY:Manual: Q1 annual framework review session
-DESCRIPTION:Interactive follow-up to Routine 3's January "annual tasks" checklist issue.\nWork through it with Claude: Rate-Normalised PE recalc for the top 5 holdings\, the annual full-universe re-screen status\, and the Q1 reviews of portfolio/override-log.md\, framework/graveyard-audit.md\, framework/benchmark-comparison.md\, and framework/automation-schedule.md (confirm EODHD key\, IBKR connector\, and FRED endpoint still work).\nDetails: framework/automation-schedule.md (Routine 3 step 5) and framework/operating-calendar.md.
+DESCRIPTION:Interactive follow-up to Routine 3's January "annual tasks" checklist issue.\nWork through it with Claude: Rate-Normalised PE recalc for the top 5 holdings\, the annual full-universe re-screen status\, and the Q1 reviews of portfolio/override-log.md\, framework/graveyard-audit.md\, framework/benchmark-comparison.md\, and framework/automation-schedule.md (confirm the IBKR connector and FRED endpoint still work).\nDetails: framework/automation-schedule.md (Routine 3 step 5) and framework/operating-calendar.md.
 END:VEVENT
 END:VCALENDAR
