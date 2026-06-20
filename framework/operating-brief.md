@@ -58,7 +58,13 @@ Each input is a continuous 0–100.0 sub-score (0 = cheapest/most attractive, 10
 
   Rate Regime Modifier — additive, applied after raw weighted score.
 
-Final Score = (FCF_Score×0.40) + (EV/EBIT_Score×0.25) + (FwdPE_Score×0.20) + (PEG_Score_or_fallback×0.15) + Rate Modifier
+  Upside/Downside Modifier — additive, bounded [−15, +15], applied after raw weighted score (see valuation-scoring.md). Folds expected forward return into the single score: strong expected upside lowers it, thin/negative expected return raises it toward trim/sell. Compute E = (gap to probability-weighted fair value ÷ catalyst-years, Rules 7+10) + intrinsic growth + shareholder yield; hurdle H = 10%.
+    If E ≥ H:     M = −15 × clamp((E−H)/15pp, 0, 1)
+    If 0 ≤ E < H: M = +5 × (H−E)/H            (caps at +5 — won't force-trim a fair-value name; preserves anti-turnover)
+    If E < 0:     M = +5 + 10 × clamp((−E)/10pp, 0, 1)
+    Guardrails: no catalyst within 18–24mo → cap upside side at −5; use bull/base/bear PW FV (never the rosy point); show the full E calc.
+
+Final Score = (FCF_Score×0.40) + (EV/EBIT_Score×0.25) + (FwdPE_Score×0.20) + (PEG_Score_or_fallback×0.15) + Rate Modifier + Upside/Downside Modifier
 Round to nearest 0.1 (round .X5 up). Minimum 0.0, Maximum 100.0.
 
 ACTION TABLE
