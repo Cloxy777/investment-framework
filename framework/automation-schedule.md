@@ -107,11 +107,17 @@ Dynamic Trimming investment framework (repo: cloxy777/investment-framework).
      days from the earnings date. Pre-fill it with whatever you can pull via
      `yfinance` (FCF, EV/EBIT, forward PE, ROIC, margins, net debt/EBITDA -
      see framework/valuation-scoring.md "yfinance - per-candidate Phase 01
-     verification"). Add current price and current weight from holdings.md,
-     and list the fields needed for the "Standard Re-Score" checklist
-     (operating-calendar.md) you could NOT fill - especially 10yr average PE
-     and FCF/NI conversion ratio, which usually need Macrotrends/TIKR/Koyfin.
-     Label it `rescore-due`.
+     verification"), PLUS the 5yr avg/low/high PE and FCF/NI conversion ratio
+     using the automated methods in framework/valuation-scoring.md
+     "yfinance - automated 5yr avg PE & FCF/NI conversion ratio" (reconstruct
+     TTM EPS from `t.get_earnings_dates(limit=40)`, pair with price history
+     for the PE series; divide `t.cashflow`'s Free Cash Flow by `t.financials`'
+     Net Income for the conversion ratio). Add current price and current
+     weight from holdings.md, and list any remaining "Standard Re-Score"
+     fields (operating-calendar.md) you still could NOT fill - e.g. if a
+     ticker has fewer than 20 quarters of earnings-date history, flag the 5yr
+     PE as the no-history fallback (50.0 neutral) rather than computing it
+     over a shorter window. Label it `rescore-due`.
 
 5. Before opening any issue, check open issues for an existing one for the
    same ticker + trigger type - don't duplicate (skip steps 6-7 for a ticker
@@ -411,7 +417,7 @@ Telegram run-summary message was sent.
 |---|---|---|
 | Daily news & alert scan (price move >5%) | Routine 1 | Nothing — informational flag only |
 | Weekly earnings calendar check | Routine 1 (detection) + Routine 2 (look-ahead) | Nothing |
-| Quarterly post-earnings re-score (within 3 business days) | Routine 1 opens a pre-filled `rescore-due` issue | Bring the issue into a normal session, supply the flagged gaps (10yr avg PE, FCF/NI conversion, etc. from Macrotrends/TIKR/Koyfin), and run `/rescore <TICKER>` to finish the scoring |
+| Quarterly post-earnings re-score (within 3 business days) | Routine 1 opens a `rescore-due` issue pre-filled with all standard inputs incl. 5yr avg PE and FCF/NI conversion (both now auto-computed via `yfinance` — see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md)) | Bring the issue into a normal session and run `/rescore <TICKER>` — data gathering is automated, but the qualitative judgment (moat/margin questions, Structural Quality Override calls, Short Thesis Engagement) and the actual score sign-off stay human |
 | Quarterly Rate Environment Gate update | Routine 3 | If the regime changed, work through the portfolio-wide `/rescore` checklist the issue lists |
 | Annual Rate-Normalised PE recalc (Jan) | Routine 3's January checklist issue | Gather the top-5 rate-matched historical PE data (with Claude, interactively) |
 | Annual full universe re-screen (Jan target) | Routine 4, monthly slices year-round | Nothing — Routine 4 builds its starting universe from quality-factor ETF holdings automatically and verifies candidates via `yfinance` |
@@ -425,7 +431,7 @@ Telegram run-summary message was sent.
 ## What stays manual no matter what
 
 - **Freedom Finance sync** — no API; screenshot-based by design.
-- **Finishing a RESCORE** — `yfinance` covers most Phase 01/02 inputs, but 10yr average PE (Macrotrends) and sometimes FCF/NI conversion need a human-in-the-loop session.
+- **Finishing a RESCORE** — `yfinance` now covers all Phase 01/02 data inputs, including 5yr avg PE and FCF/NI conversion (see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md)). What still needs a human-in-the-loop session is the judgment layer Routine 1 can't exercise unattended: the qualitative questions, Structural Quality Override calls, Short Thesis Engagement, and signing off on the final score before it's committed.
 - **Executing trades** — every routine here proposes (issues, PRs); nothing places an order.
 - **Anything `/new-position`** — ad hoc by nature, triggered by a screening hit or your own idea, not scheduled.
 
