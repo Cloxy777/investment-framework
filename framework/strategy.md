@@ -89,7 +89,7 @@ Assign a valuation score (0–100.0) to each qualified company. Full scoring mec
 
 *Trim trigger raised 2026-06-07 from Score 6–7 to Score 8+ (on the 1–10 scale then in force; equivalent to 50.0–69.9 → 70.0+ after the 2026-06-11 rescale to 0.0–100.0 — see [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md)) — see [investor-philosophy-alignment.md](investor-philosophy-alignment.md). Trimming the moment a position crosses from "Cheap" into merely "Fair Value" was a materially higher-turnover posture than Buffett ("favorite holding period is forever"), Munger ("sit on your ass investing" / the "croupier's take" on trading friction), or Terry Smith (~3–4% annual turnover, "do nothing") actually practice. Score 50.0–69.9 is now hold-and-watch only — it already carries a "Watchlist only, no new entry" label in Phase 03; there's no reason for it to also be a trim trigger. The framework keeps its teeth at the extremes, where even these long-term compounders do trim (e.g., Buffett's 2024 Apple cut once it became dramatically oversized and rich).*
 
-- **Score 50.0–69.9:** Hold. No new entry (Watchlist only — Phase 03). No trim — fair value alone is not a sell signal.
+- **Score 50.0–69.9:** Hold. No new entry (Watchlist only — Phase 03). No trim — fair value alone is not a sell signal. *(The Upside/Downside Modifier preserves this: thin-but-positive expected return adds at most +5, so it cannot by itself push a fair-value name into the 70.0+ trim band. Only a genuine expected **loss** — negative expected annual return — earns enough positive modifier to move a held name toward trimming, which is the intended "downside → trim/sell" behaviour. See [valuation-scoring.md](valuation-scoring.md).)*
 - **Score 70.0–79.9:** Trim 25–30% of position. Recycle into Score 0.0–29.9 names.
 - **Score 80.0–89.9:** Trim to half-position (50% of original size)
 - **Score 90.0–100.0:** Trim to tracking position — 1–2%
@@ -212,3 +212,4 @@ All four weighted inputs are continuous **0–100.0** sub-scores (see [valuation
 | Forward PE + Historical PE Modifier | 20% | Adds mean-reversion signal |
 | PEG Sub-score (Fast Growers only) | 15% | Lynch filter |
 | Rate Regime Modifier (post-score) | Additive | −10 / 0 / +5 / +10 based on 10Y Treasury |
+| Upside/Downside Modifier (post-score) | Additive | −15 … +15 based on expected annual return vs a 10% hurdle. Folds the **forward** dimension (expected return, including downside) into the single score so the lowest score is the most attractive and thin/negative expected return pushes toward trim/sell. See [valuation-scoring.md](valuation-scoring.md). |

@@ -76,6 +76,8 @@ Buy Price = Fair Value × (1 − Margin of Safety %)
 - Score 50.0–69.9 → No MoS → **Watchlist only**
 - Score 70.0–100.0 → Do not buy → **Trim or exit protocol**
 
+> **The score already embeds expected return.** As of 2026-06-20 the valuation score carries an additive **Upside/Downside Modifier** (−15 … +15) driven by the expected annual return computed here — the gap to the probability-weighted fair value (Rule 7) annualized over the catalyst window (Rule 10), plus intrinsic growth and shareholder yield. So the score-band actions above are *already forward-aware*: a wonderful business with strong expected return is pulled down toward the buy bands even when its current multiples alone wouldn't qualify, and a richly-priced name with thin or negative expected return is pushed up toward the trim/exit bands. Full mechanics in [valuation-scoring.md](valuation-scoring.md#upsidedownside-modifier-expected-return-modifier).
+
 ---
 
 ## Step 3 — Set the Sell Target
@@ -143,7 +145,9 @@ If R/R is below 2:1: wait for lower entry, find tighter stop, or pass on the tra
 ## Order Setup Checklist
 
 ```
-[ ] Valuation Score:                         ____  (must be ≤ 49.9 to enter)
+[ ] Valuation Score (incl. Upside/Downside Mod): ____  (must be ≤ 49.9 to enter)
+[ ] Expected annual return E / catalyst window:  ____% / ____yr  (feeds the Upside/Downside Modifier)
+[ ] Upside/Downside Modifier applied:            ____  (−15 … +15)
 [ ] DCF Fair Value:                          $______
 [ ] Multiples-Based Fair Value:              $______
 [ ] Blended Fair Value:                      $______

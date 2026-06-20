@@ -7,7 +7,7 @@ How to compute the Phase 02 score (0–100.0) for a qualified company. See [stra
 ## Final Score Formula
 
 ```
-Final Score = (FCF_Score × 0.40) + (EV/EBIT_Score × 0.25) + (FwdPE_Score × 0.20) + (PEG_Score_or_fallback × 0.15) + Rate Regime Modifier
+Final Score = (FCF_Score × 0.40) + (EV/EBIT_Score × 0.25) + (FwdPE_Score × 0.20) + (PEG_Score_or_fallback × 0.15) + Rate Regime Modifier + Upside/Downside Modifier
 ```
 
 > If PEG is not applicable (non-Fast Grower), redistribute its 15% weight to EV/EBIT (making EV/EBIT weight 40%).
@@ -101,6 +101,55 @@ PEG_Score = clamp((PEG − 0.5) / 2.0 × 100, 0, 100)
 If PEG is not applicable (not a Fast Grower), redistribute its 15% weight to EV/EBIT per the Final Score Formula note above.
 
 **Rate Regime Modifier** — additive, applied after the raw weighted score (see Rate Environment Gate in [strategy.md](strategy.md)): −10 / 0 / +5 / +10 based on the 10Y Treasury regime.
+
+---
+
+## Upside/Downside Modifier (Expected-Return Modifier)
+
+*Added 2026-06-20 — see [decisions/2026-06-20-framework-change-upside-downside-modifier.md](../decisions/2026-06-20-framework-change-upside-downside-modifier.md). This closes the "great company never gets cheap" gap: the four weighted sub-scores above are 65–80% anchored on current/trailing valuation, so a wonderful business correctly priced for a bright future could sit permanently in the 50–60 "Fair Value" band and never trigger an entry. This modifier folds the **forward** dimension — how much money the position is actually expected to make — into the single score, so reading the lowest score is enough to rank candidates, and a name with thin or negative expected return is automatically pushed up toward the trim/exit bands.*
+
+**What it does, in one line:** strong expected upside lowers the score (more attractive); thin or negative expected return (an expected *loss*) raises it (toward trim/sell).
+
+**Additive, bounded to [−15, +15]**, applied after the raw weighted score alongside the Rate Regime Modifier. The ±15 cap (the bound, deliberately chosen over a wider range) means the forecast *informs* but never *overrides* the bottom-up cheapness gate — a hyped story scoring 80 lands at 65 (still "Hold / no new entry"), it cannot jump to "Buy" on optimism alone.
+
+**Step 1 — Expected annual return `E`.** Built entirely from fair-value work already defined in [fair-value-methodology.md](fair-value-methodology.md) — no new data source:
+
+```
+PW Fair Value   = 0.25×Bull + 0.50×Base + 0.25×Bear          (Rule 7 — downside underwritten via the bear case)
+Gap Upside %    = (PW Fair Value ÷ Live Price) − 1            (Live Price per Rule 0 — fetch first, never infer)
+Annualized gap  = Gap Upside % ÷ catalyst-timeline in years   (Rule 10; if no narrower window, use 2yr)
+E               = Annualized gap + intrinsic growth rate (FCF or EPS CAGR) + shareholder yield (dividend % + net buyback %)
+```
+
+`PW` = probability-weighted (the scenario blend). `CAGR` = compound annual growth rate. Shareholder yield = cash returned to owners as a % of price (dividends plus net share buybacks).
+
+**Step 2 — Map `E` to the modifier** against a hurdle `H = 10%` (the midpoint of Rule 4's 8–15% implied-IRR — internal rate of return — sanity band). `pp` = percentage points:
+
+```
+If E ≥ H:        M = −15 × clamp((E − H) / 15pp, 0, 1)     # strong upside  → 0 … −15  (E ≥ 25%/yr → full −15)
+If 0 ≤ E < H:    M = +5  × (H − E) / H                     # thin upside    → 0 … +5   (caps at +5 — see anti-turnover note)
+If E < 0:        M = +5 + 10 × clamp((−E) / 10pp, 0, 1)    # expected loss  → +5 … +15 (E ≤ −10%/yr → full +15)
+```
+
+Neutral (M = 0) when `E = 10%`. The mapping is **deliberately asymmetric**: a merely-modest positive expected return can add at most +5, so it will *not* by itself shove a held name out of the 50.0–69.9 "Hold" band into the 70.0+ trim band — only a genuine expected *loss* reaches the higher positives. This is what preserves Phase 05's "fair value alone is not a sell" / anti-turnover posture (the 2026-06-07 decision) while still delivering the requested "downside → trim/sell" behaviour for names that are actually expected to lose money.
+
+| Expected annual return `E` | Modifier `M` | Effect |
+|---|---|---|
+| ≥ +25% | −15.0 | Strongly attractive — pulls score down a full band |
+| +17.5% | −7.5 | Attractive |
+| +10% (hurdle) | 0.0 | Neutral — pure cheapness score stands |
+| +5% | +2.5 | Thin upside — slight penalty |
+| 0% | +5.0 | No expected return — mild trim pressure |
+| −5% | +10.0 | Expected loss — strong trim pressure |
+| ≤ −10% | +15.0 | Expected double-digit loss — pushes toward trim/exit |
+
+**Guardrails (forecast discipline — this is the most discretionary input in the score, so it is fenced):**
+1. **Catalyst required for upside credit.** Per Rule 10, a documented catalyst + timeline must exist. If no catalyst is identifiable within 18–24 months, cap the *upside* (negative) side at **−5** — you can't claim large upside with no path to realise it. The downside side is unaffected (a thesis with no catalyst and an expected loss should still be penalised).
+2. **Scenario-weighted, not the rosy point.** Always use the bull/base/bear PW Fair Value (Rule 7), never a single optimistic target — downside is always underwritten (Klarman: "what do I lose if I'm wrong" first).
+3. **Show the full calc.** `E`, each of its three components, the catalyst/timeline, and the mapping must be shown in the session log like every other sub-score and modifier — no black box (operating-brief.md non-negotiable).
+4. **It is a modifier, not a veto, in both directions** — bounded ±15 by design, mirroring how the Rate Environment Gate's Step 1 was softened from a hard block to an additive flag (2026-06-07).
+
+**Worked example.** A Fast Grower at score 54 (raw), live price $100, PW Fair Value $118 (so Gap Upside +18%), catalyst window 2 years (annualized gap +9%), intrinsic growth +14%/yr, shareholder yield +1% → `E` = 9 + 14 + 1 = **+24%**. Modifier = −15 × clamp((24 − 10)/15, 0, 1) = −15 × 0.93 = **−14.0**. Final score 54 − 14.0 = **40.0** → moves from "Hold / watchlist only" into "Cheap → standard position." The bright future the raw score ignored now earns the entry, exactly the gap this closes.
 
 ---
 
