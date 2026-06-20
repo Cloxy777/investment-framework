@@ -13,6 +13,14 @@ Final Score = (FCF_Score × 0.40) + (EV/EBIT_Score × 0.25) + (FwdPE_Score × 0.
 > If PEG is not applicable (non-Fast Grower), redistribute its 15% weight to EV/EBIT (making EV/EBIT weight 40%).
 > Score boundary rule: round the final result to the nearest 0.1. If it falls exactly on a ".X5" (e.g. 47.45), round UP to ".X+1" — e.g. 47.45 → 47.5 (more conservative). Min 0.0, max 100.0.
 
+## Why Forward Guidance Is Not a Sub-score
+
+Management's own forward guidance (a company's self-issued prediction of its next quarter's or year's results) is deliberately left out of the four weighted inputs above. FCF Yield, EV/EBIT, Forward PE, and PEG are all derived from filed financials or market-observable prices; guidance is a self-reported, unaudited number that management has both the means and the incentive to manage (compensation tied to hitting it, "beat-and-raise" patterns). Baking it into a weighted score would re-introduce exactly the kind of gameable, self-reported input the FCF/Net Income conversion check (added after the Valeant and Wirecard cases — see [graveyard-audit.md](graveyard-audit.md)) was built to guard against. See the **Guidance test** in [investor-philosophy-alignment.md](investor-philosophy-alignment.md) for the full reasoning.
+
+Guidance still matters — as a **trigger**, not a **score**:
+- A guidance revision (up or down) is a mandatory re-valuation event ([fair-value-methodology.md](fair-value-methodology.md) Rule 9) — it changes the inputs that feed the score, rather than being scored itself.
+- Phase 04's **Guidance discipline check** ([strategy.md](strategy.md)) tracks guidance delivered vs. promised over time and escalates a sustained pattern of cuts into the Phase 06 exit review, independent of where the valuation score sits.
+
 ## Sub-score Formulas
 
 Each of the four inputs is computed on its own continuous **0.0–100.0** scale before weighting — **0 = cheapest/most attractive, 100.0 = most expensive.** This replaces the old discrete 1–10 bucket tables with one formula per metric, so two companies that previously landed in the same bucket (e.g. both "sub-score 6–7") are now distinguished.
