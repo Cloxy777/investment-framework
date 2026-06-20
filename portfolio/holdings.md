@@ -25,7 +25,7 @@ Combined total ≈ **$53,659.11** = IBKR Net Liquidation Value $38,535.57 + Free
 | DUOL | 8.54% | 55.6 | 12 Jun 2026 | IBKR + Freedom24 |
 | GOOG | 0.68% | 83.7 | Jun 2026 | IBKR |
 | META | 7.52% | 38.5 | 12 Jun 2026 | IBKR + Freedom24 |
-| MSFT | 16.26% | 51.2 | 12 Jun 2026 | IBKR + Freedom24 |
+| MSFT | 16.26% | 35.0 | 20 Jun 2026 | IBKR + Freedom24 |
 | NFLX | 1.81% | 63.2 | 12 Jun 2026 | IBKR |
 | NKE | 1.69% | 34.1 | Jun 2026 | IBKR |
 | NOW | 2.37% | 59.3 | Jun 2026 | IBKR |
@@ -36,7 +36,7 @@ Combined total ≈ **$53,659.11** = IBKR Net Liquidation Value $38,535.57 + Free
 | SPOT | 0.90% | 82.0 | Jun 2026 | IBKR |
 | STIM | 0.86% | not scored — going-concern override | Jun 2026 | IBKR |
 | TLT | 31.08% | not scored — non-equity, framework gap | Jun 2026 | IBKR + Freedom24 |
-| UBER | 0.39% | 52.9 | Jun 2026 | IBKR |
+| UBER | 0.39% | 34.8 | 20 Jun 2026 | IBKR |
 | V | 0.60% | 54.9 | Jun 2026 | IBKR |
 | VEEV | 0.89% | | | IBKR |
 | XEON | 3.22% | not scored — cash-equivalent, out of scope | Jun 2026 | IBKR |
