@@ -27,6 +27,7 @@ Follow [operating-brief.md](framework/operating-brief.md) as the governing syste
 - **Always fetch live prices first** (Rule 0 in [fair-value-methodology.md](framework/fair-value-methodology.md)) — never infer price from valuation multiples. This caused a real, costly error before (see the SPGI lesson in that file).
 - **Show every calculation** — sub-scores, modifiers, the works. No black-box outputs.
 - **Act only on documented triggers** — a valuation-score change or a fundamental event, never on price movement alone.
+- **Decode jargon on first use.** The user is not a finance professional — expand abbreviations and technical terms in plain English in parentheses the first time they appear in any response, session log, decision log, or PR description (see operating-brief.md).
 
 ## Routine tasks → slash commands
 
