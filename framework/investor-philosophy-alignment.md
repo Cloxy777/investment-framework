@@ -15,6 +15,7 @@ A high-level summary of the core tenets of the investors whose track records and
 - "Our favorite holding period is forever" — selling a wonderful business is the exception, not the routine; compounding rewards patience more than precision timing.
 - Interest rates are "gravity" on all asset values — a valuation *anchor*, never a binary switch that overrides the bottom-up case.
 - Mr. Market is there to serve you, not instruct you — a falling price in a quality business is an opportunity, not a sell signal.
+- Skeptical of the quarterly guidance culture itself — Buffett and JPMorgan's Jamie Dimon publicly called for ending quarterly EPS (earnings per share) guidance (2018 *Wall Street Journal* op-ed), arguing it pressures management toward short-term earnings smoothing over long-term value creation.
 
 ### Charlie Munger — Berkshire Hathaway / Daily Journal
 - Multi-model thinking and inversion: before asking "why will this work," ask "what would make this fail" — and check the answer against several independent mental models at once.
@@ -34,6 +35,7 @@ A high-level summary of the core tenets of the investors whose track records and
 - Never rank quality and cheapness separately — combine Return on Capital (quality) with Earnings Yield (price) into one view of "good business at a good price."
 - Use capital-structure-neutral metrics (EBIT / Enterprise Value) so businesses with different debt loads can be compared fairly.
 - Publish the method and the results, warts and all — transparency over decades is what makes a record trustworthy.
+- Keep inputs audited and non-discretionary — the Magic Formula scores only Return on Capital and Earnings Yield from filed financials; nothing self-reported or management-managed (like forward guidance) gets a vote in the score.
 
 ### Howard Marks — Oaktree Capital
 - "Second-level thinking": don't just ask "is this a good company" — ask "does the consensus already know this, and is it already in the price?"
@@ -48,6 +50,7 @@ A high-level summary of the core tenets of the investors whose track records and
 3. **Mean-reversion test** — does the rule assume a historical average/multiple is still the right anchor? → Check whether the business has structurally improved (Marks' "what's different this time"); if it has, a purely backward-looking comparison will misfire. *(This is the guardrail just added to Upgrade 2.)*
 4. **Macro-veto test** — does the rule let a macro or rate view *override*, rather than just *inform*, an otherwise-strong bottom-up case? → Buffett treats rates as gravity (an input); Lynch ("thirteen minutes a year on the economy") and Munger would flag anything that lets macro *veto* a great business outright. *(This is what converted the Rate Environment Gate's Step 1 from a hard block to a modifier.)*
 5. **Concentration test** — does the rule push toward diversification "for safety" beyond what the quality gate (Phase 01) already earns? → Munger and Buffett's own portfolios argue the opposite: fewer, better names, sized larger, is usually the more disciplined choice — provided the upstream quality screen is doing real work.
+6. **Guidance test** — does the rule treat a company's own forward guidance as a hard, scoreable input rather than a qualitative signal to verify independently? → Guidance is unaudited and a number management has both the means and the incentive to manage — exactly the kind of self-reported, gameable input the Valeant/Wirecard gap-fixes (the FCF/Net Income conversion check) were built to guard against in reported financials. Buffett/Dimon's 2018 call to end quarterly guidance and Greenblatt's audited-inputs-only Magic Formula both argue against baking it into the quantitative score. *(This is why guidance changes are a re-valuation trigger — Rule 9 in fair-value-methodology.md — and a Phase 04 qualitative monitoring check, never a weighted sub-score — see valuation-scoring.md.)*
 
 ---
 

@@ -79,6 +79,7 @@ Assign a valuation score (0–100.0) to each qualified company. Full scoring mec
 - **Organic revenue check:** If acquisitions made, recalculate organic revenue CAGR separately.
 - **Short thesis engagement:** If credible short thesis published, engage with specific argument independently before maintaining position.
 - **Earnings quality check:** If EPS growth exceeds revenue growth by >10pp for 2+ consecutive years, verify operational performance is not masked by buybacks.
+- **Guidance discipline check:** Track guidance delivered vs. promised each quarter. If management cuts forward guidance for 2+ consecutive quarters without a clearly identified one-off cause (FX, a one-time charge, etc.), treat it as a Growth-thesis-broken candidate (Phase 06) — don't wait for the valuation score itself to move. Guidance is never scored quantitatively — see "Why Forward Guidance Is Not a Sub-score" in [valuation-scoring.md](valuation-scoring.md) and the Guidance test in [investor-philosophy-alignment.md](investor-philosophy-alignment.md). Only the delivered-vs-promised credibility pattern is tracked.
 
 ---
 
@@ -99,7 +100,7 @@ Assign a valuation score (0–100.0) to each qualified company. Full scoring mec
 
 ✅ Valid exit reasons:
 - Fundamental deterioration — margins structurally broken, ROIC falls below cost of capital
-- Growth thesis broken — TAM shrinking, disruption visible, pricing power lost
+- Growth thesis broken — TAM shrinking, disruption visible, pricing power lost, or guidance cut 2+ consecutive quarters without a one-off explanation (Phase 04 Guidance discipline check)
 - Extreme overvaluation — Score 90.0–100.0 sustained for 2+ quarters
 - Balance sheet crisis — leverage spikes, dilutive capital raise
 
@@ -107,6 +108,7 @@ Assign a valuation score (0–100.0) to each qualified company. Full scoring mec
 - Price dropped (if quality intact = buy more)
 - Macro fear
 - Short-term earnings miss
+- A single guidance cut with a clearly identified one-off cause — not yet a sustained pattern
 
 ---
 
