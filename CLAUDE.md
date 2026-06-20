@@ -14,6 +14,7 @@ This repo is the single source of truth for the **Quality Value + Dynamic Trimmi
   - [graveyard-audit.md](framework/graveyard-audit.md) — survivorship-bias case studies (GE, Nokia, Valeant, Wirecard, IBM, ...) and the framework gaps each one closed; reviewed/expanded annually in Q1
   - [benchmark-comparison.md](framework/benchmark-comparison.md) — tracks the framework against MSCI Quality Index and the QMJ factor, not just the S&P 500; updated annually in Q1
   - [investor-philosophy-alignment.md](framework/investor-philosophy-alignment.md) — high-level core tenets of Buffett/Munger/Lynch/Greenblatt/Marks plus an alignment checklist; check any new or revised framework rule against it before adopting it
+  - [glossary.md](framework/glossary.md) — plain-English definitions of financial jargon and framework-specific terms; every output cites the relevant entries in a closing "Glossary" section (see below)
 - **`portfolio/`** — [holdings.md](portfolio/holdings.md) (current positions/weights/scores), [sync-sop.md](portfolio/sync-sop.md) (how to pull live broker data into [`snapshots/`](portfolio/snapshots/) and refresh holdings), and [override-log.md](portfolio/override-log.md) (every position entered outside the framework's rules, tracked and reviewed annually)
 - **`watchlist/`** — [README.md](watchlist/README.md) explains the convention: a per-ticker, dated "current state" pointer (split into `in-portfolio/` and `not-in-portfolio/`) to the latest score/action for every ticker `/new-position` or `/rescore` has touched. Updated by those two commands and reconciled by `/sync-portfolio`; `sessions/` remains the canonical record of how each number was derived.
 - **`sessions/`** — dated logs of every analysis session (screenings, re-scores, evaluations, rebalances)
@@ -27,7 +28,7 @@ Follow [operating-brief.md](framework/operating-brief.md) as the governing syste
 - **Always fetch live prices first** (Rule 0 in [fair-value-methodology.md](framework/fair-value-methodology.md)) — never infer price from valuation multiples. This caused a real, costly error before (see the SPGI lesson in that file).
 - **Show every calculation** — sub-scores, modifiers, the works. No black-box outputs.
 - **Act only on documented triggers** — a valuation-score change or a fundamental event, never on price movement alone.
-- **Decode jargon on first use.** The user is not a finance professional — expand abbreviations and technical terms in plain English in parentheses the first time they appear in any response, session log, decision log, or PR description (see operating-brief.md).
+- **Decode jargon in a closing Glossary section.** The user is not a finance professional — every response, session log, decision log, and PR description ends with a "Glossary" section defining the jargon/abbreviations it used, sourced from [glossary.md](framework/glossary.md) (add new terms there first if missing). See operating-brief.md OUTPUT FORMAT step 9.
 
 ## Routine tasks → slash commands
 
