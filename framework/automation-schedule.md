@@ -61,7 +61,7 @@ Every actionable item gets a **priority tier**, which sets its `.ics` due date/t
 | **P1** | Rate regime change (whole-portfolio); a trim/exit trigger fires on a holding ≥5% weight; an earnings-driven RESCORE on a holding ≥5% weight | Next business day | 13:30 (just before US open) |
 | **P2** | Earnings-driven RESCORE on a holding <5% weight; the monthly rebalance proposal itself; a turnaround-sub-gate review due | Next business day | 21:00 (after US close) |
 | **P3** | Unexplained >15% move RESCORE (no confirmed catalyst yet); an overdue `rescore-due` flagged by Routine 2 | 3 business days out (today if already overdue) | 21:00 |
-| **P4** | Monthly screening candidates (informational, no capital at risk yet); January annual-tasks checklist | 5 business days out (10 for the January checklist) | 21:00 |
+| **P4** | Screening candidates from each twice-weekly `/screen` run (informational, no capital at risk yet); January annual-tasks checklist | 5 business days out (10 for the January checklist) | 21:00 |
 
 Each routine's prompt below states exactly which tier its own triggers map to.
 
@@ -290,11 +290,11 @@ portfolio-wide re-score need; one Telegram run-summary message was sent.
 
 ---
 
-## Routine 4 — Monthly Universe Screening Slice
+## Routine 4 — Twice-Weekly Universe Screening Slice
 
 | | |
 |---|---|
-| **Cadence** | First Saturday of each month — e.g. 14:00 UTC |
+| **Cadence** | Twice weekly — Tuesday and Saturday, 14:00 UTC |
 | **Repo** | `cloxy777/investment-framework`, default branch |
 | **Environment** | `investment-automation` |
 | **Branch permission** | Default (`claude/` branch + PR) |
@@ -302,17 +302,20 @@ portfolio-wide re-score need; one Telegram run-summary message was sent.
 **Prompt:**
 
 ```
-You are running the Monthly Universe Screening Slice for
-cloxy777/investment-framework. Runs the first Saturday of each month
-(markets closed).
+You are running the Twice-Weekly Universe Screening Slice for
+cloxy777/investment-framework. Runs Tuesday and Saturday each week
+(markets closed Saturday; Tuesday run is informational/research only — it
+doesn't need a live market).
 
 1. Run /screen with no argument. Per .claude/commands/screen.md, this
    self-selects the least-recently-screened slice from
-   framework/screening-coverage-log.md. There is no user to ask for a
-   TIKR/Koyfin paste in an unattended run, so go straight to the regional
-   quality-factor ETF holdings fallback (MOAT/QUAL/QGRW for US; IQLT for
-   international) as the starting universe, and flag this prominently in the
-   output.
+   framework/screening-coverage-log.md — exactly one slice per run, even if
+   multiple rows are tied for oldest (ties broken alphabetically per that
+   doc), to keep each run's token cost bounded and predictable. There is no
+   user to ask for a TIKR/Koyfin paste in an unattended run, so go straight
+   to the regional quality-factor ETF holdings fallback (MOAT/QUAL/QGRW for
+   US; IQLT for international) as the starting universe, and flag this
+   prominently in the output.
 
 2. Complete Steps 1-5 of the screen command: structural triage, the full
    Phase 01 quantitative gate sourced per-candidate via `yfinance` (see
@@ -420,7 +423,7 @@ Telegram run-summary message was sent.
 | Quarterly post-earnings re-score (within 3 business days) | Routine 1 opens a `rescore-due` issue pre-filled with all standard inputs incl. 5yr avg PE and FCF/NI conversion (both now auto-computed via `yfinance` — see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md)) | Bring the issue into a normal session and run `/rescore <TICKER>` — data gathering is automated, but the qualitative judgment (moat/margin questions, Structural Quality Override calls, Short Thesis Engagement) and the actual score sign-off stay human |
 | Quarterly Rate Environment Gate update | Routine 3 | If the regime changed, work through the portfolio-wide `/rescore` checklist the issue lists |
 | Annual Rate-Normalised PE recalc (Jan) | Routine 3's January checklist issue | Gather the top-5 rate-matched historical PE data (with Claude, interactively) |
-| Annual full universe re-screen (Jan target) | Routine 4, monthly slices year-round | Nothing — Routine 4 builds its starting universe from quality-factor ETF holdings automatically and verifies candidates via `yfinance` |
+| Annual full universe re-screen (Jan target) | Routine 4, twice-weekly slices year-round | Nothing — Routine 4 builds its starting universe from quality-factor ETF holdings automatically and verifies candidates via `yfinance` |
 | Rule 9 — price move >15% / earnings | Routine 1 | Guidance revisions, M&A, and management-change triggers aren't auto-detected — still need human awareness from news |
 | Rule 9 — short thesis engagement | Not automated | Optional future extension: add a weekly WebSearch ("`<TICKER>` short report") for top-weight holdings to Routine 1 or 2 |
 | Turnaround sub-gate review (every 2 quarters) | Routine 5 | Nothing, once `override-log.md` records entry dates for turnaround positions |

@@ -33,13 +33,13 @@ SUMMARY:Routine 3 — Quarterly Rate Environment Gate Review
 DESCRIPTION:Claude Code Routine 3 (cloxy777/investment-framework).\nFetches the current 10Y US Treasury yield from FRED and checks which Rate Regime Modifier band (framework/strategy.md) it falls into versus the last recorded value.\nIf the band changed\, opens an issue + PR (decisions/YYYY-MM-DD-rate-regime-change.md) flagging every holding for /rescore.\nIn January\, also opens the "January annual tasks" checklist (Rate-Normalised PE recalc\, screening coverage\, Q1 framework reviews).\nDetails: framework/automation-schedule.md (Routine 3).
 END:VEVENT
 BEGIN:VEVENT
-UID:routine-4-monthly-screening@investment-framework
-DTSTAMP:20260613T140000Z
-DTSTART:20260704T140000Z
+UID:routine-4-screening@investment-framework
+DTSTAMP:20260619T140000Z
+DTSTART:20260620T140000Z
 DURATION:PT15M
-RRULE:FREQ=MONTHLY;BYDAY=SA;BYSETPOS=1
-SUMMARY:Routine 4 — Monthly Universe Screening Slice
-DESCRIPTION:Claude Code Routine 4 (cloxy777/investment-framework).\nRuns /screen with no argument — self-selects the next least-recently-covered slice of framework/screening-coverage-log.md\, builds the starting universe from quality-factor ETF holdings\, and runs the full Phase 01 quality gate via yfinance.\nUpdates the coverage log\, saves the session log\, opens a PR\, and opens an issue listing any qualified /new-position candidates (or a zero-result issue).\nDetails: framework/automation-schedule.md (Routine 4).
+RRULE:FREQ=WEEKLY;BYDAY=TU,SA
+SUMMARY:Routine 4 — Twice-Weekly Universe Screening Slice
+DESCRIPTION:Claude Code Routine 4 (cloxy777/investment-framework).\nRuns /screen with no argument — self-selects the next least-recently-covered slice of framework/screening-coverage-log.md (exactly one slice per run)\, builds the starting universe from quality-factor ETF holdings\, and runs the full Phase 01 quality gate via yfinance.\nUpdates the coverage log\, saves the session log\, opens a PR\, and opens an issue listing any qualified /new-position candidates (or a zero-result issue).\nDetails: framework/automation-schedule.md (Routine 4).
 END:VEVENT
 BEGIN:VEVENT
 UID:routine-5-monthly-rebalance@investment-framework

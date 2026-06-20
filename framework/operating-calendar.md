@@ -11,13 +11,13 @@
 | **After every earnings release** | **Quarterly Re-score** | Company reports earnings | **Yes — core task** | Routine 1 opens a pre-filled `rescore-due` issue; finishing `/rescore` is manual |
 | **Quarterly (Jan, Apr, Jul, Oct)** | **Rate Environment Gate update** | Quarter begins | **Yes** | Routine 3 |
 | **Annually (January)** | **Rate-Normalised PE recalc** | Year begins | **Yes** | Routine 3's January checklist issue |
-| **Annually (January)** | **Full universe re-screen** | Year begins | **Yes** | Routine 4 (monthly slices year-round) |
+| **Annually (January)** | **Full universe re-screen** | Year begins | **Yes** | Routine 4 (twice-weekly slices year-round) |
 | **Event-triggered** | **Rule 9 model refresh** | See triggers | **Yes** | Routine 1 covers price-move and earnings triggers; guidance/M&A/management-change triggers still need human awareness |
 | **Event-triggered** | **Short thesis engagement** | Short report published | **Yes** | Not automated |
 | **Event-triggered** | **Turnaround sub-gate review** | Every 2 quarters after entry | **Yes** | Routine 5 |
 | **Monthly (first Monday)** | **Rebalance / trim review** | Calendar-based | **Yes** | Routine 5 |
 
-> **"Full universe re-screen" = one full pass through the [global coverage matrix](screening-coverage-log.md).** Run `/screen` slice by slice (it self-selects the next least-recently-covered region/sector when called with no argument) until every row shows a current-year "Last screened" date — that's what makes the January target "global, not just US large-cap" in practice rather than in name only.
+> **"Full universe re-screen" = one full pass through the [global coverage matrix](screening-coverage-log.md).** Run `/screen` slice by slice (it self-selects the next least-recently-covered region/sector when called with no argument) until every row shows a current-year "Last screened" date — that's what makes the January target "global, not just US large-cap" in practice rather than in name only. At the twice-weekly cadence (Routine 4), one full pass through the current 6-row matrix takes ~3 weeks rather than a year, leaving most of the year free to re-run a slice early if a rate-regime shift or sector re-rating makes it likely the qualified set there has moved.
 
 > **Monthly rebalance / trim review** is a new addition to this calendar — previously rebalances were ad hoc / human-triggered only. See [decisions/2026-06-13-automation-routine-schedule.md](../decisions/2026-06-13-automation-routine-schedule.md) for why a fixed monthly cadence was adopted alongside the rest of this automation.
 
