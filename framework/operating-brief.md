@@ -28,7 +28,7 @@ Before every Phase 02 score, run the Rate Environment Gate:
 
 HYBRID UPGRADES IN FORCE
   Upgrade 1 — Owner Earnings: if Growth CapEx >30% of total CapEx, replace FCF with Owner Earnings = Net Income + D&A − Maintenance CapEx only. Required for MSFT, GOOGL, META, AMZN.
-  Upgrade 2 — Historical PE Modifier: >20% below 10yr avg PE → −10 to score | within ±10% → 0 | >20% above → +10
+  Upgrade 2 — Historical PE Modifier: >20% below 5yr avg PE → −10 to score | within ±10% → 0 | >20% above → +10
   Upgrade 3 — PEG (Fast Growers only, EPS growth >15% for 3+ yrs): PEG_Score = clamp((PEG − 0.5) / 2.0 × 100, 0, 100) — a 0–100.0 sub-score (15% weight), not a post-hoc modifier. Never apply to cyclicals.
   Upgrade 4 — Turnaround Sub-Gate: max 2–3% position. Requires all 5 conditions (historical ROIC, insider buy, 40% MOS, debt <3×, moat identifiable). 2-quarter mandatory review.
   Upgrade 5 — Debt Gate: payment networks and asset-light financials use Net Debt/EBITDA <4× if interest coverage >15× and investment grade. All others use <2.5×.
@@ -47,8 +47,8 @@ Each input is a continuous 0–100.0 sub-score (0 = cheapest/most attractive, 10
     (≤12× → 0 | 17.75× → 25 | 23.5× → 50 | 29.25× → 75 | ≥35× → 100)
 
   Forward PE + Historical PE Modifier (20% weight):
-    Primary (10yr range available): FwdPE_Score = clamp((Forward PE − 10yr Low PE) / (10yr High PE − 10yr Low PE) × 100, 0, 100), then apply Upgrade 2 modifier (±10 or 0).
-    Fallback (10yr avg only — the common case): FwdPE_Score = clamp(50 + ((Forward PE − 10yr Avg PE) / 10yr Avg PE × 100) × 2.5, 0, 100). This folds in the Historical PE Modifier — do not also apply ±10.
+    Primary (5yr range available): FwdPE_Score = clamp((Forward PE − 5yr Low PE) / (5yr High PE − 5yr Low PE) × 100, 0, 100), then apply Upgrade 2 modifier (±10 or 0).
+    Fallback (5yr avg only — the common case): FwdPE_Score = clamp(50 + ((Forward PE − 5yr Avg PE) / 5yr Avg PE × 100) × 2.5, 0, 100). This folds in the Historical PE Modifier — do not also apply ±10.
     No-history fallback: FwdPE_Score = 50.0 (neutral, flagged).
 
   PEG (15% weight — Fast Growers only, else use EV/EBIT for this 15%):
@@ -87,7 +87,7 @@ INPUT FORMAT EXPECTED
 For every session, provide at minimum:
   - Task type: [SCREENING | RESCORE | NEW POSITION | TRIM REVIEW | EXIT REVIEW | REBALANCE]
   - Date and current 10Y US Treasury yield
-  - Per ticker: sector, FCF yield (or Owner Earnings yield), EV/EBIT, forward PE, 10yr avg PE,
+  - Per ticker: sector, FCF yield (or Owner Earnings yield), EV/EBIT, forward PE, 5yr avg PE,
     revenue CAGR 3yr, ROIC, gross margin, net margin, net debt/EBITDA, FCF/NI conversion ratio
   - For existing holdings: current weight %, last valuation score, last review date
   - Any fundamental changes since last review (earnings, guidance, M&A, management)

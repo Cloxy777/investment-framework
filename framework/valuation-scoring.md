@@ -49,22 +49,24 @@ EV/EBIT_Score = clamp((EV/EBIT − 12) / 23 × 100, 0, 100)
 
 **Forward PE (20% weight):**
 
-**Primary formula** — used when a trailing 10-year PE *range* (low and high) is available:
+*Lookback shortened from 10yr to 5yr on 2026-06-20 to make this fully automatable via `yfinance` rather than requiring a manual Macrotrends pull — see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md) and the auto-calc method below.*
+
+**Primary formula** — used when a trailing 5-year PE *range* (low and high) is available:
 
 ```
-FwdPE_Score = clamp((Forward PE − 10yr Low PE) / (10yr High PE − 10yr Low PE) × 100, 0, 100)
+FwdPE_Score = clamp((Forward PE − 5yr Low PE) / (5yr High PE − 5yr Low PE) × 100, 0, 100)
 ```
 
-Position the company's forward PE within its own trailing 10-year PE range, then apply the **Historical PE Modifier** (Upgrade 2 in [strategy.md](strategy.md)), additive: >20% below 10yr avg PE → −10 | within ±10% → 0 | >20% above → +10 (subject to the Structural Quality Override).
+Position the company's forward PE within its own trailing 5-year PE range, then apply the **Historical PE Modifier** (Upgrade 2 in [strategy.md](strategy.md)), additive: >20% below 5yr avg PE → −10 | within ±10% → 0 | >20% above → +10 (subject to the Structural Quality Override).
 
-**Fallback formula** — used when only a single 10-year *average* PE is available (no low/high range). In practice this is the common case:
+**Fallback formula** — used when only a single 5-year *average* PE is available (no low/high range). In practice this is the common case:
 
 ```
-Deviation% = (Forward PE − 10yr Avg PE) / 10yr Avg PE × 100
+Deviation% = (Forward PE − 5yr Avg PE) / 5yr Avg PE × 100
 FwdPE_Score = clamp(50 + Deviation% × 2.5, 0, 100)
 ```
 
-This centers the score at 50.0 when forward PE equals the 10-year average and reaches the 0/100 extremes at ±20% deviation — a continuous generalisation of the original 5-row "vs. 10yr avg" bucket table (>20% below → cheap end, >20% above → expensive end). **This formula already folds in the Historical PE Modifier** (the deviation from the 10-year average *is* the signal Upgrade 2 is meant to capture) — do not separately apply the ±10 modifier on top of it, to avoid double-counting.
+This centers the score at 50.0 when forward PE equals the 5-year average and reaches the 0/100 extremes at ±20% deviation — a continuous generalisation of the original 5-row "vs. 5yr avg" bucket table (>20% below → cheap end, >20% above → expensive end). **This formula already folds in the Historical PE Modifier** (the deviation from the 5-year average *is* the signal Upgrade 2 is meant to capture) — do not separately apply the ±10 modifier on top of it, to avoid double-counting.
 
 **No-history fallback** — if neither a range nor a meaningful average PE exists (recent IPO, loss-making history, or a GAAP earnings base too distorted to be meaningful):
 
@@ -72,7 +74,7 @@ This centers the score at 50.0 when forward PE equals the 10-year average and re
 FwdPE_Score = 50.0  (neutral midpoint, flagged)
 ```
 
-Do not estimate a 10-year range or average that doesn't exist — use the 50.0 neutral placeholder and flag it explicitly, consistent with "never invent or estimate financial data."
+Do not estimate a 5-year range or average that doesn't exist — use the 50.0 neutral placeholder and flag it explicitly, consistent with "never invent or estimate financial data."
 
 **PEG (15% weight, Fast Growers only — EPS growth >15% for 3+ years):**
 
@@ -168,6 +170,46 @@ hi   = t.info         # current snapshot: marketCap, enterpriseValue, grossMargi
 Verified against this session's manually-sourced HKEX numbers (`grossMargins` 0.965, `returnOnEquity` 0.350, `profitMargins` 0.626 — all matched stockanalysis.com to 3 decimals). `t.financials`/`t.cashflow` provide multi-year history for the 3yr CAGR and "FCF positive 3 consecutive years" checks; `t.info["ebit"]`/`enterpriseValue` give EV/EBIT directly.
 
 **Do not use `yf.screen()` (the bulk Yahoo screener) for Phase 01 pre-filtering** — tested 2026-06-14 and its margin/ROE/growth filter predicates did not constrain results correctly (e.g. a query requiring net margin >12% and ROE >15% still returned Woolworths, which has ~0.85% net margin and ~11.9% ROE). For the bulk pre-filter step, continue using **structural triage from documented business-model characteristics** ([screen.md](../.claude/commands/screen.md) Step 1) to build the candidate pool, then verify each candidate's real numbers with `yfinance` as above.
+
+### `yfinance` — automated 5yr avg PE & FCF/NI conversion ratio (verified working 2026-06-20)
+
+These two Standard Re-Score inputs were previously flagged as needing a manual Macrotrends/TIKR/Koyfin pull (`operating-calendar.md`). Both are now computable directly from `yfinance` — no new data source needed.
+
+**FCF/NI Conversion Ratio** — `t.cashflow` and `t.financials` already carry both halves of this ratio; it was just never wired into a formula:
+
+```python
+fcf = t.cashflow.loc["Free Cash Flow"]
+ni  = t.financials.loc["Net Income"]
+fcf_ni_ratio = (fcf / ni).dropna()   # e.g. 0.70-0.90 for a healthy compounder
+```
+Verified against MSFT (2022-2025): 89.6%, 82.2%, 84.0%, 70.3% — 4 years, enough for the "2+ consecutive years" check in Phase 01/04.
+
+**5yr Avg/Low/High PE** — `t.financials`' annual EPS only goes back ~4 years on the free tier, too shallow for a historical PE series. `t.get_earnings_dates(limit=40)` (requires `lxml`) returns quarterly **Reported EPS** much further back (verified on MSFT: 49 quarters to 2014). Reconstruct a trailing-PE series by summing trailing-4-quarter EPS into TTM EPS, then pairing each quarter with its contemporaneous price:
+
+```python
+import pandas as pd
+ed = t.get_earnings_dates(limit=40).sort_index().dropna(subset=["Reported EPS"])
+ed["TTM_EPS"] = ed["Reported EPS"].rolling(4).sum()
+ed = ed.dropna(subset=["TTM_EPS"])
+
+hist = t.history(start=ed.index.min().date().isoformat(), interval="1d")
+hist.index = hist.index.tz_localize(None)
+
+pe_series = []
+for dt, row in ed.iterrows():
+    after = hist[hist.index >= dt.tz_localize(None)]
+    if after.empty: continue
+    pe_series.append(after["Close"].iloc[0] / row["TTM_EPS"])
+
+last5y = pd.Series(pe_series[-20:])   # last 20 quarters ≈ 5 years
+avg_pe, low_pe, high_pe = last5y.mean(), last5y.min(), last5y.max()
+```
+Verified on MSFT 2026-06-20: 5yr avg PE 32.0×, range 24.2–38.8× (n=20 quarters) — consistent with MSFT's known historical multiple band.
+
+**Caveats:**
+- History depth on `get_earnings_dates` varies by ticker — smaller/less-covered names may return fewer than 20 quarters. If fewer than 5 years (20 quarters) of TTM EPS are reconstructable, treat it as the existing **no-history fallback** (`FwdPE_Score = 50.0`, flagged) rather than computing a PE average over a shorter window.
+- Exclude any quarter where TTM EPS is ≤0 (PE undefined) rather than computing a nonsensical or negative value.
+- `lxml` must be installed (`pip install --quiet lxml`) — `get_earnings_dates` raises without it.
 
 ---
 

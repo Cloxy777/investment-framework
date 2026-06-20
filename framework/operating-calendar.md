@@ -35,7 +35,7 @@
 | FCF (or Owner Earnings for MSFT/META/GOOGL/AMZN) | TIKR — Cash Flow statement |
 | EV/EBIT (trailing and forward) | TIKR or Koyfin |
 | Forward PE | Koyfin or Finviz |
-| 10-year average PE | Macrotrends.net |
+| 5-year average PE | `yfinance` (auto — reconstructed TTM EPS × price history, see [valuation-scoring.md](valuation-scoring.md)) |
 | Revenue CAGR 3yr | TIKR — Income statement |
 | ROIC | Koyfin or Gurufocus |
 | Gross margin (current + 3yr trend) | TIKR |
@@ -68,7 +68,7 @@ Date: [DD MMM YYYY]
 10Y US Treasury Yield: [X.XX%]
 Rate Regime Modifier (active): [e.g. +0.5]
 
-Ticker | Sector | FCF Yield (OE-adj?) | EV/EBIT | Fwd PE | 10yr Avg PE | Rev CAGR 3yr | ROIC | Gross Margin | Net Margin | Net Debt/EBITDA | FCF/NI Conv | Current Weight% | Last Score | Last Review
+Ticker | Sector | FCF Yield (OE-adj?) | EV/EBIT | Fwd PE | 5yr Avg PE | Rev CAGR 3yr | ROIC | Gross Margin | Net Margin | Net Debt/EBITDA | FCF/NI Conv | Current Weight% | Last Score | Last Review
 [TICK] | [...]  | [X.X%] (OE: Y/N)   | [XX×]  | [XX×]  | [XX×]  | [X%] | [X%] | [X%] | [X%] | [X×] | [X%] | [X%] | [X] | [MMM YYYY]
 
 Fundamental changes since last review:
@@ -100,7 +100,7 @@ Valuation Inputs (Phase 02):
   FCF Yield (Owner Earnings adjusted if applicable): [X%]
   EV/EBIT: [X×]
   Forward PE: [X×]
-  10yr average PE: [X×]
+  5yr average PE: [X×]
   PEG (if EPS growth >15%): [X]
 
 Fair Value Inputs:

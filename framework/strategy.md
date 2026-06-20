@@ -47,6 +47,8 @@ Filter the investable universe to only high-quality businesses.
 **Step 3 — Rate-Normalised Historical PE** (annual task, January, top 5 holdings only)
 Recalculate using only periods where the 10Y was within ±1% of today's yield. If materially lower than raw average, apply +5 to that company's score for the year.
 
+*Note: the historical PE series this draws on is now 5 years deep (down from 10, see Upgrade 2) — fewer rate-matched quarters may be available for this recalc. Revisit if it starts returning too few matching periods to be meaningful.*
+
 ---
 
 ## Phase 02 — Valuation Scoring
@@ -140,13 +142,15 @@ Practical impact: MSFT Owner Earnings ~$95B vs reported FCF ~$72B — a 32% diff
 
 ### 🔴 Upgrade 2 — Historical PE Relative Modifier (CRITICAL)
 
-| Forward PE vs 10yr Avg | Adjustment |
+*Lookback shortened from 10yr to 5yr on 2026-06-20 to make this fully automatable via `yfinance` — see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md).*
+
+| Forward PE vs 5yr Avg | Adjustment |
 |------------------------|------------|
 | > 20% below average | −10 |
 | Within ±10% | No change |
 | > 20% above average | +10 |
 
-May 2026 examples: MSFT 24.9× vs 31× avg (−20%) → Score −10. AAPL 37× vs 24.5× avg (+51%) → Score +10.
+May 2026 examples (illustrative — pre-dates the 5yr lookback change): MSFT 24.9× vs 31× avg (−20%) → Score −10. AAPL 37× vs 24.5× avg (+51%) → Score +10.
 
 **Structural Quality Override (added 2026-06-07 — see [investor-philosophy-alignment.md](investor-philosophy-alignment.md)):** Before applying the **+1 "expensive"** adjustment, check whether the multiple expansion is accompanied by a genuine *structural* improvement — margin expansion, ROIC improvement, or qualifying growth-CapEx reinvestment per Upgrade 1. If yes, do not apply the penalty: a higher multiple may simply reflect a better business, not euphoria. This is Howard Marks' "second-level thinking" (a historical average is only a useful anchor if the business hasn't structurally changed) — and it closes a quiet contradiction with Upgrade 1, which already concedes that raw multiples *understate* quality for moat-building reinvestment. Without this override, Upgrade 2 would mechanically penalize the very reinvestment Upgrade 1 credits.
 

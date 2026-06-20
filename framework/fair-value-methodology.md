@@ -201,7 +201,7 @@ Suggested weights for quality large-caps: W1=40%, W2=30%, W3=20%, W4=10%
 
 **Historical PE Cross-Check:**
 ```
-Historical PE Fair Value = Current EPS × 10yr Average PE
+Historical PE Fair Value = Current EPS × 5yr Average PE
 ```
 If current price is >20% below Historical PE Fair Value → flag mean-reversion upside.
 
