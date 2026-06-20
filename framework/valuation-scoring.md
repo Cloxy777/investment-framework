@@ -100,6 +100,8 @@ PEG_Score = clamp((PEG − 0.5) / 2.0 × 100, 0, 100)
 
 If PEG is not applicable (not a Fast Grower), redistribute its 15% weight to EV/EBIT per the Final Score Formula note above.
 
+> **Fast-Grower eligibility — the "3+ years" means a *reliable* earnings base (clarified 2026-06-20).** The PEG sub-score only goes live when EPS growth has exceeded 15% for 3+ years *on a clean, non-distorted earnings base*. A genuinely fast-growing business that lacks this — a recent IPO, a company only recently turned GAAP-profitable, or one whose trailing EPS is distorted by a one-off (e.g. a deferred-tax-valuation-allowance release) — does **not** yet qualify: **redistribute PEG's 15% to EV/EBIT** rather than forcing a PEG off an unreliable base. A revenue-CAGR-proxy PEG may be computed as a *sensitivity check* but is not the scored input. This keeps PEG to businesses with real, measurable multi-year earnings (Lynch) and the score to reliable inputs (Greenblatt), and is consistent with "never invent or estimate financial data." *(Ruling recorded after DUOL was scored both ways across two sessions — see [decisions/2026-06-20-framework-clarification-peg-clean-earnings.md](../decisions/2026-06-20-framework-clarification-peg-clean-earnings.md).)*
+
 **Rate Regime Modifier** — additive, applied after the raw weighted score (see Rate Environment Gate in [strategy.md](strategy.md)): −10 / 0 / +5 / +10 based on the 10Y Treasury regime.
 
 ---

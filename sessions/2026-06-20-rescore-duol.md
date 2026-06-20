@@ -3,6 +3,8 @@
 **Task type:** RESCORE (single ticker) — first run to apply the new **Upside/Downside Modifier** (Expected-Return Modifier, added to the valuation score 2026-06-20)
 **Date:** 20 Jun 2026
 **10Y US Treasury Yield:** 4.46% (FRED DGS10 / Fed H.15, 18 Jun 2026 — most recent available; WebSearch)
+
+> **⚠️ Post-session correction (2026-06-20): PEG treatment reverted, score of record is 53.7, not 50.7.** This session applied PEG live as a Fast Grower. The same day, the PEG eligibility rule was clarified: the "EPS growth >15% for 3+ years" gate requires a *reliable, non-distorted* earnings base, which DUOL lacks (recently GAAP-profitable; TTM EPS distorted by the FY2025 deferred-tax release). PEG's 15% is therefore **redistributed to EV/EBIT** (reverting to the 2026-06-12 treatment). Corrected calc: 30.74×0.40 + 74.24×0.40 + 50.0×0.20 = raw **51.99**, + Rate +10 − Upside/Downside 8.25 = **53.7**. Still HOLD (Fair Value band) — action unchanged. The body below reflects the original live-PEG calc (50.7); read it with this correction in mind. See [decisions/2026-06-20-framework-clarification-peg-clean-earnings.md](../decisions/2026-06-20-framework-clarification-peg-clean-earnings.md).
 **Rate Regime Modifier (Step 2):** +5 (10Y in the 3.5–5% bracket)
 **Current DUOL portfolio weight:** 8.46% (per holdings.md / last sync) — existing holding, last scored **55.6** (2026-06-12)
 **Sector:** Technology — Education Software (EdTech / language-learning app)

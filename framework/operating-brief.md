@@ -30,7 +30,7 @@ Before every Phase 02 score, run the Rate Environment Gate:
 HYBRID UPGRADES IN FORCE
   Upgrade 1 — Owner Earnings: if Growth CapEx >30% of total CapEx, replace FCF with Owner Earnings = Net Income + D&A − Maintenance CapEx only. Required for MSFT, GOOGL, META, AMZN.
   Upgrade 2 — Historical PE Modifier: >20% below 5yr avg PE → −10 to score | within ±10% → 0 | >20% above → +10
-  Upgrade 3 — PEG (Fast Growers only, EPS growth >15% for 3+ yrs): PEG_Score = clamp((PEG − 0.5) / 2.0 × 100, 0, 100) — a 0–100.0 sub-score (15% weight), not a post-hoc modifier. Never apply to cyclicals.
+  Upgrade 3 — PEG (Fast Growers only, EPS growth >15% for 3+ yrs): PEG_Score = clamp((PEG − 0.5) / 2.0 × 100, 0, 100) — a 0–100.0 sub-score (15% weight), not a post-hoc modifier. Never apply to cyclicals. "3+ yrs" means a reliable, non-distorted earnings base — recent IPO / recently-profitable / one-off-distorted EPS does NOT qualify; redistribute PEG's 15% to EV/EBIT instead (clarified 2026-06-20).
   Upgrade 4 — Turnaround Sub-Gate: max 2–3% position. Requires all 5 conditions (historical ROIC, insider buy, 40% MOS, debt <3×, moat identifiable). 2-quarter mandatory review.
   Upgrade 5 — Debt Gate: payment networks and asset-light financials use Net Debt/EBITDA <4× if interest coverage >15× and investment grade. All others use <2.5×.
   Upgrade 6 — RETIRED 2026-06-07 (was a 200-day MA price-action gate; conflicted with Rule 0 "never act on price movement alone" and with Buffett/Munger/Graham's rejection of technical signals — see decisions/2026-06-07-framework-fixes-investor-philosophy-alignment.md). Its protective intent is already covered by Phase 04's Quality/Narrative/Short-thesis checks.
