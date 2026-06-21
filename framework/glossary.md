@@ -34,6 +34,7 @@ Alphabetical within each group.
 | **Forward PE** | Price ÷ next twelve months' *expected* earnings per share (as opposed to Trailing PE, which uses the last twelve months' actual earnings). |
 | **FV (Fair Value)** | The analyst's estimate of what a company is intrinsically worth, independent of its current market price. |
 | **GAAP** | Generally Accepted Accounting Principles — the standard US accounting rulebook companies use for their official financial statements. |
+| **Going-concern / accounting-integrity allegation** | A claim — often from a short-seller — that a company's reported financials misrepresent its true financial condition. Treated by this framework as an open, unresolved risk flag to monitor, never as a settled fact in either direction until independently confirmed or refuted. |
 | **HBM (High-Bandwidth Memory)** | A premium, stacked-DRAM format used in AI accelerator GPUs (e.g. Nvidia's). Higher-margin and more technically differentiated than commodity DRAM/NAND, but still subject to the same underlying supply/demand cycle. |
 | **IRR** | Internal Rate of Return — the annualized percentage return an investment is expected to generate. |
 | **M&A** | Mergers & Acquisitions — one company buying or combining with another. |
@@ -41,9 +42,12 @@ Alphabetical within each group.
 | **MoS (Margin of Safety)** | How far below fair value the buy price is set, as a cushion against being wrong — e.g. a 25% MoS means buying at 75% of estimated fair value. |
 | **MSCI** | Morgan Stanley Capital International — an index provider; "MSCI QUAL" / "MSCI World" etc. refer to specific indices it publishes. |
 | **NAV** | Net Asset Value — the value of a company's (or fund's) assets minus its liabilities. |
+| **Neobank** | A digital-first, often app-only bank or financial-services company. Most neobanks operate via a partner bank's charter; some go further and obtain an actual bank charter of their own. |
 | **NI (Net Income)** | Net Income — accounting profit after all expenses, interest, and taxes ("the bottom line"). |
+| **NIM (Net Interest Margin)** | The spread a bank earns between interest received on loans/assets and interest paid out on deposits/borrowings — the core profitability driver for any depository institution. |
 | **Owner Earnings** | Warren Buffett's adjusted cash-flow measure: Net Income + D&A − *Maintenance* CapEx only (excludes growth CapEx) — used instead of raw FCF for moat-building reinvestors like MSFT, GOOGL, META, AMZN (Hybrid Upgrade 1). |
 | **P/B (Price-to-Book)** | Price ÷ book value (accounting net worth) per share — common for valuing banks and financials. |
+| **P/TBV (Price-to-Tangible-Book-Value)** | Like P/B, but using *tangible* book value (book value minus intangible assets such as goodwill) — a standard bank-valuation multiple. |
 | **PE (Price-to-Earnings) ratio** | Share price ÷ earnings per share — the most common "how expensive is this stock" multiple. |
 | **PEG ratio** | PE ratio ÷ earnings growth rate — a PE adjusted for growth, used to judge whether a fast grower's multiple is justified by its growth rate. |
 | **pp (percentage points)** | A direct difference between two percentages (e.g. margin falling from 42% to 39% is a 3pp drop) — distinct from a "%" *change*, which would describe that same move as -7%. |
@@ -52,7 +56,9 @@ Alphabetical within each group.
 | **R/R (Risk/Reward ratio)** | (Expected gain) ÷ (Expected loss) on a trade — this framework requires at least 2:1 before entering. |
 | **ROE** | Return on Equity — Net Income ÷ shareholder equity; how efficiently a company generates profit from shareholders' capital. |
 | **ROIC** | Return on Invested Capital — how efficiently a company turns the capital invested in it (debt + equity) into profit; a core quality signal in this framework. |
+| **SPAC** | Special Purpose Acquisition Company — a shell company that raises money via its own IPO for the specific purpose of merging with a private company to take it public, as an alternative to a traditional IPO. Often leaves the resulting company with a short, distorted public earnings history (one-off preferred-share/warrant accounting charges, thin trailing financials) that complicates standard quality/valuation checks. |
 | **TAM** | Total Addressable Market — the total revenue opportunity available if a company captured 100% of its target market. |
+| **TBVPS (Tangible Book Value Per Share)** | Tangible book value (book value minus intangible assets) divided by shares outstanding — the per-share input to a P/TBV multiple. |
 | **Treasury yield (10Y)** | The interest rate the US government pays on its 10-year bonds — the standard "risk-free rate" benchmark used throughout this framework's Rate Environment Gate. |
 | **TTM (Trailing Twelve Months)** | The most recent 12 months of reported financial results, as opposed to a fiscal-year or forward-looking figure. |
 | **WACC** | Weighted Average Cost of Capital — the blended cost a company pays for its debt and equity financing; used as the discount rate in a DCF. |
