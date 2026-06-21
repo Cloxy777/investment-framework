@@ -19,6 +19,7 @@ Alphabetical within each group.
 | **DCF** | Discounted Cash Flow — a valuation method that estimates a company's worth today by projecting its future cash and discounting it back to present-day value. |
 | **DDM** | Dividend Discount Model — a valuation method that values a company based on the dividends it's expected to pay out. |
 | **Dilutive (capital raise)** | Raising money by issuing new shares, which shrinks (dilutes) each existing shareholder's ownership percentage. |
+| **DLC (Dual-Listed Company)** | A corporate structure where two separately-listed legal entities (e.g. Carnival Corporation/CCL and Carnival plc/CUK) operate as a single combined economic business with shared management and combined consolidated financial reporting, while each entity's shares trade separately on an exchange. Evaluated as one company in this framework, using the larger/primary listing as the reference ticker. |
 | **DRAM / NAND** | The two main families of memory chip. DRAM (Dynamic Random-Access Memory) is the working memory in servers/PCs/phones; NAND is the flash storage in SSDs/USB drives. Both are commoditized, boom-bust cyclical businesses with little durable pricing power. |
 | **EBIT** | Earnings Before Interest and Taxes — operating profit, before the effects of debt financing and tax rate. |
 | **EBITDA** | Earnings Before Interest, Taxes, Depreciation, and Amortization — a rough proxy for cash operating profit. |
