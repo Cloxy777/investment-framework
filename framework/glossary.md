@@ -19,6 +19,7 @@ Alphabetical within each group.
 | **DCF** | Discounted Cash Flow — a valuation method that estimates a company's worth today by projecting its future cash and discounting it back to present-day value. |
 | **DDM** | Dividend Discount Model — a valuation method that values a company based on the dividends it's expected to pay out. |
 | **Dilutive (capital raise)** | Raising money by issuing new shares, which shrinks (dilutes) each existing shareholder's ownership percentage. |
+| **DRAM / NAND** | The two main families of memory chip. DRAM (Dynamic Random-Access Memory) is the working memory in servers/PCs/phones; NAND is the flash storage in SSDs/USB drives. Both are commoditized, boom-bust cyclical businesses with little durable pricing power. |
 | **EBIT** | Earnings Before Interest and Taxes — operating profit, before the effects of debt financing and tax rate. |
 | **EBITDA** | Earnings Before Interest, Taxes, Depreciation, and Amortization — a rough proxy for cash operating profit. |
 | **EPS** | Earnings Per Share — net income divided by number of shares outstanding. |
@@ -33,6 +34,7 @@ Alphabetical within each group.
 | **Forward PE** | Price ÷ next twelve months' *expected* earnings per share (as opposed to Trailing PE, which uses the last twelve months' actual earnings). |
 | **FV (Fair Value)** | The analyst's estimate of what a company is intrinsically worth, independent of its current market price. |
 | **GAAP** | Generally Accepted Accounting Principles — the standard US accounting rulebook companies use for their official financial statements. |
+| **HBM (High-Bandwidth Memory)** | A premium, stacked-DRAM format used in AI accelerator GPUs (e.g. Nvidia's). Higher-margin and more technically differentiated than commodity DRAM/NAND, but still subject to the same underlying supply/demand cycle. |
 | **IRR** | Internal Rate of Return — the annualized percentage return an investment is expected to generate. |
 | **M&A** | Mergers & Acquisitions — one company buying or combining with another. |
 | **Moat** | Warren Buffett's term for a durable competitive advantage (brand, network effect, switching costs, scale) that protects a business's profits from competitors. |
