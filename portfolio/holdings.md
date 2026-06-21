@@ -15,32 +15,36 @@ Combined total ≈ **$53,659.11** = IBKR Net Liquidation Value $38,535.57 + Free
 
 **Score scale (2026-06-11):** Valuation scores run **0.0–100.0** (continuous, 0 = cheapest, 100.0 = most expensive) instead of the old 1–10 integers — see [valuation-scoring.md](../framework/valuation-scoring.md) and [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md). The `Last Score` values above are now **real computations** under the new continuous sub-score formulas (FCF Yield, EV/EBIT, Forward PE, PEG) plus the +5 Rate Regime Modifier, applied to the underlying metrics already gathered in the [2026-06-07 full-portfolio rescore](../sessions/2026-06-07-rescore-full-portfolio.md) and [NVDA rescore](../sessions/2026-06-07-rescore-nvda.md) — full per-ticker arithmetic is in [sessions/2026-06-11-rescore-holdings-new-scale.md](../sessions/2026-06-11-rescore-holdings-new-scale.md). This is **not** a fresh data pull (no new Rule 0 live prices) — it recomputes the same underlying dataset under the new formulas. A full `/rescore` with fresh live prices remains the next step for true freshness, especially for CSGP, GOOG, and SPOT, whose recomputed scores moved from "Expensive" into "Very Expensive" (Trim 25–30% → Trim to 50%) under the new formulas.
 
+**Boundary-name rescore (2026-06-20):** the 8 holdings sitting in the 50–63 "Hold/watchlist" band were re-scored with fresh Rule 0 live prices under the new **Upside/Downside Modifier** (see [decisions/2026-06-20-framework-change-upside-downside-modifier.md](../decisions/2026-06-20-framework-change-upside-downside-modifier.md) and the per-ticker `sessions/2026-06-20-rescore-*.md` logs). Seven of the eight dropped a full band into the BUY zone once expected forward return was folded in (MSFT 51.2→35.0, UBER 52.9→34.8, V 54.9→39.2, NOW 59.3→42.3, ZS 61.1→36.3, NVDA 62.2→48.5); DUOL (55.6→50.7) and NFLX (63.2→61.2) stayed in HOLD. **Important:** a BUY-band *score* is not a BUY *order* — every one of the seven is currently blocked from adding by an independent gate (sub-2:1 risk/reward, the 15% position cap, or a Phase 01 quality-gate fail for ZS). No trades were executed; these are score/action-band updates only.
+
+**Full scored-book rescore complete (2026-06-20).** The remaining 9 scored equities were also rescored under the modifier (per-ticker `sessions/2026-06-20-rescore-*.md`): ADBE 5.0→0.0, META 38.5→19.6, SPGI 43.3→33.4, NKE 34.1→43.1, NVO 35.8→47.6, AMZN 79.8→73.4, GOOG 83.7→73.1, CSGP 83.3→79.0, SPOT 82.0→80.5. The four richly-valued names (AMZN, GOOG, CSGP, SPOT) stayed in the trim bands — the modifier correctly did **not** rescue them (their forward return only modestly cleared the hurdle), confirming the bounded asymmetry. **The only currently actionable trade across the whole book is ADBE** (score 0.0): a partial-fill position with R/R 4.47:1 and room to its 6–8% target — top up ~7 shares (~$1,366). All other BUY-band names are gated by R/R, the position cap, or a quality-gate fail. Not rescored under the modifier: TLT, XEON, RBRK, STIM (non-equity / cash-equivalent / fails gates) and VEEV (never scored).
+
 | Ticker | Weight % | Last Score | Last Review | Broker |
 |--------|----------|------------|-------------|--------|
-| ADBE | 3.85% | 5.0 | 12 Jun 2026 | IBKR |
-| AMZN | 10.45% | 79.8 | Jun 2026 | IBKR + Freedom24 |
+| ADBE | 3.85% | 0.0 | 20 Jun 2026 | IBKR |
+| AMZN | 10.45% | 73.4 | 20 Jun 2026 | IBKR + Freedom24 |
 | CASH (Freedom24) | 0.20% | | | Freedom24 |
 | CASH (IBKR) | 0.60% | | | IBKR |
-| CSGP | 1.53% | 83.3 | Jun 2026 | IBKR |
-| DUOL | 8.54% | 55.6 | 12 Jun 2026 | IBKR + Freedom24 |
-| GOOG | 0.68% | 83.7 | Jun 2026 | IBKR |
-| META | 7.52% | 38.5 | 12 Jun 2026 | IBKR + Freedom24 |
-| MSFT | 16.26% | 51.2 | 12 Jun 2026 | IBKR + Freedom24 |
-| NFLX | 1.81% | 63.2 | 12 Jun 2026 | IBKR |
-| NKE | 1.69% | 34.1 | Jun 2026 | IBKR |
-| NOW | 2.37% | 59.3 | Jun 2026 | IBKR |
-| NVDA | 5.47% | 62.2 | Jun 2026 | IBKR |
-| NVO | 0.41% | 35.8 | Jun 2026 | IBKR |
+| CSGP | 1.53% | 79.0 | 20 Jun 2026 | IBKR |
+| DUOL | 8.54% | 53.7 | 20 Jun 2026 | IBKR + Freedom24 |
+| GOOG | 0.68% | 73.1 | 20 Jun 2026 | IBKR |
+| META | 7.52% | 19.6 | 20 Jun 2026 | IBKR + Freedom24 |
+| MSFT | 16.26% | 35.0 | 20 Jun 2026 | IBKR + Freedom24 |
+| NFLX | 1.81% | 61.2 | 20 Jun 2026 | IBKR |
+| NKE | 1.69% | 43.1 | 20 Jun 2026 | IBKR |
+| NOW | 2.37% | 42.3 | 20 Jun 2026 | IBKR |
+| NVDA | 5.47% | 48.5 | 20 Jun 2026 | IBKR |
+| NVO | 0.41% | 47.6 | 20 Jun 2026 | IBKR |
 | RBRK | 0.40% | not scored — fails quality gates | Jun 2026 | IBKR |
-| SPGI | 0.78% | 43.3 | Jun 2026 | IBKR |
-| SPOT | 0.90% | 82.0 | Jun 2026 | IBKR |
+| SPGI | 0.78% | 33.4 | 20 Jun 2026 | IBKR |
+| SPOT | 0.90% | 80.5 | 20 Jun 2026 | IBKR |
 | STIM | 0.86% | not scored — going-concern override | Jun 2026 | IBKR |
 | TLT | 31.08% | not scored — non-equity, framework gap | Jun 2026 | IBKR + Freedom24 |
-| UBER | 0.39% | 52.9 | Jun 2026 | IBKR |
-| V | 0.60% | 54.9 | Jun 2026 | IBKR |
+| UBER | 0.39% | 34.8 | 20 Jun 2026 | IBKR |
+| V | 0.60% | 39.2 | 20 Jun 2026 | IBKR |
 | VEEV | 0.89% | | | IBKR |
 | XEON | 3.22% | not scored — cash-equivalent, out of scope | Jun 2026 | IBKR |
-| ZS | 0.24% | 61.1 (low-confidence) | Jun 2026 | IBKR |
+| ZS | 0.24% | 36.3 | 20 Jun 2026 | IBKR |
 
 **XEON is EUR-denominated** (€1,493.65 market value). Its USD-equivalent (**$1,727.86**, used for the weight above) comes from the *live* EUR→USD rate (1.156806) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
 

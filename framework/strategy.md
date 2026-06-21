@@ -160,6 +160,8 @@ May 2026 examples (illustrative — pre-dates the 5yr lookback change): MSFT 24.
 
 Apply ONLY to Lynch Fast Grower category (EPS growth > 15% for 3+ years). ⚠️ Never apply to cyclicals or stalwarts.
 
+> **"3+ years" = a reliable, non-distorted earnings base** (clarified 2026-06-20). A genuine fast grower that lacks 3+ years of clean EPS — recent IPO, only recently GAAP-profitable, or trailing EPS distorted by a one-off (e.g. a deferred-tax release) — does not yet qualify; **redistribute PEG's 15% to EV/EBIT** rather than forcing a PEG off an unreliable base. See [valuation-scoring.md](valuation-scoring.md) and [decisions/2026-06-20-framework-clarification-peg-clean-earnings.md](../decisions/2026-06-20-framework-clarification-peg-clean-earnings.md).
+
 PEG is one of the four weighted sub-scores (15% weight), computed continuously rather than as a post-hoc modifier — see [valuation-scoring.md](valuation-scoring.md):
 
 ```
