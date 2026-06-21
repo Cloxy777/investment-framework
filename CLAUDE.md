@@ -42,6 +42,7 @@ Use these instead of re-deriving the process each time (defined in `.claude/comm
 - `/sync-positions` — IBKR positions only → `portfolio/snapshots/ibkr.md` + `holdings.md`
 - `/sync-balances` — IBKR cash balances only → `portfolio/snapshots/ibkr.md` + `holdings.md`
 - `/sync-orders` — IBKR active/working orders only → `portfolio/snapshots/ibkr-orders.md`
+- `/telegram-scan [channels]` — poll monitored Telegram channels for new posts naming a company, and run `/rescore` or `/new-position` when the watchlist shows it's warranted (manual run, or scheduled hourly as Routine 6 — see automation-schedule.md)
 
 Every session should be saved to `sessions/` and, where it leads to an actual trade, logged in `decisions/` — that's what lets the framework be audited and improved (Rule 10).
 

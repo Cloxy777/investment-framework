@@ -11,3 +11,5 @@ Each snapshot carries a header with the account and the sync timestamp, plus a f
 `/sync-portfolio` runs both together (plus `/sync-orders`) in one combined commit — see [sync-sop.md](../sync-sop.md).
 
 `ibkr-orders.md` is a separate snapshot of currently **active/working IBKR orders** (not positions) — refreshed via `/sync-orders` (see [sync-sop.md](../sync-sop.md#ibkr-active-orders-sync)). It does not feed into `holdings.md`.
+
+`telegram-watch.md` is a different kind of snapshot — it tracks the last-seen post per monitored Telegram channel plus a mention log, for [Routine 6 / `/telegram-scan`](../../framework/automation-schedule.md#routine-6--telegram-stock-mention-scan). Also overwritten in place each run; not broker-sourced, and does not feed into `holdings.md` directly (the `/rescore` and `/new-position` runs it triggers do).

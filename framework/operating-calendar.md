@@ -16,10 +16,13 @@
 | **Event-triggered** | **Short thesis engagement** | Short report published | **Yes** | Not automated |
 | **Event-triggered** | **Turnaround sub-gate review** | Every 2 quarters after entry | **Yes** | Routine 5 |
 | **Monthly (first Monday)** | **Rebalance / trim review** | Calendar-based | **Yes** | Routine 5 |
+| **Event-triggered** | **Social-media stock-mention scan** | New post in a monitored Telegram channel names a company | **No — fully automated, incl. sign-off** | Routine 6 (hourly poll of 4 channels; only trade execution stays manual) |
 
 > **"Full universe re-screen" = one full pass through the [global coverage matrix](screening-coverage-log.md).** Run `/screen` slice by slice (it self-selects the next least-recently-covered region/sector when called with no argument) until every row shows a current-year "Last screened" date — that's what makes the January target "global, not just US large-cap" in practice rather than in name only. At the twice-weekly cadence (Routine 4), one full pass through the current 6-row matrix takes ~3 weeks rather than a year, leaving most of the year free to re-run a slice early if a rate-regime shift or sector re-rating makes it likely the qualified set there has moved.
 
 > **Monthly rebalance / trim review** is a new addition to this calendar — previously rebalances were ad hoc / human-triggered only. See [decisions/2026-06-13-automation-routine-schedule.md](../decisions/2026-06-13-automation-routine-schedule.md) for why a fixed monthly cadence was adopted alongside the rest of this automation.
+
+> **Social-media stock-mention scan** is also a new addition outside the original calendar, and the only routine that completes a `/rescore` or `/new-position`'s qualitative sign-off unattended — every other routine stops at a proposal. See [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md) for the trade-off accepted.
 
 ---
 
