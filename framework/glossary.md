@@ -12,8 +12,11 @@ Alphabetical within each group.
 
 | Term | Meaning |
 |---|---|
+| **AML (Anti-Money Laundering)** | Laws and internal controls designed to stop criminal proceeds from being moved through legitimate financial channels. An AML investigation is a regulator/prosecutor probe into whether a company's controls failed to catch suspicious activity — a fundamental (not price-action) risk this framework tracks under Rule 9's mandatory re-valuation triggers. |
 | **bps (basis points)** | 1 bps = 0.01 percentage points. 50 bps = 0.5%. |
 | **CAGR** | Compound Annual Growth Rate — the smoothed yearly growth rate that gets you from a start value to an end value over several years. |
+| **Cross-border payments** | Sending money between people or businesses in different countries/currencies — the core product category for remittance and international-transfer fintechs. |
+| **Dual-listing** | When the same company's shares trade on two separate stock exchanges (e.g. a primary listing on the LSE and a secondary listing on NASDAQ) — the two listings represent the same underlying business and financials, just quoted in different currencies/venues. |
 | **CapEx** | Capital Expenditure — money spent buying or upgrading physical assets (factories, equipment, data centers). |
 | **D&A** | Depreciation & Amortization — the non-cash accounting expense that spreads the cost of long-lived assets over time. |
 | **DCF** | Discounted Cash Flow — a valuation method that estimates a company's worth today by projecting its future cash and discounting it back to present-day value. |
@@ -46,6 +49,7 @@ Alphabetical within each group.
 | **Neobank** | A digital-first, often app-only bank or financial-services company. Most neobanks operate via a partner bank's charter; some go further and obtain an actual bank charter of their own. |
 | **NI (Net Income)** | Net Income — accounting profit after all expenses, interest, and taxes ("the bottom line"). |
 | **NIM (Net Interest Margin)** | The spread a bank earns between interest received on loans/assets and interest paid out on deposits/borrowings — the core profitability driver for any depository institution. |
+| **Own cash** | A payments/fintech company's *own* corporate cash, as distinct from customer/client balances it holds in transit. Matters because a payments company's reported "cash and cash equivalents" balance-sheet line often conflates the two — using the conflated figure overstates net cash and understates Enterprise Value. |
 | **Owner Earnings** | Warren Buffett's adjusted cash-flow measure: Net Income + D&A − *Maintenance* CapEx only (excludes growth CapEx) — used instead of raw FCF for moat-building reinvestors like MSFT, GOOGL, META, AMZN (Hybrid Upgrade 1). |
 | **P/B (Price-to-Book)** | Price ÷ book value (accounting net worth) per share — common for valuing banks and financials. |
 | **P/TBV (Price-to-Tangible-Book-Value)** | Like P/B, but using *tangible* book value (book value minus intangible assets such as goodwill) — a standard bank-valuation multiple. |
@@ -57,6 +61,7 @@ Alphabetical within each group.
 | **R/R (Risk/Reward ratio)** | (Expected gain) ÷ (Expected loss) on a trade — this framework requires at least 2:1 before entering. |
 | **ROE** | Return on Equity — Net Income ÷ shareholder equity; how efficiently a company generates profit from shareholders' capital. |
 | **ROIC** | Return on Invested Capital — how efficiently a company turns the capital invested in it (debt + equity) into profit; a core quality signal in this framework. |
+| **Safeguarded / segregated customer funds** | Money a regulated payments company holds on behalf of its customers (e.g. while a cross-border transfer is in transit), kept in ring-fenced accounts separate from the company's own corporate cash. These balances inflate a payments company's gross balance-sheet cash and, mechanically, its reported operating-cash-flow "change in working capital" line — neither figure represents cash the company can deploy for itself, so both must be stripped out before computing FCF yield, EV, or Net Debt/EBITDA. |
 | **SPAC** | Special Purpose Acquisition Company — a shell company that raises money via its own IPO for the specific purpose of merging with a private company to take it public, as an alternative to a traditional IPO. Often leaves the resulting company with a short, distorted public earnings history (one-off preferred-share/warrant accounting charges, thin trailing financials) that complicates standard quality/valuation checks. |
 | **TAM** | Total Addressable Market — the total revenue opportunity available if a company captured 100% of its target market. |
 | **TBVPS (Tangible Book Value Per Share)** | Tangible book value (book value minus intangible assets) divided by shares outstanding — the per-share input to a P/TBV multiple. |
