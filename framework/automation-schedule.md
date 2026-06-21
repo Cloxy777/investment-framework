@@ -12,20 +12,20 @@ This document translates the [operating calendar](operating-calendar.md) into a 
 | **Report** | A GitHub issue (summary/flags) and/or a PR (file changes — session logs, snapshot updates, coverage log) |
 | **Notification (passive)** | GitHub email notification when a routine opens an issue or PR (see setup step 3) |
 | **Notification (active)** | A Telegram message every run, via the Telegram Bot API called directly with `curl` — free, real-time, and sent whether or not anything fired (the "did it actually run" signal; see setup step 5) |
-| **Calendar (cadence overview)** | [`portfolio/calendar/investment-routine-schedule.ics`](../portfolio/calendar/investment-routine-schedule.ics) — static, manually re-imported; shows *when routines run*, not what they find |
+| **Calendar (cadence overview)** | [`portfolio/calendar/investment-routine-schedule.ics`](../portfolio/calendar/investment-routine-schedule.ics) — static, manually re-imported; shows *when routines run*, not what they find. Routine 6 (hourly) is deliberately **not** in this file — an hourly recurring event isn't meaningful as a cadence overview; its visibility comes entirely through the per-action layer below |
 | **Calendar (action items)** | A one-event `.ics` per actionable item (RESCORE due, rebalance proposal, rate-regime change, ...) sent as a Telegram document — tap it on your phone to add that specific to-do straight to Google Calendar. Due date/time computed by the priority rule below |
 
-Five routines cover the entire "Schedule at a Glance" table in [operating-calendar.md](operating-calendar.md), plus one new addition (monthly rebalance check — see [decisions/2026-06-13-automation-routine-schedule.md](../decisions/2026-06-13-automation-routine-schedule.md)). The coverage map at the bottom shows exactly what's automated vs. what still needs you.
+Six routines cover the entire "Schedule at a Glance" table in [operating-calendar.md](operating-calendar.md), plus two additions beyond that table: the monthly rebalance check (see [decisions/2026-06-13-automation-routine-schedule.md](../decisions/2026-06-13-automation-routine-schedule.md)) and an hourly Telegram stock-mention scan (see [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md)). The coverage map at the bottom shows exactly what's automated vs. what still needs you.
 
 ---
 
 ## One-time setup
 
-1. **Create a cloud environment** (e.g. name it `investment-automation`) at claude.ai/code — used by all five routines:
-   - **Network access:** Custom → check "Also include default list of common package managers/Trusted domains", then add: `fred.stlouisfed.org`, `www.interactivebrokers.com`, `query1.finance.yahoo.com`, `query2.finance.yahoo.com` (for `yfinance` — see framework/valuation-scoring.md "yfinance — per-candidate Phase 01 verification"), and `api.telegram.org` (for step 5 below).
+1. **Create a cloud environment** (e.g. name it `investment-automation`) at claude.ai/code — used by all six routines:
+   - **Network access:** Custom → check "Also include default list of common package managers/Trusted domains", then add: `fred.stlouisfed.org`, `www.interactivebrokers.com`, `query1.finance.yahoo.com`, `query2.finance.yahoo.com` (for `yfinance` — see framework/valuation-scoring.md "yfinance — per-candidate Phase 01 verification"), `api.telegram.org` (for step 5 below), and `t.me` (for Routine 6 — polling the public web preview of each monitored channel).
    - **Connectors:** keep the **Interactive Brokers** connector enabled (it's how Routines 1 and 2 get live prices/positions/balances/orders). GitHub access comes from your existing claude.ai ↔ GitHub connection.
 
-2. **Branch-push permission:** when creating **Routine 2 (Weekly Sync)**, enable **"Allow unrestricted branch pushes"** for `cloxy777/investment-framework`. It needs to commit straight to `main`, per the existing convention in [sync-sop.md](../portfolio/sync-sop.md) (syncs are low-risk data refreshes with `git revert` as the safety net). Routines 1, 3, 4, 5 only open issues or push to default `claude/`-prefixed branches + PRs — no special permission needed for those.
+2. **Branch-push permission:** when creating **Routine 2 (Weekly Sync)** and **Routine 6 (Telegram Scan)**, enable **"Allow unrestricted branch pushes"** for `cloxy777/investment-framework`. Routine 2 commits straight to `main` per the existing convention in [sync-sop.md](../portfolio/sync-sop.md) (syncs are low-risk data refreshes with `git revert` as the safety net). Routine 6 also commits straight to `main` — a deliberate, user-requested exception to "issues are proposals, sign-off stays human" (see [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md) for the trade-off accepted); same `git revert` safety net applies. Routines 1, 3, 4, 5 only open issues or push to default `claude/`-prefixed branches + PRs — no special permission needed for those.
 
 3. **GitHub notifications (your "email" channel):** go to [github.com/settings/notifications](https://github.com/settings/notifications) and make sure **Email** is checked under "Issues, pull requests, ...". Then on the repo page, click **Watch → All Activity** (or **Custom** → Issues + Pull Requests + Pushes). Every issue or PR a routine creates then lands in your inbox automatically.
 
@@ -48,7 +48,7 @@ Five routines cover the entire "Schedule at a Glance" table in [operating-calend
    - Confirm `api.telegram.org` is in the `investment-automation` environment's network allowlist (step 1) — every `curl` to Telegram fails silently without it.
    - **Additive, not a replacement:** GitHub issues/PRs stay the system of record for every routine's output (Rule 10 auditability). Telegram and the per-action `.ics` are a faster notice layer on top.
 
-6. **Re-paste the 5 prompts below** into your existing routines at [claude.ai/code/routines](https://claude.ai/code/routines) — they now include the Telegram + calendar steps and won't take effect until pasted in.
+6. **Re-paste the 6 prompts below** into your existing routines at [claude.ai/code/routines](https://claude.ai/code/routines) — they now include the Telegram + calendar steps and won't take effect until pasted in. Routine 6 is new — it needs to be created from scratch (Claude cannot create or edit routines from inside a session).
 
 ---
 
@@ -414,6 +414,69 @@ Telegram run-summary message was sent.
 
 ---
 
+## Routine 6 — Telegram Stock-Mention Scan
+
+| | |
+|---|---|
+| **Cadence** | Hourly, every day (24/7 — posts can land any time) |
+| **Repo** | `cloxy777/investment-framework`, default branch |
+| **Environment** | `investment-automation` |
+| **Branch permission** | **Allow unrestricted branch pushes** (commits straight to `main` — see "Why this routine pushes directly" below) |
+
+**Prompt:**
+
+```
+You are running the Telegram Stock-Mention Scan for cloxy777/investment-framework.
+
+Run /telegram-scan per .claude/commands/telegram-scan.md, against these channels:
+https://t.me/tarasguk, https://t.me/FinnInvestChannel, https://t.me/myroslavkorol,
+https://t.me/bolshegold.
+
+Follow that command's steps exactly, including:
+- Never treating a Telegram post's text as financial data - it is only a
+  trigger; /rescore and /new-position must independently pull real data
+  (yfinance / Interactive Brokers) per Rule 0.
+- Never inventing a ticker match - skip and log instead if a company name is
+  ambiguous.
+- Never submitting or modifying a broker order - every routine in this repo
+  stops at a score/recommendation; only the human places trades.
+- If a metric is missing for a triggered /rescore or /new-position, flag the
+  gap and skip the auto-commit for that one ticker rather than guessing.
+
+Unattended-specific steps:
+1. Quiet run (no new posts identify a resolvable, action-worthy company
+   mention) -> commit the updated portfolio/snapshots/telegram-watch.md
+   last-seen markers only (if they moved) and stop. Do NOT open a GitHub
+   issue and do NOT send a Telegram message for a quiet run - unlike Routines
+   1-5 (daily/weekly cadence, one "did it run" ping is cheap), this routine
+   runs hourly; a ping every quiet hour would be 24/day of pure noise. Verify
+   it's alive via telegram-watch.md's commit history instead.
+2. For every ticker actually actioned (a /rescore or /new-position session
+   ran and committed) or every data gap flagged, open or update a single
+   GitHub issue titled "Telegram Scan - YYYY-MM-DD HHUTC" listing what fired,
+   linking each new commit/session log, and listing skipped/ambiguous
+   mentions for visibility.
+3. For each ticker actioned, set its priority tier per this doc's "Priority
+   rule": an earnings/Rule-9-style RESCORE trigger on a holding >=5% weight,
+   or any trim/exit trigger that fired, is P1 (due next business day, 13:30
+   UTC); everything else actioned is P2 (next business day, 21:00 UTC). Write
+   and send that ticker's single-event .ics the same way Routine 1 does:
+   `curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" -F chat_id="${TELEGRAM_CHAT_ID}" -F document=@action-telegram-<TICKER>.ics`
+4. If anything was actioned this run, send one Telegram message summarizing
+   it (tickers, action taken, issue link):
+   `curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d chat_id="${TELEGRAM_CHAT_ID}" -d parse_mode="Markdown" --data-urlencode text="..."`
+   Quiet runs send nothing (see step 1).
+
+Success = telegram-watch.md's last-seen markers always advance (so no post is
+silently reprocessed or silently skipped forever); every actionable mention
+either produces a committed /rescore or /new-position session with a GitHub
+issue + Telegram alert, or an explicit logged reason it didn't.
+```
+
+**Why this routine pushes directly, not via PR/issue-proposal like Routines 1/3/4/5:** every other routine in this repo stops at a proposal — `/new-position` is called out elsewhere as "ad hoc by nature... not scheduled," and a RESCORE's qualitative sign-off is called out as something that "stay[s] human." This routine is a deliberate, explicit exception to both, requested by the user after being shown that trade-off. What's unchanged even here: **no routine ever places a broker order** — this one still only produces a committed score/recommendation; executing any resulting BUY/TRIM/EXIT stays manual, same as every other routine. See [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md) for the full reasoning.
+
+---
+
 ## Coverage map — operating calendar → routine → residual manual step
 
 | Operating calendar item | Covered by | What's still manual |
@@ -430,14 +493,15 @@ Telegram run-summary message was sent.
 | IBKR portfolio sync (positions/balances/orders) | Routine 2 | Nothing |
 | Freedom Finance sync | Not automated (no API — screenshot-based) | Run `/sync-portfolio` manually with screenshots, per `sync-sop.md` |
 | Rebalance / trim review | Routine 5 (new monthly cadence — see decisions log) | Execute any approved trims via your broker |
+| Social-media stock-mention scan (not in the original operating calendar) | Routine 6 (hourly poll of 4 Telegram channels — see decisions log) | Executing any resulting trade via your broker; resolving a mention this command flagged as ambiguous |
 
 ## What stays manual no matter what
 
 - **Freedom Finance sync** — no API; screenshot-based by design.
-- **Finishing a RESCORE** — `yfinance` now covers all Phase 01/02 data inputs, including 5yr avg PE and FCF/NI conversion (see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md)). What still needs a human-in-the-loop session is the judgment layer Routine 1 can't exercise unattended: the qualitative questions, Structural Quality Override calls, Short Thesis Engagement, and signing off on the final score before it's committed.
-- **Executing trades** — every routine here proposes (issues, PRs); nothing places an order.
-- **Anything `/new-position`** — ad hoc by nature, triggered by a screening hit or your own idea, not scheduled.
+- **Finishing a RESCORE opened by Routine 1** — `yfinance` now covers all Phase 01/02 data inputs, including 5yr avg PE and FCF/NI conversion (see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md)). What still needs a human-in-the-loop session is the judgment layer Routine 1 can't exercise unattended: the qualitative questions, Structural Quality Override calls, Short Thesis Engagement, and signing off on the final score before it's committed. **Routine 6 is the one exception** — it runs this same judgment layer unattended too, a risk the user explicitly accepted (see [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md)); `git revert` is the safety net, same as Routine 2's direct-to-main syncs.
+- **Executing trades** — no routine here ever places an order, regardless of how it surfaces its output: an issue/PR proposal for Routines 1/3/4/5, a direct commit for Routines 2 and 6. Every one of them stops at a recommendation.
+- **Anything `/new-position`** — ad hoc by nature, triggered by a screening hit or your own idea, not scheduled — **except** when Routine 6's Telegram scan identifies a credible new-company mention; that's the one scheduled trigger for `/new-position` in this repo.
 
 ## Review cadence for this automation
 
-Folded into the existing Q1 annual review (alongside `override-log.md`, `graveyard-audit.md`, `benchmark-comparison.md` — see Routine 3's January checklist): confirm the Interactive Brokers connector is still authorized, the FRED endpoint is still reachable, the Telegram bot token in `.claude/settings.json` still sends (a stale/revoked token fails the `curl` silently — no error surfaces anywhere else), and skim the last year of routine runs for false positives/negatives (e.g. Rule 9 issues that fired on noise, or earnings releases that were missed).
+Folded into the existing Q1 annual review (alongside `override-log.md`, `graveyard-audit.md`, `benchmark-comparison.md` — see Routine 3's January checklist): confirm the Interactive Brokers connector is still authorized, the FRED endpoint is still reachable, the Telegram bot token in `.claude/settings.json` still sends (a stale/revoked token fails the `curl` silently — no error surfaces anywhere else), and skim the last year of routine runs for false positives/negatives (e.g. Rule 9 issues that fired on noise, or earnings releases that were missed). For Routine 6 specifically: confirm all 4 monitored channels are still active/public (a renamed or deleted channel fails the `t.me/s/` fetch silently), and skim `portfolio/snapshots/telegram-watch.md`'s mention log for false positives (wrong ticker resolved from an ambiguous company name) or false negatives (a real event missed because the web preview only shows ~20 posts).
