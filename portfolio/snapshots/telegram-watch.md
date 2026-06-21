@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | 2026-06-21 17:04 UTC (post 11148) | 2026-06-21 17:36 UTC |
-| https://t.me/FinnInvestChannel | 2026-06-21 16:23 UTC (post 2807) | 2026-06-21 17:36 UTC |
-| https://t.me/myroslavkorol | 2026-06-20 10:38 UTC (post 2471) | 2026-06-21 17:36 UTC |
-| https://t.me/bolshegold | 2026-06-21 15:25 UTC (post 9601) | 2026-06-21 17:36 UTC |
+| https://t.me/tarasguk | tarasguk/11148 (~17:04 UTC, 2026-06-21) | 2026-06-21 17:52 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2807 (~16:23, 2026-06-21) | 2026-06-21 17:52 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2471 (~10:38 UTC, 2026-06-21) | 2026-06-21 17:52 UTC |
+| https://t.me/bolshegold | bolshegold/9601 (~15:25 UTC, 2026-06-21) | 2026-06-21 17:52 UTC |
 
 ## Mention log
 
@@ -17,7 +17,8 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
-| 2026-06-21 | t.me/tarasguk | — | no action — baseline seeded | First run for this channel (marker was "not yet run"); per telegram-scan.md step 2, no prior post to diff against. Top post (#11148, 17:04 UTC) is a video-announcement teaser (chip-makers vs. hyperscalers, no specific ticker named) — marker set to it, not evaluated. |
-| 2026-06-21 | t.me/FinnInvestChannel | — | no action — baseline seeded | First run for this channel. Top post (#2807, 16:23 UTC) discusses AI power-demand constraints, mentions Nvidia only as historical context ("the AI race started with Nvidia's chips, but..."), not a Rule-9 event about NVDA — marker set to it, not evaluated per the baseline-seeding rule regardless. |
-| 2026-06-21 | t.me/myroslavkorol | — | no action — baseline seeded | First run for this channel. Top post (#2471, 20 Jun 10:38 UTC) is a one-line personal remark, no company/ticker named — marker set to it. |
-| 2026-06-21 | t.me/bolshegold | — | no action — baseline seeded | First run for this channel. Top post (#9601, 15:25 UTC) is a generic "market opens tomorrow, relax" remark, no company/ticker named — marker set to it. |
+| 2026-06-21 | https://t.me/tarasguk | — | no action — no resolvable company named | Marker advanced from tarasguk/11146 to tarasguk/11148 (~17:04 UTC). Gap from the prior marker (~15:54 UTC) exceeds ~1 hour — post 11147 doesn't appear in the preview at all (this channel has other numbering gaps too, e.g. 11135→11138; likely a deleted/non-rendering post, not evidence of a missed company mention, but noting per command step 2 since it can't be individually verified). New top post (#11148) is a video-announcement teaser summarizing H1 2026 (chip-makers vs. hyperscalers) — no specific ticker named, no action. |
+| 2026-06-21 | https://t.me/bolshegold | — | baseline seeded | First run for this channel — no prior marker to diff against (per command step 2). Marker set to bolshegold/9601. Post itself is generic "market opens tomorrow, chill" commentary — no company/ticker named, would not have actioned even outside baseline pass. |
+| 2026-06-21 | https://t.me/myroslavkorol | — | baseline seeded | First run for this channel. Marker set to myroslavkorol/2471. Post is a one-line joke ("чим би дитя не тішилось") — no company/ticker named. |
+| 2026-06-21 | https://t.me/FinnInvestChannel | — | baseline seeded | First run for this channel. Marker set to FinnInvestChannel/2807. Post is macro commentary on AI data-center electricity demand (citing Yahoo Finance) — no specific company/ticker named, generic macro theme only. |
+| 2026-06-21 | https://t.me/tarasguk | — | baseline seeded | First run for this channel. Marker set to tarasguk/11146. Post is political commentary (Trump/Johnson) — unrelated to any company. |
