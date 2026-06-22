@@ -35,16 +35,7 @@ Six routines cover the entire "Schedule at a Glance" table in [operating-calenda
    - In Telegram, message **@BotFather** → `/newbot` → follow the prompts (display name + a username ending in `bot`). It replies with a **bot token**, e.g. `123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ`. Keep it private — anyone with it can send messages as this bot.
    - Send any message to your new bot (e.g. "hi") — a bot can't message you until you've messaged it first.
    - In a browser, open `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates` and read the `"chat":{"id": ...}` field from the JSON — that's your **chat ID**.
-   - Put both values in [`.claude/settings.json`](../.claude/settings.json):
-     ```json
-     {
-       "env": {
-         "TELEGRAM_BOT_TOKEN": "<your bot token>",
-         "TELEGRAM_CHAT_ID": "<your chat id>"
-       }
-     }
-     ```
-     This repo is private, and a leaked token only lets someone send messages as this single-purpose bot — no account or financial access — matching the risk calculus already accepted for the EODHD key in [decisions/2026-06-13-automation-routine-schedule.md](../decisions/2026-06-13-automation-routine-schedule.md). If that calculus ever changes, revoke via `@BotFather` → `/revoke` and move the token to a per-environment variable instead.
+   - Set both values as **environment variables on the `investment-automation` cloud environment** at claude.ai/code (Environment settings → Environment variables) — `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`. Do **not** put real values in [`.claude/settings.json`](../.claude/settings.json) — that file is committed to the repo, which is public, so anything in it is world-readable (including in git history, forever). See [decisions/2026-06-22-security-move-secrets-off-repo.md](../decisions/2026-06-22-security-move-secrets-off-repo.md) for why this changed from the original private-repo design.
    - Confirm `api.telegram.org` is in the `investment-automation` environment's network allowlist (step 1) — every `curl` to Telegram fails silently without it.
    - **Additive, not a replacement:** GitHub issues/PRs stay the system of record for every routine's output (Rule 10 auditability). Telegram and the per-action `.ics` are a faster notice layer on top.
 
@@ -508,4 +499,4 @@ issue + Telegram alert, or an explicit logged reason it didn't.
 
 ## Review cadence for this automation
 
-Folded into the existing Q1 annual review (alongside `override-log.md`, `graveyard-audit.md`, `benchmark-comparison.md` — see Routine 3's January checklist): confirm the Interactive Brokers connector is still authorized, the FRED endpoint is still reachable, the Telegram bot token in `.claude/settings.json` still sends (a stale/revoked token fails the `curl` silently — no error surfaces anywhere else), and skim the last year of routine runs for false positives/negatives (e.g. Rule 9 issues that fired on noise, or earnings releases that were missed). For Routine 6 specifically: confirm all 4 monitored channels are still active/public (a renamed or deleted channel fails the `t.me/s/` fetch silently), and skim `portfolio/snapshots/telegram-watch.md`'s mention log for false positives (wrong ticker resolved from an ambiguous company name) or false negatives (a real event missed because the web preview only shows ~20 posts).
+Folded into the existing Q1 annual review (alongside `override-log.md`, `graveyard-audit.md`, `benchmark-comparison.md` — see Routine 3's January checklist): confirm the Interactive Brokers connector is still authorized, the FRED endpoint is still reachable, the Telegram bot token (set as an environment variable on the `investment-automation` cloud environment, not in the repo — see [decisions/2026-06-22-security-move-secrets-off-repo.md](../decisions/2026-06-22-security-move-secrets-off-repo.md)) still sends (a stale/revoked token fails the `curl` silently — no error surfaces anywhere else), and skim the last year of routine runs for false positives/negatives (e.g. Rule 9 issues that fired on noise, or earnings releases that were missed). For Routine 6 specifically: confirm all 4 monitored channels are still active/public (a renamed or deleted channel fails the `t.me/s/` fetch silently), and skim `portfolio/snapshots/telegram-watch.md`'s mention log for false positives (wrong ticker resolved from an ambiguous company name) or false negatives (a real event missed because the web preview only shows ~20 posts).
