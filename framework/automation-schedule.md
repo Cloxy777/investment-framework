@@ -25,7 +25,7 @@ Six routines cover the entire "Schedule at a Glance" table in [operating-calenda
    - **Network access:** Custom → check "Also include default list of common package managers/Trusted domains", then add: `fred.stlouisfed.org`, `www.interactivebrokers.com`, `query1.finance.yahoo.com`, `query2.finance.yahoo.com` (for `yfinance` — see framework/valuation-scoring.md "yfinance — per-candidate Phase 01 verification"), `api.telegram.org` (for step 5 below), and `t.me` (for Routine 6 — polling the public web preview of each monitored channel).
    - **Connectors:** keep the **Interactive Brokers** connector enabled (it's how Routines 1 and 2 get live prices/positions/balances/orders). GitHub access comes from your existing claude.ai ↔ GitHub connection.
 
-2. **Branch-push permission:** when creating **Routine 2 (Weekly Sync)** and **Routine 6 (Telegram Scan)**, enable **"Allow unrestricted branch pushes"** for `cloxy777/investment-framework`. Routine 2 commits straight to `main` per the existing convention in [sync-sop.md](../portfolio/sync-sop.md) (syncs are low-risk data refreshes with `git revert` as the safety net). Routine 6 also commits straight to `main` — a deliberate, user-requested exception to "issues are proposals, sign-off stays human" (see [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md) for the trade-off accepted); same `git revert` safety net applies. Routines 1, 3, 4, 5 only open issues or push to default `claude/`-prefixed branches + PRs — no special permission needed for those.
+2. **Branch-push permission:** none of the six routines need "Allow unrestricted branch pushes" anymore — all six (including Routine 2 and Routine 6) push only to default `claude/`-prefixed branches and open a PR. What Routine 2 and Routine 6 need instead is a one-time **repo** setting: **Settings → General → Pull Requests → "Allow auto-merge"**, checked for `cloxy777/investment-framework` (no MCP/CLI tool can toggle this remotely — it has to be done once, by hand, in the GitHub UI). With that checked, their PRs auto-merge (squash) the moment they're mergeable, matching the old direct-to-`main` speed without an actual direct push — see [decisions/2026-06-22-automation-routine-auto-merge-pr.md](../decisions/2026-06-22-automation-routine-auto-merge-pr.md) for why this changed from the original direct-push design. Routines 1, 3, 4, 5 leave their PRs open for manual review/merge, as before — no auto-merge needed there since their output is a proposal, not a refresh.
 
 3. **GitHub notifications (your "email" channel):** go to [github.com/settings/notifications](https://github.com/settings/notifications) and make sure **Email** is checked under "Issues, pull requests, ...". Then on the repo page, click **Watch → All Activity** (or **Custom** → Issues + Pull Requests + Pushes). Every issue or PR a routine creates then lands in your inbox automatically.
 
@@ -158,7 +158,7 @@ Telegram, and exactly one Telegram run-summary message sent - quiet or not.
 | **Cadence** | Weekly, Monday before US market open — e.g. 11:00 UTC |
 | **Repo** | `cloxy777/investment-framework`, default branch |
 | **Environment** | `investment-automation` |
-| **Branch permission** | **Allow unrestricted branch pushes** (commits to `main`) |
+| **Branch permission** | Default (`claude/` branch + PR, with repo-level "Allow auto-merge" enabled — see One-time setup step 2) |
 
 **Prompt:**
 
@@ -172,8 +172,9 @@ cloxy777/investment-framework.
    U19421206, resolve tickers via the live IBKR ticker-lookup CSV (fall back
    to portfolio/reference/ibkr-ticker-lookup.csv if unreachable), update
    portfolio/snapshots/ibkr.md, portfolio/snapshots/ibkr-orders.md, and
-   portfolio/holdings.md, and commit straight to main with message
-   "Sync IBKR portfolio - YYYY-MM-DD". Do the watchlist
+   portfolio/holdings.md, push to a claude/-prefixed branch with commit
+   message "Sync IBKR portfolio - YYYY-MM-DD", open a PR with that same
+   title, and enable auto-merge (squash) on it. Do the watchlist
    in-portfolio/not-in-portfolio reconciliation from watchlist/README.md if
    positions changed.
 
@@ -191,8 +192,9 @@ cloxy777/investment-framework.
 
 5. Write sessions/weekly-briefs/YYYY-MM-DD-weekly-brief.md summarizing: the
    sync's portfolio changes, upcoming earnings (next 7 days), any overdue
-   rescore-due issues, and any quarterly/annual items due. Commit this file
-   to main alongside (or right after) the sync commit.
+   rescore-due issues, and any quarterly/annual items due. Include this file
+   in the same branch/PR as the sync commit (or push it as a same-branch
+   follow-up commit before the PR merges).
 
 6. Open or update a single GitHub issue titled
    "Weekly Portfolio Brief - week of YYYY-MM-DD" with the same summary,
@@ -421,7 +423,7 @@ Telegram run-summary message was sent.
 | **Cadence** | Hourly, every day (24/7 — posts can land any time) |
 | **Repo** | `cloxy777/investment-framework`, default branch |
 | **Environment** | `investment-automation` |
-| **Branch permission** | **Allow unrestricted branch pushes** (commits straight to `main` — see "Why this routine pushes directly" below) |
+| **Branch permission** | Default (`claude/` branch + PR, with repo-level "Allow auto-merge" enabled — see "Why this routine auto-merges" below) |
 
 **Prompt:**
 
@@ -445,12 +447,14 @@ Follow that command's steps exactly, including:
 
 Unattended-specific steps:
 1. Quiet run (no new posts identify a resolvable, action-worthy company
-   mention) -> commit the updated portfolio/snapshots/telegram-watch.md
-   last-seen markers only (if they moved) and stop. Do NOT open a GitHub
-   issue and do NOT send a Telegram message for a quiet run - unlike Routines
-   1-5 (daily/weekly cadence, one "did it run" ping is cheap), this routine
-   runs hourly; a ping every quiet hour would be 24/day of pure noise. Verify
-   it's alive via telegram-watch.md's commit history instead.
+   mention) -> push the updated portfolio/snapshots/telegram-watch.md
+   last-seen markers only (if they moved) to a claude/-prefixed branch, open
+   a PR titled "Telegram watch markers - YYYY-MM-DD HHUTC", enable auto-merge
+   (squash) on it, and stop. Do NOT open a GitHub issue and do NOT send a
+   Telegram message for a quiet run - unlike Routines 1-5 (daily/weekly
+   cadence, one "did it run" ping is cheap), this routine runs hourly; a ping
+   every quiet hour would be 24/day of pure noise. Verify it's alive via
+   telegram-watch.md's commit history instead.
 2. For every ticker actually actioned (a /rescore or /new-position session
    ran and committed) or every data gap flagged, open or update a single
    GitHub issue titled "Telegram Scan - YYYY-MM-DD HHUTC" listing what fired,
@@ -473,7 +477,7 @@ either produces a committed /rescore or /new-position session with a GitHub
 issue + Telegram alert, or an explicit logged reason it didn't.
 ```
 
-**Why this routine pushes directly, not via PR/issue-proposal like Routines 1/3/4/5:** every other routine in this repo stops at a proposal — `/new-position` is called out elsewhere as "ad hoc by nature... not scheduled," and a RESCORE's qualitative sign-off is called out as something that "stay[s] human." This routine is a deliberate, explicit exception to both, requested by the user after being shown that trade-off. What's unchanged even here: **no routine ever places a broker order** — this one still only produces a committed score/recommendation; executing any resulting BUY/TRIM/EXIT stays manual, same as every other routine. See [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md) for the full reasoning.
+**Why this routine auto-merges instead of leaving its PR open, unlike Routines 1/3/4/5:** every other routine in this repo stops at a proposal — `/new-position` is called out elsewhere as "ad hoc by nature... not scheduled," and a RESCORE's qualitative sign-off is called out as something that "stay[s] human." Routine 6 still runs that same unattended judgment layer — a deliberate, explicit exception requested by the user after being shown that trade-off — but as of 2026-06-22 it lands its result via a normal `claude/`-prefixed branch + PR, with the repo's "Allow auto-merge" setting doing the work that a direct push to `main` used to do (the PR merges itself the instant it's mergeable, so there's no meaningful added latency vs. the old direct commit). What's unchanged: **no routine ever places a broker order** — this one still only produces a committed score/recommendation; executing any resulting BUY/TRIM/EXIT stays manual, same as every other routine. See [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md) for the original reasoning and [decisions/2026-06-22-automation-routine-auto-merge-pr.md](../decisions/2026-06-22-automation-routine-auto-merge-pr.md) for why the landing mechanism changed.
 
 ---
 
@@ -498,8 +502,8 @@ issue + Telegram alert, or an explicit logged reason it didn't.
 ## What stays manual no matter what
 
 - **Freedom Finance sync** — no API; screenshot-based by design.
-- **Finishing a RESCORE opened by Routine 1** — `yfinance` now covers all Phase 01/02 data inputs, including 5yr avg PE and FCF/NI conversion (see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md)). What still needs a human-in-the-loop session is the judgment layer Routine 1 can't exercise unattended: the qualitative questions, Structural Quality Override calls, Short Thesis Engagement, and signing off on the final score before it's committed. **Routine 6 is the one exception** — it runs this same judgment layer unattended too, a risk the user explicitly accepted (see [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md)); `git revert` is the safety net, same as Routine 2's direct-to-main syncs.
-- **Executing trades** — no routine here ever places an order, regardless of how it surfaces its output: an issue/PR proposal for Routines 1/3/4/5, a direct commit for Routines 2 and 6. Every one of them stops at a recommendation.
+- **Finishing a RESCORE opened by Routine 1** — `yfinance` now covers all Phase 01/02 data inputs, including 5yr avg PE and FCF/NI conversion (see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md)). What still needs a human-in-the-loop session is the judgment layer Routine 1 can't exercise unattended: the qualitative questions, Structural Quality Override calls, Short Thesis Engagement, and signing off on the final score before it's committed. **Routine 6 is the one exception** — it runs this same judgment layer unattended too, a risk the user explicitly accepted (see [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md)); `git revert` is still the safety net, same as Routine 2's syncs, even now that both land via an auto-merged PR rather than a direct push (see [decisions/2026-06-22-automation-routine-auto-merge-pr.md](../decisions/2026-06-22-automation-routine-auto-merge-pr.md)).
+- **Executing trades** — no routine here ever places an order, regardless of how it surfaces its output: an issue/PR left open for manual merge (Routines 1/3/4/5), or an auto-merged PR (Routines 2 and 6). Every one of them stops at a recommendation.
 - **Anything `/new-position`** — ad hoc by nature, triggered by a screening hit or your own idea, not scheduled — **except** when Routine 6's Telegram scan identifies a credible new-company mention; that's the one scheduled trigger for `/new-position` in this repo.
 
 ## Review cadence for this automation

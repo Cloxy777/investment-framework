@@ -39,3 +39,5 @@ The user explicitly asked for full unattended execution here — including the q
 - `CLAUDE.md` — added `/telegram-scan` to the slash-command list
 
 **Risk flagged for the Q1 annual review (automation-schedule.md "Review cadence"):** skim `telegram-watch.md`'s mention log for false positives (wrong ticker resolved from an ambiguous company name) or false negatives (a real event missed because the channel's web preview only shows ~20 posts), and confirm the 4 channels are still active/public.
+
+**Addendum (2026-06-22):** the "direct-to-`main`" landing mechanism described above was replaced the next day — Routine 6 now pushes to a `claude/`-prefixed branch and merges via an auto-merge PR instead of committing straight to `main`. See [decisions/2026-06-22-automation-routine-auto-merge-pr.md](2026-06-22-automation-routine-auto-merge-pr.md) for why. Everything else in this entry — the hourly cadence, the ticker-identification rules, the Rule 0 data-sourcing boundary, and the no-trade-execution guarantee — is unchanged.
