@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11148 (~17:04 UTC, 2026-06-21) | 2026-06-22 03:36 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2807 (~16:23, 2026-06-21) | 2026-06-22 03:36 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2471 (~10:38 UTC, 2026-06-21) | 2026-06-22 03:36 UTC |
-| https://t.me/bolshegold | bolshegold/9602 (~18:02 UTC, 2026-06-21) | 2026-06-22 03:36 UTC |
+| https://t.me/tarasguk | tarasguk/11148 (~17:04 UTC, 2026-06-21) | 2026-06-22 04:36 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2807 (~16:23, 2026-06-21) | 2026-06-22 04:36 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2471 (~10:38 UTC, 2026-06-21) | 2026-06-22 04:36 UTC |
+| https://t.me/bolshegold | bolshegold/9602 (~18:02 UTC, 2026-06-21) | 2026-06-22 04:36 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-06-22 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9602 (no new post since the 03:36 UTC check). |
+| 2026-06-22 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2471 (no new post since the 03:36 UTC check). |
+| 2026-06-22 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2807 (no new post since the 03:36 UTC check). |
+| 2026-06-22 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11148 (no new post since the 03:36 UTC check). |
 | 2026-06-22 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9602 (no new post since the 01:50 UTC check). |
 | 2026-06-22 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2471 (no new post since the 01:50 UTC check). |
 | 2026-06-22 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2807 (no new post since the 01:50 UTC check). |
