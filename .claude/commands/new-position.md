@@ -17,6 +17,8 @@ Save as `sessions/YYYY-MM-DD-new-position-<ticker>.md`. If a position is actuall
 
 **Watchlist:** create or update `watchlist/not-in-portfolio/<TICKER>/<TICKER>-YYYY-MM-DD.md` (or `in-portfolio/` if a position was actually opened) per [watchlist/README.md](../../watchlist/README.md). Add a new dated row only if the score, the scored↔unscored status, or the action category changed from the ticker's last watchlist entry (or this is its first entry); otherwise append a "Last checked (no significant change)" line to the existing file.
 
+**Clear stale-score mark:** this evaluation computes the score under the current methodology, so if the ticker was flagged stale, remove its `⚠️ STALE SCORE` banner from the entry file and delete its row in [watchlist/STALE.md](../../watchlist/STALE.md) (see the stale-score mechanism in [watchlist/README.md](../../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes)).
+
 ## Batch processing (multiple tickers)
 
 If `$ARGUMENTS` lists more than one ticker, do **not** launch them all as parallel subagents at once — running too many heavy-research agents simultaneously has repeatedly hit the shared session usage limit ("You've hit your session limit · resets HH:MM (UTC)") and lost in-progress work.
