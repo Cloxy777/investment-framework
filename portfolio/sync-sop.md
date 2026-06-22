@@ -10,9 +10,9 @@ IBKR has three independent automated syncs — **positions**, **cash balances**,
 | **IBKR full sync** (`/sync-portfolio`) | Runs the three IBKR syncs above, one combined commit | *"Re-sync my IBKR portfolio"* |
 | **Freedom Finance** (`/sync-portfolio`) | Manual — screenshot-based | *"Re-sync my Freedom Finance portfolio"* + attach screenshots |
 
-> **Syncs commit straight to `main`** — no branch, no PR. They're low-risk, frequent, machine-generated data refreshes (a snapshot file or section, `holdings.md`, occasionally the lookup CSV), and `main`'s branch protection isn't actually enforced on this private repo anyway (GitHub requires a paid plan — Pro/Team/Enterprise — for branch protection on private repos; it was silently dropped when this repo went private). A PR-per-sync would just be ceremony without a real guard rail behind it. Each sync lands as one clean, descriptive commit — `Sync IBKR positions — YYYY-MM-DD`, `Sync IBKR cash balances — YYYY-MM-DD`, `Sync IBKR active orders — YYYY-MM-DD`, the combined `Sync IBKR portfolio — YYYY-MM-DD` (from `/sync-portfolio`), or `Sync Freedom Finance portfolio — YYYY-MM-DD` — so `git log` / `git revert` is always there if a sync needs undoing.
+> **Syncs push to a `claude/`-prefixed branch and merge via an auto-merge PR** — never a direct push to `main`. They're low-risk, frequent, machine-generated data refreshes (a snapshot file or section, `holdings.md`, occasionally the lookup CSV), so each PR is opened with GitHub auto-merge (squash) enabled and is expected to merge itself as soon as it's mergeable — a human only needs to step in if something blocks it. This requires a one-time repo setting: **Settings → General → Pull Requests → "Allow auto-merge"** must be checked (no MCP/CLI tool can toggle this remotely — a human has to check the box once). Each sync still lands as one clean, descriptive commit/PR title — `Sync IBKR positions — YYYY-MM-DD`, `Sync IBKR cash balances — YYYY-MM-DD`, `Sync IBKR active orders — YYYY-MM-DD`, the combined `Sync IBKR portfolio — YYYY-MM-DD` (from `/sync-portfolio`), or `Sync Freedom Finance portfolio — YYYY-MM-DD` — so `git log` / `git revert` is still there if a sync needs undoing. (Note: `main`'s branch protection isn't actually enforced on this private repo today — GitHub requires a paid plan, Pro/Team/Enterprise, for branch protection on private repos, and it was silently dropped when this repo went private — but routing every change through a PR is what makes turning on protection later, whenever that's sorted out, actually mean something instead of being silently bypassed by direct pushes.)
 >
-> **Framework and process changes are different** — those still go through a feature branch + PR by convention (it's the audit trail for *why* the framework evolved, not a data refresh, and worth a review pass even without enforced protection). See [CLAUDE.md](../CLAUDE.md).
+> **Framework and process changes are different** — those already go through a feature branch + PR by convention (it's the audit trail for *why* the framework evolved, not a data refresh, and worth a review pass rather than auto-merging). See [CLAUDE.md](../CLAUDE.md).
 
 ---
 
@@ -40,7 +40,7 @@ IBKR has three independent automated syncs — **positions**, **cash balances**,
    - the position-derived header fields: Gross Position Value, Unrealized P&L, and the "Positions last synced" timestamp.
    - Leave the Cash Balances table and the cash-derived header fields (Net Liquidation, Total Cash, "Cash balances last synced") untouched — those reflect the most recent `/sync-balances` run, which may be a different date.
 4. **Refresh holdings.md** — update the relevant ticker rows (weight %, broker; leave score/last-review columns untouched — those come from `/rescore`). Weight = position market value ÷ Net Liquidation Value, using the Net Liquidation figure currently in `ibkr.md` (from the most recent `/sync-balances` run). If that figure isn't from today, note its date so the weight isn't read as fresher than it is.
-5. **Commit straight to `main`** — stage `ibkr.md`, `holdings.md`, and (if refreshed) the lookup CSV, with the message `Sync IBKR positions — YYYY-MM-DD`. No branch, no PR — see the note at the top of this file.
+5. **Push to a `claude/`-prefixed branch and open an auto-merge PR** — stage `ibkr.md`, `holdings.md`, and (if refreshed) the lookup CSV, commit with the message `Sync IBKR positions — YYYY-MM-DD`, open a PR with that same title, and enable auto-merge (squash) — see the note at the top of this file.
 
 **Required MCP connections:** Interactive Brokers only — the ticker lookup is now a plain HTTP fetch (with a repo-stored fallback), no longer dependent on Google Drive or Notion.
 
@@ -70,7 +70,7 @@ IBKR has three independent automated syncs — **positions**, **cash balances**,
    - the USD-equivalent of any non-USD position (e.g. XEON), recomputed using the freshly fetched FX rate.
    - Leave the positions table and the position-derived header fields (Gross Position Value, Unrealized P&L, "Positions last synced") untouched — those reflect the most recent `/sync-positions` run.
 3. **Refresh holdings.md** — update the `CASH (IBKR)` row (USD-equivalent total = sum of the USD-equivalent column from the Cash Balances table, and weight %), and **recompute weight % for every row** — Net Liquidation Value, the shared denominator, just changed — using position market values from the most recent `/sync-positions` run. If that sync isn't from today, note its date.
-4. **Commit straight to `main`** — stage `ibkr.md` and `holdings.md`, with the message `Sync IBKR cash balances — YYYY-MM-DD`. No branch, no PR — see the note at the top of this file.
+4. **Push to a `claude/`-prefixed branch and open an auto-merge PR** — stage `ibkr.md` and `holdings.md`, commit with the message `Sync IBKR cash balances — YYYY-MM-DD`, open a PR with that same title, and enable auto-merge (squash) — see the note at the top of this file.
 
 **Required MCP connections:** Interactive Brokers only.
 
@@ -102,7 +102,7 @@ IBKR has three independent automated syncs — **positions**, **cash balances**,
    - a header (account, sync timestamp, count of active orders, count of non-active orders excluded);
    - the active-orders table: Order ID · Side · Ticker · Qty · Order Type · Limit Price · Time in Force · Status · Order Placed (UTC), sorted alphabetically by ticker (matching the positions table convention);
    - a brief flag for any ticker whose only order(s) in the raw fetch are non-active (e.g. `REPLACED` with no live successor) — that's a signal a previously-placed order may no longer be working, worth a manual check in TWS/Client Portal if one was expected.
-5. **Commit straight to `main`** — same rationale as the other syncs (low-risk, frequent, machine-generated data refresh, no enforced branch protection on this private repo): commit message `Sync IBKR active orders — YYYY-MM-DD`. See the note at the top of this file.
+5. **Push to a `claude/`-prefixed branch and open an auto-merge PR** — same rationale as the other syncs (low-risk, frequent, machine-generated data refresh): commit/PR title `Sync IBKR active orders — YYYY-MM-DD`, auto-merge (squash) enabled. See the note at the top of this file.
 
 **Required MCP connections:** Interactive Brokers only.
 
@@ -121,7 +121,7 @@ IBKR has three independent automated syncs — **positions**, **cash balances**,
 2. Run **IBKR Cash Balances Sync** steps 1–2 — fetch balances, update the Cash Balances table, cash-derived header fields, and any non-USD position conversions in `ibkr.md`.
 3. Run **IBKR Active Orders Sync** steps 1–4 — fetch orders, filter to active, write `ibkr-orders.md`.
 4. **Refresh holdings.md once**, using the just-fetched positions and balances together (no staleness caveats needed — both are fresh): the ticker weight%/broker columns and the `CASH (IBKR)` row.
-5. **Commit straight to `main`** — stage `ibkr.md`, `ibkr-orders.md`, `holdings.md`, and the lookup CSV if refreshed, in **one** commit: `Sync IBKR portfolio — YYYY-MM-DD`. No branch, no PR — see the note at the top of this file.
+5. **Push to a `claude/`-prefixed branch and open an auto-merge PR** — stage `ibkr.md`, `ibkr-orders.md`, `holdings.md`, and the lookup CSV if refreshed, in **one** commit: `Sync IBKR portfolio — YYYY-MM-DD`, open a PR with that same title, and enable auto-merge (squash) — see the note at the top of this file.
 
 If the user only wants part of this refreshed (e.g. *"just check my orders"* or *"how much cash do I have"*), use the relevant granular command (`/sync-positions`, `/sync-balances`, `/sync-orders`) instead — each is self-contained and commits independently.
 
@@ -145,7 +145,7 @@ If the user only wants part of this refreshed (e.g. *"just check my orders"* or 
 4. **Match tickers** — normalize format (`MSFT.US` → `MSFT`); flag unrecognized ones `UNKNOWN_TICKER`.
 5. **Write the snapshot** — overwrite [`portfolio/snapshots/freedom-finance.md`](snapshots/freedom-finance.md) with a header (account, sync timestamp), the summary block, the positions table (Ticker · Company · Qty · Avg Price · Current Value · Return % · Product Type · Currency), and a **Cash Balance** line/table (currency, amount, and — if the app shows it — total account value including cash). If cash wasn't captured this round, say so explicitly here rather than leaving it ambiguous.
 6. **Refresh holdings.md** — update the relevant ticker rows (weight %, broker — same method as IBKR, weight = value ÷ broker's total account value including cash), and add/update a **`CASH (Freedom24)`** row with its amount and weight %. If cash wasn't captured this sync, leave that row's figures as they were and note the staleness rather than guessing.
-7. **Commit straight to `main`** — stage the snapshot and `holdings.md`, and commit directly to `main` with the message `Sync Freedom Finance portfolio — YYYY-MM-DD`. No branch, no PR — see the note at the top of this file for why.
+7. **Push to a `claude/`-prefixed branch and open an auto-merge PR** — stage the snapshot and `holdings.md`, commit with the message `Sync Freedom Finance portfolio — YYYY-MM-DD`, open a PR with that same title, and enable auto-merge (squash) — see the note at the top of this file for why.
 
 **Required setup:** a clear screenshot of the Freedom24 portfolio. No MCP connections needed beyond what the session already has.
 
