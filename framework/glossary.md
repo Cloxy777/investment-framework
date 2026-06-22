@@ -12,13 +12,17 @@ Alphabetical within each group.
 
 | Term | Meaning |
 |---|---|
+| **AML (Anti-Money Laundering)** | Laws and internal controls designed to stop criminal proceeds from being moved through legitimate financial channels. An AML investigation is a regulator/prosecutor probe into whether a company's controls failed to catch suspicious activity — a fundamental (not price-action) risk this framework tracks under Rule 9's mandatory re-valuation triggers. |
 | **bps (basis points)** | 1 bps = 0.01 percentage points. 50 bps = 0.5%. |
 | **CAGR** | Compound Annual Growth Rate — the smoothed yearly growth rate that gets you from a start value to an end value over several years. |
+| **Cross-border payments** | Sending money between people or businesses in different countries/currencies — the core product category for remittance and international-transfer fintechs. |
+| **Dual-listing** | When the same company's shares trade on two separate stock exchanges (e.g. a primary listing on the LSE and a secondary listing on NASDAQ) — the two listings represent the same underlying business and financials, just quoted in different currencies/venues. |
 | **CapEx** | Capital Expenditure — money spent buying or upgrading physical assets (factories, equipment, data centers). |
 | **D&A** | Depreciation & Amortization — the non-cash accounting expense that spreads the cost of long-lived assets over time. |
 | **DCF** | Discounted Cash Flow — a valuation method that estimates a company's worth today by projecting its future cash and discounting it back to present-day value. |
 | **DDM** | Dividend Discount Model — a valuation method that values a company based on the dividends it's expected to pay out. |
 | **Dilutive (capital raise)** | Raising money by issuing new shares, which shrinks (dilutes) each existing shareholder's ownership percentage. |
+| **DLC (Dual-Listed Company)** | A corporate structure where two separately-listed legal entities (e.g. Carnival Corporation/CCL and Carnival plc/CUK) operate as a single combined economic business with shared management and combined consolidated financial reporting, while each entity's shares trade separately on an exchange. Evaluated as one company in this framework, using the larger/primary listing as the reference ticker. |
 | **DRAM / NAND** | The two main families of memory chip. DRAM (Dynamic Random-Access Memory) is the working memory in servers/PCs/phones; NAND is the flash storage in SSDs/USB drives. Both are commoditized, boom-bust cyclical businesses with little durable pricing power. |
 | **EBIT** | Earnings Before Interest and Taxes — operating profit, before the effects of debt financing and tax rate. |
 | **EBITDA** | Earnings Before Interest, Taxes, Depreciation, and Amortization — a rough proxy for cash operating profit. |
@@ -37,6 +41,7 @@ Alphabetical within each group.
 | **Going-concern / accounting-integrity allegation** | A claim — often from a short-seller — that a company's reported financials misrepresent its true financial condition. Treated by this framework as an open, unresolved risk flag to monitor, never as a settled fact in either direction until independently confirmed or refuted. |
 | **HBM (High-Bandwidth Memory)** | A premium, stacked-DRAM format used in AI accelerator GPUs (e.g. Nvidia's). Higher-margin and more technically differentiated than commodity DRAM/NAND, but still subject to the same underlying supply/demand cycle. |
 | **IRR** | Internal Rate of Return — the annualized percentage return an investment is expected to generate. |
+| **LTL (Less-Than-Truckload)** | A freight-trucking model where multiple shippers' smaller loads are consolidated onto a single truck/trailer, as opposed to a "full truckload" dedicated to one shipper — a distinct, generally lower-margin segment of the logistics industry. FedEx Freight (now FedEx Freight Holding Company, NYSE: FDXF) is FedEx's former LTL trucking segment, spun off 1 June 2026. |
 | **M&A** | Mergers & Acquisitions — one company buying or combining with another. |
 | **Moat** | Warren Buffett's term for a durable competitive advantage (brand, network effect, switching costs, scale) that protects a business's profits from competitors. |
 | **MoS (Margin of Safety)** | How far below fair value the buy price is set, as a cushion against being wrong — e.g. a 25% MoS means buying at 75% of estimated fair value. |
@@ -45,6 +50,7 @@ Alphabetical within each group.
 | **Neobank** | A digital-first, often app-only bank or financial-services company. Most neobanks operate via a partner bank's charter; some go further and obtain an actual bank charter of their own. |
 | **NI (Net Income)** | Net Income — accounting profit after all expenses, interest, and taxes ("the bottom line"). |
 | **NIM (Net Interest Margin)** | The spread a bank earns between interest received on loans/assets and interest paid out on deposits/borrowings — the core profitability driver for any depository institution. |
+| **Own cash** | A payments/fintech company's *own* corporate cash, as distinct from customer/client balances it holds in transit. Matters because a payments company's reported "cash and cash equivalents" balance-sheet line often conflates the two — using the conflated figure overstates net cash and understates Enterprise Value. |
 | **Owner Earnings** | Warren Buffett's adjusted cash-flow measure: Net Income + D&A − *Maintenance* CapEx only (excludes growth CapEx) — used instead of raw FCF for moat-building reinvestors like MSFT, GOOGL, META, AMZN (Hybrid Upgrade 1). |
 | **P/B (Price-to-Book)** | Price ÷ book value (accounting net worth) per share — common for valuing banks and financials. |
 | **P/TBV (Price-to-Tangible-Book-Value)** | Like P/B, but using *tangible* book value (book value minus intangible assets such as goodwill) — a standard bank-valuation multiple. |
@@ -56,7 +62,9 @@ Alphabetical within each group.
 | **R/R (Risk/Reward ratio)** | (Expected gain) ÷ (Expected loss) on a trade — this framework requires at least 2:1 before entering. |
 | **ROE** | Return on Equity — Net Income ÷ shareholder equity; how efficiently a company generates profit from shareholders' capital. |
 | **ROIC** | Return on Invested Capital — how efficiently a company turns the capital invested in it (debt + equity) into profit; a core quality signal in this framework. |
+| **Safeguarded / segregated customer funds** | Money a regulated payments company holds on behalf of its customers (e.g. while a cross-border transfer is in transit), kept in ring-fenced accounts separate from the company's own corporate cash. These balances inflate a payments company's gross balance-sheet cash and, mechanically, its reported operating-cash-flow "change in working capital" line — neither figure represents cash the company can deploy for itself, so both must be stripped out before computing FCF yield, EV, or Net Debt/EBITDA. |
 | **SPAC** | Special Purpose Acquisition Company — a shell company that raises money via its own IPO for the specific purpose of merging with a private company to take it public, as an alternative to a traditional IPO. Often leaves the resulting company with a short, distorted public earnings history (one-off preferred-share/warrant accounting charges, thin trailing financials) that complicates standard quality/valuation checks. |
+| **Spin-off** | A corporate transaction where a company separates part of its business into a new, independently-traded public company, typically by distributing shares of the new entity to existing shareholders pro rata. Creates a data-integrity trap for trailing financial-statement analysis: post-spinoff live price and share count reflect the smaller remaining company, while trailing income-statement/balance-sheet/cash-flow figures (until enough post-spinoff quarters accumulate) still reflect the larger pre-spinoff combined entity — ratios mixing the two are invalid until restated. FedEx's 1 June 2026 spin-off of FedEx Freight (FDXF) is an example tracked in this framework. |
 | **TAM** | Total Addressable Market — the total revenue opportunity available if a company captured 100% of its target market. |
 | **TBVPS (Tangible Book Value Per Share)** | Tangible book value (book value minus intangible assets) divided by shares outstanding — the per-share input to a P/TBV multiple. |
 | **Treasury yield (10Y)** | The interest rate the US government pays on its 10-year bonds — the standard "risk-free rate" benchmark used throughout this framework's Rate Environment Gate. |
