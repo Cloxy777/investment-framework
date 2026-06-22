@@ -1,44 +1,45 @@
 # IBKR Portfolio Snapshot
 
 **Account:** U19421206
-**Positions last synced:** 2026-06-15 (live via Interactive Brokers MCP — `get_account_positions`, via `/sync-positions`)
-**Cash balances last synced:** 2026-06-15 (live via Interactive Brokers MCP — `get_account_balances`, via `/sync-balances`)
-**Account summary:** Net Liquidation $38,535.57 (broker-reported, BASE) · Gross Position Value $38,605.84 (sum of positions below, XEON converted at live FX) · Total Cash (USD-equiv) $321.57 · Unrealized P&L –$1,441.53 (broker-reported, BASE/USD-consolidated)
+**Positions last synced:** 2026-06-22 (live via Interactive Brokers MCP — `get_account_positions`, via `/sync-positions`)
+**Cash balances last synced:** 2026-06-22 (live via Interactive Brokers MCP — `get_account_balances`, via `/sync-balances`)
+**Account summary:** Net Liquidation $40,689.53 (broker-reported, BASE) · Gross Position Value $40,233.26 (sum of positions below, XEON converted at live FX) · Total Cash (USD-equiv) $255.99 · Unrealized P&L –$1,497.85 (broker-reported, BASE/USD-consolidated)
 
-**Ticker resolution note:** all 22 positions resolved directly from the MCP's `contract_description` field. 21 are already clean ticker symbols (e.g. `AMZN`, `DUOL`, `VEEV`, `ADBE`); `XEON @IBIS2` is normalized to `XEON` (exchange suffix stripped) for consistency with `holdings.md`. No `CONID_XXXXXXX` placeholders were needed, so the live/fallback ticker-lookup CSV fetch was not required for this sync.
+**Ticker resolution note:** all 23 positions resolved directly from the MCP's `contract_description` field. 22 are already clean ticker symbols (e.g. `AMZN`, `DUOL`, `VEEV`, `ADBE`, `AVGO`); `XEON @IBIS2` is normalized to `XEON` (exchange suffix stripped) for consistency with `holdings.md`. No `CONID_XXXXXXX` placeholders were needed, so the live/fallback ticker-lookup CSV fetch was not required for this sync.
 
 | Ticker | Shares | Market Price | Market Value | Avg Cost | Unrealized P&L | P&L % | Currency | Contract ID |
 |--------|--------|--------------|--------------|----------|----------------|-------|----------|-------------|
-| ADBE | 10 | 206.56 | 2,065.60 | 202.07 | +44.90 | +2.22% | USD | 265768 |
-| AMZN | 12 | 241.91 | 2,902.92 | 210.59 | +375.86 | +14.87% | USD | 3691937 |
-| CSGP | 25 | 32.84 | 821.00 | 35.04 | -55.00 | -6.28% | USD | 6726677 |
-| DUOL | 30 | 124.00 | 3,720.00 | 168.25 | -1,327.44 | -26.30% | USD | 505002183 |
-| GOOG | 1 | 363.24 | 363.24 | 295.70 | +67.54 | +22.84% | USD | 208813720 |
-| META | 6 | 574.00 | 3,444.00 | 597.81 | -142.83 | -3.98% | USD | 107113386 |
-| MSFT | 20 | 394.93 | 7,898.60 | 402.62 | -153.87 | -1.91% | USD | 272093 |
-| NFLX | 12 | 80.78 | 969.36 | 87.79 | -84.13 | -7.99% | USD | 15124833 |
-| NKE | 20 | 45.29 | 905.80 | 43.31 | +39.60 | +4.57% | USD | 10291 |
-| NOW | 12 | 106.11 | 1,273.32 | 92.80 | +159.73 | +14.34% | USD | 109911821 |
-| NVDA | 14 | 209.65 | 2,935.10 | 179.20 | +426.24 | +16.99% | USD | 4815747 |
-| NVO | 5 | 44.40 | 222.00 | 42.54 | +9.30 | +4.37% | USD | 10611 |
-| RBRK | 3 | 70.90 | 212.70 | 58.10 | +38.41 | +22.03% | USD | 699030013 |
-| SPGI | 1 | 418.91 | 418.91 | 411.00 | +7.91 | +1.92% | USD | 229629397 |
-| SPOT | 1 | 482.00 | 482.00 | 509.00 | -27.00 | -5.30% | USD | 312496724 |
-| STIM | 345 | 1.33 | 458.85 | 1.75 | -144.45 | -23.94% | USD | 324062325 |
-| TLT | 77 | 86.27 | 6,642.79 | 88.79 | -193.84 | -2.84% | USD | 15547841 |
-| UBER | 3 | 69.39 | 208.17 | 82.02 | -37.90 | -15.40% | USD | 365207014 |
-| V | 1 | 324.00 | 324.00 | 319.51 | +4.49 | +1.41% | USD | 49462172 |
-| VEEV | 3 | 159.54 | 478.62 | 164.83 | -15.88 | -3.21% | USD | 136254493 |
-| XEON | 10 | 149.37 | 1,493.65 | 149.03 | +3.40 | +0.23% | EUR | 46041702 |
-| ZS | 1 | 131.00 | 131.00 | 157.16 | -26.16 | -16.65% | USD | 310621426 |
+| ADBE | 10 | 195.12 | 1,951.20 | 202.07 | -69.50 | -3.44% | USD | 265768 |
+| AMZN | 12 | 241.23 | 2,894.76 | 210.59 | +367.70 | +14.55% | USD | 3691937 |
+| AVGO | 6 | 404.53 | 2,427.18 | 382.44 | +132.53 | +5.78% | USD | 313130367 |
+| CSGP | 25 | 30.02 | 750.50 | 35.04 | -125.50 | -14.33% | USD | 6726677 |
+| DUOL | 30 | 124.88 | 3,746.40 | 168.25 | -1,301.04 | -25.78% | USD | 505002183 |
+| GOOG | 1 | 361.39 | 361.39 | 295.70 | +65.69 | +22.22% | USD | 208813720 |
+| META | 6 | 573.20 | 3,439.20 | 597.81 | -147.63 | -4.12% | USD | 107113386 |
+| MSFT | 20 | 377.53 | 7,550.60 | 402.62 | -501.87 | -6.23% | USD | 272093 |
+| NFLX | 12 | 77.00 | 924.00 | 87.79 | -129.49 | -12.29% | USD | 15124833 |
+| NKE | 20 | 45.01 | 900.20 | 43.31 | +34.00 | +3.92% | USD | 10291 |
+| NOW | 12 | 94.00 | 1,128.00 | 92.80 | +14.41 | +1.29% | USD | 109911821 |
+| NVDA | 14 | 208.61 | 2,920.54 | 179.20 | +411.68 | +16.41% | USD | 4815747 |
+| NVO | 5 | 44.23 | 221.15 | 42.54 | +8.45 | +3.97% | USD | 10611 |
+| RBRK | 3 | 70.00 | 210.00 | 58.10 | +35.71 | +20.49% | USD | 699030013 |
+| SPGI | 1 | 412.76 | 412.76 | 411.00 | +1.76 | +0.43% | USD | 229629397 |
+| SPOT | 1 | 468.08 | 468.08 | 509.00 | -40.92 | -8.04% | USD | 312496724 |
+| STIM | 345 | 1.23 | 424.35 | 1.75 | -178.95 | -29.66% | USD | 324062325 |
+| TLT | 77 | 86.53 | 6,662.81 | 88.79 | -173.82 | -2.54% | USD | 15547841 |
+| UBER | 3 | 71.32 | 213.96 | 82.02 | -32.11 | -13.05% | USD | 365207014 |
+| V | 1 | 327.24 | 327.24 | 319.51 | +7.73 | +2.42% | USD | 49462172 |
+| VEEV | 3 | 153.50 | 460.50 | 164.83 | -34.00 | -6.88% | USD | 136254493 |
+| XEON | 10 | 149.43 | 1,494.33 | 149.03 | +4.08 | +0.27% | EUR | 46041702 |
+| ZS | 1 | 124.25 | 124.25 | 157.16 | -32.91 | -20.93% | USD | 310621426 |
 
-> **New position since the last sync (2026-06-11) — ADBE (Adobe Inc.):** 10 shares @ avg cost $202.07. This corresponds to the [2026-06-12 new-position session](../../sessions/2026-06-12-new-position-adbe.md) (Score 5.0, "Very Cheap" — BUY full position 6–8%, ~17-share target ≈ $3,524). 10 of the ~17 target shares have filled; no ADBE order (active or `REPLACED`) appears in this sync's `get_account_orders` result, so the fill predates or falls outside this endpoint's history window. The remaining ~7 shares toward the target have not yet been purchased as of this sync — data refresh only, no framework action taken as part of this sync.
+> ⚠️ **New position since the last sync (2026-06-15) — AVGO (Broadcom Inc.):** 6 shares @ avg cost $382.44. `get_account_trades` confirms the fill: **BUY 6 AVGO @ $382.275 limit, 2026-06-16T14:19:43Z** (order ID 652254142), funded in part by an EUR→USD conversion the same week (2026-06-18). **This is a portfolio override, not a framework-driven buy.** The only AVGO evaluation on record — the [2026-06-14 new-position session](../../sessions/2026-06-14-new-position-avgo.md) — scored AVGO **69.5 (WATCHLIST, "no new entry")**, explicitly recommending against opening a position at that price. The buy happened two days later at essentially the same price ($382.28 vs. the $382.07 evaluated), with no `decisions/` entry documenting why the recommendation was overridden. Per [override-log.md](../override-log.md)'s own rule ("log it here at time of entry"), this sync adds the entry retroactively — see that file. No framework action taken as part of this sync; flagged for the user to supply the missing rationale, confirm intent to hold, and/or request a fresh `/rescore` given the override.
 >
-> **No other position-size changes since 2026-06-11** — all other 21 positions show identical share counts; market-value/P&L changes reflect price movement only.
+> **No other position-size changes since 2026-06-15** — all 22 previously-held tickers show identical share counts; market-value/P&L changes reflect price movement only. ADBE remains a partial fill (10 of the ~17-share target toward the [2026-06-12 new-position](../../sessions/2026-06-12-new-position-adbe.md) BUY recommendation) — still no ADBE order visible in `get_account_orders`, so the remaining ~7 shares have still not been purchased.
 
-> **Note on Gross Position Value vs. Net Liquidation:** Gross Position Value (sum of live position market values below, $38,605.84) plus Total Cash ($321.57) = $38,927.41, which is ~$391.84 above broker-reported Net Liquidation ($38,535.57). This gap is close to today's aggregate intraday unrealized gain (sum of each position's `daily_pnl` ≈ +$415.74 from `get_account_positions`), consistent with `get_account_positions` returning live intraday prices while `get_account_balances`'s Net Liquidation/stock-market-value reflect prior-session settled prices not yet refreshed intraday. Not an error — flagged for transparency; it's why the `holdings.md` weight column (computed off Net Liquidation per [sync-sop.md](../sync-sop.md)) sums to slightly over 100%.
+> **Note on Gross Position Value vs. Net Liquidation:** Gross Position Value (sum of live position market values above, $40,233.26) plus Total Cash ($255.99) = $40,489.25, ~$200.28 **below** broker-reported Net Liquidation ($40,689.53) — the opposite direction from the gap flagged in the prior sync. This mirrors the same `get_account_positions` (live/intraday) vs. `get_account_balances` (settled; BASE `stock_market_value` = $40,417.61) timing mismatch noted before; not a calculation error, flagged for transparency. It's why the `holdings.md` weight column sums to slightly *under* 100% this time (previously slightly over).
 
-> **Currency note:** all positions are USD except **XEON** (EUR-denominated, market value €1,493.65). Its USD-equivalent (used for `holdings.md` weighting) is computed using the live EUR→USD rate below — fetched directly from `get_account_balances`, not assumed.
+> **Currency note:** all positions are USD except **XEON** (EUR-denominated, market value €1,494.33). Its USD-equivalent (used for `holdings.md` weighting) is computed using the live EUR→USD rate below — fetched directly from `get_account_balances`, not assumed.
 
 ## Cash Balances
 
@@ -46,10 +47,10 @@ Source: `get_account_balances` (one entry per currency the account holds, plus a
 
 | Currency | Cash Balance | Settled Cash | FX Rate → USD | USD Equivalent |
 |----------|--------------|--------------|----------------|----------------|
-| USD | 312.11 | 312.11 | 1.000000 | 312.11 |
-| EUR | 8.18 | 8.18 | 1.156806 | 9.46 |
-| **Total (USD-equiv)** | | | | **321.57** |
+| USD | 250.05 | 250.05 | 1.000000 | 250.05 |
+| EUR | 5.18 | 5.18 | 1.147130 | 5.94 |
+| **Total (USD-equiv)** | | | | **255.99** |
 
-*The same EUR→USD rate (1.156806) applied to XEON's €1,493.65 market value gives its USD-equivalent: **$1,727.86** — used in `holdings.md` for weighting.*
+*The same EUR→USD rate (1.147130) applied to XEON's €1,494.33 market value gives its USD-equivalent: **$1,714.19** — used in `holdings.md` for weighting.*
 
 *This file has two independently-refreshed sections — the positions table (via `/sync-positions`) and the Cash Balances table (via `/sync-balances`), each with its own "last synced" timestamp above. `/sync-portfolio` runs both together (plus `/sync-orders`). See [sync-sop.md](../sync-sop.md). Prior snapshots live in git history, not as separate files.*
