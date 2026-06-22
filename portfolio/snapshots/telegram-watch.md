@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11148 (~17:04 UTC, 2026-06-21) | 2026-06-22 04:36 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2807 (~16:23, 2026-06-21) | 2026-06-22 04:36 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2471 (~10:38 UTC, 2026-06-21) | 2026-06-22 04:36 UTC |
-| https://t.me/bolshegold | bolshegold/9602 (~18:02 UTC, 2026-06-21) | 2026-06-22 04:36 UTC |
+| https://t.me/tarasguk | tarasguk/11149 (~05:37 UTC, 2026-06-22) | 2026-06-22 06:36 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2807 (~16:23, 2026-06-21) | 2026-06-22 06:36 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2471 (~10:38 UTC, 2026-06-21) | 2026-06-22 06:36 UTC |
+| https://t.me/bolshegold | bolshegold/9602 (~18:02 UTC, 2026-06-21) | 2026-06-22 06:36 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-06-22 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9602 (no new post since the 04:36 UTC check). |
+| 2026-06-22 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2471 (no new post since the 04:36 UTC check). |
+| 2026-06-22 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2807 (no new post since the 04:36 UTC check). |
+| 2026-06-22 | https://t.me/tarasguk | — | no action — no resolvable company named | Marker advanced from tarasguk/11148 (~17:04 UTC, 2026-06-21) to tarasguk/11149 (~05:37 UTC, 2026-06-22) — a ~12h33m gap, well above the ~1hr threshold in command step 2, so flagging explicitly per that step. However post numbering is sequential (11148→11149, delta of 1, no gap) — unlike this channel's past non-sequential gaps (e.g. 11135→11138) — indicating exactly one post landed in the window, not multiple missed ones. New top post is geopolitical/macro commentary on the first round of Iran-US negotiations in Switzerland (Trump posted bomb-Iran threats mid-talks; Iranian delegation walked out) — no specific company or ticker named, so no action per step 3. |
 | 2026-06-22 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9602 (no new post since the 03:36 UTC check). |
 | 2026-06-22 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2471 (no new post since the 03:36 UTC check). |
 | 2026-06-22 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2807 (no new post since the 03:36 UTC check). |
