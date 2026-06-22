@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11149 (~05:37 UTC, 2026-06-22) | 2026-06-22 06:36 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2807 (~16:23, 2026-06-21) | 2026-06-22 06:36 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2471 (~10:38 UTC, 2026-06-21) | 2026-06-22 06:36 UTC |
-| https://t.me/bolshegold | bolshegold/9602 (~18:02 UTC, 2026-06-21) | 2026-06-22 06:36 UTC |
+| https://t.me/tarasguk | tarasguk/11151 (~07:36 UTC, 2026-06-22) | 2026-06-22 08:34 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2808 (~07:03 UTC, 2026-06-22) | 2026-06-22 08:34 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2471 (~10:38 UTC, 2026-06-21) | 2026-06-22 08:34 UTC |
+| https://t.me/bolshegold | bolshegold/9606 (~08:02 UTC, 2026-06-22) | 2026-06-22 08:34 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-06-22 | https://t.me/bolshegold | — | no action — no resolvable company named | Marker advanced from bolshegold/9602 (~18:02 UTC, 2026-06-21) to bolshegold/9606 (~08:02 UTC, 2026-06-22) — a ~14h gap, well above the ~1hr threshold in command step 2, flagging explicitly per that step. Posts 9603–9605 (a joke/image reaction, a war/unemployment political remark, and a forwarded National Bank of Ukraine UAH-figures post) landed in that gap and are superseded per the command's by-design "latest post only" scope — not individually evaluated. New top post (#9606) is a one-line currency-conversion remark on the forwarded NBU post ("если в долларах, то еще добавьте пару процентов минус )") — NBU is a central bank, not a publicly traded company, and no ticker is named, so no action per step 3. |
+| 2026-06-22 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2471 (~10:38 UTC, 2026-06-21) — no new post since the 06:36 UTC check. |
+| 2026-06-22 | https://t.me/FinnInvestChannel | — | no action — no resolvable company named | Marker advanced from FinnInvestChannel/2807 (~16:23 UTC, 2026-06-21) to FinnInvestChannel/2808 (~07:03 UTC, 2026-06-22) — sequential post numbers (2807→2808), no gap. New top post covers the US-Iran "encouraging progress" 60-day timeline and a planned Strait-of-Hormuz communication channel, plus the author's own oil-price commentary — geopolitical/commodity macro only, no specific company or ticker named, so no action per step 3. |
+| 2026-06-22 | https://t.me/tarasguk | — | no action — ticker unresolvable, outside framework coverage | Marker advanced from tarasguk/11149 (~05:37 UTC, 2026-06-22) to tarasguk/11151 (~07:36 UTC, 2026-06-22) — a ~1h59m gap, above the ~1hr threshold in command step 2, flagging per that step. Post 11150 doesn't render in the preview (consistent with this channel's prior non-sequential numbering gaps, e.g. 11135→11138 — likely deleted/non-rendering, not independently evaluable). New top post (#11151) reports South Korea's central bank flagging inflation risk from outsized employee bonuses at Samsung and SK Hynix — names two real companies, so evaluated per step 3 rather than dismissed as generic macro. Neither resolves to a tradable contract: IBKR `search_contracts` returns zero results for both "Samsung Electronics" and "SK Hynix" (KRX-only listings, no liquid US line — outside this framework's broker coverage), and "Samsung" alone is additionally ambiguous across several separately-listed Samsung Group entities (Electronics, SDI, Biologics, C&T, Life Insurance, ...). Skipped per command step 3 rather than guessing a ticker. |
 | 2026-06-22 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9602 (no new post since the 04:36 UTC check). |
 | 2026-06-22 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2471 (no new post since the 04:36 UTC check). |
 | 2026-06-22 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2807 (no new post since the 04:36 UTC check). |
