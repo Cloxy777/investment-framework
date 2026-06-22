@@ -23,7 +23,7 @@ This log tracks every override, its outcome, and the cumulative cost. **Reviewed
 
 | Date | Ticker | Override Type | Rule Broken | Rationale Given | Score at Entry | Outcome (fill at exit or annually) | Lesson |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| — | — | — | — | — | — | — | — |
+| 2026-06-16 | AVGO | Valuation override | Bought at Score 50.0–100.0 (outside the entry zone) | **Not on record.** The only AVGO evaluation in this repo — the [2026-06-14 new-position session](../sessions/2026-06-14-new-position-avgo.md) — scored it 69.5 (WATCHLIST, explicit "no new entry"). 6 shares were bought 2 days later @ $382.275 (essentially the same price evaluated, $382.07) with no `decisions/` entry. Logged retroactively by the [2026-06-22 weekly sync](../sessions/weekly-briefs/2026-06-22-weekly-brief.md) — flagged for the user to supply the missing rationale. | 69.5 | Open — under review | TBD; revisit once rationale is supplied and at the 2027 Q1 annual review |
 
 ## Historical Override Audit — Existing Portfolio
 
