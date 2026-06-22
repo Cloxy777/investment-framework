@@ -39,6 +39,7 @@ Alphabetical within each group.
 | **FV (Fair Value)** | The analyst's estimate of what a company is intrinsically worth, independent of its current market price. |
 | **GAAP** | Generally Accepted Accounting Principles — the standard US accounting rulebook companies use for their official financial statements. |
 | **Going-concern / accounting-integrity allegation** | A claim — often from a short-seller — that a company's reported financials misrepresent its true financial condition. Treated by this framework as an open, unresolved risk flag to monitor, never as a settled fact in either direction until independently confirmed or refuted. |
+| **GTC (Good-Til-Cancelled)** | An order instruction telling the broker to keep a limit order open indefinitely (vs. for a single trading day) until it either fills or is manually cancelled. |
 | **HBM (High-Bandwidth Memory)** | A premium, stacked-DRAM format used in AI accelerator GPUs (e.g. Nvidia's). Higher-margin and more technically differentiated than commodity DRAM/NAND, but still subject to the same underlying supply/demand cycle. |
 | **IRR** | Internal Rate of Return — the annualized percentage return an investment is expected to generate. |
 | **LTL (Less-Than-Truckload)** | A freight-trucking model where multiple shippers' smaller loads are consolidated onto a single truck/trailer, as opposed to a "full truckload" dedicated to one shipper — a distinct, generally lower-margin segment of the logistics industry. FedEx Freight (now FedEx Freight Holding Company, NYSE: FDXF) is FedEx's former LTL trucking segment, spun off 1 June 2026. |
@@ -50,6 +51,7 @@ Alphabetical within each group.
 | **Neobank** | A digital-first, often app-only bank or financial-services company. Most neobanks operate via a partner bank's charter; some go further and obtain an actual bank charter of their own. |
 | **NI (Net Income)** | Net Income — accounting profit after all expenses, interest, and taxes ("the bottom line"). |
 | **NIM (Net Interest Margin)** | The spread a bank earns between interest received on loans/assets and interest paid out on deposits/borrowings — the core profitability driver for any depository institution. |
+| **NLV (Net Liquidation Value)** | A broker's headline value for an account: all positions at current market price, plus cash, minus any liabilities — the broker's own summary number, distinct from manually summing position values and cash yourself (the two can differ slightly due to settlement timing). |
 | **Own cash** | A payments/fintech company's *own* corporate cash, as distinct from customer/client balances it holds in transit. Matters because a payments company's reported "cash and cash equivalents" balance-sheet line often conflates the two — using the conflated figure overstates net cash and understates Enterprise Value. |
 | **Owner Earnings** | Warren Buffett's adjusted cash-flow measure: Net Income + D&A − *Maintenance* CapEx only (excludes growth CapEx) — used instead of raw FCF for moat-building reinvestors like MSFT, GOOGL, META, AMZN (Hybrid Upgrade 1). |
 | **P/B (Price-to-Book)** | Price ÷ book value (accounting net worth) per share — common for valuing banks and financials. |
@@ -79,10 +81,14 @@ These are this repository's own vocabulary — defined in [strategy.md](strategy
 | Term | Meaning |
 |---|---|
 | **Fallen Angel** | This framework's term for a previously-qualified, formerly high-quality company that has stumbled — evaluated via the Turnaround Sub-Gate (Hybrid Upgrade 4) rather than the standard screen. |
+| **Human Override** | A position opened or held outside the framework's own rules — e.g. bought at a valuation score of 50.0+ (Watchlist/Expensive) or with a quality criterion waived. Tracked for life in [override-log.md](../portfolio/override-log.md), separate from the unrelated *Structural Quality Override* term below. |
 | **Hybrid Upgrade** | One of 7 framework-specific rule additions layered on top of the base 6-phase strategy (e.g. Owner Earnings, Historical PE Modifier, PEG sub-score) — see [strategy.md](strategy.md). |
 | **Phase 01–06** | The six sequential stages of this framework: Universe Screening → Valuation Scoring → Entry/Position Sizing → Continuous Monitoring → Dynamic Trimming → Full Exit. |
 | **Qualified Quality List** | The output of Phase 01 screening — the set of companies that passed the quality gate and are eligible for valuation scoring. |
 | **Rate Environment Gate** | The mandatory pre-check run before every Phase 02 valuation score, comparing Earnings Yield against the 10-Year Treasury yield and applying a Rate Regime Modifier. |
 | **Rate Regime Modifier** | An additive adjustment (−10 to +10) applied to the valuation score based on which Treasury-yield bracket the market is currently in. |
+| **Rule 0** | This framework's standing instruction to always fetch a live, current price before any valuation work — never infer price from multiples or stale data. |
+| **Rule 9** | This framework's list of fundamental events that force an immediate re-valuation regardless of schedule: quarterly earnings, a guidance revision, a management change, material M&A, a macro shift, or a >15% stock-price move with no identified cause. |
 | **Structural Quality Override** | A check that suspends the Historical PE Modifier's "expensive" penalty when a stock's higher multiple is justified by a genuine improvement in the business (margin expansion, ROIC improvement) rather than mere euphoria. |
 | **Turnaround Sub-Gate** | The conditional path (Hybrid Upgrade 4) that lets a company failing some quality criteria still enter as a small (2–3%) position if it passes 5 specific tests (historical ROIC, insider buying, margin of safety, debt level, identifiable moat). |
+| **Watchlist (action band)** | The framework's action recommendation for a valuation score of 50.0–69.9 — the stock is fairly-to-fully valued and the rule is "no new entry," distinct from the repo's `watchlist/` directory (which tracks *every* scored ticker, held or not). |
