@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11148 (~17:04 UTC, 2026-06-21) | 2026-06-21 21:09 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2807 (~16:23, 2026-06-21) | 2026-06-21 21:09 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2471 (~10:38 UTC, 2026-06-21) | 2026-06-21 21:09 UTC |
-| https://t.me/bolshegold | bolshegold/9602 (~18:02 UTC, 2026-06-21) | 2026-06-21 21:09 UTC |
+| https://t.me/tarasguk | tarasguk/11148 (~17:04 UTC, 2026-06-21) | 2026-06-22 01:50 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2807 (~16:23, 2026-06-21) | 2026-06-22 01:50 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2471 (~10:38 UTC, 2026-06-21) | 2026-06-22 01:50 UTC |
+| https://t.me/bolshegold | bolshegold/9602 (~18:02 UTC, 2026-06-21) | 2026-06-22 01:50 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-06-22 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9602 (already evaluated in full on 2026-06-21 — see the three rows below this one). No new post this run. |
+| 2026-06-22 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2471 (no new post since last check). |
+| 2026-06-22 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2807 (no new post since last check). |
+| 2026-06-22 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11148 (no new post since last check). |
 | 2026-06-21 | https://t.me/bolshegold | FDX | `/new-position FDX` — Phase 01 FAIL, PASS, not scored | Post (bolshegold/9602) named FDX in a weekly-earnings-preview round-up with no claimed company event ("might be a marker for international trade, parcel volumes; I don't hold it myself"). No prior watchlist entry existed, so per command step 4 it was actioned regardless of the thin rationale. Gate fails 5 of 8 criteria: gross margin 22.04% (vs >40%), net margin 4.88% (vs >12%), ROIC 9.25% (vs >15%), revenue 3yr CAGR **-2.03%** (vs >8%), net debt/EBITDA 3.08x (vs <2.5x). Data-consistency flag: the 1 Jun 2026 FedEx Freight (LTL) spin-off means live price/share count are post-spinoff but yfinance financials are still pre-spinoff combined figures. [Session](../../sessions/2026-06-21-new-position-fdx.md) · [watchlist entry](../../watchlist/not-in-portfolio/FDX/FDX-2026-06-21.md) · commit `0cdcf89`. |
 | 2026-06-21 | https://t.me/bolshegold | CCL | `/new-position CCL` — Phase 01 FAIL, PASS, not scored | Post named $CCL/$CUK with the author's own risk caution (Iran/Hormuz exposure, debt load) — no confirmed company event. No prior watchlist entry, so actioned per command step 4. Evaluated as one dual-listed-company entity (CCL primary, CUK = equivalent share class). Gate fails on net margin (11.48% vs >12%), ROIC (11.22% vs >15%), and net debt/EBITDA (3.47x vs <2.5x — decisive, COVID-era debt still unworked off); FCF/NI conversion also misses in FY2024 (67.7% vs >70%). CCL reports Q2 FY2026 earnings 2026-06-23 — flagged as the next Rule 9 trigger. [Session](../../sessions/2026-06-21-new-position-ccl.md) · [watchlist entry](../../watchlist/not-in-portfolio/CCL/CCL-2026-06-21.md) · commit `e0534c9`. |
 | 2026-06-21 | https://t.me/bolshegold | WSE | `/new-position WSE` — Score 27.3 ("Very Cheap"), WATCHLIST ONLY (R/R fails 2:1 minimum) | Post named Wise plc ahead of its quarterly report/AML-investigation guidance. No prior watchlist entry, so actioned per command step 4. Identity confirmed (IBKR contract search + WebSearch): $WSE = Wise plc, NASDAQ dual-listing since 2026-05-11 (primary listing remains LSE:WISE). Score would normally trigger BUY full position 6–8%, but the order setup's Risk/Reward comes out at 1.38:1–1.72:1 across the entire permitted stop-loss range — fails fair-value-methodology.md's mandatory 2:1 minimum at every point, so no position was sized. FY2026 earnings due 2026-06-25 — mandatory Rule 9 re-score trigger regardless of outcome. [Session](../../sessions/2026-06-21-new-position-wse.md) · [watchlist entry](../../watchlist/not-in-portfolio/WSE/WSE-2026-06-21.md) · commit `f477650`. |
