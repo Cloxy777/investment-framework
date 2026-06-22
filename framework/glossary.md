@@ -12,7 +12,9 @@ Alphabetical within each group.
 
 | Term | Meaning |
 |---|---|
+| **52-week range** | The lowest and highest price a stock has traded at over the past year — a quick gauge of where the current price sits within its recent trading history. |
 | **bps (basis points)** | 1 bps = 0.01 percentage points. 50 bps = 0.5%. |
+| **Buyback yield (net buyback yield)** | The rate at which a company's share count shrinks per year from repurchasing its own stock (net of any new shares issued, e.g. for employee compensation) — a component of shareholder yield. |
 | **CAGR** | Compound Annual Growth Rate — the smoothed yearly growth rate that gets you from a start value to an end value over several years. |
 | **CapEx** | Capital Expenditure — money spent buying or upgrading physical assets (factories, equipment, data centers). |
 | **D&A** | Depreciation & Amortization — the non-cash accounting expense that spreads the cost of long-lived assets over time. |
@@ -36,12 +38,16 @@ Alphabetical within each group.
 | **GAAP** | Generally Accepted Accounting Principles — the standard US accounting rulebook companies use for their official financial statements. |
 | **Going-concern / accounting-integrity allegation** | A claim — often from a short-seller — that a company's reported financials misrepresent its true financial condition. Treated by this framework as an open, unresolved risk flag to monitor, never as a settled fact in either direction until independently confirmed or refuted. |
 | **HBM (High-Bandwidth Memory)** | A premium, stacked-DRAM format used in AI accelerator GPUs (e.g. Nvidia's). Higher-margin and more technically differentiated than commodity DRAM/NAND, but still subject to the same underlying supply/demand cycle. |
+| **Hurdle rate** | The minimum acceptable annual return for an investment to be worth making — this framework uses 10% as the hurdle the Upside/Downside Modifier measures expected return against. |
+| **Interest coverage (ratio)** | EBIT ÷ interest expense — how many times over a company could pay its interest bill from operating profit; higher means less balance-sheet risk from debt. |
+| **Investment grade** | A credit rating (BBB-/Baa3 or higher) signaling a low perceived risk of default — as opposed to "junk" / high-yield ratings below that line. |
 | **IRR** | Internal Rate of Return — the annualized percentage return an investment is expected to generate. |
 | **M&A** | Mergers & Acquisitions — one company buying or combining with another. |
 | **Moat** | Warren Buffett's term for a durable competitive advantage (brand, network effect, switching costs, scale) that protects a business's profits from competitors. |
 | **MoS (Margin of Safety)** | How far below fair value the buy price is set, as a cushion against being wrong — e.g. a 25% MoS means buying at 75% of estimated fair value. |
 | **MSCI** | Morgan Stanley Capital International — an index provider; "MSCI QUAL" / "MSCI World" etc. refer to specific indices it publishes. |
 | **NAV** | Net Asset Value — the value of a company's (or fund's) assets minus its liabilities. |
+| **Net Debt/EBITDA** | Net debt (total debt minus cash) divided by EBITDA — a leverage ratio measuring how many years of operating cash profit it would take to pay off all debt; this framework's primary balance-sheet-risk gate. |
 | **Neobank** | A digital-first, often app-only bank or financial-services company. Most neobanks operate via a partner bank's charter; some go further and obtain an actual bank charter of their own. |
 | **NI (Net Income)** | Net Income — accounting profit after all expenses, interest, and taxes ("the bottom line"). |
 | **NIM (Net Interest Margin)** | The spread a bank earns between interest received on loans/assets and interest paid out on deposits/borrowings — the core profitability driver for any depository institution. |
@@ -56,6 +62,7 @@ Alphabetical within each group.
 | **R/R (Risk/Reward ratio)** | (Expected gain) ÷ (Expected loss) on a trade — this framework requires at least 2:1 before entering. |
 | **ROE** | Return on Equity — Net Income ÷ shareholder equity; how efficiently a company generates profit from shareholders' capital. |
 | **ROIC** | Return on Invested Capital — how efficiently a company turns the capital invested in it (debt + equity) into profit; a core quality signal in this framework. |
+| **Shareholder yield** | Cash returned to shareholders as a percentage of share price — dividend yield plus net buyback yield combined. |
 | **SPAC** | Special Purpose Acquisition Company — a shell company that raises money via its own IPO for the specific purpose of merging with a private company to take it public, as an alternative to a traditional IPO. Often leaves the resulting company with a short, distorted public earnings history (one-off preferred-share/warrant accounting charges, thin trailing financials) that complicates standard quality/valuation checks. |
 | **TAM** | Total Addressable Market — the total revenue opportunity available if a company captured 100% of its target market. |
 | **TBVPS (Tangible Book Value Per Share)** | Tangible book value (book value minus intangible assets) divided by shares outstanding — the per-share input to a P/TBV multiple. |
@@ -70,11 +77,15 @@ These are this repository's own vocabulary — defined in [strategy.md](strategy
 
 | Term | Meaning |
 |---|---|
+| **Catalyst window** | The timeframe (per Rule 10, typically 18–24 months) within which a documented, specific event is expected to close the gap between price and fair value — required before the Upside/Downside Modifier can credit large expected upside. |
+| **Debt Gate** | This framework's balance-sheet check on Net Debt/EBITDA (Hybrid Upgrade 5) — standard threshold <2.5×, relaxed to <4× for asset-light payment networks/exchanges with strong interest coverage and investment-grade ratings. |
 | **Fallen Angel** | This framework's term for a previously-qualified, formerly high-quality company that has stumbled — evaluated via the Turnaround Sub-Gate (Hybrid Upgrade 4) rather than the standard screen. |
 | **Hybrid Upgrade** | One of 7 framework-specific rule additions layered on top of the base 6-phase strategy (e.g. Owner Earnings, Historical PE Modifier, PEG sub-score) — see [strategy.md](strategy.md). |
 | **Phase 01–06** | The six sequential stages of this framework: Universe Screening → Valuation Scoring → Entry/Position Sizing → Continuous Monitoring → Dynamic Trimming → Full Exit. |
+| **PW (Probability-Weighted) Fair Value** | This framework's blended fair value estimate — 25% bull case + 50% base case + 25% bear case (Rule 7) — used as the single fair-value input to both the order setup and the Upside/Downside Modifier. |
 | **Qualified Quality List** | The output of Phase 01 screening — the set of companies that passed the quality gate and are eligible for valuation scoring. |
 | **Rate Environment Gate** | The mandatory pre-check run before every Phase 02 valuation score, comparing Earnings Yield against the 10-Year Treasury yield and applying a Rate Regime Modifier. |
 | **Rate Regime Modifier** | An additive adjustment (−10 to +10) applied to the valuation score based on which Treasury-yield bracket the market is currently in. |
 | **Structural Quality Override** | A check that suspends the Historical PE Modifier's "expensive" penalty when a stock's higher multiple is justified by a genuine improvement in the business (margin expansion, ROIC improvement) rather than mere euphoria. |
 | **Turnaround Sub-Gate** | The conditional path (Hybrid Upgrade 4) that lets a company failing some quality criteria still enter as a small (2–3%) position if it passes 5 specific tests (historical ROIC, insider buying, margin of safety, debt level, identifiable moat). |
+| **Upside/Downside Modifier (Expected-Return Modifier)** | An additive ±15 adjustment to the valuation score based on expected annual return (the gap to PW Fair Value, annualized over the catalyst window, plus intrinsic growth and shareholder yield) — folds the forward-looking dimension into the score so strong expected upside pulls a name toward "buy" and a thin/negative expected return pushes it toward "trim/sell." |
