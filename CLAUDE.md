@@ -48,6 +48,8 @@ Every session should be saved to `sessions/` and, where it leads to an actual tr
 
 When a framework rule changes (a new hybrid upgrade, a revised threshold, a lesson learned from a bad call), edit the relevant file under `framework/` directly and record *why* in `decisions/` — that record is what makes the framework's evolution traceable and auditable in git history, rather than living only in chat transcripts.
 
+If the change materially alters **how the valuation score is computed** (a new/changed sub-score, modifier, weight, or eligibility rule), also bump the **scoring methodology version** at the top of [valuation-scoring.md](framework/valuation-scoring.md) and run the watchlist **stale-score** mechanism: flag every watchlist entry whose numeric score predates the new version (banner + a row in [watchlist/STALE.md](watchlist/STALE.md)); the marks clear automatically as `/rescore` and `/new-position` bring each name current. See [watchlist/README.md](watchlist/README.md#stale-scores--when-the-scoring-methodology-changes).
+
 ## Source material
 
 The structured docs under `framework/` and `portfolio/` are the canonical, maintained versions, fully migrated from the original Notion export (which has been removed from the repo — see git history at the migration commit if you need the raw source).

@@ -37,6 +37,16 @@ Otherwise — re-screened, nothing material changed — just append a line to th
 
 Maintained by `/sync-portfolio`: for each ticker now in [holdings.md](../portfolio/holdings.md) that has a `not-in-portfolio/<TICKER>/` folder, `git mv` it to `in-portfolio/`. For each ticker in `in-portfolio/` no longer in holdings.md (position exited), `git mv` it to `not-in-portfolio/` and add a one-line "exited" note to its entry.
 
+## Stale scores — when the scoring methodology changes
+
+A general, repeatable mechanism (not tied to any one change): when the **scoring methodology version** changes, scores computed under an older version are no longer comparable to new ones, so they are flagged stale until rescored.
+
+- **Methodology version:** stamped at the top of [valuation-scoring.md](../framework/valuation-scoring.md) (a date). Bump it whenever a change materially alters how the score is computed (a new/changed sub-score, modifier, weight, or eligibility rule), and record why in `decisions/`.
+- **Mark (on a version bump):** every watchlist entry that carries a *numeric* score computed under an older version gets (1) a one-line `⚠️ STALE SCORE` banner at the top of its file, and (2) a row in the central registry [STALE.md](STALE.md). Entries that are "Phase 01 FAIL / not scored" are **not** marked — there is no Phase 02 score for the change to invalidate.
+- **Clear (on rescore):** when `/rescore` (held) or `/new-position` (not held) writes a fresh entry under the current methodology, it **removes that ticker's banner and deletes its row in STALE.md** as part of the same update. So the registry is self-emptying as the book is brought current.
+
+This keeps the per-ticker `<TICKER>/<TICKER>-YYYY-MM-DD.md` paths intact (no folder renames), so links from `holdings.md`, `sessions/`, and the commands never break.
+
 ## Maintained by
 
 - **`/new-position`** — creates/updates the `not-in-portfolio/<TICKER>/` entry (or `in-portfolio/` if the ticker turns out to already be held).

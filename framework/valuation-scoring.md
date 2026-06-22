@@ -2,6 +2,8 @@
 
 How to compute the Phase 02 score (0–100.0) for a qualified company. See [strategy.md](strategy.md) for where this fits in the overall framework.
 
+> **Scoring methodology version: 2026-06-20.** Bump this date whenever a change materially alters how the score is computed (a new/changed sub-score, modifier, weight, or eligibility rule) and record why in `decisions/`. A version bump triggers the watchlist **stale-score** mechanism: every watchlist entry with a numeric score from an older version is flagged stale (banner + [watchlist/STALE.md](../watchlist/STALE.md) row) until rescored — see [watchlist/README.md](../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes). *Version history: 2026-06-11 (1–10 → 0–100 rescale) → 2026-06-20 (5yr PE lookback, Upside/Downside Modifier, PEG clean-earnings clarification).*
+
 *Rescaled 2026-06-11 from the original 1–10 integer scale to a continuous 0–100.0 scale for more precision — see [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md). Cap set to a clean 100.0 (rather than 99.9) so the EV/EBIT and PEG sub-score formulas land on round numbers at their defined extremes (EV/EBIT 35× → exactly 100.0, PEG 2.5 → exactly 100.0).*
 
 ## Final Score Formula
