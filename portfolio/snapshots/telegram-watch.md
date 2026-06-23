@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11160 (~19:38 UTC, 2026-06-22) | 2026-06-23 04:32 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2813 (~19:22 UTC, 2026-06-22) | 2026-06-23 04:32 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2473 (~19:27 UTC, 2026-06-22) | 2026-06-23 04:32 UTC |
-| https://t.me/bolshegold | bolshegold/9609 (~15:48 UTC, 2026-06-22) | 2026-06-23 04:32 UTC |
+| https://t.me/tarasguk | tarasguk/11167 (~08:07 UTC, 2026-06-23) | 2026-06-23 08:33 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2815 (~06:54 UTC, 2026-06-23) | 2026-06-23 08:33 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2474 (edited, ~06:58 UTC, 2026-06-23) | 2026-06-23 08:33 UTC |
+| https://t.me/bolshegold | bolshegold/9609 (~15:48 UTC, 2026-06-22) | 2026-06-23 08:33 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-06-23 | https://t.me/tarasguk | — | no action — no resolvable company named | Marker advanced from tarasguk/11160 (~19:38 UTC, 2026-06-22) to tarasguk/11167 (~08:07 UTC, 2026-06-23) — a ~12h29m gap, well above the ~1hr threshold in command step 2, flagging explicitly; posts 11161–11166 landed in that gap and are superseded per the command's by-design "latest post only" scope, not individually evaluated. New top post (#11167): "До Смілянського може бути багато питань, але те, що НБУ має право його звільняти - це щось зовсім дивне" plus a quoted line that the NBU concluded "Смілянський" lacks sufficient regulatory knowledge/experience to manage a financial-payment-services company — a personnel/governance dispute involving Ukraine's central bank (NBU) and an unnamed financial-services company, with no specific publicly traded company or ticker named anywhere in the text (the only attachment is the channel's own header photo), so no action per step 3. |
+| 2026-06-23 | https://t.me/FinnInvestChannel | — | no action — ticker unresolvable, private company | Marker advanced from FinnInvestChannel/2813 (~19:22 UTC, 2026-06-22) to FinnInvestChannel/2815 (~06:54 UTC, 2026-06-23) — a ~11h32m gap, above the ~1hr threshold in command step 2, flagging explicitly; post 2814 (premarket Micron-earnings-anticipation commentary — "Micron earnings report coming tomorrow; expected to exceed forecasts and raise guidance" — anticipatory only, no claimed event yet, and corroborating the same upcoming-earnings awareness already reflected in MU's existing not-in-portfolio entry) is superseded per the command's by-design "latest post only" scope, not individually evaluated. New top post (#2815): "Фʼючерси дуже красиві на премаркеті 😎 Кажуть SpaceX падає і все з ним, але як на мене, то просто трімлять ті, хто заробили і далі звіти будуть вирішувати 🫴" ("Futures look great premarket... they say SpaceX is falling and everything with it, but I think those who profited are just trimming, reports will decide the rest") — names SpaceX, a real, identifiable company, but SpaceX is privately held with no public listing or ticker, so per step 3 it's skipped rather than guessing a proxy. No action taken. |
+| 2026-06-23 | https://t.me/myroslavkorol | — | no action — no resolvable company named | Marker advanced from myroslavkorol/2473 (~19:27 UTC, 2026-06-22) to myroslavkorol/2474 (edited, ~06:58 UTC, 2026-06-23) — a ~11h31m gap, above the ~1hr threshold in command step 2, but sequential post numbers (2473→2474, delta 1) confirm exactly one post landed, not multiple missed ones. New top post (#2474): a one-line joke, "Назад до клубу «бідних мільярдерів»))" ("Back to the 'poor billionaires' club))") — no attached image/video/link-preview/quoted message, and no specific company, person, or ticker named, so no action per step 3. |
+| 2026-06-23 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9609 (~15:48 UTC, 2026-06-22) — no new post since the 2026-06-23 04:32 UTC check. |
 | 2026-06-23 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11160 (~19:38 UTC, 2026-06-22) — no new post since the 2026-06-23 00:32 UTC check. |
 | 2026-06-23 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2813 (~19:22 UTC, 2026-06-22) — no new post since the 2026-06-23 00:32 UTC check. |
 | 2026-06-23 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2473 (~19:27 UTC, 2026-06-22) — no new post since the 2026-06-23 00:32 UTC check. |
