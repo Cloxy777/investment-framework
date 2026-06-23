@@ -29,8 +29,8 @@ Combined total ≈ **$55,813.07** = IBKR Net Liquidation Value $40,689.53 + Free
 | CSGP | 1.35% | 79.0 | 20 Jun 2026 | IBKR |
 | DUOL | 8.26% | 53.7 | 20 Jun 2026 | IBKR + Freedom24 |
 | GOOG | 0.65% | 73.1 | 20 Jun 2026 | IBKR |
-| META | 7.22% | 19.6 | 20 Jun 2026 | IBKR + Freedom24 |
-| MSFT | 15.01% | 35.0 | 20 Jun 2026 | IBKR + Freedom24 |
+| META | 7.22% | 18.0 | 23 Jun 2026 | IBKR + Freedom24 |
+| MSFT | 15.01% | 34.0 | 23 Jun 2026 | IBKR + Freedom24 |
 | NFLX | 1.66% | 61.2 | 20 Jun 2026 | IBKR |
 | NKE | 1.61% | 43.1 | 20 Jun 2026 | IBKR |
 | NOW | 2.02% | 42.3 | 20 Jun 2026 | IBKR |
