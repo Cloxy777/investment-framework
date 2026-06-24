@@ -13,6 +13,7 @@ Alphabetical within each group.
 | Term | Meaning |
 |---|---|
 | **52-week range** | The lowest and highest price a stock has traded at over the past year — a quick gauge of where the current price sits within its recent trading history. |
+| **ADR (American Depositary Receipt)** | A US-exchange-listed security representing shares of a non-US company, letting US investors trade it in USD without using a foreign exchange directly. ADRs can represent a 1:1, multiple, or fractional ratio of home-market shares — for Nokia's NOK, this framework confirmed (rather than assumed) a 1-for-1 ratio against the Helsinki-listed ordinary share by cross-checking IBKR's live USD quote against Yahoo Finance's EUR-denominated financials converted at the prevailing spot FX rate; the two were internally consistent with no ratio adjustment needed. |
 | **AML (Anti-Money Laundering)** | Laws and internal controls designed to stop criminal proceeds from being moved through legitimate financial channels. An AML investigation is a regulator/prosecutor probe into whether a company's controls failed to catch suspicious activity — a fundamental (not price-action) risk this framework tracks under Rule 9's mandatory re-valuation triggers. |
 | **bps (basis points)** | 1 bps = 0.01 percentage points. 50 bps = 0.5%. |
 | **Buyback yield (net buyback yield)** | The rate at which a company's share count shrinks per year from repurchasing its own stock (net of any new shares issued, e.g. for employee compensation) — a component of shareholder yield. |
