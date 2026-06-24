@@ -72,6 +72,7 @@ Alphabetical within each group.
 | **pp (percentage points)** | A direct difference between two percentages (e.g. margin falling from 42% to 39% is a 3pp drop) — distinct from a "%" *change*, which would describe that same move as -7%. |
 | **PT (Price Target)** | An analyst's forecast of where a stock's price will be at a future date. |
 | **QMJ (Quality Minus Junk)** | A Fama-French style academic factor that measures the historical excess return of high-quality companies over low-quality ones — used in this framework as a benchmark, not a strategy input. |
+| **RNS (Regulatory News Service)** | The London Stock Exchange's official channel for company regulatory announcements (results, M&A, director/management changes, etc.) — the UK equivalent of a US SEC 8-K filing. An "Investegate RNS" citation in this framework means the announcement came from the company's own regulatory disclosure, not from press secondary reporting — used for qualitative "what happened" narrative only, never as a source for numbers used in scoring (Rule 0). |
 | **R/R (Risk/Reward ratio)** | (Expected gain) ÷ (Expected loss) on a trade — this framework requires at least 2:1 before entering. |
 | **ROE** | Return on Equity — Net Income ÷ shareholder equity; how efficiently a company generates profit from shareholders' capital. |
 | **ROIC** | Return on Invested Capital — how efficiently a company turns the capital invested in it (debt + equity) into profit; a core quality signal in this framework. |
