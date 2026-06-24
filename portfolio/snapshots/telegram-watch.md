@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11176 (~19:48 UTC, 2026-06-23) | 2026-06-23 20:33 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2820 (~20:26 UTC, 2026-06-23) | 2026-06-23 20:33 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2477 (~13:56 UTC, 2026-06-23) | 2026-06-23 20:33 UTC |
-| https://t.me/bolshegold | bolshegold/9616 (~18:35 UTC, 2026-06-23) | 2026-06-23 20:33 UTC |
+| https://t.me/tarasguk | tarasguk/11176 (~19:48 UTC, 2026-06-23) | 2026-06-24 00:32 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2820 (~20:26 UTC, 2026-06-23) | 2026-06-24 00:32 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2477 (~13:56 UTC, 2026-06-23) | 2026-06-24 00:32 UTC |
+| https://t.me/bolshegold | bolshegold/9616 (~18:35 UTC, 2026-06-23) | 2026-06-24 00:32 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-06-24 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9616 (~18:35 UTC, 2026-06-23) — no new post since the 20:33 UTC check. |
+| 2026-06-24 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2477 (~13:56 UTC, 2026-06-23) — no new post since the 20:33 UTC check. |
+| 2026-06-24 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2820 (~20:26 UTC, 2026-06-23) — no new post since the 20:33 UTC check. |
+| 2026-06-24 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11176 (~19:48 UTC, 2026-06-23) — no new post since the 20:33 UTC check. |
 | 2026-06-23 | https://t.me/bolshegold | — | no action — no resolvable company named | Marker advanced from bolshegold/9615 (~15:27 UTC) to bolshegold/9616 (~18:35 UTC) — sequential post numbers (9615→9616, delta 1) confirm exactly one post landed despite the ~3h8m gap exceeding the ~1hr threshold in command step 2. New top post (#9616) reads only "Задачи поняли, фиксим 😕" ("Understood the tasks, fixing them") — an admin/technical-issue acknowledgment with no company or ticker named, so no action per step 3. |
 | 2026-06-23 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2477 (~13:56 UTC) — no new post since the 16:55 UTC check (same MU trading-anecdote post already evaluated in the row below). |
 | 2026-06-23 | https://t.me/FinnInvestChannel | META | no action — product-test report, not a Rule 9 event; already reviewed today | Marker advanced from FinnInvestChannel/2818 (~15:59 UTC) to FinnInvestChannel/2820 (~20:26 UTC) — a ~4h27m gap, above the ~1hr threshold in command step 2, flagging explicitly; post 2819 (~18:09 UTC, "Ще пів відсотка і буде мабуть один з найщасливіших днів... А якби усереднював до кінця, вже був би в нормальному плюсі" — a personal P&L/averaging-down remark, no company named) is superseded per the command's by-design "latest post only" scope, not individually evaluated. New top post (#2820): "Meta тестує власний prediction market застосунок... За даними NYT, Meta внутрішньо працює над окремим застосунком Arena... схоже на Polymarket або Kalshi" (Meta is internally testing a prediction-market app called Arena, per NYT, similar to Polymarket/Kalshi) — names META, a current holding (7.22% weight, score 18.0). Cross-checked against [holdings.md](../holdings.md) and the [2026-06-23 watchlist entry](../../watchlist/in-portfolio/META/META-2026-06-23.md): META was rescored *today*, explicitly checking "earnings/guidance/M&A/management/macro — nothing material," with next review trigger next earnings (~late Jul 2026). An internal product test reported third-hand by NYT (not even a confirmed launch) doesn't match any of operating-calendar.md's Rule 9 categories (earnings, guidance revision, management change, M&A, macro shift, short report) — same precedent as the 2026-06-22 MSFT/CVX data-center-deal entry (a concrete signed commercial agreement was still ruled non-Rule-9; this is a step further removed, an unconfirmed internal test). Neither of command step 4's `/rescore` conditions is met (no Rule 9 event; already reviewed since last earnings) — logged as a mention only. Note: tarasguk's post #11175 in the gap below (superseded, not individually evaluated) independently corroborates this same Arena story ("Цук вирішив скопіювати Polymarket... Meta будує окремий додаток для гемблінгу під назвою Arena") — a second channel naming the identical unconfirmed product, which doesn't change the no-action call. |
