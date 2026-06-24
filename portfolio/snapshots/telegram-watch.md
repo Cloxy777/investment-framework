@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11176 (~19:48 UTC, 2026-06-23) | 2026-06-24 00:32 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2820 (~20:26 UTC, 2026-06-23) | 2026-06-24 00:32 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2477 (~13:56 UTC, 2026-06-23) | 2026-06-24 00:32 UTC |
-| https://t.me/bolshegold | bolshegold/9616 (~18:35 UTC, 2026-06-23) | 2026-06-24 00:32 UTC |
+| https://t.me/tarasguk | tarasguk/11176 (~19:48 UTC, 2026-06-23) | 2026-06-24 04:31 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2820 (~20:26 UTC, 2026-06-23) | 2026-06-24 04:31 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2477 (~13:56 UTC, 2026-06-23) | 2026-06-24 04:31 UTC |
+| https://t.me/bolshegold | bolshegold/9616 (~18:35 UTC, 2026-06-23) | 2026-06-24 04:31 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-06-24 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9616 (~18:35 UTC, 2026-06-23) — no new post since the 00:32 UTC check. |
+| 2026-06-24 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2477 (~13:56 UTC, 2026-06-23) — no new post since the 00:32 UTC check. |
+| 2026-06-24 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2820 (~20:26 UTC, 2026-06-23) — no new post since the 00:32 UTC check. |
+| 2026-06-24 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11176 (~19:48 UTC, 2026-06-23) — no new post since the 00:32 UTC check. |
 | 2026-06-24 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9616 (~18:35 UTC, 2026-06-23) — no new post since the 20:33 UTC check. |
 | 2026-06-24 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2477 (~13:56 UTC, 2026-06-23) — no new post since the 20:33 UTC check. |
 | 2026-06-24 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2820 (~20:26 UTC, 2026-06-23) — no new post since the 20:33 UTC check. |
