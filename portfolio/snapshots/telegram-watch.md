@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11194 (~20:02 UTC, 2026-06-24) | 2026-06-25 00:33 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2827 (~20:15 UTC, 2026-06-24) | 2026-06-25 00:33 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2492 (~20:13 UTC, 2026-06-24) | 2026-06-25 00:33 UTC |
-| https://t.me/bolshegold | bolshegold/9620 (~20:11 UTC, 2026-06-24) | 2026-06-25 00:33 UTC |
+| https://t.me/tarasguk | tarasguk/11194 (~20:02 UTC, 2026-06-24) | 2026-06-25 04:32 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2827 (~20:15 UTC, 2026-06-24) | 2026-06-25 04:32 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2492 (~20:13 UTC, 2026-06-24) | 2026-06-25 04:32 UTC |
+| https://t.me/bolshegold | bolshegold/9620 (~20:11 UTC, 2026-06-24) | 2026-06-25 04:32 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-06-25 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11194 (~20:02 UTC, 2026-06-24) — no new post since the 00:33 UTC check. |
+| 2026-06-25 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2827 (~20:15 UTC, 2026-06-24) — no new post since the 00:33 UTC check. |
+| 2026-06-25 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2492 (~20:13 UTC, 2026-06-24) — no new post since the 00:33 UTC check. |
+| 2026-06-25 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9620 (~20:11 UTC, 2026-06-24) — no new post since the 00:33 UTC check. |
 | 2026-06-25 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11194 (~20:02 UTC, 2026-06-24) — no new post since the 20:50 UTC check. |
 | 2026-06-25 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2827 (~20:15 UTC, 2026-06-24) — no new post since the 20:50 UTC check. |
 | 2026-06-25 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2492 (~20:13 UTC, 2026-06-24) — no new post since the 20:50 UTC check. |
