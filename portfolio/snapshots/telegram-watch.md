@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11194 (~20:02 UTC, 2026-06-24) | 2026-06-25 04:32 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2827 (~20:15 UTC, 2026-06-24) | 2026-06-25 04:32 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2492 (~20:13 UTC, 2026-06-24) | 2026-06-25 04:32 UTC |
-| https://t.me/bolshegold | bolshegold/9620 (~20:11 UTC, 2026-06-24) | 2026-06-25 04:32 UTC |
+| https://t.me/tarasguk | tarasguk/11197 (~08:05 UTC, 2026-06-25) | 2026-06-25 08:32 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2827 (~20:15 UTC, 2026-06-24) | 2026-06-25 08:32 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2492 (~20:13 UTC, 2026-06-24) | 2026-06-25 08:32 UTC |
+| https://t.me/bolshegold | bolshegold/9620 (~20:11 UTC, 2026-06-24) | 2026-06-25 08:32 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-06-25 | https://t.me/tarasguk | — | no action — no resolvable company named (macro/index commentary) | Marker advanced from tarasguk/11194 (~20:02 UTC, 2026-06-24) to tarasguk/11197 (~08:05 UTC, 2026-06-25) — a ~12h gap, well above the ~1hr threshold in command step 2, flagging explicitly; sequential post numbers (11194→97, delta 3) indicate up to two posts landed in the gap. Post #11195 does not render in the preview (consistent with this channel's recurring non-sequential-numbering pattern noted in prior rows, e.g. 11183–11185/11187 on 2026-06-24). Post #11196 (~05:27 UTC, 2026-06-25) does render: "💻 Micron - нова Nvidia / +20% після конференц колу на якому менеджмент заявив, що у них $100 млрд депозитів від клієнтів по контрактах до 2030 року" (Micron "the new Nvidia" — stock +20% after a conference call where management said they hold $100B in customer deposits under contract through 2030) — names MU and claims a new fundamental event distinct from the Q3 FY2026 earnings beat already actioned the day before (tarasguk/11194, commit `17895bc`) — but is superseded per the command's by-design "latest post only" scope, not individually evaluated. Flagged here for the record since it's a second, seemingly distinct MU catalyst within 24 hours and may warrant a human gut-check on MU's `not-in-portfolio` entry outside this command's strict scope. New top post (#11197, ~08:05 UTC): "🤣 Nasdaq +2,3% перед відкриттям. Очікуємо продовження знижок на все, що не памʼять 🤔" (Nasdaq futures +2.3% premarket; expects continued weakness for "everything that isn't memory") — generic index-level/chip-sector macro commentary with no specific, identifiable company or ticker named (the "memory" aside references chip pricing broadly, not one company), so no action per step 3. |
+| 2026-06-25 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2827 (~20:15 UTC, 2026-06-24) — no new post since the 04:32 UTC check. |
+| 2026-06-25 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2492 (~20:13 UTC, 2026-06-24) — no new post since the 04:32 UTC check. |
+| 2026-06-25 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9620 (~20:11 UTC, 2026-06-24) — no new post since the 04:32 UTC check. |
 | 2026-06-25 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11194 (~20:02 UTC, 2026-06-24) — no new post since the 00:33 UTC check. |
 | 2026-06-25 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2827 (~20:15 UTC, 2026-06-24) — no new post since the 00:33 UTC check. |
 | 2026-06-25 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2492 (~20:13 UTC, 2026-06-24) — no new post since the 00:33 UTC check. |
