@@ -2,16 +2,19 @@
 
 > Source of truth for what's actually owned. Update after every [portfolio sync](sync-sop.md) or trade. Each entry should carry the last valuation score and review date so [/rescore](../.claude/commands/rescore.md) knows what's due.
 
-**As of 2026-06-22 — live sync from [IBKR](snapshots/ibkr.md) (positions, cash balances, and active orders all refreshed 2026-06-22) + [Freedom Finance](snapshots/freedom-finance.md) snapshot (last synced 2026-06-07, unchanged this run), including cash balances on both sides.**
+**As of 2026-06-28 — live sync from [IBKR](snapshots/ibkr.md) (positions, cash balances, and active orders all refreshed 2026-06-28) + [Freedom Finance](snapshots/freedom-finance.md) snapshot (last synced 2026-06-07, unchanged this run), including cash balances on both sides.**
 
-Combined total ≈ **$55,813.07** = IBKR Net Liquidation Value $40,689.53 + Freedom24 Net Asset Valuation $15,123.54 (both broker-reported, **positions + cash**, in USD). Weight % = each row's combined USD-equivalent value ÷ this total. *Score and review-date columns are intentionally blank — they're populated by [/rescore](../.claude/commands/rescore.md), not by sync.*
+Combined total ≈ **$54,891.48** = IBKR Net Liquidation Value $39,767.94 + Freedom24 Net Asset Valuation $15,123.54 (both broker-reported, **positions + cash**, in USD). Weight % = each row's combined USD-equivalent value ÷ this total. *Score and review-date columns are intentionally blank — they're populated by [/rescore](../.claude/commands/rescore.md), not by sync.*
 
-> ⚠️ **Portfolio changes since the 2026-06-15 sync — headline item is a governance gap, not just a data refresh:**
+> ⚠️ **Portfolio changes since the 2026-06-22 sync:**
 >
-> - **New position — AVGO** (6 sh @ avg cost $382.44, IBKR, bought 2026-06-16): **this is an override, not a framework-driven buy.** The only AVGO evaluation on record, the [2026-06-14 new-position session](../sessions/2026-06-14-new-position-avgo.md), scored it **69.5 — WATCHLIST, explicit "no new entry"** recommendation. The buy went in two days later at essentially the same price, with no [`decisions/`](../decisions/) entry explaining why. Logged retroactively in [override-log.md](override-log.md) (rationale: not on record — flagged for the user to supply). Added below with Last Score 69.5 / 14 Jun 2026 carried over from that session, same convention used for ADBE's partial fill. Moved `watchlist/not-in-portfolio/AVGO/` → `watchlist/in-portfolio/AVGO/`.
-> - **No other position-size changes** — all 22 previously-held tickers (including ADBE, still a partial fill at 10 of ~17 target shares) show identical share counts; only prices moved.
+> - **New position — TRN** (Trainline plc, LSE: 600 sh @ avg cost GBP 2.1195 ≈ GBX 211.95, IBKR, bought 2026-06-24): **framework-compliant partial-fill BUY, not an override.** [watchlist/in-portfolio/TRN/TRN-2026-06-24.md](../watchlist/in-portfolio/TRN/TRN-2026-06-24.md) carries a score of **10.0 — BUY, Full position 6–8%**, from a Rule 9 management-change re-run (Trainline CEO succession). Target size from [sessions/2026-06-24-new-position-trn.md](../sessions/2026-06-24-new-position-trn.md) is ≈1,553 shares (≈$4,191.30); 600 filled so far — same partial-fill pattern already established for ADBE. Added below with Last Score 10.0 / 24 Jun 2026 carried over from that session. Moved `watchlist/not-in-portfolio/TRN/` → `watchlist/in-portfolio/TRN/`.
+> - **Total Cash (IBKR) swung from +$255.99 to –$1,576.85** — the TRN purchase was funded by letting **GBP cash go negative** (–£1,271.71, GBP-side NLV now slightly negative) rather than via an explicit FX conversion; see [ibkr.md](snapshots/ibkr.md) for detail. Flagged for transparency — not a framework violation, but worth a deliberate decision on whether to convert USD→GBP to cover it.
+> - **STIM grew (345→500 shares) and a new 5-contract short covered call appeared** (`STIM Aug21'26 $2.50 CALL`, –5 contracts): both fills resolve order-window flags already on record from the 2026-06-22 sync and are consistent with the ongoing covered-call income strategy (fully covered by the 500-share position). Not a new governance flag — see the STIM note below and [ibkr.md](snapshots/ibkr.md).
+> - **AVGO's 2026-06-16 override remains open and unresolved** (no rationale supplied yet) — see [override-log.md](override-log.md). Carried forward, not re-litigated this sync.
+> - **No other position-size changes** — all other previously-held tickers (including ADBE, still a partial fill at 10 of ~17 target shares) show identical share counts; only prices moved.
 
-> **Weight column sums to ~99.7%, not 100%** — see the "Note on Gross Position Value vs. Net Liquidation" in [ibkr.md](snapshots/ibkr.md): broker-reported Net Liquidation is currently ~$200 *above* the live sum of position values + cash (the reverse of the prior sync's gap direction). Not a calculation error — flagged for transparency rather than silently rescaled.
+> **Weight column sums to ~100.1%, not 100%** — see the "Note on Gross Position Value vs. Net Liquidation" in [ibkr.md](snapshots/ibkr.md) for the small live-vs-settled timing gaps, plus the STIM short-call market value (–$45.55) which is intentionally excluded from STIM's weight below. Not a calculation error — flagged for transparency rather than silently rescaled.
 
 **Score scale (2026-06-11):** Valuation scores run **0.0–100.0** (continuous, 0 = cheapest, 100.0 = most expensive) instead of the old 1–10 integers — see [valuation-scoring.md](../framework/valuation-scoring.md) and [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md).
 
@@ -21,35 +24,40 @@ Combined total ≈ **$55,813.07** = IBKR Net Liquidation Value $40,689.53 + Free
 
 | Ticker | Weight % | Last Score | Last Review | Broker |
 |--------|----------|------------|-------------|--------|
-| ADBE | 3.50% | 0.0 | 20 Jun 2026 | IBKR |
-| AMZN | 10.03% | 73.4 | 20 Jun 2026 | IBKR + Freedom24 |
-| AVGO | 4.35% | 69.5 | 14 Jun 2026 | IBKR |
+| ADBE | 3.69% | 0.0 | 20 Jun 2026 | IBKR |
+| AMZN | 9.99% | 73.4 | 20 Jun 2026 | IBKR + Freedom24 |
+| AVGO | 4.01% | 69.5 | 14 Jun 2026 | IBKR |
 | CASH (Freedom24) | 0.19% | | | Freedom24 |
-| CASH (IBKR) | 0.46% | | | IBKR |
-| CSGP | 1.35% | 79.0 | 20 Jun 2026 | IBKR |
-| DUOL | 8.26% | 53.7 | 20 Jun 2026 | IBKR + Freedom24 |
-| GOOG | 0.65% | 73.1 | 20 Jun 2026 | IBKR |
-| META | 7.22% | 17.2 | 26 Jun 2026 | IBKR + Freedom24 |
-| MSFT | 15.01% | 33.9 | 26 Jun 2026 | IBKR + Freedom24 |
-| NFLX | 1.66% | 61.2 | 20 Jun 2026 | IBKR |
-| NKE | 1.61% | 43.1 | 20 Jun 2026 | IBKR |
-| NOW | 2.02% | 42.3 | 20 Jun 2026 | IBKR |
-| NVDA | 5.23% | 48.5 | 20 Jun 2026 | IBKR |
-| NVO | 0.40% | 47.6 | 20 Jun 2026 | IBKR |
-| RBRK | 0.38% | not scored — fails quality gates | Jun 2026 | IBKR |
+| CASH (IBKR) | -2.87% | | | IBKR |
+| CSGP | 1.38% | 79.0 | 20 Jun 2026 | IBKR |
+| DUOL | 8.20% | 53.7 | 20 Jun 2026 | IBKR + Freedom24 |
+| GOOG | 0.61% | 73.1 | 20 Jun 2026 | IBKR |
+| META | 7.10% | 17.2 | 26 Jun 2026 | IBKR + Freedom24 |
+| MSFT | 15.09% | 33.9 | 26 Jun 2026 | IBKR + Freedom24 |
+| NFLX | 1.61% | 61.2 | 20 Jun 2026 | IBKR |
+| NKE | 1.49% | 43.1 | 20 Jun 2026 | IBKR |
+| NOW | 2.16% | 42.3 | 20 Jun 2026 | IBKR |
+| NVDA | 4.92% | 48.5 | 20 Jun 2026 | IBKR |
+| NVO | 0.44% | 47.6 | 20 Jun 2026 | IBKR |
+| RBRK | 0.40% | not scored — fails quality gates | Jun 2026 | IBKR |
 | SPGI | 0.74% | 33.4 | 20 Jun 2026 | IBKR |
 | SPOT | 0.84% | 80.5 | 20 Jun 2026 | IBKR |
-| STIM | 0.76% | not scored — going-concern override | Jun 2026 | IBKR |
-| TLT | 29.91% | not scored — non-equity, framework gap | Jun 2026 | IBKR + Freedom24 |
-| UBER | 0.38% | 34.8 | 20 Jun 2026 | IBKR |
-| V | 0.59% | 39.2 | 20 Jun 2026 | IBKR |
-| VEEV | 0.83% | | | IBKR |
-| XEON | 3.07% | not scored — cash-equivalent, out of scope | Jun 2026 | IBKR |
-| ZS | 0.22% | 36.3 | 20 Jun 2026 | IBKR |
+| STIM | 1.20% | not scored — going-concern override | Jun 2026 | IBKR |
+| TLT | 30.53% | not scored — non-equity, framework gap | Jun 2026 | IBKR + Freedom24 |
+| TRN | 3.04% | 10.0 | 24 Jun 2026 | IBKR |
+| UBER | 0.42% | 34.8 | 20 Jun 2026 | IBKR |
+| V | 0.61% | 39.2 | 20 Jun 2026 | IBKR |
+| VEEV | 0.94% | | | IBKR |
+| XEON | 3.10% | not scored — cash-equivalent, out of scope | Jun 2026 | IBKR |
+| ZS | 0.24% | 36.3 | 20 Jun 2026 | IBKR |
 
-**XEON is EUR-denominated** (€1,494.33 market value). Its USD-equivalent (**$1,714.19**, used for the weight above) comes from the *live* EUR→USD rate (1.147130) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
+**XEON is EUR-denominated** (€1,494.81 market value). Its USD-equivalent (**$1,701.88**, used for the weight above) comes from the *live* EUR→USD rate (1.138523) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
 
-**`CASH (IBKR)`** = $255.99 USD-equivalent ($250.05 USD + €5.18 EUR — full per-currency breakdown in the [IBKR snapshot](snapshots/ibkr.md)).
+**TRN is GBP-denominated** (£1,263.60 market value, LSE). Its USD-equivalent (**$1,667.60**, used for the weight above) comes from the *live* GBP→USD rate (1.319719) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
+
+**STIM's weight above (1.20%) reflects the 500-share equity position only** ($660.00). A short 5-contract covered call (`STIM Aug21'26 $2.50 CALL`, market value –$45.55) is also held against this position — see [ibkr.md](snapshots/ibkr.md) for detail. Not folded into the weight % here; at ~0.08% of the combined total it would not change STIM's banding either way.
+
+**`CASH (IBKR)`** = **–$1,576.85** USD-equivalent ($95.41 USD + €5.18 EUR + **–£1,271.71 GBP**, the last currently negative — full per-currency breakdown and the funding explanation in the [IBKR snapshot](snapshots/ibkr.md)).
 
 **`CASH (Freedom24)`** = $106.85 (single-currency, USD — no FX conversion needed; unchanged since the 2026-06-07 Freedom Finance sync, no new screenshot this round). It ties out exactly: $15,016.69 (positions) + $106.85 (cash) = $15,123.54 (Net Asset Valuation) — see the [Freedom Finance snapshot](snapshots/freedom-finance.md) for the cross-check.
 
