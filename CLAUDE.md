@@ -6,7 +6,8 @@ This repo is the single source of truth for the **Quality Value + Dynamic Trimmi
 
 - **`framework/`** — the rules themselves. Read these before any analysis task:
   - [strategy.md](framework/strategy.md) — the 6-phase framework, Rate Environment Gate, 7 hybrid upgrades
-  - [valuation-scoring.md](framework/valuation-scoring.md) — how the 0–100.0 valuation score is computed
+  - [valuation-scoring.md](framework/valuation-scoring.md) — how the 0–100.0 valuation score is computed, plus the Composite Score (Quality + Valuation blend)
+  - [quality-scoring.md](framework/quality-scoring.md) — how the 0–100.0 quality score is computed, and the 80.0+ gate a company must clear before valuation scoring
   - [fair-value-methodology.md](framework/fair-value-methodology.md) — fair value, buy/sell/stop pricing, position sizing, the 10-rule FV framework
   - [operating-brief.md](framework/operating-brief.md) — the full system-prompt-style brief that governs how Claude should behave in analysis sessions
   - [operating-calendar.md](framework/operating-calendar.md) — when routine tasks are due, and the data templates to fill in

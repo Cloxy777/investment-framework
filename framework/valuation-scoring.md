@@ -2,7 +2,7 @@
 
 How to compute the Phase 02 score (0–100.0) for a qualified company. See [strategy.md](strategy.md) for where this fits in the overall framework.
 
-> **Scoring methodology version: 2026-06-20.** Bump this date whenever a change materially alters how the score is computed (a new/changed sub-score, modifier, weight, or eligibility rule) and record why in `decisions/`. A version bump triggers the watchlist **stale-score** mechanism: every watchlist entry with a numeric score from an older version is flagged stale (banner + [watchlist/STALE.md](../watchlist/STALE.md) row) until rescored — see [watchlist/README.md](../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes). *Version history: 2026-06-11 (1–10 → 0–100 rescale) → 2026-06-20 (5yr PE lookback, Upside/Downside Modifier, PEG clean-earnings clarification).*
+> **Scoring methodology version: 2026-06-29.** Bump this date whenever a change materially alters how the score is computed (a new/changed sub-score, modifier, weight, or eligibility rule) and record why in `decisions/`. A version bump triggers the watchlist **stale-score** mechanism: every watchlist entry with a numeric score from an older version is flagged stale (banner + [watchlist/STALE.md](../watchlist/STALE.md) row) until rescored — see [watchlist/README.md](../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes). *Version history: 2026-06-11 (1–10 → 0–100 rescale) → 2026-06-20 (5yr PE lookback, Upside/Downside Modifier, PEG clean-earnings clarification) → 2026-06-29 (Quality Score + 80.0+ gate + Composite Score added, see [quality-scoring.md](quality-scoring.md)).*
 
 *Rescaled 2026-06-11 from the original 1–10 integer scale to a continuous 0–100.0 scale for more precision — see [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md). Cap set to a clean 100.0 (rather than 99.9) so the EV/EBIT and PEG sub-score formulas land on round numbers at their defined extremes (EV/EBIT 35× → exactly 100.0, PEG 2.5 → exactly 100.0).*
 
@@ -154,6 +154,31 @@ Neutral (M = 0) when `E = 10%`. The mapping is **deliberately asymmetric**: a me
 4. **It is a modifier, not a veto, in both directions** — bounded ±15 by design, mirroring how the Rate Environment Gate's Step 1 was softened from a hard block to an additive flag (2026-06-07).
 
 **Worked example.** A Fast Grower at score 54 (raw), live price $100, PW Fair Value $118 (so Gap Upside +18%), catalyst window 2 years (annualized gap +9%), intrinsic growth +14%/yr, shareholder yield +1% → `E` = 9 + 14 + 1 = **+24%**. Modifier = −15 × clamp((24 − 10)/15, 0, 1) = −15 × 0.93 = **−14.0**. Final score 54 − 14.0 = **40.0** → moves from "Hold / watchlist only" into "Cheap → standard position." The bright future the raw score ignored now earns the entry, exactly the gap this closes.
+
+---
+
+## Composite Score (Quality + Valuation)
+
+*Added 2026-06-29 — see [decisions/2026-06-29-framework-change-quality-score-and-composite.md](../decisions/2026-06-29-framework-change-quality-score-and-composite.md) and [quality-scoring.md](quality-scoring.md). Closes the gap where two companies that both pass Phase 01 look identical to the framework — only the valuation score differentiated them, so a much higher-quality business with a slightly richer multiple could lose out to a marginal one that's a touch cheaper.*
+
+A company only reaches this step if it has already cleared the **80.0+ Quality Score gate** ([quality-scoring.md](quality-scoring.md)) — the Composite Score is not computed for, and does not rescue, a company that fails the quality gate.
+
+The Quality Score (0–100.0, **higher = better**) and Valuation Score (0–100.0, **lower = better/cheaper**) are inversely oriented by design (see [quality-scoring.md](quality-scoring.md) for why). The Composite Score inverts Quality before blending so the result keeps the same orientation as the existing valuation score and Phase 03/05 action tables — **0 = most attractive, 100.0 = least attractive**:
+
+```
+Composite Score = 0.50 × (100 − Quality Score) + 0.50 × Valuation Score
+```
+
+Equal (50/50) weighting per explicit user decision (2026-06-29) — quality and cheapness are treated as equally important rather than valuation dominating. Use the **Composite Score**, not the raw Valuation Score, against the Phase 03 Entry & Position Sizing table and the Phase 05 Dynamic Trimming table once a company has a Quality Score on file. A company that hasn't yet been quality-scored (e.g. legacy holdings scored before 2026-06-29) is flagged stale until both scores exist — see the stale-score mechanism ([watchlist/README.md](../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes)).
+
+**Worked example.** Company A: Quality Score 88.0, Valuation Score 35.0 (Cheap). Company B: Quality Score 72.0 (would have failed the 80.0+ gate and never reaches this step at all — excluded, not blended in). Company C: Quality Score 84.0, Valuation Score 28.0 (Very Cheap):
+
+```
+Composite A = 0.50×(100−88.0) + 0.50×35.0 = 6.0 + 17.5 = 23.5
+Composite C = 0.50×(100−84.0) + 0.50×28.0 = 8.0 + 14.0 = 22.0
+```
+
+Company C ranks slightly more attractive overall (22.0 vs 23.5) despite Company A's higher quality score, because C is meaningfully cheaper — the blend, not either axis alone, drives the ranking. Always show both raw scores and the composite in the session log; never report the composite alone (no black-box outputs).
 
 ---
 
