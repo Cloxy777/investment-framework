@@ -51,11 +51,47 @@ Carried forward verbatim (no change warranted):
 
 **PASS — unchanged.** Phase 01 Quality Gate still FAIL (1 of 8 criteria). No Rule 9 trigger fired in the 2026-06-24 → 2026-06-29 window; the post-earnings price volatility (down to a $160.81 low, back up to $187.00) is continued digestion of the same already-captured 2026-06-23 print, not a new fundamental event. No new dated watchlist file is created per `watchlist/README.md`'s "significant change" convention (score/status/action unchanged, no Rule 9 trigger, position not opened/closed) — a "Last checked (no significant change)" line is appended to the existing [CBRS-2026-06-24.md](../watchlist/not-in-portfolio/CBRS/CBRS-2026-06-24.md) entry instead.
 
+## 6. Quality Score Addendum (2026-06-29 Methodology Update)
+
+**Why this section exists:** the framework's [Quality Score Engine](../framework/quality-scoring.md) (a continuous 0–100.0 grade plus a strict **80.0+ gate** for Phase 02 eligibility) and the [Composite Score](../framework/valuation-scoring.md) were added on 2026-06-29, the same day as this recheck. This addendum applies the new methodology to the underlying data already gathered in the original [2026-06-24 session](2026-06-24-new-position-cbrs.md) — confirmed still current per §2/§3 above (no new filing has appeared) — **no new financial data was fetched.**
+
+### Hard disqualifier check (per quality-scoring.md — fails regardless of weighted score)
+
+| Hard disqualifier | Applies to CBRS? | Basis |
+|---|---|---|
+| FCF/NI <70% for 2+ consecutive years, no growth-capex carve-out | Not mechanically meaningful, but substantively yes | FCF/NI is not a clean ratio in any year on record — FY2025's literal computation (FCF −$392.8M ÷ normalized NI −$125.5M ≈ +313%) is two negatives producing a misleadingly *high*-looking ratio; FY2024 (FCF +$428.5M ÷ NI −$481.6M) mixes opposite signs entirely. A clean, sustained >70% conversion of positive earnings into cash has never occurred. Not relied upon as the primary citation since the literal ratio breaks down; see the unambiguous disqualifier below instead. |
+| Net Debt/EBITDA over threshold (2.5× standard / 4× asset-light) | **No, in substance** (mechanically undefined) | Net debt is *negative* (net cash $846.4M) and EBITDA is also negative (−$110.8M); the literal negative-over-negative arithmetic (+7.64×) would mechanically read as severe over-leverage, but the true balance-sheet substance is a debt-light, net-cash position — see judgment call in the Balance Sheet sub-score below. |
+| Not FCF-positive for 3+ consecutive years | **Yes — fires** | FCF negative in 3 of the last 4 fiscal years (FY2022 −$174.9M, FY2023 −$85.6M, FY2025 −$392.8M); only FY2024 (+$428.5M) was positive, surrounded by negative years on both sides. Never three consecutive positive years. |
+
+**Hard disqualifier #3 fires, unambiguously and independently of the weighted score below.**
+
+### Weighted Quality Score
+
+| Sub-score (weight) | Inputs (from the 2026-06-24 session) | Calculation | Result |
+|---|---|---|---|
+| **Profitability** (25%) | Net margin −24.6% (FY2025, normalized excl. one-off gain); ROIC undefined (NOPAT −$114.8M and Invested Capital −$316.8M both negative) | NetMargin_Component = clamp((−24.6/30)×100) = 0.0. ROIC_Component: the literal negative÷negative arithmetic has no economically meaningful sign — **judgment call:** scored 0.0, since negative operating profit funded by negative invested capital is a quality-negative condition, not a basis for a positive score. Avg | **0.0** |
+| **Margins** (15%) | Gross margin 39.03% (FY2025); 3yr trend computed from the FY2022–FY2025 revenue/gross-profit figures in the original session: 11.79% (FY22) → 33.55% (FY23) → 42.27% (FY24) → 39.04% (FY25) | clamp((39.03/80)×100) = 48.8; **+10** structural-expansion bonus (margin is below 40% *and* the multi-year trend is a clear, large expansion despite the FY24→FY25 pullback) | **58.8** |
+| **Growth** (20%) | Revenue 3yr CAGR 174.6% (FY2022→FY2025, pre-IPO basis, off a small base — flagged in the original session as not a public-market-disciplined track record) | clamp((174.6/25)×100) = 698.4 → capped | **100.0** |
+| **Balance Sheet** (15%) | Net Debt/EBITDA mechanically undefined (negative/negative) | The literal arithmetic (+7.64×) would score 0.0 — mechanically misleading, since it would treat a debt-light, **net-cash** company as severely over-levered. **Judgment call:** scored 100.0, reflecting the true substance ($846.4M net cash, no leverage risk) | **100.0** (override; mechanical formula would read 0.0) |
+| **Moat** (15%) | "Largest semiconductor IPO ever," OpenAI/AWS partnerships valued >$20B combined, customer-concentration risk flagged | 0 of 5 signals cited true: the partnership/IPO facts are scale and demand-pipeline evidence, not cited market-share, pricing-power, network-effect, switching-cost, or cost-per-unit data | **0.0** |
+| **FCF Quality** (10%) | FCF/NI FY2025 literal ratio ≈+313% (FCF −$392.8M ÷ normalized NI −$125.5M) | The literal ratio would clamp to a perfect 100.0 — mechanically misleading, since it would score CBRS's *worst* cash-burn year as flawless conversion. **Judgment call:** scored 0.0, reflecting true, severe, recurring cash burn (negative FCF in 3 of the last 4 fiscal years) | **0.0** (override; mechanical formula would read 100.0) |
+
+```
+Quality Score = 0.0×0.25 + 58.8×0.15 + 100.0×0.20 + 100.0×0.15 + 0.0×0.15 + 0.0×0.10
+              = 0.00 + 8.82 + 20.00 + 15.00 + 0.00 + 0.00
+              = 43.8
+```
+
+**Quality Score: 43.8 — fails the 80.0+ gate**, independently confirmed by hard disqualifier #3 (never FCF-positive 3+ consecutive years). Two sub-scores above (Balance Sheet, FCF Quality) required an explicit, documented judgment call overriding a mechanically-computed ratio that a literal negative-over-negative calculation would otherwise render nonsensical or actively misleading — both overrides are disclosed here rather than silently applied, per this framework's "no black-box outputs" rule. Per quality-scoring.md, **no Composite Score is computed** for a company that fails the Quality Gate. This does not change the Phase 01 FAIL / do-not-enter recommendation already reached above and in the 2026-06-24 original session.
+
 ## Glossary
 
 | Term | Meaning |
 |---|---|
 | **CAGR** | Compound Annual Growth Rate — the smoothed yearly growth rate that gets you from a start value to an end value over several years. |
+| **Composite Score** | `0.50×(100−Quality Score) + 0.50×Valuation Score` — combines quality and cheapness into one number, computed only for companies that clear the 80.0+ Quality Score gate. Not computed for CBRS (gate fails). |
+| **Hard disqualifier** | One of three quality-gate conditions (FCF/NI conversion, Net Debt/EBITDA, FCF positivity) that fails a company outright regardless of its weighted Quality Score. CBRS fails the "FCF-positive for 3+ consecutive years" disqualifier. |
+| **Quality Score** | A 0–100.0 grade (0 = lowest quality, 100 = highest) blending profitability, margins, growth, balance sheet, moat, and FCF quality into one number; a company must score ≥80.0 to be eligible for Phase 02 valuation scoring at all. CBRS scores 43.8. |
 | **EBIT** | Earnings Before Interest and Taxes — operating profit, before the effects of debt financing and tax rate. |
 | **EBITDA** | Earnings Before Interest, Taxes, Depreciation, and Amortization — a rough proxy for cash operating profit. |
 | **EPS** | Earnings Per Share — net income divided by number of shares outstanding. |

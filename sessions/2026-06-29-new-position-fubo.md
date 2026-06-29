@@ -142,9 +142,43 @@ N/A — not a holding, no position opened, nothing to rebalance. [portfolio/hold
 
 ---
 
+## 8. Quality Score Addendum (2026-06-29 Methodology Update)
+
+**Why this section exists:** the framework's [Quality Score Engine](../framework/quality-scoring.md) (a continuous 0–100.0 grade plus a strict **80.0+ gate** for Phase 02 eligibility) and the [Composite Score](../framework/valuation-scoring.md) were added on 2026-06-29, after this session's Phase 01 analysis above was already complete. This addendum applies the new methodology to the same underlying data already gathered in §2/§3 above — **no new financial data was fetched.**
+
+### Hard disqualifier check (per quality-scoring.md — fails regardless of weighted score)
+
+| Hard disqualifier | Applies to FUBO? | Basis |
+|---|---|---|
+| FCF/NI <70% for 2+ consecutive years, no growth-capex carve-out | Not mechanically meaningful, but substantively yes | Both clean combined quarters show FCF and NI both negative with FCF running **36–100× more negative** than NI — never a clean, interpretable conversion in any period, combined or legacy. Not relied upon as the primary citation below since the literal ratio isn't well-defined; see the unambiguous disqualifier below instead. |
+| Net Debt/EBITDA over threshold (2.5× standard / 4× asset-light) | **No** | ≈1.66× (thin two-quarter EBITDA base) — this is FUBO's one passing Phase 01 criterion, and it does not change here. |
+| Not FCF-positive for 3+ consecutive years | **Yes — fires** | FUBO has **never recorded a single FCF-positive year or quarter** on any basis examined: legacy annual FY21 −$203.41M, FY22 −$322.69M, FY23 −$199.57M, FY24 −$95.31M; combined-entity quarters −$204.02M (Q ended 2025-12-31) and −$214.71M (Q ended 2026-03-31). Zero consecutive positive years exist, let alone three. |
+
+**Hard disqualifier #3 fires, unambiguously and independently of the weighted score below.** No judgment call is needed for this conclusion — FUBO's FCF has not been positive in any reported period, combined or legacy.
+
+### Weighted Quality Score — partial, by design
+
+Two of the six sub-scores cannot be computed without inventing data, per this framework's "never invent or estimate financial data" rule (the same data gaps already flagged in §2/§3 above):
+
+| Sub-score (weight) | Status | Basis |
+|---|---|---|
+| **Profitability** (25%) | Computable | Net margin ≈−0.26% (blended combined-only quarters), ROIC ≈−1.6% → NetMargin_Component = ROIC_Component = clamp(negative/30×100) = 0.0 each → **0.0** |
+| **Margins** (15%) | Computable | Gross margin blended ≈7.40% (avg. of the two clean combined quarters, 7.56%/7.24%) → clamp((7.40/80)×100) = **9.25**; no trend bonus — the merger *diluted* margin versus legacy fubo's own trend, the opposite of expanding |
+| **Growth** (20%) | **Data gap — not computed** | Revenue 3yr CAGR is "not meaningfully computable" per §3 above: the only clean combined-entity base is two quarters old, and the legacy-only multi-year trend describes a business ~1/4 to 1/6 the size of the current entity. Forcing a number here would misrepresent a genuine gap as a measurement. |
+| **Balance Sheet** (15%) | Computable | Net Debt/EBITDA ≈1.66× → clamp(100×(1−1.66/4)) = **58.5** |
+| **Moat** (15%) | Computable | 0 of 5 signals cited true: post-merger scale (6th-largest US Pay-TV provider) is a one-time M&A fact, not cited share-*trend* data; gross margin fell post-merger (contradicts brand-premium/pricing-power evidence); no network-effect, switching-cost, or cost-per-unit evidence cited | **0.0** |
+| **FCF Quality** (10%) | **Not meaningful — not computed** | FCF/NI in both clean quarters mixes two negatives of very different magnitude (FCF 36–100× more negative than NI) — not an interpretable "conversion ratio" in the sense the sub-score is designed to grade. |
+
+**No single weighted Quality Score number is presented for FUBO** — with Growth (20% weight) and FCF Quality (10% weight) genuinely not computable, forcing the remaining four sub-scores through the formula would produce a number with 30% of its weight silently defaulted to zero, which would understate rather than honestly represent the gap. This is moot for the gate decision: **hard disqualifier #3 above (never FCF-positive for 3+ consecutive years) fails FUBO's Quality Gate conclusively and independently**, exactly as the underlying Phase 01 quantitative failures already did in §3. Per quality-scoring.md, a fired hard disqualifier fails the company "regardless of weighted score" — so the partial score above does not need to be completed to reach a gate verdict.
+
+**No Composite Score is computed** — per quality-scoring.md, the Composite Score is never computed for a company that fails the Quality Gate. This does not change the Phase 01 FAIL / do-not-enter recommendation already reached in §5 above.
+
 ## Glossary
 
 - **CAGR** — Compound Annual Growth Rate — the smoothed yearly growth rate that gets you from a start value to an end value over several years.
+- **Composite Score** — `0.50×(100−Quality Score) + 0.50×Valuation Score` — combines quality and cheapness into one number, computed only for companies that clear the 80.0+ Quality Score gate. Not computed for FUBO (gate fails via hard disqualifier).
+- **Hard disqualifier** — one of three quality-gate conditions (FCF/NI conversion, Net Debt/EBITDA, FCF positivity) that fails a company outright regardless of its weighted Quality Score. FUBO fails the "FCF-positive for 3+ consecutive years" disqualifier — it has never had even one positive year.
+- **Quality Score** — a 0–100.0 grade (0 = lowest quality, 100 = highest) blending profitability, margins, growth, balance sheet, moat, and FCF quality into one number; a company must score ≥80.0 to be eligible for Phase 02 valuation scoring at all. Not fully computable for FUBO (two sub-scores are genuine data gaps), but moot — a hard disqualifier fails the gate regardless.
 - **Dual-class shares** — A capital structure where a company has two or more classes of common stock with different rights, typically with one class publicly traded and another held privately. FUBO's Class A (publicly traded, ~29.4M shares) and Class B (100% held by Disney, ~79.0M shares) structure caused yfinance's `sharesOutstanding`/`marketCap` fields to understate true total shares (~108.43M) by roughly 3.7×.
 - **EBIT / EBITDA** — Earnings Before Interest and Taxes / before Interest, Taxes, Depreciation & Amortization — operating-profit measures used in leverage and valuation ratios.
 - **EPS** — Earnings Per Share — net income divided by number of shares outstanding.

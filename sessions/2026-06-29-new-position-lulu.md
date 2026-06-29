@@ -189,11 +189,47 @@ Re-evaluate on any of the following Rule 9 fundamental triggers:
 - **A qualifying CEO/CFO Form 4 purchase >$500K** — would meaningfully strengthen (though not by itself satisfy) a future Turnaround Sub-Gate case.
 - Routine news-flow (further activist headlines, additional product-launch coverage) absent a new quarterly filing or management statement should be logged as "last checked, no change," not a full re-run — the trailing financials behind today's FAIL will not change until Q2 FY2026 results are filed (expected ~September 2026 based on historical reporting cadence).
 
+## 9. Quality Score Addendum (2026-06-29 Methodology Update)
+
+**Why this section exists:** the framework's [Quality Score Engine](../framework/quality-scoring.md) (a continuous 0–100.0 grade plus a strict **80.0+ gate** for Phase 02 eligibility) and the [Composite Score](../framework/valuation-scoring.md) were added on 2026-06-29, after this session's Phase 01 analysis above was already complete. This addendum applies the new methodology to the same underlying data already gathered in §3 above — **no new financial data was fetched**; every input below cites back to §3/§4.
+
+### Hard disqualifier check (per quality-scoring.md — fails regardless of weighted score)
+
+| Hard disqualifier | Applies to LULU? | Basis |
+|---|---|---|
+| FCF/NI <70% for 2+ **consecutive** years, no growth-capex carve-out | **No** | FY23 38.35% (fail) / FY24 106.07% (pass) / FY25 87.26% (pass) / FY26 58.36% (fail) — the two failing years (FY23, FY26) are not consecutive; each is bracketed by a passing year. |
+| Net Debt/EBITDA over threshold (2.5× standard / 4× asset-light) | **No** | Net cash every year (FY23–FY26); ratio is negative, far under threshold. |
+| Not FCF-positive for 3+ consecutive years | **No** | FCF positive all 4 years on record (FY23–FY26). |
+
+**No hard disqualifier fires.** Worth flagging explicitly: this is a genuine, material change in how this exact data reads under the new gate. The *old* Phase 01 gate (§3 above) treated LULU's FCF/NI pattern as a standalone "do not proceed to Phase 02" stop-rule, because strategy.md's literal wording asks whether the **2 most recent consecutive years both clear 70%** (FY25 passes, FY26 fails — so that specific pair fails). The *new* hard disqualifier asks instead whether there are **2 consecutive failing years** — a different (and here, less strict) test that LULU does not trip, since its two sub-70% years (FY23, FY26) are not adjacent. Both readings are legitimate interpretations of "2+ consecutive years," but they are not equivalent, and they produce different answers on this specific data. This does not change LULU's bottom line (see weighted score below), but it is exactly the kind of framework-behavior change that should be surfaced rather than glossed over.
+
+### Weighted Quality Score
+
+| Sub-score (weight) | Inputs (from §3 above) | Calculation | Result |
+|---|---|---|---|
+| **Profitability** (25%) | Net margin 14.22% (FY26); ROIC 31.88% (FY26, excl.-cash basis — the framework's standard invested-capital convention, debt+equity−cash) | NetMargin_Component = clamp((14.22/30)×100) = 47.4; ROIC_Component = clamp((31.88/30)×100) = 100.0 (capped); avg | **73.7** |
+| **Margins** (15%) | Gross margin 56.60% (FY26) | clamp((56.60/80)×100) = 70.75; no trend bonus — the +10 bonus only applies when margin is *below* 40%, and LULU's is well above | **70.75** |
+| **Growth** (20%) | Revenue 3yr CAGR 11.03%; documented structural-deceleration evidence (5 consecutive quarters of Americas comp declines, documented share loss to Alo Yoga/Vuori in premium athleisure, FY2026 guidance cut implying a YoY revenue *decline*) | clamp((11.03/25)×100) = 44.12; **−10** structural-deceleration modifier (cited, per §6) | **34.12** |
+| **Balance Sheet** (15%) | Net debt/EBITDA ≈0× (net cash every year) | clamp(100×(1−0/4)) | **100.0** |
+| **Moat** (15%) | 1 of 5 signals cited true: **brand premium** (mid-to-high-50s gross margins; §6's "genuine pricing power (limited discounting, premium positioning)"). 4 false: market share (§6 cites *documented share loss* to Alo Yoga/Vuori — the opposite of stable/growing); network effect, switching costs, scale cost advantage — none cited with supporting evidence in this session | (1/5)×100 | **20.0** |
+| **FCF Quality** (10%) | FCF/NI 58.36% (FY26) | clamp(((0.5836−0.40)/0.60)×100) | **30.6** |
+
+```
+Quality Score = 73.7×0.25 + 70.75×0.15 + 34.12×0.20 + 100.0×0.15 + 20.0×0.15 + 30.6×0.10
+              = 18.43 + 10.61 + 6.82 + 15.00 + 3.00 + 3.06
+              = 56.9
+```
+
+**Quality Score: 56.9 — fails the 80.0+ gate.** No hard disqualifier independently fires, but the weighted score itself falls well short. Per quality-scoring.md, "the Composite Score is not computed for, and does not rescue, a company that fails the quality gate" — **no Composite Score is computed.** This is consistent with, and does not change, the Phase 01 FAIL / do-not-enter recommendation already reached in §7 above: LULU remains a real, historically high-quality business whose most recent fiscal year shows genuine, multi-symptom deterioration (margin compression, a cash-conversion shortfall, and a brand/share erosion pattern cited above) — not a structural collapse, but not yet a Quality-Gate pass either.
+
 ## Glossary
 
 | Term | Meaning |
 |---|---|
 | **CAGR** | Compound Annual Growth Rate — the smoothed yearly growth rate that gets you from a start value to an end value over several years. |
+| **Composite Score** | `0.50×(100−Quality Score) + 0.50×Valuation Score` — combines quality and cheapness into one number, computed only for companies that clear the 80.0+ Quality Score gate. Not computed for LULU (gate not cleared). |
+| **Hard disqualifier** | One of three quality-gate conditions (FCF/NI conversion, Net Debt/EBITDA, FCF positivity) that fails a company outright regardless of its weighted Quality Score. None fire for LULU. |
+| **Quality Score** | A 0–100.0 grade (0 = lowest quality, 100 = highest) blending profitability, margins, growth, balance sheet, moat, and FCF quality into one number; a company must score ≥80.0 to be eligible for Phase 02 valuation scoring at all. LULU scores 56.9. |
 | **Capex (Capital Expenditure)** | Cash spent on long-lived physical assets (stores, equipment, distribution infrastructure) — a use of cash that reduces Free Cash Flow relative to Operating Cash Flow. |
 | **EBIT** | Earnings Before Interest and Taxes — operating profit, before the effects of debt financing and tax rate. |
 | **EBITDA** | Earnings Before Interest, Taxes, Depreciation, and Amortization — a rough proxy for cash operating profit. |
