@@ -14,7 +14,7 @@ Steps:
 5. Produce the action recommendation (against the Composite Score) and, if BUY/TRIM, the full order setup from [fair-value-methodology.md](../../framework/fair-value-methodology.md).
 6. Output in the order specified by the operating brief, ending with the next review trigger.
 
-When done, save the result as a session log under `sessions/YYYY-MM-DD-rescore-<ticker>.md` and update the score/review-date row in [holdings.md](../../portfolio/holdings.md).
+When done, save the result as a session log under `sessions/YYYY-MM-DD-rescore-<ticker>.md` and update the ticker's row in [holdings.md](../../portfolio/holdings.md): Last Score, Quality Score, Composite Score (replacing any `?` placeholder), and Last Review.
 
 **Watchlist:** for each rescored ticker, create or update `watchlist/in-portfolio/<TICKER>/<TICKER>-YYYY-MM-DD.md` per [watchlist/README.md](../../watchlist/README.md). Add a new dated row only if the score, the scored↔unscored status, the action category, or a Rule 9 trigger changed from the ticker's last watchlist entry; otherwise append a "Last checked (no significant change)" line to the existing file.
 
