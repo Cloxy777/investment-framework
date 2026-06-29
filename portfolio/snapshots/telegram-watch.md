@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11228 (~17:26:30 UTC, 2026-06-28) | 2026-06-29 00:32 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2844 (~15:46:51 UTC, 2026-06-27) | 2026-06-29 00:32 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2493 (~19:33 UTC, 2026-06-25) | 2026-06-29 00:32 UTC |
-| https://t.me/bolshegold | bolshegold/9642 (~15:11:52 UTC, 2026-06-28) | 2026-06-29 00:32 UTC |
+| https://t.me/tarasguk | tarasguk/11228 (~17:26:30 UTC, 2026-06-28) | 2026-06-29 04:32 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2844 (~15:46:51 UTC, 2026-06-27) | 2026-06-29 04:32 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2493 (~19:33 UTC, 2026-06-25) | 2026-06-29 04:32 UTC |
+| https://t.me/bolshegold | bolshegold/9642 (~15:11:52 UTC, 2026-06-28) | 2026-06-29 04:32 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-06-29 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9642 (~15:11:52 UTC, 2026-06-28) — reconfirmed via raw-HTML fetch (`data-post` attribute + `<time datetime>` element, exact timestamp match) this run; no new post since the 2026-06-29 00:32 UTC check. |
+| 2026-06-29 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2493 (~19:33:34 UTC, 2026-06-25) — reconfirmed via raw-HTML fetch this run; no new post since the 2026-06-29 00:32 UTC check. |
+| 2026-06-29 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2844 (~15:46:51 UTC, 2026-06-27) — reconfirmed via raw-HTML fetch this run; no new post since the 2026-06-29 00:32 UTC check. |
+| 2026-06-29 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11228 (~17:26:30 UTC, 2026-06-28) — reconfirmed via raw-HTML fetch this run; no new post since the 2026-06-29 00:32 UTC check. |
 | 2026-06-29 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9642 (~15:11:52 UTC, 2026-06-28) — reconfirmed via raw-HTML fetch (`data-post` attribute + `<time datetime>` element, exact timestamp match) this run; no new post since the 2026-06-28 21:39 UTC check. |
 | 2026-06-29 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2493 (~19:33:34 UTC, 2026-06-25) — reconfirmed via raw-HTML fetch this run; no new post since the 2026-06-28 21:39 UTC check. |
 | 2026-06-29 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2844 (~15:46:51 UTC, 2026-06-27) — reconfirmed via raw-HTML fetch this run; no new post since the 2026-06-28 21:39 UTC check. |
