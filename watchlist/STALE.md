@@ -8,8 +8,10 @@ A central, at-a-glance list of watchlist entries whose **valuation score predate
 
 ---
 
-## Current methodology version: **2026-06-20**
-*(Upside/Downside Modifier + PEG clean-earnings clarification — see [decisions/2026-06-20-framework-change-upside-downside-modifier.md](../decisions/2026-06-20-framework-change-upside-downside-modifier.md) and [decisions/2026-06-20-framework-clarification-peg-clean-earnings.md](../decisions/2026-06-20-framework-clarification-peg-clean-earnings.md).)*
+## Current methodology version: **2026-06-29**
+*(Quality Score + 80.0+ gate + Composite Score added — see [decisions/2026-06-29-framework-change-quality-score-and-composite.md](../decisions/2026-06-29-framework-change-quality-score-and-composite.md) and [quality-scoring.md](../framework/quality-scoring.md).)*
+
+**2026-06-29 blanket staleness note:** this change adds a new score (Quality Score) and a new combined number (Composite Score) on top of the existing valuation score — it does not change how the valuation score itself is computed. Every watchlist entry that carries a numeric Phase 02 score (all current `in-portfolio/` holdings, plus AVGO and the six not-in-portfolio entries below) now also needs a Quality Score and Composite Score computed before it's fully current, in addition to any prior staleness reason already listed. That requires sourced fundamentals per ticker — `/rescore`'s job, not a bulk backfill here. Treat every numeric score in the watchlist as pending a Quality Score / Composite Score addition until its next `/rescore` or `/new-position` pass.
 
 ## Stale entries (pending rescore)
 

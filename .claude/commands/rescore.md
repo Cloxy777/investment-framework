@@ -2,16 +2,17 @@
 description: Run a quarterly post-earnings re-score session for one or more holdings
 ---
 
-Run a `RESCORE` session per the [operating brief](../../framework/operating-brief.md) and [valuation scoring engine](../../framework/valuation-scoring.md).
+Run a `RESCORE` session per the [operating brief](../../framework/operating-brief.md), [quality scoring engine](../../framework/quality-scoring.md), and [valuation scoring engine](../../framework/valuation-scoring.md).
 
 Tickers to rescore: $ARGUMENTS (if empty, ask which holdings — check [holdings.md](../../portfolio/holdings.md) for what's overdue based on last review date and the [operating calendar](../../framework/operating-calendar.md)).
 
 Steps:
 1. Fetch live prices first (Rule 0 in [fair-value-methodology.md](../../framework/fair-value-methodology.md)) — never infer from PE × EPS.
 2. Collect the data listed in the "Standard Re-Score" template in [operating-calendar.md](../../framework/operating-calendar.md). Flag any gaps explicitly rather than guessing.
-3. Run the Rate Environment Gate, then the full score calculation (show every sub-score and modifier).
-4. Produce the action recommendation and, if BUY/TRIM, the full order setup from [fair-value-methodology.md](../../framework/fair-value-methodology.md).
-5. Output in the order specified by the operating brief, ending with the next review trigger.
+3. Recompute the full Quality Score (every sub-score shown) per [quality-scoring.md](../../framework/quality-scoring.md) — quality can drift (margin compression, balance sheet changes, moat erosion) just like valuation. Flag if it has dropped below 80.0 (Phase 04 Quality Watch escalation) — a held position dropping below the gate is itself a signal worth surfacing, even though existing holdings aren't retroactively force-exited on quality alone.
+4. Run the Rate Environment Gate, then the full Phase 02 valuation score calculation (show every sub-score and modifier). Combine with the Quality Score into the Composite Score (50/50) per [valuation-scoring.md](../../framework/valuation-scoring.md)'s "Composite Score" section.
+5. Produce the action recommendation (against the Composite Score) and, if BUY/TRIM, the full order setup from [fair-value-methodology.md](../../framework/fair-value-methodology.md).
+6. Output in the order specified by the operating brief, ending with the next review trigger.
 
 When done, save the result as a session log under `sessions/YYYY-MM-DD-rescore-<ticker>.md` and update the score/review-date row in [holdings.md](../../portfolio/holdings.md).
 
