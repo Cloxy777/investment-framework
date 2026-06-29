@@ -19,7 +19,9 @@ Filter the investable universe to only high-quality businesses.
 - **Moat Signal:** Market share stable/growing, brand, network effect, switching costs
 - **FCF Quality Check:** FCF/Net Income conversion ratio >70% for 2+ consecutive years. If below 70% without growth capex explanation, do not proceed to Phase 02.
 
-**Output:** Qualified Quality List — ~50–150 companies
+These criteria feed a graded **0–100.0 Quality Score** rather than a simple pass/fail — see [quality-scoring.md](quality-scoring.md) for the sub-score formulas and weights. **A company must score 80.0 or higher to proceed to Phase 02** (a deliberately strict gate, set 2026-06-29 — see [decisions/2026-06-29-framework-change-quality-score-and-composite.md](../decisions/2026-06-29-framework-change-quality-score-and-composite.md); lower it later if it screens out too much of the universe, and record why). The individual hard disqualifiers above (FCF Quality Check, balance sheet, FCF-positive history) still apply on top of the score — a high weighted average cannot average away one of those failures.
+
+**Output:** Qualified Quality List — companies scoring 80.0+ on the Quality Score
 
 ---
 
@@ -53,13 +55,17 @@ Recalculate using only periods where the 10Y was within ±1% of today's yield. I
 
 ## Phase 02 — Valuation Scoring
 
-Assign a valuation score (0–100.0) to each qualified company. Full scoring mechanics (formula, sub-score formulas, pre-screen filters, tools) live in [valuation-scoring.md](valuation-scoring.md).
+Assign a valuation score (0–100.0) to each qualified company (Quality Score 80.0+). Full scoring mechanics (formula, sub-score formulas, pre-screen filters, tools) live in [valuation-scoring.md](valuation-scoring.md).
 
 > Score boundary rule: round to the nearest 0.1; if it falls exactly on a ".X5", round UP (more conservative). Min 0.0, max 100.0.
+
+Blend the Valuation Score with the Quality Score into a single **Composite Score** (50/50 weighting — see "Composite Score" in [valuation-scoring.md](valuation-scoring.md)) before applying the Phase 03 and Phase 05 action tables below. The Composite Score keeps the same orientation as the raw valuation score (0 = most attractive, 100.0 = least attractive).
 
 ---
 
 ## Phase 03 — Entry & Position Sizing
+
+Scores below use the Composite Score (Quality + Valuation blend, see Phase 02).
 
 | Score | Label | Position Size |
 |-------|-------|---------------|
@@ -215,3 +221,4 @@ All four weighted inputs are continuous **0–100.0** sub-scores (see [valuation
 | PEG Sub-score (Fast Growers only) | 15% | Lynch filter |
 | Rate Regime Modifier (post-score) | Additive | −10 / 0 / +5 / +10 based on 10Y Treasury |
 | Upside/Downside Modifier (post-score) | Additive | −15 … +15 based on expected annual return vs a 10% hurdle. Folds the **forward** dimension (expected return, including downside) into the single score so the lowest score is the most attractive and thin/negative expected return pushes toward trim/sell. See [valuation-scoring.md](valuation-scoring.md). |
+| Quality Score (Phase 01 gate, blended 50/50 into Composite) | N/A — separate 0–100.0 score | Graded version of the Phase 01 criteria; 80.0+ required to reach Phase 02 at all. See [quality-scoring.md](quality-scoring.md). |
