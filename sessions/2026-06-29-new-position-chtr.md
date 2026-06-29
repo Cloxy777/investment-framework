@@ -95,11 +95,47 @@ N/A — not a holding, no position opened, nothing to rebalance.
 
 ---
 
+## 7. Quality Score Addendum (2026-06-29 Methodology Update)
+
+**Why this section exists:** the framework's [Quality Score Engine](../framework/quality-scoring.md) (a continuous 0–100.0 grade plus a strict **80.0+ gate** for Phase 02 eligibility) and the [Composite Score](../framework/valuation-scoring.md) were added on 2026-06-29, the same day as this evaluation. This addendum applies the new methodology to the data already gathered in §3 above — **no new financial data was fetched.**
+
+### Hard disqualifier check (per quality-scoring.md — fails regardless of weighted score)
+
+| Hard disqualifier | Applies to CHTR? | Basis |
+|---|---|---|
+| FCF/NI <70% for 2+ consecutive years, no growth-capex carve-out | No | FY25 (88.6%) and FY23 (72.8%) both clear 70%; only FY24 (62.2%) falls below — never two *consecutive* years under 70%. |
+| Net Debt/EBITDA over threshold (2.5× standard / 4× asset-light) | **Yes — fires** | 4.15× (company-disclosed) / 4.22× (independently recomputed) vs. the 2.5× standard threshold. Per §3's note, CHTR is a capital-intensive cable/broadband infrastructure operator, not an asset-light financial business — not eligible for the Upgrade 5 override that would raise the bar to 4×. Even that looser 4× line is breached by the recomputed 4.22×. |
+| Not FCF-positive for 3+ consecutive years | No | FCF positive in all 5 fiscal years shown: $8,604M(21) / $5,549M(22) / $3,318M(23) / $3,161M(24) / $4,418M(25). |
+
+**Hard disqualifier #2 fires, unambiguously and independently of the weighted score below.**
+
+### Weighted Quality Score
+
+| Sub-score (weight) | Inputs (from §3 above) | Calculation | Result |
+|---|---|---|---|
+| **Profitability** (25%) | Net margin 9.10% (FY25); ROIC 8.58% (FY25) | NetMargin_Component = clamp((9.10/30)×100) = 30.33. ROIC_Component = clamp((8.58/30)×100) = 28.60. Avg = 29.47. No FCF-positive cap (CHTR is FCF-positive 5 of 5 years shown) | **29.47** |
+| **Margins** (15%) | Gross margin proxy 40.23% (FY25); 3yr trend 38.83%(23)→39.79%(24)→40.23%(25), a clear expansion | clamp((40.23/80)×100) = 50.29; **no** +10 bonus — the bonus applies only to an expanding trend *while below 40%*, and CHTR's current-year margin (40.23%) is already above 40% | **50.29** |
+| **Growth** (20%) | Revenue 3yr CAGR 0.46% (FY2022→FY2025); documented structural deceleration (cord-cutting / fixed-wireless / fiber competition; revenue actually declined −0.6% FY25 vs FY24 — §3) | clamp((0.46/25)×100) = 1.84; **−10** structural-deceleration modifier (cited) → clamp(1.84−10, 0, 100) | **0.0** |
+| **Balance Sheet** (15%) | Net Debt/EBITDA 4.22× (independently recomputed; company-disclosed 4.15×); standard /4 denominator — no asset-light override eligibility | clamp(100×(1−4.22/4)) = clamp(−5.5) | **0.0** |
+| **Moat** (15%) | Spectrum brand / regional footprint cited in §3, but no cited market-share, pricing-power, network-effect, switching-cost, or cost-per-unit evidence presented anywhere in this session | 0 of 5 signals have cited evidence — "large footprint" alone does not satisfy the signal-specific evidentiary bar | **0.0** |
+| **FCF Quality** (10%) | FCF/NI FY25 88.6% | clamp(((0.886−0.40)/0.60)×100) = clamp(81.0) | **81.0** |
+
+```
+Quality Score = 29.47×0.25 + 50.29×0.15 + 0.0×0.20 + 0.0×0.15 + 0.0×0.15 + 81.0×0.10
+              = 7.37 + 7.54 + 0.00 + 0.00 + 0.00 + 8.10
+              = 23.0
+```
+
+**Quality Score: 23.0 — fails the 80.0+ gate**, independently confirmed by hard disqualifier #2 (Net Debt/EBITDA over threshold, no asset-light exception available). Per quality-scoring.md, **no Composite Score is computed** for a company that fails the Quality Gate. This does not change the Phase 01 FAIL / do-not-enter recommendation already reached above.
+
+---
+
 ## Glossary
 
 - **Adjusted EBITDA** — a non-GAAP measure CHTR defines as net income attributable to Charter shareholders plus noncontrolling interest, net interest expense, income taxes, depreciation and amortization, and stock compensation expense (among other adjustments) — the company's own primary leverage-ratio denominator.
 - **CAGR** — Compound Annual Growth Rate — the smoothed yearly growth rate that gets you from a start value to an end value over several years.
 - **CapEx** — Capital Expenditure — money a business spends on physical, long-lived assets (e.g. network infrastructure).
+- **Composite Score** — `0.50×(100−Quality Score) + 0.50×Valuation Score` — combines quality and cheapness into one number, computed only for companies that clear the 80.0+ Quality Score gate. Not computed for CHTR (gate fails).
 - **D&A** — Depreciation & Amortization — a non-cash expense spreading the cost of long-lived assets over time.
 - **EBIT / EBITDA** — Earnings Before Interest and Taxes / before Interest, Taxes, Depreciation & Amortization — operating-profit measures used in leverage and valuation ratios.
 - **EV/EBIT** — Enterprise Value divided by EBIT — a multiple comparing how expensive a company is relative to operating profit, independent of capital structure.
@@ -107,6 +143,7 @@ N/A — not a holding, no position opened, nothing to rebalance.
 - **FCF Yield** — Free Cash Flow ÷ Market Cap (or Enterprise Value) — how much free cash a company throws off relative to its price; higher is cheaper.
 - **FCF/NI conversion ratio** — Free Cash Flow ÷ Net Income — checks whether reported accounting profit is actually turning into real cash.
 - **Form 10-K / 10-Q** — a company's annual / quarterly report filed with the SEC — primary, audited (10-K) or reviewed (10-Q) disclosure of financial results.
+- **Hard disqualifier** — one of three quality-gate conditions (FCF/NI conversion, Net Debt/EBITDA, FCF positivity) that fails a company outright regardless of its weighted Quality Score. CHTR fails the "Net Debt/EBITDA over threshold" disqualifier.
 - **Invested Capital** — the total capital (debt + equity, minus cash) deployed in a business — the denominator of ROIC.
 - **Moat** — Warren Buffett's term for a durable competitive advantage (brand, network effect, switching costs, scale) that protects a business's profits from competitors.
 - **Net Debt/EBITDA** — Net debt (total debt minus cash) divided by EBITDA — a leverage ratio measuring how many years of operating cash profit it would take to pay off all debt; this framework's primary balance-sheet-risk gate.
@@ -114,6 +151,7 @@ N/A — not a holding, no position opened, nothing to rebalance.
 - **NOPAT** — Net Operating Profit After Tax — EBIT × (1 − effective tax rate) — the numerator used to compute ROIC.
 - **Phase 01–06** — the six sequential stages of this framework: Universe Screening → Valuation Scoring → Entry/Position Sizing → Continuous Monitoring → Dynamic Trimming → Full Exit.
 - **Qualified Quality List** — the output of Phase 01 screening — the set of companies that passed the quality gate and are eligible for valuation scoring. (CHTR does not make this list.)
+- **Quality Score** — a 0–100.0 grade (0 = lowest quality, 100 = highest) blending profitability, margins, growth, balance sheet, moat, and FCF quality into one number; a company must score ≥80.0 to be eligible for Phase 02 valuation scoring at all. CHTR scores 23.0.
 - **ROIC** — Return on Invested Capital — how efficiently a company turns the capital invested in it (debt + equity) into profit; a core quality signal in this framework.
 - **Rule 0** — this framework's standing instruction to always fetch a live, current price before any valuation work — never infer price from multiples or stale data.
 - **Rule 9** — this framework's list of fundamental events that force an immediate re-valuation regardless of schedule: quarterly earnings, a guidance revision, a management change, material M&A, a macro shift, or a >15% stock-price move with no identified cause.
