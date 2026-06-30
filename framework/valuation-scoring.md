@@ -1,10 +1,10 @@
 # Valuation Score Engine
 
-How to compute the Phase 02 score (0–100.0) for a qualified company. See [strategy.md](strategy.md) for where this fits in the overall framework.
+How to compute Phase 02 score (0–100.0) for a qualified company. See [strategy.md](strategy.md) for where this fits in overall framework.
 
-> **Scoring methodology version: 2026-06-29.** Bump this date whenever a change materially alters how the score is computed (a new/changed sub-score, modifier, weight, or eligibility rule) and record why in `decisions/`. A version bump triggers the watchlist **stale-score** mechanism: every watchlist entry with a numeric score from an older version is flagged stale (banner + [watchlist/STALE.md](../watchlist/STALE.md) row) until rescored — see [watchlist/README.md](../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes). *Version history: 2026-06-11 (1–10 → 0–100 rescale) → 2026-06-20 (5yr PE lookback, Upside/Downside Modifier, PEG clean-earnings clarification) → 2026-06-29 (Quality Score + 80.0+ gate + Composite Score added, see [quality-scoring.md](quality-scoring.md)).*
+> **Scoring methodology version: 2026-06-29.** Bump this date whenever a change materially alters how score is computed (new/changed sub-score, modifier, weight, eligibility rule); record why in `decisions/`. Version bump triggers watchlist **stale-score** mechanism: any watchlist entry with score from older version flagged stale (banner + [watchlist/STALE.md](../watchlist/STALE.md) row) until rescored — see [watchlist/README.md](../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes). *Version history: 2026-06-11 (1–10 → 0–100 rescale) → 2026-06-20 (5yr PE lookback, Upside/Downside Modifier, PEG clean-earnings clarification) → 2026-06-29 (Quality Score + 80.0+ gate + Composite Score added, see [quality-scoring.md](quality-scoring.md)).*
 
-*Rescaled 2026-06-11 from the original 1–10 integer scale to a continuous 0–100.0 scale for more precision — see [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md). Cap set to a clean 100.0 (rather than 99.9) so the EV/EBIT and PEG sub-score formulas land on round numbers at their defined extremes (EV/EBIT 35× → exactly 100.0, PEG 2.5 → exactly 100.0).*
+*Rescaled 2026-06-11 from original 1–10 integer scale to continuous 0–100.0 scale for more precision — see [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md). Cap set to clean 100.0 (rather than 99.9) so EV/EBIT and PEG sub-score formulas land on round numbers at defined extremes (EV/EBIT 35× → exactly 100.0, PEG 2.5 → exactly 100.0).*
 
 ## Final Score Formula
 
@@ -17,15 +17,15 @@ Final Score = (FCF_Score × 0.40) + (EV/EBIT_Score × 0.25) + (FwdPE_Score × 0.
 
 ## Why Forward Guidance Is Not a Sub-score
 
-Management's own forward guidance (a company's self-issued prediction of its next quarter's or year's results) is deliberately left out of the four weighted inputs above. FCF Yield, EV/EBIT, Forward PE, and PEG are all derived from filed financials or market-observable prices; guidance is a self-reported, unaudited number that management has both the means and the incentive to manage (compensation tied to hitting it, "beat-and-raise" patterns). Baking it into a weighted score would re-introduce exactly the kind of gameable, self-reported input the FCF/Net Income conversion check (added after the Valeant and Wirecard cases — see [graveyard-audit.md](graveyard-audit.md)) was built to guard against. See the **Guidance test** in [investor-philosophy-alignment.md](investor-philosophy-alignment.md) for the full reasoning.
+Management's own forward guidance (self-issued prediction of next quarter's/year's results) is deliberately left out of the four weighted inputs above. FCF Yield, EV/EBIT, Forward PE, PEG are all derived from filed financials or market-observable prices; guidance is self-reported, unaudited, and management has both means and incentive to manage it (compensation tied to hitting it, "beat-and-raise" patterns). Baking it into a weighted score would re-introduce exactly the gameable, self-reported input the FCF/Net Income conversion check (added after Valeant and Wirecard cases — see [graveyard-audit.md](graveyard-audit.md)) was built to guard against. See **Guidance test** in [investor-philosophy-alignment.md](investor-philosophy-alignment.md) for full reasoning.
 
-Guidance still matters — as a **trigger**, not a **score**:
-- A guidance revision (up or down) is a mandatory re-valuation event ([fair-value-methodology.md](fair-value-methodology.md) Rule 9) — it changes the inputs that feed the score, rather than being scored itself.
-- Phase 04's **Guidance discipline check** ([strategy.md](strategy.md)) tracks guidance delivered vs. promised over time and escalates a sustained pattern of cuts into the Phase 06 exit review, independent of where the valuation score sits.
+Guidance still matters — as **trigger**, not **score**:
+- Guidance revision (up or down) is mandatory re-valuation event ([fair-value-methodology.md](fair-value-methodology.md) Rule 9) — changes inputs feeding the score, rather than being scored itself.
+- Phase 04's **Guidance discipline check** ([strategy.md](strategy.md)) tracks guidance delivered vs. promised over time, escalates sustained pattern of cuts into Phase 06 exit review, independent of where valuation score sits.
 
 ## Sub-score Formulas
 
-Each of the four inputs is computed on its own continuous **0.0–100.0** scale before weighting — **0 = cheapest/most attractive, 100.0 = most expensive.** This replaces the old discrete 1–10 bucket tables with one formula per metric, so two companies that previously landed in the same bucket (e.g. both "sub-score 6–7") are now distinguished.
+Each of the four inputs computed on its own continuous **0.0–100.0** scale before weighting — **0 = cheapest/most attractive, 100.0 = most expensive.** Replaces old discrete 1–10 bucket tables with one formula per metric, so two companies previously landed in same bucket (e.g. both "sub-score 6–7") now distinguished.
 
 **FCF Yield (40% weight)** — use Owner Earnings yield where Upgrade 1 applies:
 
@@ -59,7 +59,7 @@ EV/EBIT_Score = clamp((EV/EBIT − 12) / 23 × 100, 0, 100)
 
 **Forward PE (20% weight):**
 
-*Lookback shortened from 10yr to 5yr on 2026-06-20 to make this fully automatable via `yfinance` rather than requiring a manual Macrotrends pull — see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md) and the auto-calc method below.*
+*Lookback shortened from 10yr to 5yr on 2026-06-20 to make fully automatable via `yfinance` rather than requiring manual Macrotrends pull — see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md) and auto-calc method below.*
 
 **Primary formula** — used when a trailing 5-year PE *range* (low and high) is available:
 
@@ -67,24 +67,24 @@ EV/EBIT_Score = clamp((EV/EBIT − 12) / 23 × 100, 0, 100)
 FwdPE_Score = clamp((Forward PE − 5yr Low PE) / (5yr High PE − 5yr Low PE) × 100, 0, 100)
 ```
 
-Position the company's forward PE within its own trailing 5-year PE range, then apply the **Historical PE Modifier** (Upgrade 2 in [strategy.md](strategy.md)), additive: >20% below 5yr avg PE → −10 | within ±10% → 0 | >20% above → +10 (subject to the Structural Quality Override).
+Position company's forward PE within its own trailing 5-year PE range, then apply **Historical PE Modifier** (Upgrade 2 in [strategy.md](strategy.md)), additive: >20% below 5yr avg PE → −10 | within ±10% → 0 | >20% above → +10 (subject to Structural Quality Override).
 
-**Fallback formula** — used when only a single 5-year *average* PE is available (no low/high range). In practice this is the common case:
+**Fallback formula** — used when only single 5-year *average* PE available (no low/high range). In practice the common case:
 
 ```
 Deviation% = (Forward PE − 5yr Avg PE) / 5yr Avg PE × 100
 FwdPE_Score = clamp(50 + Deviation% × 2.5, 0, 100)
 ```
 
-This centers the score at 50.0 when forward PE equals the 5-year average and reaches the 0/100 extremes at ±20% deviation — a continuous generalisation of the original 5-row "vs. 5yr avg" bucket table (>20% below → cheap end, >20% above → expensive end). **This formula already folds in the Historical PE Modifier** (the deviation from the 5-year average *is* the signal Upgrade 2 is meant to capture) — do not separately apply the ±10 modifier on top of it, to avoid double-counting.
+Centers score at 50.0 when forward PE equals 5-year average, reaches 0/100 extremes at ±20% deviation — continuous generalisation of original 5-row "vs. 5yr avg" bucket table (>20% below → cheap end, >20% above → expensive end). **This formula already folds in Historical PE Modifier** (deviation from 5-year average *is* the signal Upgrade 2 captures) — don't separately apply ±10 modifier on top, to avoid double-counting.
 
-**No-history fallback** — if neither a range nor a meaningful average PE exists (recent IPO, loss-making history, or a GAAP earnings base too distorted to be meaningful):
+**No-history fallback** — if neither range nor meaningful average PE exists (recent IPO, loss-making history, or GAAP earnings base too distorted to be meaningful):
 
 ```
 FwdPE_Score = 50.0  (neutral midpoint, flagged)
 ```
 
-Do not estimate a 5-year range or average that doesn't exist — use the 50.0 neutral placeholder and flag it explicitly, consistent with "never invent or estimate financial data."
+Don't estimate a 5-year range or average that doesn't exist — use 50.0 neutral placeholder, flag explicitly, consistent with "never invent or estimate financial data."
 
 **PEG (15% weight, Fast Growers only — EPS growth >15% for 3+ years):**
 
@@ -102,19 +102,19 @@ PEG_Score = clamp((PEG − 0.5) / 2.0 × 100, 0, 100)
 
 If PEG is not applicable (not a Fast Grower), redistribute its 15% weight to EV/EBIT per the Final Score Formula note above.
 
-> **Fast-Grower eligibility — the "3+ years" means a *reliable* earnings base (clarified 2026-06-20).** The PEG sub-score only goes live when EPS growth has exceeded 15% for 3+ years *on a clean, non-distorted earnings base*. A genuinely fast-growing business that lacks this — a recent IPO, a company only recently turned GAAP-profitable, or one whose trailing EPS is distorted by a one-off (e.g. a deferred-tax-valuation-allowance release) — does **not** yet qualify: **redistribute PEG's 15% to EV/EBIT** rather than forcing a PEG off an unreliable base. A revenue-CAGR-proxy PEG may be computed as a *sensitivity check* but is not the scored input. This keeps PEG to businesses with real, measurable multi-year earnings (Lynch) and the score to reliable inputs (Greenblatt), and is consistent with "never invent or estimate financial data." *(Ruling recorded after DUOL was scored both ways across two sessions — see [decisions/2026-06-20-framework-clarification-peg-clean-earnings.md](../decisions/2026-06-20-framework-clarification-peg-clean-earnings.md).)*
+> **Fast-Grower eligibility — "3+ years" means *reliable* earnings base (clarified 2026-06-20).** PEG sub-score only goes live when EPS growth exceeded 15% for 3+ years *on a clean, non-distorted earnings base*. A genuinely fast-growing business lacking this — recent IPO, company only recently turned GAAP-profitable, or trailing EPS distorted by a one-off (e.g. deferred-tax-valuation-allowance release) — does **not** yet qualify: **redistribute PEG's 15% to EV/EBIT** rather than forcing PEG off an unreliable base. Revenue-CAGR-proxy PEG may be computed as a *sensitivity check* but isn't the scored input. Keeps PEG to businesses with real, measurable multi-year earnings (Lynch) and the score to reliable inputs (Greenblatt), consistent with "never invent or estimate financial data." *(Ruling recorded after DUOL was scored both ways across two sessions — see [decisions/2026-06-20-framework-clarification-peg-clean-earnings.md](../decisions/2026-06-20-framework-clarification-peg-clean-earnings.md).)*
 
-**Rate Regime Modifier** — additive, applied after the raw weighted score (see Rate Environment Gate in [strategy.md](strategy.md)): −10 / 0 / +5 / +10 based on the 10Y Treasury regime.
+**Rate Regime Modifier** — additive, applied after raw weighted score (see Rate Environment Gate in [strategy.md](strategy.md)): −10 / 0 / +5 / +10 based on 10Y Treasury regime.
 
 ---
 
 ## Upside/Downside Modifier (Expected-Return Modifier)
 
-*Added 2026-06-20 — see [decisions/2026-06-20-framework-change-upside-downside-modifier.md](../decisions/2026-06-20-framework-change-upside-downside-modifier.md). This closes the "great company never gets cheap" gap: the four weighted sub-scores above are 65–80% anchored on current/trailing valuation, so a wonderful business correctly priced for a bright future could sit permanently in the 50–60 "Fair Value" band and never trigger an entry. This modifier folds the **forward** dimension — how much money the position is actually expected to make — into the single score, so reading the lowest score is enough to rank candidates, and a name with thin or negative expected return is automatically pushed up toward the trim/exit bands.*
+*Added 2026-06-20 — see [decisions/2026-06-20-framework-change-upside-downside-modifier.md](../decisions/2026-06-20-framework-change-upside-downside-modifier.md). Closes "great company never gets cheap" gap: four weighted sub-scores above are 65–80% anchored on current/trailing valuation, so a wonderful business correctly priced for a bright future could sit permanently in the 50–60 "Fair Value" band and never trigger an entry. This modifier folds the **forward** dimension — how much money the position is actually expected to make — into the single score, so reading the lowest score is enough to rank candidates, and a name with thin or negative expected return is automatically pushed up toward the trim/exit bands.*
 
 **What it does, in one line:** strong expected upside lowers the score (more attractive); thin or negative expected return (an expected *loss*) raises it (toward trim/sell).
 
-**Additive, bounded to [−15, +15]**, applied after the raw weighted score alongside the Rate Regime Modifier. The ±15 cap (the bound, deliberately chosen over a wider range) means the forecast *informs* but never *overrides* the bottom-up cheapness gate — a hyped story scoring 80 lands at 65 (still "Hold / no new entry"), it cannot jump to "Buy" on optimism alone.
+**Additive, bounded to [−15, +15]**, applied after raw weighted score alongside Rate Regime Modifier. ±15 cap (deliberately chosen over wider range) means forecast *informs* but never *overrides* bottom-up cheapness gate — a hyped story scoring 80 lands at 65 (still "Hold / no new entry"), can't jump to "Buy" on optimism alone.
 
 **Step 1 — Expected annual return `E`.** Built entirely from fair-value work already defined in [fair-value-methodology.md](fair-value-methodology.md) — no new data source:
 
@@ -127,7 +127,7 @@ E               = Annualized gap + intrinsic growth rate (FCF or EPS CAGR) + sha
 
 `PW` = probability-weighted (the scenario blend). `CAGR` = compound annual growth rate. Shareholder yield = cash returned to owners as a % of price (dividends plus net share buybacks).
 
-**Step 2 — Map `E` to the modifier** against a hurdle `H = 10%` (the midpoint of Rule 4's 8–15% implied-IRR — internal rate of return — sanity band). `pp` = percentage points:
+**Step 2 — Map `E` to modifier** against hurdle `H = 10%` (midpoint of Rule 4's 8–15% implied-IRR — internal rate of return — sanity band). `pp` = percentage points:
 
 ```
 If E ≥ H:        M = −15 × clamp((E − H) / 15pp, 0, 1)     # strong upside  → 0 … −15  (E ≥ 25%/yr → full −15)
@@ -135,7 +135,7 @@ If 0 ≤ E < H:    M = +5  × (H − E) / H                     # thin upside   
 If E < 0:        M = +5 + 10 × clamp((−E) / 10pp, 0, 1)    # expected loss  → +5 … +15 (E ≤ −10%/yr → full +15)
 ```
 
-Neutral (M = 0) when `E = 10%`. The mapping is **deliberately asymmetric**: a merely-modest positive expected return can add at most +5, so it will *not* by itself shove a held name out of the 50.0–69.9 "Hold" band into the 70.0+ trim band — only a genuine expected *loss* reaches the higher positives. This is what preserves Phase 05's "fair value alone is not a sell" / anti-turnover posture (the 2026-06-07 decision) while still delivering the requested "downside → trim/sell" behaviour for names that are actually expected to lose money.
+Neutral (M = 0) when `E = 10%`. Mapping **deliberately asymmetric**: a merely-modest positive expected return adds at most +5, so won't by itself shove a held name out of the 50.0–69.9 "Hold" band into the 70.0+ trim band — only a genuine expected *loss* reaches the higher positives. Preserves Phase 05's "fair value alone is not a sell" / anti-turnover posture (2026-06-07 decision) while still delivering "downside → trim/sell" behaviour for names actually expected to lose money.
 
 | Expected annual return `E` | Modifier `M` | Effect |
 |---|---|---|
@@ -147,31 +147,31 @@ Neutral (M = 0) when `E = 10%`. The mapping is **deliberately asymmetric**: a me
 | −5% | +10.0 | Expected loss — strong trim pressure |
 | ≤ −10% | +15.0 | Expected double-digit loss — pushes toward trim/exit |
 
-**Guardrails (forecast discipline — this is the most discretionary input in the score, so it is fenced):**
-1. **Catalyst required for upside credit.** Per Rule 10, a documented catalyst + timeline must exist. If no catalyst is identifiable within 18–24 months, cap the *upside* (negative) side at **−5** — you can't claim large upside with no path to realise it. The downside side is unaffected (a thesis with no catalyst and an expected loss should still be penalised).
-2. **Scenario-weighted, not the rosy point.** Always use the bull/base/bear PW Fair Value (Rule 7), never a single optimistic target — downside is always underwritten (Klarman: "what do I lose if I'm wrong" first).
-3. **Show the full calc.** `E`, each of its three components, the catalyst/timeline, and the mapping must be shown in the session log like every other sub-score and modifier — no black box (operating-brief.md non-negotiable).
-4. **It is a modifier, not a veto, in both directions** — bounded ±15 by design, mirroring how the Rate Environment Gate's Step 1 was softened from a hard block to an additive flag (2026-06-07).
+**Guardrails (forecast discipline — most discretionary input in the score, so fenced):**
+1. **Catalyst required for upside credit.** Per Rule 10, documented catalyst + timeline must exist. If no catalyst identifiable within 18–24 months, cap *upside* (negative) side at **−5** — can't claim large upside with no path to realise it. Downside side unaffected (a thesis with no catalyst and an expected loss should still be penalised).
+2. **Scenario-weighted, not the rosy point.** Always use bull/base/bear PW Fair Value (Rule 7), never single optimistic target — downside always underwritten (Klarman: "what do I lose if I'm wrong" first).
+3. **Show full calc.** `E`, each of its three components, the catalyst/timeline, and the mapping must be shown in the session log like every other sub-score and modifier — no black box (operating-brief.md non-negotiable).
+4. **It is a modifier, not a veto, in both directions** — bounded ±15 by design, mirroring how Rate Environment Gate's Step 1 was softened from hard block to additive flag (2026-06-07).
 
-**Worked example.** A Fast Grower at score 54 (raw), live price $100, PW Fair Value $118 (so Gap Upside +18%), catalyst window 2 years (annualized gap +9%), intrinsic growth +14%/yr, shareholder yield +1% → `E` = 9 + 14 + 1 = **+24%**. Modifier = −15 × clamp((24 − 10)/15, 0, 1) = −15 × 0.93 = **−14.0**. Final score 54 − 14.0 = **40.0** → moves from "Hold / watchlist only" into "Cheap → standard position." The bright future the raw score ignored now earns the entry, exactly the gap this closes.
+**Worked example.** A Fast Grower at score 54 (raw), live price $100, PW Fair Value $118 (Gap Upside +18%), catalyst window 2 years (annualized gap +9%), intrinsic growth +14%/yr, shareholder yield +1% → `E` = 9 + 14 + 1 = **+24%**. Modifier = −15 × clamp((24 − 10)/15, 0, 1) = −15 × 0.93 = **−14.0**. Final score 54 − 14.0 = **40.0** → moves from "Hold / watchlist only" into "Cheap → standard position." The bright future the raw score ignored now earns the entry — exactly the gap this closes.
 
 ---
 
 ## Composite Score (Quality + Valuation)
 
-*Added 2026-06-29 — see [decisions/2026-06-29-framework-change-quality-score-and-composite.md](../decisions/2026-06-29-framework-change-quality-score-and-composite.md) and [quality-scoring.md](quality-scoring.md). Closes the gap where two companies that both pass Phase 01 look identical to the framework — only the valuation score differentiated them, so a much higher-quality business with a slightly richer multiple could lose out to a marginal one that's a touch cheaper.*
+*Added 2026-06-29 — see [decisions/2026-06-29-framework-change-quality-score-and-composite.md](../decisions/2026-06-29-framework-change-quality-score-and-composite.md) and [quality-scoring.md](quality-scoring.md). Closes gap where two companies both passing Phase 01 look identical to the framework — only the valuation score differentiated them, so a much higher-quality business with a slightly richer multiple could lose out to a marginal one that's a touch cheaper.*
 
-A company only reaches this step if it has already cleared the **80.0+ Quality Score gate** ([quality-scoring.md](quality-scoring.md)) — the Composite Score is not computed for, and does not rescue, a company that fails the quality gate.
+A company only reaches this step after clearing the **80.0+ Quality Score gate** ([quality-scoring.md](quality-scoring.md)) — Composite Score isn't computed for, and doesn't rescue, a company failing the quality gate.
 
-The Quality Score (0–100.0, **higher = better**) and Valuation Score (0–100.0, **lower = better/cheaper**) are inversely oriented by design (see [quality-scoring.md](quality-scoring.md) for why). The Composite Score inverts Quality before blending so the result keeps the same orientation as the existing valuation score and Phase 03/05 action tables — **0 = most attractive, 100.0 = least attractive**:
+Quality Score (0–100.0, **higher = better**) and Valuation Score (0–100.0, **lower = better/cheaper**) are inversely oriented by design (see [quality-scoring.md](quality-scoring.md) for why). Composite Score inverts Quality before blending so the result keeps the same orientation as the existing valuation score and Phase 03/05 action tables — **0 = most attractive, 100.0 = least attractive**:
 
 ```
 Composite Score = 0.50 × (100 − Quality Score) + 0.50 × Valuation Score
 ```
 
-Equal (50/50) weighting per explicit user decision (2026-06-29) — quality and cheapness are treated as equally important rather than valuation dominating. Use the **Composite Score**, not the raw Valuation Score, against the Phase 03 Entry & Position Sizing table and the Phase 05 Dynamic Trimming table once a company has a Quality Score on file. A company that hasn't yet been quality-scored (e.g. legacy holdings scored before 2026-06-29) is flagged stale until both scores exist — see the stale-score mechanism ([watchlist/README.md](../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes)).
+Equal (50/50) weighting per explicit user decision (2026-06-29) — quality and cheapness treated as equally important rather than valuation dominating. Use the **Composite Score**, not the raw Valuation Score, against the Phase 03 Entry & Position Sizing table and the Phase 05 Dynamic Trimming table once a company has a Quality Score on file. A company not yet quality-scored (e.g. legacy holdings scored before 2026-06-29) is flagged stale until both scores exist — see the stale-score mechanism ([watchlist/README.md](../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes)).
 
-**Worked example.** Company A: Quality Score 88.0, Valuation Score 35.0 (Cheap). Company B: Quality Score 72.0 (would have failed the 80.0+ gate and never reaches this step at all — excluded, not blended in). Company C: Quality Score 84.0, Valuation Score 28.0 (Very Cheap):
+**Worked example.** Company A: Quality Score 88.0, Valuation Score 35.0 (Cheap). Company B: Quality Score 72.0 (would've failed the 80.0+ gate, never reaches this step — excluded, not blended in). Company C: Quality Score 84.0, Valuation Score 28.0 (Very Cheap):
 
 ```
 Composite A = 0.50×(100−88.0) + 0.50×35.0 = 6.0 + 17.5 = 23.5
@@ -224,9 +224,9 @@ EV/EBIT            < 20x
 
 ## Global Phase 01 Screener Setup
 
-`/screen` builds the starting universe manually — a TIKR/Koyfin saved-screen export, a Finviz fast pass, or quality-factor ETF holdings (MOAT/QUAL/QGRW/IQLT) when screener access isn't available (see [screen.md](../.claude/commands/screen.md) Step 0). There is no bulk-screener API wired up; `yf.screen()` (the bulk Yahoo screener) is unreliable for pre-filtering — see below.
+`/screen` builds starting universe manually — TIKR/Koyfin saved-screen export, Finviz fast pass, or quality-factor ETF holdings (MOAT/QUAL/QGRW/IQLT) when screener access unavailable (see [screen.md](../.claude/commands/screen.md) Step 0). No bulk-screener API wired up; `yf.screen()` (bulk Yahoo screener) unreliable for pre-filtering — see below.
 
-Once a candidate list exists, verify each candidate's exact Phase 01 numbers with the free `yfinance` Python package — no API key needed.
+Once candidate list exists, verify each candidate's exact Phase 01 numbers with free `yfinance` Python package — no API key needed.
 
 ### Manual screening tools
 
@@ -253,13 +253,13 @@ hi   = t.info         # current snapshot: marketCap, enterpriseValue, grossMargi
                        # trailingPE, forwardPE, pegRatio, debtToEquity, totalDebt, totalCash
 ```
 
-Verified against this session's manually-sourced HKEX numbers (`grossMargins` 0.965, `returnOnEquity` 0.350, `profitMargins` 0.626 — all matched stockanalysis.com to 3 decimals). `t.financials`/`t.cashflow` provide multi-year history for the 3yr CAGR and "FCF positive 3 consecutive years" checks; `t.info["ebit"]`/`enterpriseValue` give EV/EBIT directly.
+Verified against this session's manually-sourced HKEX numbers (`grossMargins` 0.965, `returnOnEquity` 0.350, `profitMargins` 0.626 — all matched stockanalysis.com to 3 decimals). `t.financials`/`t.cashflow` provide multi-year history for 3yr CAGR and "FCF positive 3 consecutive years" checks; `t.info["ebit"]`/`enterpriseValue` give EV/EBIT directly.
 
-**Do not use `yf.screen()` (the bulk Yahoo screener) for Phase 01 pre-filtering** — tested 2026-06-14 and its margin/ROE/growth filter predicates did not constrain results correctly (e.g. a query requiring net margin >12% and ROE >15% still returned Woolworths, which has ~0.85% net margin and ~11.9% ROE). For the bulk pre-filter step, continue using **structural triage from documented business-model characteristics** ([screen.md](../.claude/commands/screen.md) Step 1) to build the candidate pool, then verify each candidate's real numbers with `yfinance` as above.
+**Don't use `yf.screen()` (bulk Yahoo screener) for Phase 01 pre-filtering** — tested 2026-06-14, its margin/ROE/growth filter predicates didn't constrain results correctly (e.g. query requiring net margin >12% and ROE >15% still returned Woolworths, ~0.85% net margin and ~11.9% ROE). For bulk pre-filter step, continue using **structural triage from documented business-model characteristics** ([screen.md](../.claude/commands/screen.md) Step 1) to build candidate pool, then verify each candidate's real numbers with `yfinance` as above.
 
 ### `yfinance` — automated 5yr avg PE & FCF/NI conversion ratio (verified working 2026-06-20)
 
-These two Standard Re-Score inputs were previously flagged as needing a manual Macrotrends/TIKR/Koyfin pull (`operating-calendar.md`). Both are now computable directly from `yfinance` — no new data source needed.
+These two Standard Re-Score inputs were previously flagged as needing manual Macrotrends/TIKR/Koyfin pull (`operating-calendar.md`). Both now computable directly from `yfinance` — no new data source needed.
 
 **FCF/NI Conversion Ratio** — `t.cashflow` and `t.financials` already carry both halves of this ratio; it was just never wired into a formula:
 
@@ -270,7 +270,7 @@ fcf_ni_ratio = (fcf / ni).dropna()   # e.g. 0.70-0.90 for a healthy compounder
 ```
 Verified against MSFT (2022-2025): 89.6%, 82.2%, 84.0%, 70.3% — 4 years, enough for the "2+ consecutive years" check in Phase 01/04.
 
-**5yr Avg/Low/High PE** — `t.financials`' annual EPS only goes back ~4 years on the free tier, too shallow for a historical PE series. `t.get_earnings_dates(limit=40)` (requires `lxml`) returns quarterly **Reported EPS** much further back (verified on MSFT: 49 quarters to 2014). Reconstruct a trailing-PE series by summing trailing-4-quarter EPS into TTM EPS, then pairing each quarter with its contemporaneous price:
+**5yr Avg/Low/High PE** — `t.financials`' annual EPS only goes back ~4 years on free tier, too shallow for a historical PE series. `t.get_earnings_dates(limit=40)` (requires `lxml`) returns quarterly **Reported EPS** much further back (verified on MSFT: 49 quarters to 2014). Reconstruct a trailing-PE series by summing trailing-4-quarter EPS into TTM EPS, then pairing each quarter with its contemporaneous price:
 
 ```python
 import pandas as pd
@@ -310,7 +310,7 @@ Layer these **on top of** the Phase 01 screener when you specifically want candi
 | Analyst Coverage | < 8 analysts | Low coverage = low visibility |
 | Index membership | Not S&P 500 / Not MSCI World | Pre-index, no forced-buyer tailwind yet |
 
-These are **optional** — run the standard Phase 01 screen first, then run it again with discovery filters if you want a separate "hidden gems" pass. A company that passes Phase 01 at any market cap is worth evaluating; the discovery filters just help prioritise candidates most likely to be mispriced due to neglect.
+These are **optional** — run the standard Phase 01 screen first, then run it again with discovery filters for a separate "hidden gems" pass. A company that passes Phase 01 at any market cap is worth evaluating; the discovery filters just help prioritise candidates most likely to be mispriced due to neglect.
 
 ## 5 Qualitative Questions Before Scoring
 

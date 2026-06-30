@@ -1,27 +1,27 @@
 # Quality Score Engine
 
-How to compute the Phase 01 quality score (0–100.0) for a candidate company, and the **strict 80.0+ quality gate** a company must clear before it is eligible for Phase 02 valuation scoring at all. See [strategy.md](strategy.md) for where this fits, and [valuation-scoring.md](valuation-scoring.md) for how it combines with the valuation score into the Composite Score.
+How to compute Phase 01 quality score (0–100.0) for a candidate company, and the **strict 80.0+ quality gate** a company must clear before being eligible for Phase 02 valuation scoring at all. See [strategy.md](strategy.md) for where this fits, and [valuation-scoring.md](valuation-scoring.md) for how it combines with the valuation score into the Composite Score.
 
 > **Scoring methodology version: 2026-06-29.** Same versioning/stale-score rules as [valuation-scoring.md](valuation-scoring.md) — bump this date whenever a sub-score, weight, or the gate threshold changes, and record why in `decisions/`.
 
 ## Why Quality Gets Its Own Score
 
-Phase 01 was previously a binary pass/fail screen (margin/ROIC/growth/balance-sheet/moat/FCF thresholds — see "Quantitative Pre-Screen Filters" in [valuation-scoring.md](valuation-scoring.md)). That treats every company that clears the bar as interchangeable, so a 72-quality compounder and a 95-quality juggernaut look identical once both pass — only the valuation score differentiates them. A graded 0–100.0 quality score lets the framework directly compare "cheaper but lower quality" against "pricier but much higher quality" instead of defaulting to whichever is cheaper.
+Phase 01 was previously a binary pass/fail screen (margin/ROIC/growth/balance-sheet/moat/FCF thresholds — see "Quantitative Pre-Screen Filters" in [valuation-scoring.md](valuation-scoring.md)). That treats every company clearing the bar as interchangeable, so a 72-quality compounder and a 95-quality juggernaut look identical once both pass — only the valuation score differentiates them. A graded 0–100.0 quality score lets the framework directly compare "cheaper but lower quality" against "pricier but much higher quality" instead of defaulting to whichever is cheaper.
 
-**0 = lowest quality, 100.0 = highest quality** — the opposite orientation from the valuation score (where 0 = cheapest/most attractive). This is intentional: each score reads naturally on its own (higher quality = better; lower valuation score = better), and the Composite Score formula below is what reconciles the two orientations into one consistently-oriented number.
+**0 = lowest quality, 100.0 = highest quality** — the opposite orientation from the valuation score (where 0 = cheapest/most attractive). Intentional: each score reads naturally on its own (higher quality = better; lower valuation score = better), and the Composite Score formula below reconciles the two orientations into one consistently-oriented number.
 
 ## The Strict 80.0+ Gate
 
-**A company must score 80.0 or higher to be eligible for Phase 02 valuation scoring and the Composite Score at all.** Below 80.0, stop — do not proceed to valuation, regardless of how cheap the stock looks. This replaces the old binary Phase 01 screen as the eligibility gate (the individual hard disqualifiers below still apply *in addition* to the score).
+**A company must score 80.0 or higher to be eligible for Phase 02 valuation scoring and the Composite Score at all.** Below 80.0, stop — don't proceed to valuation, regardless of how cheap the stock looks. This replaces the old binary Phase 01 screen as the eligibility gate (the individual hard disqualifiers below still apply *in addition* to the score).
 
-This is a deliberately high bar, set per explicit user instruction (2026-06-29) — strict on purpose, to be loosened later only if it screens out too much of the investable universe. If it does, lower the threshold here and record why in `decisions/` rather than quietly working around it.
+A deliberately high bar, set per explicit user instruction (2026-06-29) — strict on purpose, to be loosened later only if it screens out too much of the investable universe. If it does, lower the threshold here and record why in `decisions/` rather than quietly working around it.
 
 **Hard disqualifiers — fail regardless of weighted score:**
 - FCF/Net Income conversion ratio <70% for 2+ consecutive years without a documented growth-capex explanation (existing Phase 01 FCF Quality Check)
 - Net debt/EBITDA over its applicable threshold (2.5× standard, or 4× under the Upgrade 5 asset-light override) — see Balance Sheet sub-score
 - Not FCF-positive for 3+ consecutive years
 
-These mirror the existing Phase 01 non-negotiables — a weighted average cannot average away an outright balance-sheet or cash-flow-quality failure.
+These mirror the existing Phase 01 non-negotiables — a weighted average can't average away an outright balance-sheet or cash-flow-quality failure.
 
 ## Final Quality Score Formula
 
@@ -49,7 +49,7 @@ Profitability_Score  = (NetMargin_Component + ROIC_Component) / 2
 | 22.5% | 75.0 |
 | ≥30% | 100.0 |
 
-If the company is not FCF-positive for 3+ consecutive years, cap Profitability_Score at 40.0 regardless of margin/ROIC — sustained quality requires sustained cash generation, not just accounting profitability.
+If the company isn't FCF-positive for 3+ consecutive years, cap Profitability_Score at 40.0 regardless of margin/ROIC — sustained quality requires sustained cash generation, not just accounting profitability.
 
 **Margins (15% weight)** — gross margin level, with a structural-trend bonus:
 
@@ -96,7 +96,7 @@ BalanceSheet_Score = clamp(100 × (1 − NetDebt/EBITDA / 4), 0, 100)
 
 **Asset-light override (Upgrade 5, [strategy.md](strategy.md)):** for payment networks, exchanges, or asset-light businesses where 100% of debt is financial, interest coverage >15×, and investment-grade rated, use a /6 denominator instead of /4 (i.e. the 0.0 floor moves out to 6×) — consistent with that upgrade's 4× (vs. standard 2.5×) pass/fail threshold. **Conglomerate rule** (Phase 01) still applies: consolidate captive financial-subsidiary debt into the ratio before scoring.
 
-**Moat Signal (15% weight)** — qualitative by nature; scored as a checklist rather than invented as a single number. Document the evidence for each signal you mark true — do not mark a signal true without a cited source:
+**Moat Signal (15% weight)** — qualitative by nature; scored as a checklist rather than invented as a single number. Document the evidence for each signal marked true — never mark a signal true without a cited source:
 
 ```
 Moat_Score = (count of TRUE signals / 5) × 100
@@ -149,7 +149,7 @@ Quality Score = 66.7×0.25 + 68.8×0.15 + 66.0×0.20 + 80.0×0.15 + 80.0×0.15 +
               = 71.2
 ```
 
-71.2 < 80.0 — **fails the gate.** Despite passing every individual Phase 01 threshold, this company does not clear the strict 80.0+ bar and does not proceed to Phase 02. (This is the intended behaviour of a strict gate — if it screens out too many otherwise-reasonable candidates, lower the threshold per the note above and record why.)
+71.2 < 80.0 — **fails the gate.** Despite passing every individual Phase 01 threshold, this company doesn't clear the strict 80.0+ bar and doesn't proceed to Phase 02. (This is the intended behaviour of a strict gate — if it screens out too many otherwise-reasonable candidates, lower the threshold per the note above and record why.)
 
 ## Quantitative Inputs Needed
 

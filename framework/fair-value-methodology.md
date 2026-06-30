@@ -12,7 +12,7 @@ Three numbers needed before placing any order:
 
 ## ⚡ Rule 0 — Always Fetch Live Prices First
 
-> Before any order setup calculation, search for each ticker's live price. This is mandatory.
+> Before any order setup calc, search each ticker's live price. Mandatory.
 
 **Required steps before every analysis session:**
 - **Step 1:** Search `[TICKER] stock price today` for every ticker
@@ -27,7 +27,7 @@ Three numbers needed before placing any order:
 - ❌ Do not use cost-basis prices as current prices
 - ❌ Do not assume a price is "approximately right" without verifying
 
-> **Lesson — SPGI Price Inference Error (May 2026):** SPGI was inferred at ~$450 from "29% below 5yr avg PE." Actual price: $411. The $39 error caused MoS to read 23% (below 25% threshold → limit order) when the real MoS was 30% (above threshold → buy now). Stop loss, position size, and R/R ratio were all wrong downstream. *Rule added following this incident.*
+> **Lesson — SPGI Price Inference Error (May 2026):** SPGI inferred ~$450 from "29% below 5yr avg PE." Actual price: $411. $39 error caused MoS to read 23% (below 25% threshold → limit order) vs real MoS 30% (above threshold → buy now). Stop loss, position size, R/R ratio all wrong downstream. *Rule added after this incident.*
 
 ---
 
@@ -76,7 +76,7 @@ Buy Price = Fair Value × (1 − Margin of Safety %)
 - Score 50.0–69.9 → No MoS → **Watchlist only**
 - Score 70.0–100.0 → Do not buy → **Trim or exit protocol**
 
-> **The score already embeds expected return.** As of 2026-06-20 the valuation score carries an additive **Upside/Downside Modifier** (−15 … +15) driven by the expected annual return computed here — the gap to the probability-weighted fair value (Rule 7) annualized over the catalyst window (Rule 10), plus intrinsic growth and shareholder yield. So the score-band actions above are *already forward-aware*: a wonderful business with strong expected return is pulled down toward the buy bands even when its current multiples alone wouldn't qualify, and a richly-priced name with thin or negative expected return is pushed up toward the trim/exit bands. Full mechanics in [valuation-scoring.md](valuation-scoring.md#upsidedownside-modifier-expected-return-modifier).
+> **The score already embeds expected return.** As of 2026-06-20 the valuation score carries an additive **Upside/Downside Modifier** (−15 … +15) driven by the expected annual return computed here — gap to probability-weighted fair value (Rule 7) annualized over the catalyst window (Rule 10), plus intrinsic growth and shareholder yield. So the score-band actions above are *already forward-aware*: a wonderful business with strong expected return is pulled down toward the buy bands even when its current multiples alone wouldn't qualify, and a richly-priced name with thin or negative expected return is pushed up toward the trim/exit bands. Full mechanics in [valuation-scoring.md](valuation-scoring.md#upsidedownside-modifier-expected-return-modifier).
 
 ---
 
