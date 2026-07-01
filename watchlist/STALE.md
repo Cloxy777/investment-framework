@@ -38,7 +38,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 | DB1 | not-in-portfolio | 47.8 | 2026-06-19 | 2026-06-29 |
 | EXPN | not-in-portfolio | 32.0 | 2026-06-19 | 2026-06-29 |
 | MA | not-in-portfolio | 38.0 | 2026-06-22 | 2026-06-29 |
-| PDD | not-in-portfolio | 5.0 | 2026-06-14 | 2026-06-29 |
 | SGE | not-in-portfolio | 21.1 | 2026-06-19 | 2026-06-29 |
 
 *Not listed (no real Phase 02 score for this addition to invalidate): every not-in-portfolio entry that is Phase 01 FAIL / not scored (CBRS, CCL, CHTR, CIEN, CRM, CVX, DASH, FDX, FICO, FUBO, GTLB, HIMS, IBM, LULU, MCD, MELI, MU, NOK, ORCL, PLTR, PYPL, TTD, TTWO, WSE) and the in-portfolio rows that are cash/non-equity/override/quality-gate-fail (RBRK, STIM, TLT, XEON). BULL, HY9H, SOFI, and SSU also excluded — each is Phase 01 FAIL with a Phase 02 number computed only for the record, never a binding score. (CBRS, CHTR, FUBO, and LULU additionally now carry a Quality Score under the engine added this same date — see each ticker's session file — but that score still fails the 80.0+ gate, so no Phase 02/Composite Score exists to go stale either way.)*
@@ -52,7 +51,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 | 0700-HK | not-in-portfolio | 31.0 | 2026-06-14 (pre-modifier) | 2026-06-20 |
 | DB1 | not-in-portfolio | 47.8 | 2026-06-19 (pre-modifier) | 2026-06-20 |
 | EXPN | not-in-portfolio | 32.0 | 2026-06-19 (pre-modifier) | 2026-06-20 |
-| PDD | not-in-portfolio | 5.0 | 2026-06-14 (pre-modifier) | 2026-06-20 |
 | SGE | not-in-portfolio | 21.1 | 2026-06-19 (pre-modifier) | 2026-06-20 |
 
 *MA removed from this table during the 2026-06-29 update: `MA-2026-06-22.md` already carries a fresh post-modifier score (38.0, scored 2026-06-22) and never carried a 2026-06-20 banner — the row was simply never cleared when that rescore happened. Corrected here as a registry bookkeeping fix, not a re-score.*
