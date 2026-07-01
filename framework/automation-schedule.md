@@ -452,10 +452,14 @@ Unattended-specific steps:
    every quiet hour would be 24/day of pure noise. Verify it's alive via
    telegram-watch.md's commit history instead.
 2. For every ticker actually actioned (a /rescore or /new-position session
-   ran and committed) or every data gap flagged, open or update a single
-   GitHub issue titled "Telegram Scan - YYYY-MM-DD HHUTC" listing what fired,
-   linking each new commit/session log, and listing skipped/ambiguous
-   mentions for visibility.
+   ran and committed) or every data gap flagged, record it in
+   telegram-watch.md's mention log and in this run's Telegram alert (step 4)
+   - linking each new commit/session log there, plus listing
+   skipped/ambiguous mentions for visibility. Do NOT open or update a GitHub
+   issue for this routine (changed 2026-07-01 - see decisions log): unlike
+   Routines 1-5, a per-run issue here compounds with the hourly cadence and
+   adds no signal beyond what the branch/PR/commit and the Telegram alert
+   already carry.
 3. For each ticker actioned, set its priority tier per this doc's "Priority
    rule": an earnings/Rule-9-style RESCORE trigger on a holding >=5% weight,
    or any trim/exit trigger that fired, is P1 (due next business day, 13:30
@@ -463,14 +467,14 @@ Unattended-specific steps:
    and send that ticker's single-event .ics the same way Routine 1 does:
    `curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" -F chat_id="${TELEGRAM_CHAT_ID}" -F document=@action-telegram-<TICKER>.ics`
 4. If anything was actioned this run, send one Telegram message summarizing
-   it (tickers, action taken, issue link):
+   it (tickers, action taken, session/PR link):
    `curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d chat_id="${TELEGRAM_CHAT_ID}" -d parse_mode="Markdown" --data-urlencode text="..."`
    Quiet runs send nothing (see step 1).
 
 Success = telegram-watch.md's last-seen markers always advance (so no post is
 silently reprocessed or silently skipped forever); every actionable mention
-either produces a committed /rescore or /new-position session with a GitHub
-issue + Telegram alert, or an explicit logged reason it didn't.
+either produces a committed /rescore or /new-position session with a Telegram
+alert, or an explicit logged reason it didn't.
 ```
 
 **Why this routine lands its PR itself instead of leaving it open, unlike Routines 1/3/4/5:** every other routine in this repo stops at a proposal — `/new-position` is called out elsewhere as "ad hoc by nature... not scheduled," and a RESCORE's qualitative sign-off is called out as something that "stay[s] human." Routine 6 still runs that same unattended judgment layer — a deliberate, explicit exception requested by the user after being shown that trade-off — but as of 2026-06-22 it lands its result via a normal `claude/`-prefixed branch + PR rather than a direct push to `main`. It calls `enable_pr_auto_merge`, but since this repo has no CI or required reviews to gate on, that call normally reports the PR already clean and merges nothing — so the routine falls back to merging it directly (squash) itself, which is what actually removes the manual click (there's no meaningful added latency vs. the old direct commit either way). What's unchanged: **no routine ever places a broker order** — this one still only produces a committed score/recommendation; executing any resulting BUY/TRIM/EXIT stays manual, same as every other routine. See [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md) for the original reasoning, [decisions/2026-06-22-automation-routine-auto-merge-pr.md](../decisions/2026-06-22-automation-routine-auto-merge-pr.md) for why the landing mechanism first changed, and [decisions/2026-06-22-automation-routine-auto-merge-fallback.md](../decisions/2026-06-22-automation-routine-auto-merge-fallback.md) for the direct-merge fallback.
