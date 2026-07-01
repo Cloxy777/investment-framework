@@ -22,6 +22,8 @@ When done, save the result as a session log under `sessions/YYYY-MM-DD-rescore-<
 
 **Clear stale-score mark:** this rescore computes the score under the current methodology, so if the ticker was flagged stale, remove its `⚠️ STALE SCORE` banner from the entry file and delete its row in [watchlist/STALE.md](../../watchlist/STALE.md) (see the stale-score mechanism in [watchlist/README.md](../../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes)).
 
+**Commit and push — every run, including single-ticker.** Once the session log, `holdings.md`, and watchlist entry are written, `git add` those files, commit, and `git push` directly to the current branch — no PR, no waiting for user confirmation. This applies to a single-ticker run exactly as it does to each batch below; don't leave a `/rescore` run sitting as a local-only commit.
+
 ## Batch processing (multiple tickers)
 
 If `$ARGUMENTS` lists more than one ticker, do **not** launch them all as parallel subagents at once — running too many heavy-research agents simultaneously has repeatedly hit the shared session usage limit ("You've hit your session limit · resets HH:MM (UTC)") and lost in-progress work.
