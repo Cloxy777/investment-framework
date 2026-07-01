@@ -111,6 +111,22 @@ Alphabetical within each group.
 | **WACC** | Weighted Average Cost of Capital — the blended cost a company pays for its debt and equity financing; used as the discount rate in a DCF. |
 | **ΔNWC (Change in Net Working Capital)** | The period-over-period change in current assets minus current liabilities — a deduction in unlevered FCF calculations. |
 
+## Behavioral-finance & speculation terms
+
+These came up in the 2026-07-01 discussion of a possible speculation module bolted onto this framework's core long-term rules — not yet an adopted part of the framework itself.
+
+| Term | Meaning |
+|---|---|
+| **Barbell strategy** | A portfolio shape (popularized by Nassim Taleb) that pairs a very large, very safe allocation with a small, high-risk/high-convexity allocation, deliberately skipping the "medium risk" middle. |
+| **Core-satellite (portfolio strategy)** | Splitting a portfolio into a large "core" of long-term strategic holdings (typically 70–90%) and a smaller "satellite" sleeve (10–30%) for tactical or opportunistic bets — standard practice among pensions, endowments, and wealth managers since the 1980s. |
+| **Disposition effect** | The behavioral bias of selling winning positions too early (to lock in a good feeling) while holding losing positions too long (to avoid realizing the loss) — the opposite of a pre-committed, rules-based exit. |
+| **Expectancy** | (Average win × win rate) − (Average loss × loss rate) — the expected profit or loss per trade across many trades. A strategy needs positive expectancy after costs to be worth running, independent of how often any single trade wins. |
+| **House money effect** | The tendency to take bigger risks with money that feels like "winnings" than with money treated as core capital — the same mental-accounting mechanism that a deliberately separate speculation account can exploit in the investor's favor, or that can backfire as escalating bets on the theory that it's "not really your money." |
+| **Mad money account** | Benjamin Graham's term (*The Intelligent Investor*) for a small, strictly separate sub-account set aside for speculation, capped at roughly 10% of total wealth, with a hard rule against ever mixing its funds or its mindset with the core investment portfolio. |
+| **Mental accounting** | Richard Thaler's term for the tendency to treat money differently depending on which mental "bucket" it's assigned to, rather than as fully fungible. |
+| **Time-stop** | A pre-set exit rule that closes a position after a fixed amount of time regardless of price action (e.g. "exit in 90 days if the catalyst hasn't played out"), distinct from a price-based stop-loss and typically paired with one in short-horizon trades. |
+| **Turnover (portfolio turnover)** | The percentage of a portfolio's holdings bought/sold over a given period (typically a year) — a proxy for trading frequency; higher turnover mechanically raises transaction costs and, in taxable accounts, short-term tax drag. |
+
 ## Framework-specific terms
 
 These are this repository's own vocabulary — defined in [strategy.md](strategy.md) and [valuation-scoring.md](valuation-scoring.md), not standard Wall Street terms.
