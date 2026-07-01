@@ -49,7 +49,7 @@ Combined total ≈ **$54,891.48** = IBKR Net Liquidation Value $39,767.94 + Free
 | TRN | 3.04% | 10.0 | ? | ? | 24 Jun 2026 | IBKR |
 | UBER | 0.42% | 34.8 | ? | ? | 20 Jun 2026 | IBKR |
 | V | 0.61% | 39.2 | ? | ? | 20 Jun 2026 | IBKR |
-| VEEV | 0.94% | | | | | IBKR |
+| VEEV | 0.94% | 45.1 | 85.7 | 29.7 | 01 Jul 2026 | IBKR |
 | XEON | 3.10% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
 | ZS | 0.24% | 36.3 | ? | ? | 20 Jun 2026 | IBKR |
 
@@ -67,4 +67,4 @@ Combined total ≈ **$54,891.48** = IBKR Net Liquidation Value $39,767.94 + Free
 
 **AVGO has a prior, untracked history on this account:** `get_account_trades` shows a 1-share AVGO position sold on 2026-05-26 (predating this framework's records), which is what the now-superseded "AVGO no longer appears in either broker account" placeholder note (removed this sync) was referring to. The 6-share position now held is a fresh, separate buy from 2026-06-16 — see the override flag above.
 
-*Run `/sync-portfolio` (see [sync-sop.md](sync-sop.md)) to refresh weights/cash/brokers from the live [snapshots](snapshots/); run `/rescore` to populate score and review-date columns (including VEEV, never scored, and AVGO, due for a rescore under the current Upside/Downside Modifier).*
+*Run `/sync-portfolio` (see [sync-sop.md](sync-sop.md)) to refresh weights/cash/brokers from the live [snapshots](snapshots/); run `/rescore` to populate score and review-date columns (VEEV scored 2026-07-01 — see [session](../sessions/2026-07-01-rescore-veev.md); AVGO still due for a rescore under the current Upside/Downside Modifier).*
