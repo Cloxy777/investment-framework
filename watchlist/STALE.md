@@ -17,7 +17,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 | Ticker | Location | Score | Scored (date) | Flagged stale |
 |--------|----------|-------|----------------|----------------|
-| AMZN | in-portfolio | 73.4 | 2026-06-20 | 2026-06-29 |
 | AVGO | in-portfolio | 69.5 (held as override — carried over, not rescored; see note below) | 2026-06-14 | 2026-06-29 |
 | CSGP | in-portfolio | 79.0 | 2026-06-20 | 2026-06-29 |
 | DUOL | in-portfolio | 50.7 | 2026-06-20 | 2026-06-29 |
