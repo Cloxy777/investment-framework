@@ -17,7 +17,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 | Ticker | Location | Score | Scored (date) | Flagged stale |
 |--------|----------|-------|----------------|----------------|
-| CSGP | in-portfolio | 79.0 | 2026-06-20 | 2026-06-29 |
 | DUOL | in-portfolio | 50.7 | 2026-06-20 | 2026-06-29 |
 | GOOG | in-portfolio | 73.1 | 2026-06-20 | 2026-06-29 |
 | MSFT | in-portfolio | 33.9 | 2026-06-26 | 2026-06-29 |
