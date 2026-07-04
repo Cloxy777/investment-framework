@@ -17,7 +17,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 | Ticker | Location | Score | Scored (date) | Flagged stale |
 |--------|----------|-------|----------------|----------------|
-| AVGO | in-portfolio | 69.5 (held as override — carried over, not rescored; see note below) | 2026-06-14 | 2026-06-29 |
 | CSGP | in-portfolio | 79.0 | 2026-06-20 | 2026-06-29 |
 | DUOL | in-portfolio | 50.7 | 2026-06-20 | 2026-06-29 |
 | GOOG | in-portfolio | 73.1 | 2026-06-20 | 2026-06-29 |
@@ -40,7 +39,7 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 *Not listed (no real Phase 02 score for this addition to invalidate): every not-in-portfolio entry that is Phase 01 FAIL / not scored (CBRS, CCL, CHTR, CIEN, CRM, CVX, DASH, FDX, FICO, FUBO, GTLB, HIMS, IBM, LULU, MCD, MELI, MU, NOK, ORCL, PLTR, PYPL, TTD, TTWO, WSE) and the in-portfolio rows that are cash/non-equity/override/quality-gate-fail (RBRK, STIM, TLT, XEON). BULL, HY9H, SOFI, and SSU also excluded — each is Phase 01 FAIL with a Phase 02 number computed only for the record, never a binding score. (CBRS, CHTR, FUBO, and LULU additionally now carry a Quality Score under the engine added this same date — see each ticker's session file — but that score still fails the 80.0+ gate, so no Phase 02/Composite Score exists to go stale either way.)*
 
-**AVGO note:** AVGO's own entry ([in-portfolio/AVGO/AVGO-2026-06-22.md](in-portfolio/AVGO/AVGO-2026-06-22.md)) says its 69.5 score "predates the 2026-06-20 Upside/Downside Modifier framework change" and was carried over, not rescored — meaning AVGO likely also belongs in the 2026-06-20 table below, but was never added there. Flagging this rather than silently inserting a backfilled row: a `not-in-portfolio/AVGO/AVGO-2026-06-20.md` file does exist with a post-modifier score (74.8) computed the same week, which the 2026-06-22 in-portfolio entry appears not to have picked up when the position was logged retroactively. Resolving which score is actually correct is a `/rescore` job, not a registry edit — surfaced here for the next AVGO rescore to reconcile. Separately, `not-in-portfolio/AVGO/` itself is now a leftover duplicate (AVGO is held, per `holdings.md`) that `/sync-portfolio` should fold into `in-portfolio/`.
+**AVGO resolved 2026-07-04:** rescored under the full current methodology (Quality 82.1, Valuation 68.2, Composite 43.1) — see [sessions/2026-07-04-rescore-avgo.md](../sessions/2026-07-04-rescore-avgo.md) and [in-portfolio/AVGO/AVGO-2026-07-04.md](in-portfolio/AVGO/AVGO-2026-07-04.md), which supersedes both the old 69.5 and the never-adopted 74.8 figures. `watchlist/not-in-portfolio/AVGO/` remains a leftover duplicate folder (AVGO is held, per `holdings.md`) that `/sync-portfolio` should still fold into `in-portfolio/`.
 
 ## Stale entries — 2026-06-20 methodology (Upside/Downside Modifier) — pending rescore
 
