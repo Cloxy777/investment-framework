@@ -15,7 +15,7 @@ This document translates the [operating calendar](operating-calendar.md) into a 
 | **Calendar (cadence overview)** | [`portfolio/calendar/investment-routine-schedule.ics`](../portfolio/calendar/investment-routine-schedule.ics) — static, manually re-imported; shows *when routines run*, not what they find. Routine 6 (hourly) is deliberately **not** in this file — an hourly recurring event isn't meaningful as a cadence overview; its visibility comes entirely through the per-action layer below |
 | **Calendar (action items)** | A one-event `.ics` per actionable item (RESCORE due, rebalance proposal, rate-regime change, ...) sent as a Telegram document — tap it on your phone to add that specific to-do straight to Google Calendar. Due date/time computed by the priority rule below |
 
-Six routines cover the entire "Schedule at a Glance" table in [operating-calendar.md](operating-calendar.md), plus two additions beyond that table: the monthly rebalance check (see [decisions/2026-06-13-automation-routine-schedule.md](../decisions/2026-06-13-automation-routine-schedule.md)) and an hourly Telegram stock-mention scan (see [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md)). The coverage map at the bottom shows exactly what's automated vs. what still needs you.
+Six routines cover the entire "Schedule at a Glance" table in [operating-calendar.md](operating-calendar.md), plus three additions beyond that table: the monthly rebalance check (see [decisions/2026-06-13-automation-routine-schedule.md](../decisions/2026-06-13-automation-routine-schedule.md)), an hourly Telegram stock-mention scan (see [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md)), and a daily integration healthcheck (see [decisions/2026-07-04-automation-routine-healthcheck.md](../decisions/2026-07-04-automation-routine-healthcheck.md)). The coverage map at the bottom shows exactly what's automated vs. what still needs you.
 
 ---
 
@@ -481,6 +481,51 @@ alert, or an explicit logged reason it didn't.
 
 ---
 
+## Routine 7 — Integration Healthcheck
+
+| | |
+|---|---|
+| **Cadence** | Daily, every day — e.g. 06:00 UTC, ahead of Routine 1/2 |
+| **Repo** | `cloxy777/investment-framework`, default branch |
+| **Environment** | `investment-automation` |
+| **Branch permission** | Default (read-only + issues — no branch push, no PR) |
+
+**Prompt:**
+
+```
+You are running the Integration Healthcheck for cloxy777/investment-framework.
+
+Run /healthcheck per .claude/commands/healthcheck.md: check the Interactive
+Brokers connector, the GitHub connector, yfinance/Yahoo Finance market data,
+the FRED 10Y Treasury endpoint, the Telegram Bot API, all 4 monitored
+Telegram channels' web previews, and the IBKR ticker lookup CSV.
+
+This routine is deliberately silent on a clean run: no commit, no PR, no
+Telegram message, no session log - only the run's own log shows "N/N OK".
+Unlike Routines 1-6, do NOT send a Telegram ping either way - a broken
+Telegram Bot API is itself one of the things this routine checks, so relying
+on Telegram to report a Telegram failure would be circular; the GitHub issue
+below is the sole report surface.
+
+If every check passes: stop. If an `integration-healthcheck`-labeled issue
+is open from a previous failing run, add one "recovered" comment (which
+checks came back, as of today) and close it.
+
+If one or more checks fail: search open issues labeled `integration-healthcheck`
+(create the label if missing). No existing issue -> open one titled
+"Integration Healthcheck: <N> failing" with a Check | Status | Detail |
+Suggested fix table. Existing open issue -> don't duplicate it - add a
+comment with today's date and the current failure table, calling out
+anything newly failing, still failing, or newly recovered since the last
+comment, and update the title's <N> count if it changed.
+
+Success = all 7 checks ran; a clean run left no trace beyond its own log line
+(and closed any stale healthcheck issue); a failing run leaves exactly one
+open, current GitHub issue describing what's broken.
+```
+
+---
+
 ## Coverage map — operating calendar → routine → residual manual step
 
 | Operating calendar item | Covered by | What's still manual |
@@ -498,6 +543,7 @@ alert, or an explicit logged reason it didn't.
 | Freedom Finance sync | Not automated (no API — screenshot-based) | Run `/sync-portfolio` manually with screenshots, per `sync-sop.md` |
 | Rebalance / trim review | Routine 5 (new monthly cadence — see decisions log) | Execute any approved trims via your broker |
 | Social-media stock-mention scan (not in the original operating calendar) | Routine 6 (hourly poll of 4 Telegram channels — see decisions log) | Executing any resulting trade via your broker; resolving a mention this command flagged as ambiguous |
+| Integration reliability check (not in the original operating calendar) | Routine 7 (daily — see decisions log) | Nothing to fix here directly — a failing check's GitHub issue points at the same manual fixes already documented per-integration (e.g. sync-sop.md's IBKR reconnect steps) |
 
 ## What stays manual no matter what
 
@@ -508,4 +554,4 @@ alert, or an explicit logged reason it didn't.
 
 ## Review cadence for this automation
 
-Folded into the existing Q1 annual review (alongside `override-log.md`, `graveyard-audit.md`, `benchmark-comparison.md` — see Routine 3's January checklist): confirm the Interactive Brokers connector is still authorized, the FRED endpoint is still reachable, the Telegram bot token (set as an environment variable on the `investment-automation` cloud environment, not in the repo — see [decisions/2026-06-22-security-move-secrets-off-repo.md](../decisions/2026-06-22-security-move-secrets-off-repo.md)) still sends (a stale/revoked token fails the `curl` silently — no error surfaces anywhere else), and skim the last year of routine runs for false positives/negatives (e.g. Rule 9 issues that fired on noise, or earnings releases that were missed). For Routine 6 specifically: confirm all 4 monitored channels are still active/public (a renamed or deleted channel fails the `t.me/s/` fetch silently), and skim `portfolio/snapshots/telegram-watch.md`'s mention log for false positives (wrong ticker resolved from an ambiguous company name) or false negatives (a real event missed because the web preview only shows ~20 posts).
+**Basic reachability is now Routine 7's job, daily, not just the Q1 review's** — see [decisions/2026-07-04-automation-routine-healthcheck.md](../decisions/2026-07-04-automation-routine-healthcheck.md). The Q1 annual review (alongside `override-log.md`, `graveyard-audit.md`, `benchmark-comparison.md` — see Routine 3's January checklist) still covers what a daily up/down check can't: skim the last year of routine runs for false positives/negatives (e.g. Rule 9 issues that fired on noise, or earnings releases that were missed), confirm the Telegram bot token (set as an environment variable on the `investment-automation` cloud environment, not in the repo — see [decisions/2026-06-22-security-move-secrets-off-repo.md](../decisions/2026-06-22-security-move-secrets-off-repo.md)) hasn't just started passing `getMe` while actually failing to deliver into the right chat, and — for Routine 6 specifically — skim `portfolio/snapshots/telegram-watch.md`'s mention log for false positives (wrong ticker resolved from an ambiguous company name) or false negatives (a real event missed because the web preview only shows ~20 posts; Routine 7 confirms the channels are *reachable*, not that nothing was missed).
