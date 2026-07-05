@@ -17,7 +17,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 | Ticker | Location | Score | Scored (date) | Flagged stale |
 |--------|----------|-------|----------------|----------------|
-| MSFT | in-portfolio | 33.9 | 2026-06-26 | 2026-06-29 |
 | NFLX | in-portfolio | 61.2 | 2026-06-20 | 2026-06-29 |
 | NOW | in-portfolio | 42.3 | 2026-06-20 | 2026-06-29 |
 | NVDA | in-portfolio | 48.5 | 2026-06-20 | 2026-06-29 |
