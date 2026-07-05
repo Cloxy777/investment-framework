@@ -17,7 +17,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 | Ticker | Location | Score | Scored (date) | Flagged stale |
 |--------|----------|-------|----------------|----------------|
-| NVDA | in-portfolio | 48.5 | 2026-06-20 | 2026-06-29 |
 | NVO | in-portfolio | 47.6 | 2026-06-20 | 2026-06-29 |
 | SPGI | in-portfolio | 33.4 | 2026-06-20 | 2026-06-29 |
 | SPOT | in-portfolio | 80.5 | 2026-06-20 | 2026-06-29 |
