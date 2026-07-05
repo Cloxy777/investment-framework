@@ -18,7 +18,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 | Ticker | Location | Score | Scored (date) | Flagged stale |
 |--------|----------|-------|----------------|----------------|
 | NFLX | in-portfolio | 61.2 | 2026-06-20 | 2026-06-29 |
-| NOW | in-portfolio | 42.3 | 2026-06-20 | 2026-06-29 |
 | NVDA | in-portfolio | 48.5 | 2026-06-20 | 2026-06-29 |
 | NVO | in-portfolio | 47.6 | 2026-06-20 | 2026-06-29 |
 | SPGI | in-portfolio | 33.4 | 2026-06-20 | 2026-06-29 |
