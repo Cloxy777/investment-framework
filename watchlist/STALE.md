@@ -17,7 +17,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 | Ticker | Location | Score | Scored (date) | Flagged stale |
 |--------|----------|-------|----------------|----------------|
-| ZS | in-portfolio | 36.3 (EV/EBIT placeholder; held as override — Phase 01 GAAP quality gate fails, see override-log.md) | 2026-06-20 | 2026-06-29 |
 | 0700-HK | not-in-portfolio | 31.0 | 2026-06-14 | 2026-06-29 |
 | DB1 | not-in-portfolio | 47.8 | 2026-06-19 | 2026-06-29 |
 | EXPN | not-in-portfolio | 32.0 | 2026-06-19 | 2026-06-29 |
