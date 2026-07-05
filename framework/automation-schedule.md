@@ -15,7 +15,7 @@ This document translates the [operating calendar](operating-calendar.md) into a 
 | **Calendar (cadence overview)** | [`portfolio/calendar/investment-routine-schedule.ics`](../portfolio/calendar/investment-routine-schedule.ics) — static, manually re-imported; shows *when routines run*, not what they find. Routine 6 (hourly) is deliberately **not** in this file — an hourly recurring event isn't meaningful as a cadence overview; its visibility comes entirely through the per-action layer below |
 | **Calendar (action items)** | A one-event `.ics` per actionable item (RESCORE due, rebalance proposal, rate-regime change, ...) sent as a Telegram document — tap it on your phone to add that specific to-do straight to Google Calendar. Due date/time computed by the priority rule below |
 
-Six routines cover the entire "Schedule at a Glance" table in [operating-calendar.md](operating-calendar.md), plus two additions beyond that table: the monthly rebalance check (see [decisions/2026-06-13-automation-routine-schedule.md](../decisions/2026-06-13-automation-routine-schedule.md)) and an hourly Telegram stock-mention scan (see [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md)). The coverage map at the bottom shows exactly what's automated vs. what still needs you.
+Six routines cover the entire "Schedule at a Glance" table in [operating-calendar.md](operating-calendar.md), plus four additions beyond that table: the monthly rebalance check (see [decisions/2026-06-13-automation-routine-schedule.md](../decisions/2026-06-13-automation-routine-schedule.md)), an hourly Telegram stock-mention scan (see [decisions/2026-06-21-automation-routine-telegram-scan.md](../decisions/2026-06-21-automation-routine-telegram-scan.md)), a daily integration healthcheck (see [decisions/2026-07-04-automation-routine-healthcheck.md](../decisions/2026-07-04-automation-routine-healthcheck.md)), and a daily margin safe-guard check (see [decisions/2026-07-05-automation-routine-safe-guard.md](../decisions/2026-07-05-automation-routine-safe-guard.md)). The coverage map at the bottom shows exactly what's automated vs. what still needs you.
 
 ---
 
@@ -39,7 +39,7 @@ Six routines cover the entire "Schedule at a Glance" table in [operating-calenda
    - Confirm `api.telegram.org` is in the `investment-automation` environment's network allowlist (step 1) — every `curl` to Telegram fails silently without it.
    - **Additive, not a replacement:** GitHub issues/PRs stay the system of record for every routine's output (Rule 10 auditability). Telegram and the per-action `.ics` are a faster notice layer on top.
 
-6. **Re-paste the 6 prompts below** into your existing routines at [claude.ai/code/routines](https://claude.ai/code/routines) — they now include the Telegram + calendar steps and won't take effect until pasted in. Routine 6 is new — it needs to be created from scratch (Claude cannot create or edit routines from inside a session).
+6. **Re-paste the 8 prompts below** into your existing routines at [claude.ai/code/routines](https://claude.ai/code/routines) — they now include the Telegram + calendar steps and won't take effect until pasted in. Routines 6 and 8 are new — they need to be created from scratch (Claude cannot create or edit routines from inside a session).
 
 ---
 
@@ -481,6 +481,118 @@ alert, or an explicit logged reason it didn't.
 
 ---
 
+## Routine 7 — Integration Healthcheck
+
+| | |
+|---|---|
+| **Cadence** | Daily, every day — e.g. 06:00 UTC, ahead of Routine 1/2 |
+| **Repo** | `cloxy777/investment-framework`, default branch |
+| **Environment** | `investment-automation` |
+| **Branch permission** | Default (read-only + issues — no branch push, no PR) |
+
+**Prompt:**
+
+```
+You are running the Integration Healthcheck for cloxy777/investment-framework.
+
+Run /healthcheck per .claude/commands/healthcheck.md: check the Interactive
+Brokers connector, the GitHub connector, yfinance/Yahoo Finance market data,
+the FRED 10Y Treasury endpoint, the Telegram Bot API, all 4 monitored
+Telegram channels' web previews, and the IBKR ticker lookup CSV.
+
+This routine is deliberately silent on a clean run: no commit, no PR, no
+Telegram message, no session log - only the run's own log shows "N/N OK".
+Unlike Routines 1-6, do NOT send a Telegram ping either way - a broken
+Telegram Bot API is itself one of the things this routine checks, so relying
+on Telegram to report a Telegram failure would be circular; the GitHub issue
+below is the sole report surface.
+
+If every check passes: stop. If an `integration-healthcheck`-labeled issue
+is open from a previous failing run, add one "recovered" comment (which
+checks came back, as of today) and close it.
+
+If one or more checks fail: search open issues labeled `integration-healthcheck`
+(create the label if missing). No existing issue -> open one titled
+"Integration Healthcheck: <N> failing" with a Check | Status | Detail |
+Suggested fix table. Existing open issue -> don't duplicate it - add a
+comment with today's date and the current failure table, calling out
+anything newly failing, still failing, or newly recovered since the last
+comment, and update the title's <N> count if it changed.
+
+Success = all 7 checks ran; a clean run left no trace beyond its own log line
+(and closed any stale healthcheck issue); a failing run leaves exactly one
+open, current GitHub issue describing what's broken.
+```
+
+---
+
+## Routine 8 — Margin Safe-Guard
+
+| | |
+|---|---|
+| **Cadence** | Daily, every day — e.g. 12:00 UTC, ahead of US market open, independent of Routine 7 |
+| **Repo** | `cloxy777/investment-framework`, default branch |
+| **Environment** | `investment-automation` |
+| **Branch permission** | Default (read-only + issues on a clean run; `claude/` branch + PR only if a breach fires — no auto-merge, left open for manual review) |
+
+**Prompt:**
+
+```
+You are running the Margin Safe-Guard check for cloxy777/investment-framework.
+
+Run /safe-guard per .claude/commands/safe-guard.md exactly: fetch live active
+orders (get_account_orders) and live cash balances (get_account_balances) for
+account U19421206, compute the per-currency worst-case simultaneous-fill
+margin exposure (every active BUY order fills, no offsetting SELL assumed,
+non-netted across currencies, using live FX rates - never assumed), and
+compare the total USD-equivalent exposure to the $5,000 threshold.
+
+Follow that command's steps exactly, including:
+- Never treating a SELL order as reducing worst-case exposure.
+- Never inventing a price for an order that lacks one (e.g. a MARKET order) -
+  flag it instead.
+- Never placing, modifying, or cancelling a broker order - this routine, like
+  every other one in this repo, stops at a recommendation.
+
+Clean run (exposure <= $5,000): print the one-line confirmation from
+safe-guard.md's "Pass" path and stop - no commit, no PR, no Telegram message,
+same minimalism as Routine 7. If an open margin-safeguard-labeled issue exists
+from a prior breach, add a "resolved" comment and close it.
+
+Breach (exposure > $5,000):
+1. Compute the OCA grouping proposal per safe-guard.md's "Grouping algorithm"
+   section and the exact /update-orders invocation to pass it.
+2. Open or update the margin-safeguard-labeled GitHub issue (create the label
+   if missing) with the full per-currency breakdown, contributing orders, and
+   the grouping proposal - don't duplicate an already-open issue, add a dated
+   comment instead.
+3. This is P1 per this doc's "Priority rule" (whole-portfolio capital at risk)
+   - due next business day, 13:30 UTC. Write a single-event .ics
+   (action-margin-safeguard.ics: SUMMARY = the issue title, DESCRIPTION = the
+   issue URL) and send it:
+   `curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" -F chat_id="${TELEGRAM_CHAT_ID}" -F document=@action-margin-safeguard.ics`
+4. Send one Telegram message prefixed "‼️ IMPORTANT ‼️" with the full
+   description (total exposure, per-currency breakdown, top contributing
+   orders) and the exact suggested /update-orders command:
+   `curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d chat_id="${TELEGRAM_CHAT_ID}" -d parse_mode="Markdown" --data-urlencode text="‼️ IMPORTANT ‼️ ..."`
+5. Save sessions/YYYY-MM-DD-safe-guard.md with the full calculation and
+   grouping proposal, push to a claude/-prefixed branch, commit
+   "Safe-Guard: margin exposure alert - YYYY-MM-DD", and open a PR - leave it
+   open for manual review (a risk alert is a proposal, not a data refresh, so
+   no auto-merge, unlike Routines 2/6).
+
+Success = today's worst-case margin exposure was computed from live orders and
+live cash (never stale/assumed data); a clean run left no trace beyond its one
+confirmation line (and closed any stale margin-safeguard issue); a breach
+leaves exactly one open, current GitHub issue, a Telegram calendar invite, one
+"‼️ IMPORTANT ‼️" Telegram alert with a concrete /update-orders suggestion, and
+a session log - and no broker order was touched by this routine itself.
+```
+
+**Why daily, not weekly like the sync routines:** active orders can be placed or repriced between weekly syncs, and the worst case this command guards against (a gap-down filling several resting BUY orders at once) can materialize on any trading day - a check that only ran alongside Routine 2's Monday sync would leave 4 out of 5 trading days uncovered. **Why no auto-merge on a breach, unlike Routines 2/6:** a margin alert is a risk *finding*, not a mechanical data refresh - the PR here just carries the session log recording what was found and proposed; nothing about it is safe to rubber-stamp merge the way a positions/balances snapshot refresh is, so it stays open for the same manual-review reason Routines 1/3/4/5 do.
+
+---
+
 ## Coverage map — operating calendar → routine → residual manual step
 
 | Operating calendar item | Covered by | What's still manual |
@@ -498,6 +610,8 @@ alert, or an explicit logged reason it didn't.
 | Freedom Finance sync | Not automated (no API — screenshot-based) | Run `/sync-portfolio` manually with screenshots, per `sync-sop.md` |
 | Rebalance / trim review | Routine 5 (new monthly cadence — see decisions log) | Execute any approved trims via your broker |
 | Social-media stock-mention scan (not in the original operating calendar) | Routine 6 (hourly poll of 4 Telegram channels — see decisions log) | Executing any resulting trade via your broker; resolving a mention this command flagged as ambiguous |
+| Integration reliability check (not in the original operating calendar) | Routine 7 (daily — see decisions log) | Nothing to fix here directly — a failing check's GitHub issue points at the same manual fixes already documented per-integration (e.g. sync-sop.md's IBKR reconnect steps) |
+| Margin/order-stacking risk check (not in the original operating calendar) | Routine 8 (daily — see decisions log) | Executing the suggested `/update-orders` OCA regrouping manually in TWS/Client Portal — this framework never places, modifies, or cancels an order itself |
 
 ## What stays manual no matter what
 
@@ -508,4 +622,4 @@ alert, or an explicit logged reason it didn't.
 
 ## Review cadence for this automation
 
-Folded into the existing Q1 annual review (alongside `override-log.md`, `graveyard-audit.md`, `benchmark-comparison.md` — see Routine 3's January checklist): confirm the Interactive Brokers connector is still authorized, the FRED endpoint is still reachable, the Telegram bot token (set as an environment variable on the `investment-automation` cloud environment, not in the repo — see [decisions/2026-06-22-security-move-secrets-off-repo.md](../decisions/2026-06-22-security-move-secrets-off-repo.md)) still sends (a stale/revoked token fails the `curl` silently — no error surfaces anywhere else), and skim the last year of routine runs for false positives/negatives (e.g. Rule 9 issues that fired on noise, or earnings releases that were missed). For Routine 6 specifically: confirm all 4 monitored channels are still active/public (a renamed or deleted channel fails the `t.me/s/` fetch silently), and skim `portfolio/snapshots/telegram-watch.md`'s mention log for false positives (wrong ticker resolved from an ambiguous company name) or false negatives (a real event missed because the web preview only shows ~20 posts).
+**Basic reachability is now Routine 7's job, daily, not just the Q1 review's** — see [decisions/2026-07-04-automation-routine-healthcheck.md](../decisions/2026-07-04-automation-routine-healthcheck.md). The Q1 annual review (alongside `override-log.md`, `graveyard-audit.md`, `benchmark-comparison.md` — see Routine 3's January checklist) still covers what a daily up/down check can't: skim the last year of routine runs for false positives/negatives (e.g. Rule 9 issues that fired on noise, or earnings releases that were missed), confirm the Telegram bot token (set as an environment variable on the `investment-automation` cloud environment, not in the repo — see [decisions/2026-06-22-security-move-secrets-off-repo.md](../decisions/2026-06-22-security-move-secrets-off-repo.md)) hasn't just started passing `getMe` while actually failing to deliver into the right chat, and — for Routine 6 specifically — skim `portfolio/snapshots/telegram-watch.md`'s mention log for false positives (wrong ticker resolved from an ambiguous company name) or false negatives (a real event missed because the web preview only shows ~20 posts; Routine 7 confirms the channels are *reachable*, not that nothing was missed).
