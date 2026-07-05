@@ -137,6 +137,23 @@ These came up in the 2026-07-01 discussion of a possible speculation module bolt
 | **Time-stop** | A pre-set exit rule that closes a position after a fixed amount of time regardless of price action (e.g. "exit in 90 days if the catalyst hasn't played out"), distinct from a price-based stop-loss and typically paired with one in short-horizon trades. |
 | **Turnover (portfolio turnover)** | The percentage of a portfolio's holdings bought/sold over a given period (typically a year) — a proxy for trading frequency; higher turnover mechanically raises transaction costs and, in taxable accounts, short-term tax drag. |
 
+## Technical-analysis & speculation-strategy terms
+
+These support the strategy-selection layer in [speculation-strategies.md](speculation-strategies.md) — used only inside the speculation sleeve, never in core Phase 01/02 scoring.
+
+| Term | Meaning |
+|---|---|
+| **ADX (Average Directional Index)** | A 0–100 indicator (Wilder) measuring how strongly a stock is trending, regardless of direction — used in this framework to decide whether a momentum/breakout strategy or a mean-reversion strategy applies (ADX ≥25 = trending, <20 = range-bound). |
+| **ATR (Average True Range)** | A Wilder-smoothed average of a stock's daily trading range — a volatility measure in price terms, used in this framework to set a name-specific stop-loss distance rather than a generic percentage. |
+| **Bollinger Bands** | A band drawn a fixed number of standard deviations (typically 2) above and below a moving average (typically 20-day) — used in this framework to flag when a price move looks statistically stretched, as one input to a mean-reversion bounce thesis. |
+| **Donchian Channel** | The highest high and lowest low over a lookback window (typically 20 days) — the breakout trigger from the "Turtle Trading" system, used in this framework to time momentum entries and to set technically meaningful (not arbitrary) price targets. |
+| **Momentum factor** | The academically documented tendency (Jegadeesh & Titman, 1993) for stocks that have risen over the past 3–12 months to keep outperforming over the following months, and vice versa — the evidence basis for this framework's momentum/breakout speculation strategy. |
+| **Moving average (SMA / EMA)** | The average of a stock's closing price over a fixed number of past days — Simple (SMA, equal-weighted) or Exponential (EMA, more weight on recent days). Used in this framework to classify trend direction (e.g. price above/below its 50-day and 200-day averages). |
+| **PEAD (Post-Earnings Announcement Drift)** | An academically documented anomaly (Bernard & Thomas, 1989) where a stock continues drifting in the direction of an earnings surprise for weeks afterward, rather than instantly repricing — the evidence basis for this framework's post-earnings speculation strategy. |
+| **RSI (Relative Strength Index)** | A 0–100 momentum oscillator (Wilder) measuring the size of recent gains versus losses — readings ≤30 are conventionally read as "oversold" and ≥70 as "overbought," one input to this framework's mean-reversion bounce strategy. |
+| **RVOL (Relative Volume)** | Today's trading volume divided by its recent (typically 20-day) average — used in this framework to confirm whether a breakout has real participation behind it (high RVOL) or is likely to fail (low RVOL). |
+| **Support / resistance** | A price level where a stock has historically tended to stop falling (support) or stop rising (resistance), used in this framework (via the Donchian channel and 52-week high/low) to set technically meaningful entry, target, and stop levels instead of arbitrary round numbers. |
+
 ## Framework-specific terms
 
 These are this repository's own vocabulary — defined in [strategy.md](strategy.md) and [valuation-scoring.md](valuation-scoring.md), not standard Wall Street terms.
