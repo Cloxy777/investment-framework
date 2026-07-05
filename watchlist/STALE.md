@@ -17,8 +17,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 | Ticker | Location | Score | Scored (date) | Flagged stale |
 |--------|----------|-------|----------------|----------------|
-| NVO | in-portfolio | 47.6 | 2026-06-20 | 2026-06-29 |
-| SPGI | in-portfolio | 33.4 | 2026-06-20 | 2026-06-29 |
 | SPOT | in-portfolio | 80.5 | 2026-06-20 | 2026-06-29 |
 | TRN | in-portfolio | 10.0 | 2026-06-24 | 2026-06-29 |
 | UBER | in-portfolio | 34.8 | 2026-06-20 | 2026-06-29 |
