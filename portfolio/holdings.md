@@ -51,7 +51,7 @@ Combined total ≈ **$54,891.48** = IBKR Net Liquidation Value $39,767.94 + Free
 | V | 0.61% | 44.5 | 85.9 | 29.3 | 05 Jul 2026 | IBKR |
 | VEEV | 0.94% | 45.1 | 85.7 | 29.7 | 01 Jul 2026 | IBKR |
 | XEON | 3.10% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
-| ZS | 0.24% | 36.3 | ? | ? | 20 Jun 2026 | IBKR |
+| ZS | 0.24% | 43.1 | 59.4 | 41.9 | 05 Jul 2026 | IBKR |
 
 **XEON is EUR-denominated** (€1,494.81 market value). Its USD-equivalent (**$1,701.88**, used for the weight above) comes from the *live* EUR→USD rate (1.138523) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
 
