@@ -17,8 +17,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 | Ticker | Location | Score | Scored (date) | Flagged stale |
 |--------|----------|-------|----------------|----------------|
-| SPOT | in-portfolio | 80.5 | 2026-06-20 | 2026-06-29 |
-| TRN | in-portfolio | 10.0 | 2026-06-24 | 2026-06-29 |
 | UBER | in-portfolio | 34.8 | 2026-06-20 | 2026-06-29 |
 | V | in-portfolio | 39.2 | 2026-06-20 | 2026-06-29 |
 | ZS | in-portfolio | 36.3 (EV/EBIT placeholder; held as override — Phase 01 GAAP quality gate fails, see override-log.md) | 2026-06-20 | 2026-06-29 |
