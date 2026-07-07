@@ -18,3 +18,5 @@ Steps:
 6. Show full reasoning per position — no black-box recommendations.
 
 Save as `sessions/YYYY-MM-DD-rebalance.md`. Log any executed trims/exits in `decisions/`.
+
+**Commit, open a PR, and merge it — every run.** Once the session log (and any `decisions/` entry for an executed trim/exit) is written, `git add` those files, commit, push the branch, open a PR (`gh pr create`), then merge it immediately (`gh pr merge --squash`) — no waiting for manual user confirmation. **Note:** `gh pr merge --auto` fails in this repo (`main` has no branch protection rules configured, which `--auto` requires) — use a direct `--squash` merge instead, not `--auto`. Before merging, `git fetch origin main` and merge it into the branch first if `main` has moved since the branch was created, resolving any conflicts (the recurring one is `framework/glossary.md`). Don't leave a `/rebalance` run sitting as a local-only commit or an unmerged PR.
