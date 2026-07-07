@@ -352,7 +352,7 @@ calendar invite was sent; one Telegram run-summary message was sent either way.
 
 | | |
 |---|---|
-| **Cadence** | First Monday of each month, after Routine 2's sync — e.g. 12:30 UTC |
+| **Cadence** | Cron `30 12 1-7 * *` (day-of-month 1-7 only, weekday field left `*`), after Routine 2's sync — e.g. 12:30 UTC. **Do not set the weekday field to `1`** — cron OR's day-of-month and day-of-week when both are restricted, so `1-7 * 1` fires every day 1-7 *plus* every Monday elsewhere in the month. Step 0 below is what actually narrows this to the first Monday. |
 | **Repo** | `cloxy777/investment-framework`, default branch |
 | **Environment** | `investment-automation` |
 | **Branch permission** | Default (`claude/` branch + PR) |
@@ -361,8 +361,16 @@ calendar invite was sent; one Telegram run-summary message was sent either way.
 
 ```
 You are running the Monthly Rebalance / Trim Review for
-cloxy777/investment-framework. Runs the first Monday of each month, after
-that day's Weekly Sync routine has refreshed holdings.md.
+cloxy777/investment-framework. The schedule fires daily 1st-7th of the month
+so it can find the first Monday without cron's OR-semantics bug (see Cadence
+above) - this prompt must self-gate to that one day.
+
+0. Compute today's weekday. If today is NOT Monday, stop immediately - no
+   commit, no PR, no issue, no Telegram message. (This is what makes "day
+   1-7 every day" collapse to "first Monday of the month" in practice.)
+   Also check GitHub issues for one titled "Monthly Rebalance - YYYY-MM"
+   already existing for this month (in case of a re-run) - if found, stop
+   too.
 
 1. Run /rebalance per .claude/commands/rebalance.md: pull current
    holdings/weights from portfolio/holdings.md, flag any holding whose Last
