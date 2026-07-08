@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11308 (~19:36:18 UTC, 2026-07-07) | 2026-07-08 00:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2897 (~18:47:16 UTC, 2026-07-07) | 2026-07-08 00:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2524 (~14:53:37 UTC, 2026-07-07) | 2026-07-08 00:04 UTC |
-| https://t.me/bolshegold | bolshegold/9698 (~20:18:28 UTC, 2026-07-07) | 2026-07-08 00:04 UTC |
+| https://t.me/tarasguk | tarasguk/11312 (~06:32 UTC, 2026-07-08) | 2026-07-08 08:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2898 (~07:14 UTC, 2026-07-08) | 2026-07-08 08:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2524 (~14:53:37 UTC, 2026-07-07) | 2026-07-08 08:04 UTC |
+| https://t.me/bolshegold | bolshegold/9698 (~20:18:28 UTC, 2026-07-07) | 2026-07-08 08:04 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-08 | https://t.me/tarasguk | — | no action — no company mentioned | New top post tarasguk/11312 (~06:32 UTC, 2026-07-08), advancing marker from tarasguk/11308 (~19:36:18 UTC, 2026-07-07) — a gap of 4 post IDs and ~11 hours, so more than one post likely landed in between; only the latest was evaluated per the delta-check rule. Content: Kyiv quality-of-life city ranking (166th of 173, vs. Copenhagen/Vienna/Melbourne at the top) — generic lifestyle/country commentary, no publicly-traded company or ticker named. |
+| 2026-07-08 | https://t.me/FinnInvestChannel | IBM | no action — not materially new | New top post FinnInvestChannel/2898 (~07:14 UTC, 2026-07-08), advancing marker from FinnInvestChannel/2897 (~18:47:16 UTC, 2026-07-07). Post: "IBM unveiled the world's first 0.7 nanometer chip technology... up to 50% greater performance or up to 70% better energy efficiency vs. 2nm chips" — the same nanostack 0.7nm chip prototype story that was already the trigger for the 2026-06-25 `/new-position IBM` session (Phase 01 FAIL; see [IBM-2026-06-25.md](../../watchlist/not-in-portfolio/IBM/IBM-2026-06-25.md)), which explicitly named "a materially-accelerated nanostack-chip commercialization timeline (vs. IBM's own stated ~5 years)" as the specific re-review trigger. This post makes no claim of an accelerated timeline and adds no fundamental information beyond what that entry already reflects, so logged per its "Next review trigger" note as last-checked/no-change rather than re-run. |
+| 2026-07-08 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2524 (~14:53:37 UTC, 2026-07-07) — reconfirmed via web fetch this run; no new post since the 2026-07-08 00:04 UTC check. |
+| 2026-07-08 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9698 (~20:18:28 UTC, 2026-07-07) — reconfirmed via web fetch this run; no new post since the 2026-07-08 00:04 UTC check. |
 | 2026-07-08 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11308 (~19:36:18 UTC, 2026-07-07) — reconfirmed via web fetch this run; no new post since the 2026-07-07 23:47 UTC check. |
 | 2026-07-08 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2897 (~18:47:16 UTC, 2026-07-07) — reconfirmed via web fetch this run; no new post since the 2026-07-07 23:47 UTC check. |
 | 2026-07-08 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2524 (~14:53:37 UTC, 2026-07-07) — reconfirmed via web fetch this run; no new post since the 2026-07-07 23:47 UTC check. |
