@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11326 (~19:22 UTC, 2026-07-08) | 2026-07-09 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2905 (~19:08 UTC, 2026-07-08) | 2026-07-09 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2533 (~14:07 UTC, 2026-07-08) | 2026-07-09 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/9704 (~20:36 UTC, 2026-07-08) | 2026-07-09 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11329 (~06:48 UTC, 2026-07-09) | 2026-07-09 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2906 (~05:43 UTC, 2026-07-09) | 2026-07-09 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2533 (~14:07 UTC, 2026-07-08) | 2026-07-09 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/9704 (~20:36 UTC, 2026-07-08) | 2026-07-09 08:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-09 | https://t.me/tarasguk | — | no action — generic macro/sector commentary | New top post tarasguk/11329 (~06:48 UTC, 2026-07-09), advancing marker from tarasguk/11326 (~19:22 UTC, 2026-07-08) — a ~11h26m gap, above the ~1hr threshold in command step 2, flagging explicitly; sequential post numbers (11326→11329, delta 3) with #11327 (~05:33 UTC, 2026-07-09) rendering in this run's preview — "SK Hynix IPO applications on the exchange run 7x oversubscribed; Koreans aim to raise $28B in Friday's US listing" — names SK Hynix, but not materially new beyond the existing HY9H/SKHY coverage already logged on 2026-07-08 (SKHY: "not materially new" vs. HY9H's 2026-06-20 entry and MU's 2026-07-08 next-review-trigger note anticipating the same Nasdaq ADR listing), superseded, would not have changed action regardless; #11328 not rendering in this run's preview (absent/deleted). New top post (#11329, ~06:48 UTC): "📈📉 K-shaped — money from hyperscalers is flowing to chip makers" (plus Вишкіл/Закритий клуб/YouTube channel-promo links) — generic macro/sector commentary about capital flows across an entire sector, no specific, identifiable publicly-traded company or ticker named, so no action per step 3. |
+| 2026-07-09 | https://t.me/FinnInvestChannel | — | no action — Anthropic and OpenAI are private, no resolvable ticker | New top post FinnInvestChannel/2906 (~05:43 UTC, 2026-07-09), advancing marker from FinnInvestChannel/2905 (~19:08 UTC, 2026-07-08) — a ~10h35m gap, above the ~1hr threshold in command step 2, flagging explicitly; sequential post numbers (2905→2906, delta 1), no missed-post ambiguity. New top post (#2906, ~05:43 UTC): "Anthropic тепер обігнала OpenAI за рівнем платного використання AI серед бізнес-клієнтів" (Anthropic has now overtaken OpenAI in paid AI usage among business clients) — names Anthropic and OpenAI explicitly, but both are private companies with no publicly-traded ticker — no ticker to resolve to per Rule 0, so no action per command step 3. |
+| 2026-07-09 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2533 (~14:07 UTC, 2026-07-08) — reconfirmed via raw-HTML fetch this run; no new post since the 2026-07-09 00:05 UTC check. |
+| 2026-07-09 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9704 (~20:36 UTC, 2026-07-08) — reconfirmed via raw-HTML fetch this run; no new post since the 2026-07-09 00:05 UTC check. |
 | 2026-07-09 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11326 (~19:22 UTC, 2026-07-08) — reconfirmed via raw-HTML fetch this run; no new post since the 2026-07-08 20:04 UTC check. |
 | 2026-07-09 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2905 (~19:08 UTC, 2026-07-08) — reconfirmed via raw-HTML fetch this run; no new post since the 2026-07-08 20:04 UTC check. |
 | 2026-07-09 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2533 (~14:07 UTC, 2026-07-08) — reconfirmed via raw-HTML fetch this run; no new post since the 2026-07-08 20:04 UTC check. |
