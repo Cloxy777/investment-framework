@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11350 (~15:03 UTC, 2026-07-11) | 2026-07-11 16:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2917 (~14:54 UTC, 2026-07-11, edited) | 2026-07-11 16:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2549 (~17:17 UTC, 2026-07-10) | 2026-07-11 16:04 UTC |
-| https://t.me/bolshegold | bolshegold/9724 (~08:55 UTC, 2026-07-11, edited) | 2026-07-11 16:04 UTC |
+| https://t.me/tarasguk | tarasguk/11351 (~18:52 UTC, 2026-07-11) | 2026-07-11 20:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2917 (~14:54 UTC, 2026-07-11, edited) | 2026-07-11 20:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2549 (~17:17 UTC, 2026-07-10) | 2026-07-11 20:04 UTC |
+| https://t.me/bolshegold | bolshegold/9724 (~08:55 UTC, 2026-07-11, edited) | 2026-07-11 20:04 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-11 | https://t.me/tarasguk | — | no action — no company named | New top post tarasguk/11351 (~18:52 UTC, 2026-07-11), advancing marker from tarasguk/11350 (~15:03 UTC, 2026-07-11) — a ~3h49m gap, above the ~1hr threshold, flagging explicitly; sequential post numbers (11350→11351, delta 1), no missed-post ambiguity. New top post (#11351, ~18:52 UTC): an anecdote comparing Erling Haaland's chances against Messi in a tournament semifinal, plus a note about a Google Easter egg honoring Haaland — general sports commentary, no specific, identifiable publicly-traded company or ticker named, so no action per step 3. |
+| 2026-07-11 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2917 (~14:54 UTC, 2026-07-11, edited) — reconfirmed via web fetch this run; no new post since the 2026-07-11 16:04 UTC check. |
+| 2026-07-11 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2549 (~17:17 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-11 16:04 UTC check. |
+| 2026-07-11 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9724 (~08:55 UTC, 2026-07-11, edited) — reconfirmed via web fetch this run; no new post since the 2026-07-11 16:04 UTC check. |
 | 2026-07-11 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9724 (~08:55 UTC, 2026-07-11, edited) — reconfirmed via web fetch this run; no new post since the 2026-07-11 12:04 UTC check. |
 | 2026-07-11 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2549 (~17:17 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-11 12:04 UTC check. |
 | 2026-07-11 | https://t.me/FinnInvestChannel | SOFI | no action — personal-purchase anecdote, not materially new vs. existing not-in-portfolio entry | New top post FinnInvestChannel/2917 (~14:54 UTC, 2026-07-11, edited), advancing marker from FinnInvestChannel/2916 (~10:24 UTC, 2026-07-11) — a ~4h30m gap, above the ~1hr threshold, flagging explicitly; sequential post numbers (2916→2917, delta 1), no missed-post ambiguity. New top post (#2917, ~14:54 UTC, edited): the author disclosed adding SoFi (SOFI) stock at $15/share to a personal mini-portfolio accumulating funds for a house down payment (€50/week), noting Friday was a difficult day to buy and suggesting this is a time to accumulate cash — explicitly disclaimed as not investment advice. SOFI is not a current holding (checked portfolio/holdings.md) and has a prior not-in-portfolio entry ([SOFI-2026-06-21.md](../../watchlist/not-in-portfolio/SOFI/SOFI-2026-06-21.md), Phase 01 FAIL on 5 of 8 criteria — net margin, ROE, FCF-positive-3yr, FCF/NI conversion, dilutive issuance — Phase 02 score of 96.5 computed for documentation only and flagged as likely distorted; last checked 2026-06-21). Checked against that entry's own documented "Next review trigger" list (Muddy Waters allegation resolution; a 3rd consecutive GAAP-profitable fiscal year; a depository-institution framework carve-out; a credit-quality deterioration signal) — a personal purchase-price anecdote at a self-disclosed non-advice price point matches none of these and carries no claimed Rule 9 event. Post text never used as a financial input per Rule 0. No action per command step 4's fourth bullet; logged as a mention only. |
