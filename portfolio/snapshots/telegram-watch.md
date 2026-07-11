@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11346 (~18:44 UTC, 2026-07-10) | 2026-07-11 00:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2915 (~18:07 UTC, 2026-07-10) | 2026-07-11 00:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2549 (~17:17 UTC, 2026-07-10) | 2026-07-11 00:04 UTC |
-| https://t.me/bolshegold | bolshegold/9719 (~17:13 UTC, 2026-07-10) | 2026-07-11 00:04 UTC |
+| https://t.me/tarasguk | tarasguk/11347 (~06:15 UTC, 2026-07-11) | 2026-07-11 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2915 (~18:07 UTC, 2026-07-10) | 2026-07-11 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2549 (~17:17 UTC, 2026-07-10) | 2026-07-11 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/9719 (~17:13 UTC, 2026-07-10) | 2026-07-11 08:05 UTC |
 
 ## Mention log
 
@@ -17,7 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
-| 2026-07-11 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11346 (~18:44 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-10 18:55 UTC check. |
+| 2026-07-11 | https://t.me/tarasguk | AAPL | no action — litigation news, not an enumerated Rule 9 category or an AAPL-specific trigger | New top post tarasguk/11347 (~06:15 UTC, 2026-07-11), advancing marker from tarasguk/11346 (~18:44 UTC, 2026-07-10) — an ~11h31m gap, above the ~1hr threshold, flagging explicitly; sequential post numbers (11346→11347, delta 1), no missed-post ambiguity. New top post (#11347, ~06:15 UTC): reports Apple filed a lawsuit against OpenAI alleging IP misappropriation "at all levels — from technical staff to the chief hardware officer," including claims OpenAI's hardware chief (a former Apple VP) asked interview candidates to bring in actual Apple components, that OpenAI trained departing staff to bypass security procedures, that one ex-employee removed an Apple laptop, and that OpenAI asked manufacturing partners to use Apple's metal-finishing process while implying authorization; Apple seeks damages, injunctions, and a court order to stop use of its trade secrets. Also notes this reverses the 2024 ChatGPT-iPhone integration deal (relations soured after OpenAI acquired Jony Ive's hardware startup for $6.4B) and that Apple's revamped Siri, launching this fall, will run on Google Gemini rather than ChatGPT. Names Apple (AAPL) explicitly — OpenAI is private, no resolvable ticker. AAPL is not a current holding (checked portfolio/holdings.md) and has a prior not-in-portfolio entry ([AAPL-2026-07-06.md](../../watchlist/not-in-portfolio/AAPL/AAPL-2026-07-06.md), Quality Score 76.2, fails the 80.0+ gate by 3.8 points, driven by the Growth sub-score; last checked 2026-07-06, 5 days ago). Checked against that entry's own documented "Next review trigger" (fiscal Q3 2026 10-Q ~early Aug 2026; independent confirmation/denial of the AVGO chip-supply-extension claim; a guidance revision; management change/M&A; a >15% unexplained price move) and operating-calendar.md's Rule 9 categories (earnings/guidance revision/M&A/management change/macro shift/>15% unexplained move) — a third-party IP lawsuit against OpenAI matches none of these, and has no bearing on the Growth sub-score that is the entry's actual gap to the gate. Post text never used as a financial input per Rule 0. No action per command step 4's fourth bullet; logged as a mention only. |
+| 2026-07-11 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2915 (~18:07 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-11 00:04 UTC check. |
+| 2026-07-11 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2549 (~17:17 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-11 00:04 UTC check. |
+| 2026-07-11 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9719 (~17:13 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-11 00:04 UTC check. |
 | 2026-07-11 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2915 (~18:07 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-10 18:55 UTC check. |
 | 2026-07-11 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2549 (~17:17 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-10 18:55 UTC check. |
 | 2026-07-11 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9719 (~17:13 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-10 18:55 UTC check. |
