@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11351 (~18:52 UTC, 2026-07-11) | 2026-07-11 20:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2917 (~14:54 UTC, 2026-07-11, edited) | 2026-07-11 20:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2549 (~17:17 UTC, 2026-07-10) | 2026-07-11 20:04 UTC |
-| https://t.me/bolshegold | bolshegold/9724 (~08:55 UTC, 2026-07-11, edited) | 2026-07-11 20:04 UTC |
+| https://t.me/tarasguk | tarasguk/11351 (~18:52 UTC, 2026-07-11) | 2026-07-12 00:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2917 (~14:54 UTC, 2026-07-11, edited) | 2026-07-12 00:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2549 (~17:17 UTC, 2026-07-10) | 2026-07-12 00:04 UTC |
+| https://t.me/bolshegold | bolshegold/9724 (~08:55 UTC, 2026-07-11, edited) | 2026-07-12 00:04 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-12 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11351 (~18:52 UTC, 2026-07-11) — reconfirmed via web fetch this run; no new post since the 2026-07-11 20:04 UTC check. |
+| 2026-07-12 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2917 (~14:54 UTC, 2026-07-11, edited) — reconfirmed via web fetch this run; no new post since the 2026-07-11 20:04 UTC check. |
+| 2026-07-12 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2549 (~17:17 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-11 20:04 UTC check. |
+| 2026-07-12 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9724 (~08:55 UTC, 2026-07-11, edited) — reconfirmed via web fetch this run; no new post since the 2026-07-11 20:04 UTC check. |
 | 2026-07-11 | https://t.me/tarasguk | — | no action — no company named | New top post tarasguk/11351 (~18:52 UTC, 2026-07-11), advancing marker from tarasguk/11350 (~15:03 UTC, 2026-07-11) — a ~3h49m gap, above the ~1hr threshold, flagging explicitly; sequential post numbers (11350→11351, delta 1), no missed-post ambiguity. New top post (#11351, ~18:52 UTC): an anecdote comparing Erling Haaland's chances against Messi in a tournament semifinal, plus a note about a Google Easter egg honoring Haaland — general sports commentary, no specific, identifiable publicly-traded company or ticker named, so no action per step 3. |
 | 2026-07-11 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2917 (~14:54 UTC, 2026-07-11, edited) — reconfirmed via web fetch this run; no new post since the 2026-07-11 16:04 UTC check. |
 | 2026-07-11 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2549 (~17:17 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-11 16:04 UTC check. |
