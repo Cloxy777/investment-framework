@@ -17,7 +17,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 | Ticker | Location | Score | Scored (date) | Flagged stale |
 |--------|----------|-------|----------------|----------------|
-| MA | not-in-portfolio | 38.0 | 2026-06-22 | 2026-06-29 |
 | SGE | not-in-portfolio | 21.1 | 2026-06-19 | 2026-06-29 |
 
 *Not listed (no real Phase 02 score for this addition to invalidate): every not-in-portfolio entry that is Phase 01 FAIL / not scored (CBRS, CCL, CHTR, CIEN, CRM, CVX, DASH, FDX, FICO, FUBO, GTLB, HIMS, IBM, LULU, MCD, MELI, MU, NOK, ORCL, PLTR, PYPL, TTD, TTWO, WSE) and the in-portfolio rows that are cash/non-equity/override/quality-gate-fail (RBRK, STIM, TLT, XEON). BULL, HY9H, SOFI, and SSU also excluded — each is Phase 01 FAIL with a Phase 02 number computed only for the record, never a binding score. (CBRS, CHTR, FUBO, and LULU additionally now carry a Quality Score under the engine added this same date — see each ticker's session file — but that score still fails the 80.0+ gate, so no Phase 02/Composite Score exists to go stale either way.)*
