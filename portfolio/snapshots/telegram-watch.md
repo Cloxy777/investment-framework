@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11362 (~16:35 UTC, 2026-07-12) | 2026-07-12 21:10 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2918 (~08:21 UTC, 2026-07-12) | 2026-07-12 21:10 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2549 (~17:17 UTC, 2026-07-10) | 2026-07-12 21:10 UTC |
-| https://t.me/bolshegold | bolshegold/9741 (~20:04 UTC, 2026-07-12, edited) | 2026-07-12 21:10 UTC |
+| https://t.me/tarasguk | tarasguk/11362 (~16:35 UTC, 2026-07-12) | 2026-07-13 00:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2918 (~08:21 UTC, 2026-07-12) | 2026-07-13 00:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2549 (~17:17 UTC, 2026-07-10) | 2026-07-13 00:05 UTC |
+| https://t.me/bolshegold | bolshegold/9741 (~20:04 UTC, 2026-07-12, edited) | 2026-07-13 00:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-13 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11362 (~16:35 UTC, 2026-07-12) — reconfirmed via web fetch this run; no new post since the 2026-07-12 21:10 UTC check. |
+| 2026-07-13 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2918 (~08:21 UTC, 2026-07-12) — reconfirmed via web fetch this run; no new post since the 2026-07-12 21:10 UTC check. |
+| 2026-07-13 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2549 (~17:17 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-12 21:10 UTC check. |
+| 2026-07-13 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9741 (~20:04 UTC, 2026-07-12, edited) — reconfirmed via web fetch this run; no new post since the 2026-07-12 21:10 UTC check. |
 | 2026-07-12 | https://t.me/bolshegold | — | no action — "WayForPay" is not a resolvable public ticker | New top post bolshegold/9741 (~20:04 UTC, 2026-07-12, edited), advancing marker from bolshegold/9730 (~09:43 UTC, 2026-07-12) — a ~10h21m gap and a delta-11 post-number jump (9730→9741, 10 intervening posts not individually examined this run — top-post-only scope — flagging explicitly that multiple posts likely landed in this window). **Reconciliation note:** one of those intervening posts, #9735 (~previewing Q2 2026 bank earnings), was already independently actioned as ticker C (Citigroup) — see [sessions/2026-07-12-new-position-c.md](../../sessions/2026-07-12-new-position-c.md), merged [PR #254](https://github.com/Cloxy777/investment-framework/pull/254) — by a scan pass that ran between this file's prior 12:04 UTC marker update and this run, but that pass's commit did not carry a corresponding telegram-watch.md marker/mention-log update, leaving the marker table looking 11 posts stale even though the mention itself was not silently skipped. Logged here for the audit trail; no re-action taken on #9735, only on the current top post. New top post (#9741, ~20:04 UTC, edited): "Ну, до речі, дякую WayForPay. Більше не спонсорую цього Leeroy Jenkins і його вагони раків" (Well, by the way, thanks to WayForPay. I'm not sponsoring this Leeroy Jenkins and his wagons of crabs anymore) — names "WayForPay," a Ukrainian-licensed online payment processor (confirmed private via WebSearch — UK Companies House filing "WAYFORPAY LIMITED," no stock ticker or public listing found), the same class of unresolvable payment-processor mention as the 2026-07-09 "ZenPay" precedent — per Rule 0 and command step 3, never guess a ticker; skipped and logged. |
 | 2026-07-12 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2549 (~17:17 UTC, 2026-07-10) — reconfirmed via web fetch this run; no new post since the 2026-07-12 12:04 UTC check. |
 | 2026-07-12 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2918 (~08:21 UTC, 2026-07-12) — reconfirmed via web fetch this run; no new post since the 2026-07-12 12:04 UTC check. |
