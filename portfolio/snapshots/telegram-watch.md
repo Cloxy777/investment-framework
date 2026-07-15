@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11385 (~18:28 UTC, 2026-07-14, edited) | 2026-07-14 20:33 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2933 (~19:41 UTC, 2026-07-14) | 2026-07-14 20:33 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2567 (~16:22 UTC, 2026-07-14) | 2026-07-14 20:33 UTC |
-| https://t.me/bolshegold | bolshegold/9762 (~20:00 UTC, 2026-07-14) | 2026-07-14 20:33 UTC |
+| https://t.me/tarasguk | tarasguk/11385 (~18:28 UTC, 2026-07-14, edited) | 2026-07-15 00:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2933 (~19:41 UTC, 2026-07-14, edited) | 2026-07-15 00:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2567 (~16:22 UTC, 2026-07-14) | 2026-07-15 00:05 UTC |
+| https://t.me/bolshegold | bolshegold/9762 (~20:00 UTC, 2026-07-14) | 2026-07-15 00:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-15 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9762 (~20:00 UTC, 2026-07-14) — reconfirmed via web fetch this run; no new post since the 2026-07-14 20:33 UTC check. |
+| 2026-07-15 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2567 (~16:22 UTC, 2026-07-14) — reconfirmed via web fetch this run; no new post since the 2026-07-14 20:33 UTC check. |
+| 2026-07-15 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2933 (~19:41 UTC, 2026-07-14) — reconfirmed via web fetch this run; the post now displays an "edited" tag not previously recorded (no textual change found — still "Сьогодні виграє … Іспанія - 🔥 Франція - ❤️", reactions merely accrued further engagement), not treated as a new post since the underlying post number/content is unchanged; no new post since the 2026-07-14 20:33 UTC check. |
+| 2026-07-15 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11385 (~18:28 UTC, 2026-07-14, edited) — reconfirmed via web fetch this run; no new post since the 2026-07-14 20:33 UTC check. |
 | 2026-07-14 | https://t.me/bolshegold | — | no action — forwarded joke, no company named | New top post bolshegold/9762 (~20:00 UTC, 2026-07-14), advancing marker from bolshegold/9755 (~14:25 UTC, 2026-07-14) — a ~5h35m gap, above the ~1hr threshold, flagging explicitly; non-sequential post numbers (9755→9762, delta 7) with #9756-9761 not individually examined this run (top-post-only scope). New top post (#9762, ~20:00 UTC): forwarded from "Not Arthur" — "Когда интернета не было, только близкие знали что ты аналитик" (when there was no internet, only close friends knew you were an analyst) — a humorous meme, no specific, identifiable publicly-traded company or ticker named, so no action per step 3. |
 | 2026-07-14 | https://t.me/myroslavkorol | — | no action — bare emoji, no company named | New top post myroslavkorol/2567 (~16:22 UTC, 2026-07-14), advancing marker from myroslavkorol/2566 (~15:14 UTC, 2026-07-14) — a ~1h08m gap, marginally above the ~1hr threshold, flagging explicitly; sequential post numbers (2566→2567, delta 1), no missed-post ambiguity. New top post (#2567, ~16:22 UTC): a single 🚀 rocket emoji, no text — no specific, identifiable publicly-traded company or ticker named, so no action per step 3 (reaction counts alone do not identify a company; never guessed). |
 | 2026-07-14 | https://t.me/FinnInvestChannel | — | no action — sports commentary, no company named | New top post FinnInvestChannel/2933 (~19:41 UTC, 2026-07-14), advancing marker from FinnInvestChannel/2928 (~14:51 UTC, 2026-07-14) — a ~4h50m gap, above the ~1hr threshold, flagging explicitly; non-sequential post numbers (2928→2933, delta 5) with #2929-2932 not individually examined this run (top-post-only scope). New top post (#2933, ~19:41 UTC): "Сьогодні виграє … Іспанія - 🔥 Франція - ❤️" (today's winners... Spain / France) — football/Euro commentary, no specific, identifiable publicly-traded company or ticker named, so no action per step 3. |
