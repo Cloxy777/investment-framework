@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11421 (~17:25 UTC, 2026-07-17) | 2026-07-18 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2953 (~19:17 UTC, 2026-07-17) | 2026-07-18 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2581 (~10:22 UTC, 2026-07-17) | 2026-07-18 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/9791 (~19:22 UTC, 2026-07-17) | 2026-07-18 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11424 (~08:02 UTC, 2026-07-18) | 2026-07-18 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2953 (~19:17 UTC, 2026-07-17) | 2026-07-18 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2581 (~10:22 UTC, 2026-07-17) | 2026-07-18 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/9791 (~19:22 UTC, 2026-07-17) | 2026-07-18 08:05 UTC |
 
 ## Mention log
 
@@ -17,7 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
-| 2026-07-18 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9791 (~19:22 UTC, 2026-07-17) — reconfirmed via raw HTML `data-post` fetch this run; no new post since the 2026-07-17 20:04 UTC check. |
+| 2026-07-18 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9791 (~19:22 UTC, 2026-07-17) — reconfirmed via web fetch this run (2026-07-18 08:05 UTC check); no new post since the prior check. |
+| 2026-07-18 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2581 (~10:22 UTC, 2026-07-17) — reconfirmed via web fetch this run (2026-07-18 08:05 UTC check); no new post since the prior check. |
+| 2026-07-18 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2953 (~19:17 UTC, 2026-07-17) — reconfirmed via web fetch this run (2026-07-18 08:05 UTC check); no new post since the prior check. |
+| 2026-07-18 | https://t.me/tarasguk | — | no action — no specific company named | New top post tarasguk/11424 (~08:02 UTC, 2026-07-18), advancing marker from tarasguk/11421 (~17:25 UTC, 2026-07-17) — a ~14h37m gap, well above the ~1hr threshold, flagging explicitly; non-sequential post numbers (11421→11424, delta 3) with #11422 (ASML employee bonus note) and #11423 ("Reports continue $GOOG $NOW $TSLA") not individually examined this run (top-post-only scope — noted for visibility since #11423 does name tickers, but per the command's delta-check design only the current top post is evaluated each run). New top post (UK): "📰 Акції компанії, які видавали пресу почали падати за 5 років до того, як впали їх прибутки... ШІ та ріст його адаптації із одночасним падінням ціни зараз є аналогічною загрозою для частини SaaS компаній" (Newspaper-company stocks fell ~5 years before their profits did, as investors priced in internet/social-media disruption; the post draws a parallel to AI adoption + falling AI costs now threatening "part of the SaaS companies") — never used as financial data per Rule 0. Thematic/sector-level commentary only ("SaaS companies" as a category) — no specific, identifiable publicly-traded company or ticker named, so per step 3's "never guess a ticker" instruction, no action. Mention logged only. |
 | 2026-07-18 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2581 (~10:22 UTC, 2026-07-17) — reconfirmed via raw HTML `data-post` fetch this run; no new post since the 2026-07-17 20:04 UTC check. |
 | 2026-07-18 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2953 (~19:17 UTC, 2026-07-17) — reconfirmed via raw HTML `data-post` fetch this run; no new post since the 2026-07-17 20:04 UTC check. |
 | 2026-07-18 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11421 (~17:25 UTC, 2026-07-17) — reconfirmed via raw HTML `data-post` fetch this run; no new post since the 2026-07-17 20:04 UTC check. |
