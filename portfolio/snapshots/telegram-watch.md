@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11428 (~17:10 UTC, 2026-07-18) | 2026-07-19 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2955 (~17:35 UTC, 2026-07-18) | 2026-07-19 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2581 (~10:22 UTC, 2026-07-17) | 2026-07-19 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/9794 (~16:46 UTC, 2026-07-18) | 2026-07-19 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11430 (~07:55 UTC, 2026-07-19) | 2026-07-19 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2955 (~17:35 UTC, 2026-07-18) | 2026-07-19 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2581 (~10:22 UTC, 2026-07-17) | 2026-07-19 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/9794 (~16:46 UTC, 2026-07-18) | 2026-07-19 08:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-19 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9794 (~16:46 UTC, 2026-07-18, Monday-livestream invite, no ticker) — reconfirmed via web fetch this run (2026-07-19 08:05 UTC check); no new post since the prior check. |
+| 2026-07-19 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2581 (~10:22 UTC, 2026-07-17, "Да уж.. ITшечка в моменті 😬" — sector-level, no ticker) — reconfirmed via web fetch this run (2026-07-19 08:05 UTC check); no new post since the prior check. |
+| 2026-07-19 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2955 (~17:35 UTC, 2026-07-18, China-vs-US AI model commentary, no ticker) — reconfirmed via web fetch this run (2026-07-19 08:05 UTC check); no new post since the prior check. |
+| 2026-07-19 | https://t.me/tarasguk | — | no action — no company mentioned | Top post advanced tarasguk/11428 → 11430 (~07:55 UTC, 2026-07-19) — a ~14h45m gap vs. the prior marker (17:10 UTC, 2026-07-18), well above the ~1hr threshold, flagging explicitly; non-sequential post numbers (11428→11430, delta 2) with #11429 not individually examined this run (top-post-only scope). New top post: a humorous meme comparing the layered complexity of Christopher Nolan films to an "overly Lviv" joke, with links to unrelated educational-content/club promos — no specific, identifiable publicly-traded company or ticker named, so no action per step 3. |
 | 2026-07-19 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9794 (~16:46 UTC, 2026-07-18, Monday-livestream invite, no ticker) — reconfirmed via web fetch this run (2026-07-19 00:05 UTC check); no new post since the prior check. |
 | 2026-07-19 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2581 (~10:22 UTC, 2026-07-17, "Да уж.. ITшечка в моменті 😬" — sector-level, no ticker) — reconfirmed via web fetch this run (2026-07-19 00:05 UTC check); no new post since the prior check. |
 | 2026-07-19 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2955 (~17:35 UTC, 2026-07-18, China-vs-US AI model commentary, no ticker) — reconfirmed via web fetch this run (2026-07-19 00:05 UTC check); no new post since the prior check. |
