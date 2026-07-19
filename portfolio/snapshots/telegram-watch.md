@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11428 (~17:10 UTC, 2026-07-18) | 2026-07-18 20:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2955 (~17:35 UTC, 2026-07-18) | 2026-07-18 20:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2581 (~10:22 UTC, 2026-07-17) | 2026-07-18 20:04 UTC |
-| https://t.me/bolshegold | bolshegold/9794 (~16:46 UTC, 2026-07-18) | 2026-07-18 20:04 UTC |
+| https://t.me/tarasguk | tarasguk/11428 (~17:10 UTC, 2026-07-18) | 2026-07-19 00:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2955 (~17:35 UTC, 2026-07-18) | 2026-07-19 00:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2581 (~10:22 UTC, 2026-07-17) | 2026-07-19 00:05 UTC |
+| https://t.me/bolshegold | bolshegold/9794 (~16:46 UTC, 2026-07-18) | 2026-07-19 00:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-19 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9794 (~16:46 UTC, 2026-07-18, Monday-livestream invite, no ticker) — reconfirmed via web fetch this run (2026-07-19 00:05 UTC check); no new post since the prior check. |
+| 2026-07-19 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2581 (~10:22 UTC, 2026-07-17, "Да уж.. ITшечка в моменті 😬" — sector-level, no ticker) — reconfirmed via web fetch this run (2026-07-19 00:05 UTC check); no new post since the prior check. |
+| 2026-07-19 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2955 (~17:35 UTC, 2026-07-18, China-vs-US AI model commentary, no ticker) — reconfirmed via web fetch this run (2026-07-19 00:05 UTC check); no new post since the prior check. |
+| 2026-07-19 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11428 (~17:10 UTC, 2026-07-18, SpaceX market-cap/Musk-wealth commentary, no ticker — SpaceX not publicly traded) — reconfirmed via web fetch this run (2026-07-19 00:05 UTC check); no new post since the prior check. |
 | 2026-07-18 | https://t.me/bolshegold | — | no action — no company mentioned | Top post advanced bolshegold/9791 → 9794 (~16:46 UTC, 2026-07-18; stream-invite/no-ticker content) — post ID jumped by 3 since the last check (2026-07-18 12:07 UTC), indicating more than one post likely landed in the gap; only the latest (9794) was evaluated per the single-post delta rule. No company/ticker mentioned. |
 | 2026-07-18 | https://t.me/FinnInvestChannel | — | no action — no company mentioned | Top post advanced FinnInvestChannel/2954 → 2955 (~17:35 UTC, 2026-07-18) — generic AI-model competitive commentary (China vs. US LLMs, e.g. Kimi K3 vs. Claude/GPT); no specific publicly-traded company or ticker named. |
 | 2026-07-18 | https://t.me/tarasguk | SpaceX (unresolved) | skipped — private company, no ticker | Top post advanced tarasguk/11427 → 11428 (~17:10 UTC, 2026-07-18) — SpaceX market-cap/Musk-wealth commentary; SpaceX is not publicly traded (no ticker to resolve), so per Rule 0 this is skipped rather than guessed. |
