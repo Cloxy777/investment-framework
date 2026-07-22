@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11451 (~20:00 UTC, 2026-07-21) | 2026-07-21 20:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2967 (~17:54 UTC, 2026-07-21) | 2026-07-21 20:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2583 (~08:21 UTC, 2026-07-21) | 2026-07-21 20:04 UTC |
-| https://t.me/bolshegold | bolshegold/9807 (~13:12 UTC, 2026-07-21) | 2026-07-21 20:04 UTC |
+| https://t.me/tarasguk | tarasguk/11452 (~20:12 UTC, 2026-07-21) | 2026-07-22 00:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2967 (~17:54 UTC, 2026-07-21) | 2026-07-22 00:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2583 (~08:21 UTC, 2026-07-21) | 2026-07-22 00:04 UTC |
+| https://t.me/bolshegold | bolshegold/9808 (~20:16 UTC, 2026-07-21) | 2026-07-22 00:04 UTC |
 
 ## Mention log
 
@@ -17,6 +17,8 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-21 | https://t.me/bolshegold | — | no action — no company mentioned | New top post bolshegold/9808 (~20:16 UTC, 2026-07-21), advancing marker from bolshegold/9807 (~13:12 UTC, 2026-07-21) — post-ID delta is 1, no missed-post ambiguity. New top post: LEGO "X-Files" themed construction set announcement (1,478 pieces, Mulder's-office/alien-forest scene, actress Gillian Anderson invited to the reveal, sales begin Aug 4 at $200), consumer-product/nostalgia commentary. LEGO Group is privately held (no public ticker), and no other publicly-traded company is named. No action, mention logged only. |
+| 2026-07-21 | https://t.me/tarasguk | — | no action — no company mentioned | New top post tarasguk/11452 (~20:12 UTC, 2026-07-21), advancing marker from tarasguk/11451 (~20:00 UTC, 2026-07-21) — post-ID delta is 1, only 12 min after the prior post, no missed-post ambiguity. New top post (UA): "Було б цікаво, якщо б Зеленський запропонував Федорову посаду президента" (speculation that Zelensky might offer Fedorov the presidency) — Ukrainian political commentary, no company or ticker named. No action, mention logged only. |
 | 2026-07-21 | https://t.me/tarasguk | — | no action — company named but not publicly traded (private company) | New top post tarasguk/11451 (~20:00 UTC, 2026-07-21), advancing marker from tarasguk/11450 (~15:27 UTC, 2026-07-21) — a ~4h33m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (11450→11451), no missed-post ambiguity. New top post: commentary that Databricks raised $3B to purchase additional GPUs, with CEO Ali Ghodsi discussing cross-region GPU shortages for AI-model hosting, and a stated $188B valuation — never used as financial data per Rule 0. Databricks is privately held (no public listing/ticker) as of this writing, so per step 3 (CLAUDE.md Rule 0 applies to identification, not just metrics) this is skipped rather than guessing a ticker or resolving to a public proxy. No action, mention logged only. |
 | 2026-07-21 | https://t.me/FinnInvestChannel | — | no action — no company mentioned (generic macro commentary) | New top post FinnInvestChannel/2967 (~17:54 UTC, 2026-07-21), advancing marker from FinnInvestChannel/2965 (~14:13 UTC, 2026-07-21) — a ~3h41m gap, above the ~1hr threshold, flagging explicitly; **non-sequential post numbers (2965→2967, delta 2)** — #2966 not individually examined this run (top-post-only scope). New top post (UA): "Нафта росте і Nasdaq росте - така комбінація може бути поганою для здоровʼя" (oil rising and Nasdaq rising — that combination could be bad for your health) — generic macro/market-outlook commentary, no specific identifiable publicly-traded company or ticker named, so no action per step 3. |
 | 2026-07-21 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2583 (~08:21 UTC, 2026-07-21, forwarded PRE Room - Ekingdom FUND AIF/CY June 30 preliminary NAV update) — reconfirmed via web fetch this run (2026-07-21 20:04 UTC check); no new post since the prior check. |
