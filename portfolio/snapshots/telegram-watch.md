@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11455 (~11:02 UTC, 2026-07-22) | 2026-07-22 12:06 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2969 (~06:57 UTC, 2026-07-22) | 2026-07-22 12:06 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2583 (~08:21 UTC, 2026-07-21) | 2026-07-22 12:06 UTC |
-| https://t.me/bolshegold | bolshegold/9808 (~20:16 UTC, 2026-07-21) | 2026-07-22 12:06 UTC |
+| https://t.me/tarasguk | tarasguk/11459 (~15:45 UTC, 2026-07-22) | 2026-07-22 16:07 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2971 (~15:17 UTC, 2026-07-22) | 2026-07-22 16:07 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2583 (~08:21 UTC, 2026-07-21) | 2026-07-22 16:07 UTC |
+| https://t.me/bolshegold | bolshegold/9808 (~20:16 UTC, 2026-07-21) | 2026-07-22 16:07 UTC |
 
 ## Mention log
 
@@ -17,6 +17,9 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-22 | https://t.me/tarasguk | Samsung Electronics (no ticker resolved) | skip — outside framework coverage | New top post tarasguk/11459 (~15:45 UTC, 2026-07-22), superseding tarasguk/11455 (~11:02 UTC) — a gap of ~4h43m, wider than 1 hour, so an earlier post in between may have been superseded/never individually evaluated. Content: Samsung Galaxy Z Fold8/Flip8/Watch9 product-launch announcement (routine device-refresh PR, not a Rule 9 event). Company is specific and identifiable (Samsung Electronics), but has no watchlist entry, and `mcp__Interactive-Brokers__search_contracts` returned zero results for both "Samsung Electronics" and its US OTC ticker "SSNLF" — no IBKR-tradable contract found. Treated as a listing outside this framework's practical coverage per step 3's skip criteria; not run through `/new-position`. |
+| 2026-07-22 | https://t.me/FinnInvestChannel | AMD | no action — logged per existing entry's own guidance | New top post FinnInvestChannel/2971 (~15:17 UTC, 2026-07-22), superseding FinnInvestChannel/2969 (~06:57 UTC) — a gap of ~8h20m, wider than 1 hour, so an earlier post in between may have been superseded/never individually evaluated. Content: AMD/Anthropic 2GW AI-infrastructure supply agreement (MI450 chips, "tens of billions" over time, starting H1 2027) plus AMD's planned up-to-$5B investment in Anthropic. AMD already has a `not-in-portfolio` watchlist entry ([2026-07-20](../../watchlist/not-in-portfolio/AMD/AMD-2026-06-30.md)) whose "Next review trigger" section explicitly enumerates the only events that should force another full re-evaluation (Q2 FY2026 earnings due 2026-08-04; realized/third-party AI-accelerator market-share data; sustained ROIC improvement; a management change or material M&A; a >15% unexplained price move) and explicitly instructs that absent those, "future Telegram mentions of AMD should be logged as 'last checked, no change' rather than triggering a full re-evaluation each time." None of the five triggers fired here — this is a forward-dated commercial supply/investment agreement (H1 2027 start), not one of AMD's own earnings/ROIC/market-share/M&A/price-move triggers. Logged only; no `/rescore` or `/new-position` run, no change to the watchlist entry file. |
+| 2026-07-22 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2583 (~08:21 UTC, 2026-07-21, forwarded PRE Room/Ekingdom FUND AIF/CY preliminary NAV update — a private fund, not a publicly-traded company) — reconfirmed via web fetch this run (2026-07-22 16:07 UTC check); no new post since the prior check. |
 | 2026-07-22 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9808 (~20:16 UTC, 2026-07-21, LEGO "The X-Files" product announcement, private company) — reconfirmed via web fetch this run (2026-07-22 12:06 UTC check); no new post since the prior check. |
 | 2026-07-22 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2583 (~08:21 UTC, 2026-07-21, forwarded PRE Room - Ekingdom FUND AIF/CY June 30 preliminary NAV update) — reconfirmed via web fetch this run (2026-07-22 12:06 UTC check); no new post since the prior check. |
 | 2026-07-22 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2969 (~06:57 UTC, 2026-07-22, DigitalOcean GPU-rental price-increase commentary, already evaluated/actioned in the prior run) — reconfirmed via web fetch this run (2026-07-22 12:06 UTC check); no new post since the prior check. |
