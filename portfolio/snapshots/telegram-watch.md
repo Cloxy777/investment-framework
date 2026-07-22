@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11454 (~06:23 UTC, 2026-07-22) | 2026-07-22 08:23 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2969 (~06:57 UTC, 2026-07-22) | 2026-07-22 08:23 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2583 (~08:21 UTC, 2026-07-21) | 2026-07-22 08:23 UTC |
-| https://t.me/bolshegold | bolshegold/9808 (~20:16 UTC, 2026-07-21) | 2026-07-22 08:23 UTC |
+| https://t.me/tarasguk | tarasguk/11455 (~11:02 UTC, 2026-07-22) | 2026-07-22 12:06 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2969 (~06:57 UTC, 2026-07-22) | 2026-07-22 12:06 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2583 (~08:21 UTC, 2026-07-21) | 2026-07-22 12:06 UTC |
+| https://t.me/bolshegold | bolshegold/9808 (~20:16 UTC, 2026-07-21) | 2026-07-22 12:06 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-22 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9808 (~20:16 UTC, 2026-07-21, LEGO "The X-Files" product announcement, private company) — reconfirmed via web fetch this run (2026-07-22 12:06 UTC check); no new post since the prior check. |
+| 2026-07-22 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2583 (~08:21 UTC, 2026-07-21, forwarded PRE Room - Ekingdom FUND AIF/CY June 30 preliminary NAV update) — reconfirmed via web fetch this run (2026-07-22 12:06 UTC check); no new post since the prior check. |
+| 2026-07-22 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2969 (~06:57 UTC, 2026-07-22, DigitalOcean GPU-rental price-increase commentary, already evaluated/actioned in the prior run) — reconfirmed via web fetch this run (2026-07-22 12:06 UTC check); no new post since the prior check. |
+| 2026-07-22 | https://t.me/tarasguk | — | no action — no publicly-traded company named | New top post tarasguk/11455 (~11:02 UTC, 2026-07-22), advancing marker from tarasguk/11454 (~06:23 UTC, 2026-07-22) — a ~4h39m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (11454→11455), no missed-post ambiguity. New top post (UA): a PrivatBank promotional post for a new business credit card for entrepreneurs (FOP) — credit limit 10% of declared income (up to 500,000 UAH), 55-day interest-free period, flexible business spending, with an application link — a bank-product advertisement, never used as financial data per Rule 0. PrivatBank is Ukraine's largest bank but is state-owned/nationalized (no public listing or ticker), so per step 3 (CLAUDE.md Rule 0 applies to identification, not just metrics) this is skipped rather than guessing a ticker or resolving to a public proxy. No action, mention logged only. |
 | 2026-07-22 | https://t.me/FinnInvestChannel | DOCN | `/new-position` run — Phase 01 FAIL (Quality Score 51.4), PASS/watchlist only | New top post FinnInvestChannel/2969 (~06:57 UTC, 2026-07-22), advancing marker from FinnInvestChannel/2967 (~17:54 UTC, 2026-07-21) — a ~13h gap, above the ~1hr threshold, flagging explicitly; non-sequential post numbers (2967→2969, delta 2) — #2968 not individually examined this run (top-post-only scope). New top post: DigitalOcean raising hourly GPU rental prices (Nvidia/AMD) ~30% from Aug 1 due to high AI compute demand — no prior watchlist entry existed for DOCN, so `/new-position` ran per step 4. Quality Score 51.4/100.0 fails the 80.0 gate (thin Moat Signal, modest ROIC, weakening FCF/NI conversion); no hard disqualifier fires. Session: [sessions/2026-07-22-new-position-docn.md](../../sessions/2026-07-22-new-position-docn.md), watchlist: [watchlist/not-in-portfolio/DOCN/](../../watchlist/not-in-portfolio/DOCN/DOCN-2026-07-22.md), PR [#347](https://github.com/Cloxy777/investment-framework/pull/347) (merged). |
 | 2026-07-22 | https://t.me/tarasguk | — | no action — no company mentioned (generic macro commentary) | New top post tarasguk/11454 (~06:23 UTC, 2026-07-22), advancing marker from tarasguk/11452 (~20:12 UTC, 2026-07-21) — a ~10h11m gap, above the ~1hr threshold, flagging explicitly; non-sequential post numbers (11452→11454, delta 2) — #11453 not individually examined this run (top-post-only scope). New top post (UA): "Попри корекцію в технологічному секторі, все інше в індексі зростало. Чіпи і памʼять важливі, але не визначальні для індексу і це дуже добре" (despite the tech-sector correction, the rest of the index kept growing; chips and memory matter but aren't what determines the index) — generic macro/sector commentary, no specific identifiable publicly-traded company or ticker named. No action, mention logged only. |
 | 2026-07-22 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2583 (~08:21 UTC, 2026-07-21, forwarded PRE Room - Ekingdom FUND AIF/CY June 30 preliminary NAV update) — reconfirmed via web fetch this run (2026-07-22 08:23 UTC check); no new post since the prior check. |
