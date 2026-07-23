@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11468 (~11:49 UTC, 2026-07-23) | 2026-07-23 12:12 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2976 (~09:15 UTC, 2026-07-23) | 2026-07-23 12:12 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-23 12:12 UTC |
-| https://t.me/bolshegold | bolshegold/9821 (~20:20 UTC, 2026-07-22) | 2026-07-23 12:12 UTC |
+| https://t.me/tarasguk | tarasguk/11472 (~15:27 UTC, 2026-07-23) | 2026-07-23 15:30 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2978 (~15:11 UTC, 2026-07-23) | 2026-07-23 15:30 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-23 15:30 UTC |
+| https://t.me/bolshegold | bolshegold/9822 (~14:49 UTC, 2026-07-23) | 2026-07-23 15:30 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-23 | https://t.me/tarasguk | — | no action — no company named | New top post tarasguk/11472 (~15:27 UTC, 2026-07-23, "Останній шанс продати?" — a bare rhetorical question, no company or ticker named) — gap since prior marker (tarasguk/11468, ~11:49 UTC) exceeds ~1 hour (~3h38m), so an intervening post may have been superseded and not individually evaluated; only this latest post was checked. |
+| 2026-07-23 | https://t.me/FinnInvestChannel | — | no action — no company named | New top post FinnInvestChannel/2978 (~15:11 UTC, 2026-07-23, generic commentary on rising oil prices alongside Nasdaq gains, inviting readers to share recent purchases — no specific company or ticker named) — gap since prior marker (FinnInvestChannel/2976, ~09:15 UTC) exceeds ~1 hour (~5h56m), so an intervening post may have been superseded and not individually evaluated; only this latest post was checked. |
+| 2026-07-23 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in the prior run) — reconfirmed via web fetch this run (2026-07-23 15:30 UTC check); no new post since the prior check. |
+| 2026-07-23 | https://t.me/bolshegold | — | no action — no company named | New top post bolshegold/9822 (~14:49 UTC, 2026-07-23, edited; personal birthday-meetup invitation from the channel author in Valencia, Spain — no company or ticker named) — gap since prior marker (bolshegold/9821, ~20:20 UTC, 2026-07-22) exceeds ~1 hour (~18.5h), so intervening posts may have been superseded and not individually evaluated; only this latest post was checked. |
 | 2026-07-23 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9821 (~20:20 UTC, 2026-07-22, "$GOOGL перформит - вечеринка продолжается" GOOG-earnings reaction, already evaluated in the prior run) — reconfirmed via web fetch this run (2026-07-23 12:12 UTC check); no new post since the prior check. |
 | 2026-07-23 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in the prior run) — reconfirmed via web fetch this run (2026-07-23 12:12 UTC check); no new post since the prior check. |
 | 2026-07-23 | https://t.me/FinnInvestChannel | GOOG | no action — held, already rescored 2026-07-22, no new claimed event | New top post FinnInvestChannel/2976 (~09:15 UTC, 2026-07-23), advancing marker from FinnInvestChannel/2975 (~06:07 UTC, 2026-07-23) — a ~3h08m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (2975→2976), no missed-post ambiguity. New top post: commentary that Alphabet ($GOOG/$GOOGL) posted negative free cash flow for the first time since 2004, alongside Gemini reaching 950M monthly active users (up from 750M in February), framed as an "accelerating growth, declining profitability, should reverse" pattern — never used as financial data per Rule 0. GOOG is held (0.59% weight) and was already rescored this run-cycle off the same Q2 FY2026 earnings event ([GOOG-2026-07-22.md](../../watchlist/in-portfolio/GOOG/GOOG-2026-07-22.md), [session](../../sessions/2026-07-22-rescore-goog.md), PR #353 merged) — that rescore already explicitly captured "GOOG's first-ever FCF-negative quarter" as the driver of the FCF Quality sub-score collapsing to 0.0. No materially new Rule 9 fact beyond what's already reflected. No action, mention logged only. |
