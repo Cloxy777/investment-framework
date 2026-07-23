@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11472 (~15:27 UTC, 2026-07-23) | 2026-07-23 15:30 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2978 (~15:11 UTC, 2026-07-23) | 2026-07-23 15:30 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-23 15:30 UTC |
-| https://t.me/bolshegold | bolshegold/9822 (~14:49 UTC, 2026-07-23) | 2026-07-23 15:30 UTC |
+| https://t.me/tarasguk | tarasguk/11473 (~18:36 UTC, 2026-07-23) | 2026-07-23 20:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2981 (~19:21 UTC, 2026-07-23) | 2026-07-23 20:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-23 20:05 UTC |
+| https://t.me/bolshegold | bolshegold/9822 (~14:49 UTC, 2026-07-23) | 2026-07-23 20:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-23 | https://t.me/tarasguk | — | no action — no company named | New top post tarasguk/11473 (~18:36 UTC, 2026-07-23), advancing marker from tarasguk/11472 (~15:27 UTC, 2026-07-23) — a ~3h09m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (11472→11473), no missed-post ambiguity. Content: TikTok is testing a vertical mini-series/micro-drama app ("LimeShorts") in the US with a subscription model, citing the ~$1.4B US micro-drama market — TikTok's owner (ByteDance) is a private company, not a publicly-traded name this framework can score, and no other identifiable ticker is named. No action, mention logged only. |
+| 2026-07-23 | https://t.me/FinnInvestChannel | — | no action — no company named | New top post FinnInvestChannel/2981 (~19:21 UTC, 2026-07-23, edited), advancing marker from FinnInvestChannel/2978 (~15:11 UTC, 2026-07-23) — a ~4h10m gap, above the ~1hr threshold, flagging explicitly; **non-sequential post numbers (2978→2981, delta 3)** — posts #2979–#2980 not individually examined this run (top-post-only scope). New top post: an Instagram-repost engagement poll ("do you buy stocks better when hungry?") with a link to a private group — no specific identifiable publicly-traded company or ticker named. No action, mention logged only. |
+| 2026-07-23 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-23 20:05 UTC check); no new post since the prior check. |
+| 2026-07-23 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9822 (~14:49 UTC, 2026-07-23, edited; personal birthday-meetup invitation from the channel author in Valencia, Spain — no company or ticker named, already evaluated in the prior run) — reconfirmed via web fetch this run (2026-07-23 20:05 UTC check); no new post since the prior check. |
 | 2026-07-23 | https://t.me/tarasguk | — | no action — no company named | New top post tarasguk/11472 (~15:27 UTC, 2026-07-23, "Останній шанс продати?" — a bare rhetorical question, no company or ticker named) — gap since prior marker (tarasguk/11468, ~11:49 UTC) exceeds ~1 hour (~3h38m), so an intervening post may have been superseded and not individually evaluated; only this latest post was checked. |
 | 2026-07-23 | https://t.me/FinnInvestChannel | — | no action — no company named | New top post FinnInvestChannel/2978 (~15:11 UTC, 2026-07-23, generic commentary on rising oil prices alongside Nasdaq gains, inviting readers to share recent purchases — no specific company or ticker named) — gap since prior marker (FinnInvestChannel/2976, ~09:15 UTC) exceeds ~1 hour (~5h56m), so an intervening post may have been superseded and not individually evaluated; only this latest post was checked. |
 | 2026-07-23 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in the prior run) — reconfirmed via web fetch this run (2026-07-23 15:30 UTC check); no new post since the prior check. |
