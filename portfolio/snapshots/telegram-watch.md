@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11482 (~16:43 UTC, 2026-07-24) | 2026-07-25 00:06 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2988 (~17:53 UTC, 2026-07-24) | 2026-07-25 00:06 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-25 00:06 UTC |
-| https://t.me/bolshegold | bolshegold/9829 (~17:32 UTC, 2026-07-24) | 2026-07-25 00:06 UTC |
+| https://t.me/tarasguk | tarasguk/11484 (~07:56 UTC, 2026-07-25) | 2026-07-25 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2988 (~17:53 UTC, 2026-07-24) | 2026-07-25 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-25 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/9829 (~17:32 UTC, 2026-07-24) | 2026-07-25 08:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-25 | https://t.me/tarasguk | ORCL | no action — prior watchlist entry exists, no new claimed info beyond documented trend | New top post tarasguk/11484 (~07:56 UTC, 2026-07-25), advancing marker from tarasguk/11482 (~16:43 UTC, 2026-07-24) — a ~15h13m gap, well above the ~1hr threshold, flagging explicitly; non-sequential post numbers (11482→11484, delta 2) — post #11483 not individually examined this run (top-post-only scope). New top post: "☁️ Oracle $ORCL впав на 53% за 53 дні" (Oracle fell 53% in 53 days) — never used as financial data per Rule 0. ORCL is not held; a prior not-in-portfolio entry exists ([ORCL-2026-06-12.md](../../watchlist/not-in-portfolio/ORCL/ORCL-2026-06-12.md), last updated 2026-07-16, Quality Score 38.7/100.0, fails the 80.0+ gate on two independent hard disqualifiers) whose "Next review trigger" explicitly names a >15% unexplained price move from its $125.99 reference price as one of the triggers. **Independently verified live price** via IBKR (contract_id 272800): last close **$120.04** vs. the $125.99 reference = **-4.72%**, below the 15% threshold — does not fire. 52-week stats confirm ORCL is trading near its 52-week low ($114.78) and well off its 13/26-week high ($250.24), consistent with the post's "53% decline" framing when measured from that ~13-week-old high rather than the entry's own more recent reference point — but this is the same ongoing, already-documented capex/credit-downgrade-driven decline the 06-12/07-10/07-16 entries have tracked continuously (cumulative -34.3% from the 06-12 $182.77 baseline), not a new discrete Rule 9 event (no earnings, guidance, management change, M&A, or credit-rating action since 07-16). No materially new information beyond what the existing entry reflects. No action, mention logged only. |
+| 2026-07-25 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2988 (~17:53 UTC, 2026-07-24, Qualcomm sentiment-vs-fundamentals commentary that already triggered `/new-position QCOM` in a prior run) — reconfirmed via web fetch this run (2026-07-25 08:05 UTC check); no new post since the prior check. |
+| 2026-07-25 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-25 08:05 UTC check); no new post since the prior check. |
+| 2026-07-25 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9829 (~17:32 UTC, 2026-07-24, generic investor-mistakes YouTube-video teaser, no company named, already evaluated in a prior run) — reconfirmed via web fetch this run (2026-07-25 08:05 UTC check); no new post since the prior check. |
 | 2026-07-25 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11482 (~16:43 UTC, 2026-07-24, forward-looking $MSFT/$META/$AAPL/$AMZN earnings-calendar note, already evaluated in the prior run) — reconfirmed via web fetch this run (2026-07-25 00:06 UTC check); no new post since the prior check. |
 | 2026-07-25 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2988 (~17:53 UTC, 2026-07-24, Qualcomm sentiment-vs-fundamentals commentary that already triggered `/new-position QCOM` in the prior run) — reconfirmed via web fetch this run (2026-07-25 00:06 UTC check); no new post since the prior check. |
 | 2026-07-25 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-25 00:06 UTC check); no new post since the prior check. |
