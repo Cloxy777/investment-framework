@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11487 (~13:09 UTC, 2026-07-25) | 2026-07-25 20:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2989 (~10:49 UTC, 2026-07-25) | 2026-07-25 20:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-25 20:04 UTC |
-| https://t.me/bolshegold | bolshegold/9834 (~16:06 UTC, 2026-07-25) | 2026-07-25 20:04 UTC |
+| https://t.me/tarasguk | tarasguk/11487 (~13:09 UTC, 2026-07-25) | 2026-07-26 00:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2989 (~10:49 UTC, 2026-07-25) | 2026-07-26 00:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-26 00:05 UTC |
+| https://t.me/bolshegold | bolshegold/9834 (~16:06 UTC, 2026-07-25) | 2026-07-26 00:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-26 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11487 (~13:09 UTC, 2026-07-25, average-retail-investor-YTD-performance poll, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 00:05 UTC check); no new post since the prior check. |
+| 2026-07-26 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2989 (~10:49 UTC, 2026-07-25, OpenAI Atlas-browser retirement joke, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 00:05 UTC check); no new post since the prior check. |
+| 2026-07-26 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 00:05 UTC check); no new post since the prior check. |
+| 2026-07-26 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9834 (~16:06 UTC, 2026-07-25, channel-author impersonation-scam warning, no company or ticker named, already evaluated in the prior run) — reconfirmed via web fetch this run (2026-07-26 00:05 UTC check); no new post since the prior check. |
 | 2026-07-25 | https://t.me/bolshegold | — | no action — no publicly-traded company named | New top post bolshegold/9834 (~16:06 UTC, 2026-07-25), advancing marker from bolshegold/9832 (~16:02 UTC, 2026-07-25) — a ~4min gap, well under the ~1hr threshold, no flag needed; non-sequential post numbers (9832→9834, delta 2) — post #9833 not individually examined this run (top-post-only scope). New top post (RU): the channel author addressing repeated subscriber questions about a garbled-name "second channel" impersonating this one, denying it exists, warning against adding random contacts who message claiming a "VIP" list, and urging common sense against the scam — no specific identifiable publicly-traded company or ticker named. No action, mention logged only. |
 | 2026-07-25 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11487 (~13:09 UTC, 2026-07-25, average-retail-investor-YTD-performance poll, already evaluated in the prior run) — reconfirmed via web fetch this run (2026-07-25 20:04 UTC check); no new post since the prior check. |
 | 2026-07-25 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2989 (~10:49 UTC, 2026-07-25, OpenAI Atlas-browser retirement joke, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-25 20:04 UTC check); no new post since the prior check. |
