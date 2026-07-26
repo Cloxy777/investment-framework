@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11491 (~08:38 UTC, 2026-07-26) | 2026-07-26 12:07 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2990 (~08:33 UTC, 2026-07-26) | 2026-07-26 12:07 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-26 12:07 UTC |
-| https://t.me/bolshegold | bolshegold/9834 (~16:06 UTC, 2026-07-25) | 2026-07-26 12:07 UTC |
+| https://t.me/tarasguk | tarasguk/11493 (~15:48 UTC, 2026-07-26) | 2026-07-26 16:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2990 (~08:33 UTC, 2026-07-26) | 2026-07-26 16:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-26 16:05 UTC |
+| https://t.me/bolshegold | bolshegold/9834 (~16:06 UTC, 2026-07-25) | 2026-07-26 16:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-26 | https://t.me/tarasguk | GOOG | no action — recently reviewed, passing mention | New top post tarasguk/11493 (~15:48 UTC, 2026-07-26, "Google makes $1.22B revenue/day... median S&P 500 company makes $15-17B/year" — a comparative revenue factoid, no Rule 9 event claimed) — gap since prior marker (tarasguk/11491, ~08:38 UTC) exceeds ~1 hour (~7h10m), so an intervening post may have been superseded and not individually evaluated; only this latest post was checked. GOOG is a held position (0.59% weight, last scored 22 Jul 2026 per holdings.md) with no fundamental event claimed and a review 4 days old — no `/rescore` trigger. |
+| 2026-07-26 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2990 (~08:33 UTC, 2026-07-26, "91% of reporting S&P 500 companies beat earnings forecasts" — index-level commentary, no individual company named) — reconfirmed via web fetch this run (2026-07-26 16:05 UTC check); no new post since the prior check. |
+| 2026-07-26 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 16:05 UTC check); no new post since the prior check. |
+| 2026-07-26 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9834 (~16:06 UTC, 2026-07-25, channel-author impersonation-scam warning, no company or ticker named, already evaluated in a prior run) — reconfirmed via web fetch this run (2026-07-26 16:05 UTC check); no new post since the prior check. |
 | 2026-07-26 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9834 (~16:06 UTC, 2026-07-25, channel-author impersonation-scam warning, no company or ticker named, already evaluated in a prior run) — reconfirmed via web fetch this run (2026-07-26 12:07 UTC check); no new post since the prior check. |
 | 2026-07-26 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 12:07 UTC check); no new post since the prior check. |
 | 2026-07-26 | https://t.me/FinnInvestChannel | — | no action — aggregate index-wide statistic, not a company-specific mention | New top post FinnInvestChannel/2990 (~08:33 UTC, 2026-07-26), advancing marker from FinnInvestChannel/2989 (~10:49 UTC, 2026-07-25) — a ~21h44m gap, well above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (2989→2990), sequential, so no intervening post was skipped. New top post: ~91% of S&P 500 companies that have reported so far this earnings season beat profit forecasts, framed as a bullish read-through for the near-term market outlook — never used as financial data per Rule 0. This is an aggregate index-wide earnings-beat-rate statistic, not a claimed event (earnings, guidance revision, M&A, management change) attributed to any individual company — no ticker to resolve, no action taken; mention logged only. |
