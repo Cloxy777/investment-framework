@@ -2,21 +2,21 @@
 
 > Source of truth for what's actually owned. Update after every [portfolio sync](sync-sop.md) or trade. Each entry should carry the last valuation score and review date so [/rescore](../.claude/commands/rescore.md) knows what's due.
 
-**As of 2026-07-20 — live sync from [IBKR](snapshots/ibkr.md) (positions, cash balances, and active orders all refreshed 2026-07-20) + [Freedom Finance](snapshots/freedom-finance.md) snapshot (last synced 2026-06-07, unchanged this run), including cash balances on both sides.**
+**As of 2026-07-26 — live sync from [IBKR](snapshots/ibkr.md) (positions, cash balances, and active orders all refreshed 2026-07-26) + [Freedom Finance](snapshots/freedom-finance.md) snapshot (last synced 2026-06-07, unchanged this run), including cash balances on both sides.**
 
-Combined total ≈ **$59,142.82** = IBKR Net Liquidation Value $44,019.28 + Freedom24 Net Asset Valuation $15,123.54 (both broker-reported, **positions + cash**, in USD). Weight % = each row's combined USD-equivalent value ÷ this total. *Score and review-date columns are intentionally blank — they're populated by [/rescore](../.claude/commands/rescore.md), not by sync.*
+Combined total ≈ **$57,832.61** = IBKR Net Liquidation Value $42,709.07 + Freedom24 Net Asset Valuation $15,123.54 (both broker-reported, **positions + cash**, in USD). Weight % = each row's combined USD-equivalent value ÷ this total. *Score and review-date columns are intentionally blank — they're populated by [/rescore](../.claude/commands/rescore.md), not by sync.*
 
-> ## No new undocumented position changes this sync
+> ## ⚠️ New this sync — TLT share count jumped 77 → 100 (+23 shares), undocumented, with a matching cash drawdown
 >
-> All 28 IBKR positions matched the 2026-07-12 sync exactly in share count — only prices moved. The open governance items from 2026-07-12 (META's unauthorized -1 share trim, DOCS's unauthorized short put, RGL's still-unevaluated fully-filled position, MBGL) remain open and untouched — see [override-log.md](override-log.md), unchanged this sync.
+> `TLT` grew from 77 to 100 shares (avg cost $88.79 → $87.6030) since the 2026-07-20 sync, funded by a ~$1,925 cash drawdown (IBKR USD-equiv cash: –$264.11 → –$2,189.32). The previously-flagged `TLT BUY 13 @ $83.54` order has vanished from `get_account_orders` entirely (same "vanished order" pattern as the AMZN bracket, flagged 2026-07-20) but only partially explains the 23-share change (13 ≠ 23). A new, also-undocumented short call — `Sell 1 TLT SEP 30 '26 90 Call` (order 1040104046, limit 0.25 GTC) — is now working too. No session/decision-log entry covers either. Flagged for the user to confirm. Full detail in [ibkr.md](snapshots/ibkr.md) and [ibkr-orders.md](snapshots/ibkr-orders.md).
 >
-> **New this sync:** the AMZN bracket orders (SELL 10 @ $259.25 / BUY 10 @ $210.25, flagged as undocumented 2026-07-12) have disappeared from `get_account_orders` entirely — not filled (AMZN position unchanged at 12 shares), not `REPLACED`, just absent. Likely a direct TWS/Client Portal cancellation, unconfirmed. IBKR cash is essentially flat (–$261.96 → –$264.11). Full detail in [ibkr.md](snapshots/ibkr.md) and [ibkr-orders.md](snapshots/ibkr-orders.md).
+> **No other undocumented position changes this sync** — all other 27 IBKR positions matched the 2026-07-20 sync exactly in share count and average cost, only prices moved. The open governance items from prior syncs (META's unauthorized -1 share trim, DOCS's unauthorized short put, RGL's still-unevaluated fully-filled position, MBGL) remain open and untouched — see [override-log.md](override-log.md), unchanged this sync.
 >
-> This week's [weekly brief](../sessions/weekly-briefs/2026-07-20-weekly-brief.md) has the full summary.
+> This week's [weekly brief](../sessions/weekly-briefs/2026-07-26-weekly-brief.md) has the full summary.
 
 > **AVGO's 2026-06-16 override is still marked "Open — under review" in [override-log.md](override-log.md)** despite having been resolved via the 2026-07-04 full rescore — carried forward as an open housekeeping item, not corrected this pass (outside `/sync-portfolio`'s scope).
 
-> **Weight column sums to ~100.4%, not 100%** — see the "Note on Gross Position Value vs. Net Liquidation" in [ibkr.md](snapshots/ibkr.md) for the live-vs-settled timing gaps, plus the STIM short-call market value (–$48.15) and the DOCS short-put market value (–$65.00), both intentionally excluded from any weight below. Not a calculation error — flagged for transparency rather than silently rescaled.
+> **Weight column sums to ~100.25%, not 100%** — see the "Note on Gross Position Value vs. Net Liquidation" in [ibkr.md](snapshots/ibkr.md) for the live-vs-settled timing gaps, plus the STIM short-call market value (–$89.37) and the DOCS short-put market value (–$71.90), both intentionally excluded from any weight below. Not a calculation error — flagged for transparency rather than silently rescaled.
 
 **Score scale (2026-06-11):** Valuation scores run **0.0–100.0** (continuous, 0 = cheapest, 100.0 = most expensive) instead of the old 1–10 integers — see [valuation-scoring.md](../framework/valuation-scoring.md) and [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md).
 
@@ -28,47 +28,47 @@ Combined total ≈ **$59,142.82** = IBKR Net Liquidation Value $44,019.28 + Free
 
 | Ticker | Weight % | Last Score | Quality Score | Composite Score | Last Review | Broker |
 |--------|----------|------------|----------------|------------------|-------------|--------|
-| ADBE | 4.01% | 0.0 | 83.9 | 8.1 | 04 Jul 2026 | IBKR |
-| AMZN | 9.60% | 81.8 | 57.6 | 62.1 | 04 Jul 2026 | IBKR + Freedom24 |
-| AVGO | 3.80% | 68.2 | 82.1 | 43.1 | 04 Jul 2026 | IBKR |
+| ADBE | 3.88% | 0.0 | 83.9 | 8.1 | 04 Jul 2026 | IBKR |
+| AMZN | 9.48% | 81.8 | 57.6 | 62.1 | 04 Jul 2026 | IBKR + Freedom24 |
+| AVGO | 3.96% | 68.2 | 82.1 | 43.1 | 04 Jul 2026 | IBKR |
 | CASH (Freedom24) | 0.18% | | | | | Freedom24 |
-| CASH (IBKR) | -0.45% | | | | | IBKR |
-| CSGP | 1.26% | 80.5 | 68.4 | 56.1 | 04 Jul 2026 | IBKR |
+| CASH (IBKR) | -3.79% | | | | | IBKR |
+| CSGP | 1.20% | 80.5 | 68.4 | 56.1 | 04 Jul 2026 | IBKR |
 | **DOCS (short put)** | n/a — not an equity position, see note above | not scored — ungoverned position | | | n/a | IBKR |
-| DUOL | 8.25% | 56.6 | 83.8 | 36.4 | 04 Jul 2026 | IBKR + Freedom24 |
-| GOOG | 0.59% | 64.2 | 71.4 | 46.4 | 22 Jul 2026 | IBKR |
-| **MBGL** | 0.03% | not scored — ungoverned position, see note above | | | n/a | IBKR |
-| META | 6.45% | 45.0 | 90.0 | 27.5 | 13 Jul 2026 | IBKR + Freedom24 |
-| MSFT | 14.74% | 35.5 | 78.3 | 28.6 | 05 Jul 2026 | IBKR + Freedom24 |
-| NFLX | 1.40% | 49.3 | 69.8 | 39.8 | 17 Jul 2026 | IBKR |
-| NKE | 1.48% | 13.9 | 44.4 | 34.8 | 1 Jul 2026 | IBKR |
-| NOW | 2.11% | 61.3 | 78.7 | 41.3 | 05 Jul 2026 | IBKR |
-| NVDA | 6.56% | 34.3 | 91.7 | 21.3 | 05 Jul 2026 | IBKR |
-| NVO | 0.43% | 61.4 | 66.2 | 47.6 | 05 Jul 2026 | IBKR |
-| RBRK | 0.40% | not scored — fails quality gates | | | Jun 2026 | IBKR |
-| **RGL** | 0.53% | not scored — ungoverned position, see note above | | | n/a | IBKR |
-| SPGI | 0.76% | 36.3 | 67.1 | 34.6 | 05 Jul 2026 | IBKR |
-| SPOT | 0.81% | 84.2 | 73.2 | 55.5 | 05 Jul 2026 | IBKR |
-| STIM | 1.37% | not scored — going-concern override | | | Jun 2026 | IBKR |
-| TLT | 27.93% | not scored — non-equity, framework gap | | | Jun 2026 | IBKR + Freedom24 |
-| TRN | 3.06% | 10.0 | 67.2 | 21.4 | 05 Jul 2026 | IBKR |
-| UBER | 0.37% | 39.4 | 61.0 | 39.2 | 14 Jul 2026 | IBKR |
-| V | 0.61% | 44.5 | 85.9 | 29.3 | 05 Jul 2026 | IBKR |
-| VEEV | 0.99% | 45.1 | 85.7 | 29.7 | 01 Jul 2026 | IBKR |
-| XEON | 2.89% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
+| DUOL | 7.83% | 56.6 | 83.8 | 36.4 | 04 Jul 2026 | IBKR + Freedom24 |
+| GOOG | 0.55% | 64.2 | 71.4 | 46.4 | 22 Jul 2026 | IBKR |
+| **MBGL** | 0.04% | not scored — ungoverned position, see note above | | | n/a | IBKR |
+| META | 6.16% | 45.0 | 90.0 | 27.5 | 13 Jul 2026 | IBKR + Freedom24 |
+| MSFT | 14.62% | 35.5 | 78.3 | 28.6 | 05 Jul 2026 | IBKR + Freedom24 |
+| NFLX | 1.45% | 49.3 | 69.8 | 39.8 | 17 Jul 2026 | IBKR |
+| NKE | 1.44% | 13.9 | 44.4 | 34.8 | 1 Jul 2026 | IBKR |
+| NOW | 2.03% | 61.3 | 78.7 | 41.3 | 05 Jul 2026 | IBKR |
+| NVDA | 6.79% | 34.3 | 91.7 | 21.3 | 05 Jul 2026 | IBKR |
+| NVO | 0.42% | 61.4 | 66.2 | 47.6 | 05 Jul 2026 | IBKR |
+| RBRK | 0.38% | not scored — fails quality gates | | | Jun 2026 | IBKR |
+| **RGL** | 0.65% | not scored — ungoverned position, see note above | | | n/a | IBKR |
+| SPGI | 0.74% | 36.3 | 67.1 | 34.6 | 05 Jul 2026 | IBKR |
+| SPOT | 0.83% | 84.2 | 73.2 | 55.5 | 05 Jul 2026 | IBKR |
+| STIM | 1.49% | not scored — going-concern override | | | Jun 2026 | IBKR |
+| TLT | 31.75% | not scored — non-equity, framework gap | | | Jun 2026 | IBKR + Freedom24 |
+| TRN | 3.05% | 10.0 | 67.2 | 21.4 | 05 Jul 2026 | IBKR |
+| UBER | 0.34% | 39.4 | 61.0 | 39.2 | 14 Jul 2026 | IBKR |
+| V | 0.62% | 44.5 | 85.9 | 29.3 | 05 Jul 2026 | IBKR |
+| VEEV | 0.97% | 45.1 | 85.7 | 29.7 | 01 Jul 2026 | IBKR |
+| XEON | 2.94% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
 | ZS | 0.25% | 43.1 | 59.4 | 41.9 | 05 Jul 2026 | IBKR |
 
-**XEON is EUR-denominated** (€1,496.73 market value). Its USD-equivalent (**$1,712.15**, used for the weight above) comes from the *live* EUR→USD rate (1.14392485) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
+**XEON is EUR-denominated** (€1,497.35 market value). Its USD-equivalent (**$1,702.40**, used for the weight above) comes from the *live* EUR→USD rate (1.1369399) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
 
-**TRN is GBP-denominated** (£1,346.40 market value, LSE). Its USD-equivalent (**$1,811.55**, used for the weight above) comes from the *live* GBP→USD rate (1.34547875) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
+**TRN is GBP-denominated** (£1,322.40 market value, LSE). Its USD-equivalent (**$1,761.80**, used for the weight above) comes from the *live* GBP→USD rate (1.33227815) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
 
-**RGL is AUD-denominated** (AUD $450.00 market value, ASX — down slightly from AUD $480.00 last sync, price -6.25%, share count unchanged at 60,000). Its USD-equivalent (**$313.96**, used for the weight above) comes from the *live* AUD→USD rate (0.6977) returned by IBKR's `get_account_balances` — broker-reported, not assumed. No Phase 01/02 evaluation exists for this ticker.
+**RGL is AUD-denominated** (AUD $540.00 market value, ASX — up from AUD $450.00 last sync, price +20.0%, share count unchanged at 60,000). Its USD-equivalent (**$376.97**, used for the weight above) comes from the *live* AUD→USD rate (0.6980911) returned by IBKR's `get_account_balances` — broker-reported, not assumed. No Phase 01/02 evaluation exists for this ticker.
 
-**STIM's weight above (1.37%) reflects the 500-share equity position only** ($810.00). A short 5-contract covered call (`STIM Aug21'26 $2.50 CALL`, market value –$48.15) is also held against this position — see [ibkr.md](snapshots/ibkr.md) for detail. Not folded into the weight % here; at ~0.08% of the combined total it would not change STIM's banding either way.
+**STIM's weight above (1.49%) reflects the 500-share equity position only** ($860.00). A short 5-contract covered call (`STIM Aug21'26 $2.50 CALL`, market value –$89.37) is also held against this position — see [ibkr.md](snapshots/ibkr.md) for detail. Not folded into the weight % here; at ~0.15% of the combined total it would not change STIM's banding either way.
 
-**DOCS's short put (`DOCS Aug21'26 $17.5 PUT`, market value –$65.00) has no equity position to attach a weight to** — see [override-log.md](override-log.md). Tracked in full in [ibkr.md](snapshots/ibkr.md).
+**DOCS's short put (`DOCS Aug21'26 $17.5 PUT`, market value –$71.90) has no equity position to attach a weight to** — see [override-log.md](override-log.md). Tracked in full in [ibkr.md](snapshots/ibkr.md).
 
-**`CASH (IBKR)`** = **–$264.11** USD-equivalent (–$58.82 USD + €227.49 EUR ≈ +$260.23 + £0.00 GBP ≈ $0.00 − AUD $666.43 ≈ −$464.97, net of rounding — full per-currency breakdown in the [IBKR snapshot](snapshots/ibkr.md)). Essentially flat vs. last sync (–$261.96 → –$264.11) — no new large swing this week.
+**`CASH (IBKR)`** = **–$2,189.32** USD-equivalent (–$1,982.49 USD + €227.49 EUR ≈ +$258.64 + £0.00 GBP ≈ $0.00 − AUD $666.43 ≈ −$465.23, net of rounding — full per-currency breakdown in the [IBKR snapshot](snapshots/ibkr.md)). Down sharply vs. last sync (–$264.11 → –$2,189.32) — see the TLT flag above, which almost fully explains the swing.
 
 **`CASH (Freedom24)`** = $106.85 (single-currency, USD — no FX conversion needed; unchanged since the 2026-06-07 Freedom Finance sync, no new screenshot this round). It ties out exactly: $15,016.69 (positions) + $106.85 (cash) = $15,123.54 (Net Asset Valuation) — see the [Freedom Finance snapshot](snapshots/freedom-finance.md) for the cross-check.
 
