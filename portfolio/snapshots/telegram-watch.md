@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11487 (~13:09 UTC, 2026-07-25) | 2026-07-26 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2989 (~10:49 UTC, 2026-07-25) | 2026-07-26 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-26 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/9834 (~16:06 UTC, 2026-07-25) | 2026-07-26 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11488 (~07:08 UTC, 2026-07-26) | 2026-07-26 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2989 (~10:49 UTC, 2026-07-25) | 2026-07-26 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-26 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/9834 (~16:06 UTC, 2026-07-25) | 2026-07-26 08:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-26 | https://t.me/tarasguk | MSFT, AMZN, GOOG, META | no action — held, no Rule 9 event claimed (aggregate industry capex forecast, not a company-specific announcement) | New top post tarasguk/11488 (~07:08 UTC, 2026-07-26), advancing marker from tarasguk/11487 (~13:09 UTC, 2026-07-25) — a ~17h59m gap, well above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (11487→11488), sequential, so no intervening post was skipped. New top post: hyperscale operators projected to raise capex 56% next year to over $1.1T, naming $MSFT, $AMZN, $GOOG, $META as the companies driving the spend — never used as financial data per Rule 0. All four are current holdings (AMZN 9.60%/reviewed 04 Jul; GOOG 0.59%/reviewed 22 Jul; META 6.45%/reviewed 13 Jul; MSFT 14.74%/reviewed 05 Jul), each reviewed within the past ~3 weeks with no earnings having occurred since. This is an aggregate industry-wide capex forecast (comparable in kind to an analyst/consensus estimate), not a claimed company-specific Rule 9 event (no earnings, guidance revision, M&A, or management change attributed to any individual name) — same treatment as the 2026-07-25 bolshegold/9832 V/AMZN/META/MSFT and tarasguk/11482 MSFT/META/AAPL/AMZN precedents. No action taken on any of the four; mentions logged only. |
+| 2026-07-26 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2989 (~10:49 UTC, 2026-07-25, OpenAI Atlas-browser retirement joke, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 08:05 UTC check); no new post since the prior check. |
+| 2026-07-26 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 08:05 UTC check); no new post since the prior check. |
+| 2026-07-26 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9834 (~16:06 UTC, 2026-07-25, channel-author impersonation-scam warning, no company or ticker named, already evaluated in the prior run) — reconfirmed via web fetch this run (2026-07-26 08:05 UTC check); no new post since the prior check. |
 | 2026-07-26 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11487 (~13:09 UTC, 2026-07-25, average-retail-investor-YTD-performance poll, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 00:05 UTC check); no new post since the prior check. |
 | 2026-07-26 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2989 (~10:49 UTC, 2026-07-25, OpenAI Atlas-browser retirement joke, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 00:05 UTC check); no new post since the prior check. |
 | 2026-07-26 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 00:05 UTC check); no new post since the prior check. |
