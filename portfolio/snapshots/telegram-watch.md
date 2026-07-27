@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11494 (~19:26 UTC, 2026-07-26) | 2026-07-26 20:06 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2991 (~17:53 UTC, 2026-07-26) | 2026-07-26 20:06 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-26 20:06 UTC |
-| https://t.me/bolshegold | bolshegold/9834 (~16:06 UTC, 2026-07-25) | 2026-07-26 20:06 UTC |
+| https://t.me/tarasguk | tarasguk/11494 (~19:26 UTC, 2026-07-26) | 2026-07-27 00:06 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2991 (~17:53 UTC, 2026-07-26) | 2026-07-27 00:06 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2585 (~20:05 UTC, 2026-07-22) | 2026-07-27 00:06 UTC |
+| https://t.me/bolshegold | bolshegold/9834 (~16:06 UTC, 2026-07-25) | 2026-07-27 00:06 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-27 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9834 (~16:06 UTC, 2026-07-25, channel-author impersonation-scam warning, no company or ticker named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-27 00:06 UTC check); no new post since the prior check. |
+| 2026-07-27 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-27 00:06 UTC check); no new post since the prior check. |
+| 2026-07-27 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/2991 (~17:53 UTC, 2026-07-26, "Rallies Arena" AI-agent cash-allocation promo — Grok/Claude/GPT/Gemini are AI models, not publicly-traded tickers, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-27 00:06 UTC check); no new post since the prior check. |
+| 2026-07-27 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11494 (~19:26 UTC, 2026-07-26, YouTube-video teaser recapping the already-documented $GOOG report/decline, no new figures or claimed event, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-27 00:06 UTC check); no new post since the prior check. |
 | 2026-07-26 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9834 (~16:06 UTC, 2026-07-25, channel-author impersonation-scam warning, no company or ticker named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 20:06 UTC check); no new post since the prior check. |
 | 2026-07-26 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2585 (~20:05 UTC, 2026-07-22, "Йопта.._🤯_" — a brief shocked-face exclamation, no company named, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-26 20:06 UTC check); no new post since the prior check. |
 | 2026-07-26 | https://t.me/FinnInvestChannel | — | no action — no publicly-traded company named | New top post FinnInvestChannel/2991 (~17:53 UTC, 2026-07-26), advancing marker from FinnInvestChannel/2990 (~08:33 UTC, 2026-07-26) — a ~9h20m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (2990→2991), sequential, so no intervening post was skipped. New top post: a promotional note on cash allocations held by AI models (Grok 35%, Claude 12%, GPT 3%, Gemini 0.1%) on a third-party "Rallies Arena" AI-portfolio-competition platform — never used as financial data per Rule 0. These are AI model/product names, not publicly-traded tickers, and no underlying issuer (xAI, Anthropic, OpenAI are private; Alphabet/$GOOG is the closest public proxy for "Gemini" but the post makes no claim about Alphabet itself) is identifiably named per Rule 0 — no ticker to resolve, no action taken; mention logged only. |
