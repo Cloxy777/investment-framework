@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11504 (~19:34 UTC, 2026-07-27) | 2026-07-28 00:10 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/2997 (edited, ~20:11 UTC, 2026-07-27) | 2026-07-28 00:10 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2586 (~14:39 UTC, 2026-07-27) | 2026-07-28 00:10 UTC |
-| https://t.me/bolshegold | bolshegold/9846 (edited, ~20:07 UTC, 2026-07-27) | 2026-07-28 00:10 UTC |
+| https://t.me/tarasguk | tarasguk/11506 (~07:02 UTC, 2026-07-28) | 2026-07-28 08:06 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/2998 (~07:48 UTC, 2026-07-28) | 2026-07-28 08:06 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2586 (~14:39 UTC, 2026-07-27) | 2026-07-28 08:06 UTC |
+| https://t.me/bolshegold | bolshegold/9846 (edited, ~20:07 UTC, 2026-07-27) | 2026-07-28 08:06 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-28 | https://t.me/tarasguk | — | no action — macro/commodity commentary, no company named | New top post tarasguk/11506 (~07:02 UTC, 2026-07-28), advancing marker from tarasguk/11504 (~19:34 UTC, 2026-07-27) — an ~11h28m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 2 (11504→11506), so post 11505 was superseded and not individually evaluated per this command's latest-post-only scope. New top post: Morgan Stanley analysts quoted saying the memory cycle is approaching its peak, predicting DRAM/HBM/SSD price declines after Q4 this year — a sector-level/macro commodity-cycle call, no specific identifiable publicly-traded company or ticker named in the post text. No action, mention logged only. |
+| 2026-07-28 | https://t.me/FinnInvestChannel | — | no action — index-level commentary, no company named | New top post FinnInvestChannel/2998 (~07:48 UTC, 2026-07-28), advancing marker from FinnInvestChannel/2997 (edited, ~20:11 UTC, 2026-07-27) — an ~11h37m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (2997→2998), sequential, so no intervening post was skipped. New top post: South Korea's KOSPI index down ~35% from its peak amid a global semiconductor-stock selloff, trading halted for the 9th time this year — country/index-level commentary, no specific identifiable publicly-traded company or ticker named. No action, mention logged only. |
+| 2026-07-28 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2586 (~14:39 UTC, 2026-07-27, "Чіпи такі чіпи 🤯 не дають відпочити" one-line reaction with no named company, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-07-28 08:06 UTC check); no new post since the prior check. |
+| 2026-07-28 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9846 (edited, ~20:07 UTC, 2026-07-27, PTSD/coping-mechanisms reflection on emigrants vs. those remaining in Ukraine, no company or ticker named, already evaluated in the prior run) — reconfirmed via web fetch this run (2026-07-28 08:06 UTC check); no new post since the prior check. |
 | 2026-07-28 | https://t.me/FinnInvestChannel | — | no action — no publicly-traded company named (meta-post pointing to comments) | New top post FinnInvestChannel/2997 (edited, ~20:11 UTC, 2026-07-27), advancing marker from FinnInvestChannel/2996 (~17:58 UTC, 2026-07-27) — a ~2h13m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (2996→2997), sequential, so no intervening post was skipped. New top post (UK): "Тут трохи останніх новин 🤓" ("Here's a bit of the latest news 🤓") — a short meta-post directing readers to the comments section for news items, with no specific identifiable publicly-traded company or ticker named in the post text itself (comments not evaluated per top-post-only scope) — never used as financial data per Rule 0. No action, mention logged only. |
 | 2026-07-28 | https://t.me/bolshegold | — | no action — no publicly-traded company named (personal essay on emigration) | New top post bolshegold/9846 (edited, ~20:07 UTC, 2026-07-27), advancing marker from bolshegold/9845 (~15:49 UTC, 2026-07-27) — a ~4h18m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (9845→9846), sequential, so no intervening post was skipped. New top post: a personal essay on the psychological toll of wartime emigration (citing PTSD-symptom research vs. those who stayed) and five coping strategies (financial stability via investments, community, critical thinking, life goals, humor/helping others) — "investments" referenced only generically, no specific identifiable publicly-traded company or ticker named — never used as financial data per Rule 0. No action, mention logged only. |
 | 2026-07-28 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11504 (~19:34 UTC, 2026-07-27, "Інвестор vs ринок" investor-vs-market meme video, already evaluated in the prior run) — reconfirmed via web fetch this run (2026-07-28 00:10 UTC check); no new post since the prior check. |
