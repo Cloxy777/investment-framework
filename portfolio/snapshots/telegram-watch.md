@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11514 (~09:46 UTC, 2026-07-29) | 2026-07-29 12:25 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3007 (~10:58 UTC, 2026-07-29) | 2026-07-29 12:25 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2594 (~14:24 UTC, 2026-07-28) | 2026-07-29 12:25 UTC |
-| https://t.me/bolshegold | bolshegold/9854 (~10:38 UTC, 2026-07-29) | 2026-07-29 12:25 UTC |
+| https://t.me/tarasguk | tarasguk/11517 (~15:10 UTC, 2026-07-29) | 2026-07-29 16:07 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3010 (~15:36 UTC, 2026-07-29) | 2026-07-29 16:07 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2594 (~14:24 UTC, 2026-07-28) | 2026-07-29 16:07 UTC |
+| https://t.me/bolshegold | bolshegold/9854 (~10:38 UTC, 2026-07-29) | 2026-07-29 16:07 UTC |
 
 ## Mention log
 
@@ -17,6 +17,8 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-07-29 | https://t.me/FinnInvestChannel | CAKE | no action — mention only, no new claimed event | New top post FinnInvestChannel/3010 (~15:36 UTC, 2026-07-29), advancing marker from FinnInvestChannel/3007 (~10:58 UTC, 2026-07-29) — a ~4h38m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 3 (3007→3010), so intermediate posts (3008, 3009) were superseded and not individually evaluated per this routine's single-latest-post design. Post text (Ukrainian): "Чізкейк спасе цей ринок 😅 Я з нього вийшов з гарними прибутками, тому що він став тепер дорожчий, хто тут давно, то маєте памʼятати цей бренд 🤓" — the author says they exited a Cheesecake Factory (CAKE) position at a profit because the brand "became more expensive," a personal-trading remark, not a claimed Rule 9 event (no earnings/guidance/M&A/management-change claim). CAKE has a prior [not-in-portfolio watchlist entry](../../watchlist/not-in-portfolio/CAKE/CAKE-2026-07-17.md) (2026-07-17, Phase 01 FAIL — Quality Score 49.5, fails 80.0+ gate); that entry's listed re-evaluation triggers (Q2 2026 earnings not yet disclosed, guidance change, management change/M&A, macro/rate shift, >15% unexplained price move, FY2026 fiscal close) are not claimed by this post, so no re-trigger fires. Logged per that entry's own instruction to log future mentions as "last checked, no change." |
+| 2026-07-29 | https://t.me/tarasguk | — | no action — generic macro/rate commentary, no company named | New top post tarasguk/11517 (~15:10 UTC, 2026-07-29), advancing marker from tarasguk/11514 (~09:46 UTC, 2026-07-29) — a ~5h24m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 3 (11514→11517), so intermediate posts (11515, 11516) were superseded and not individually evaluated. Post text (Ukrainian): "😍 Техсектор в очікуванні рішення по обліковій ставці Кевіна Ворша / Вишкіл \| Закритий клуб \| YouTube" — tech sector awaiting a Fed discount-rate decision tied to Kevin Warsh; macro/rate commentary with no specific identifiable company or ticker named, so out of scope per step 3. |
 | 2026-07-29 | https://t.me/FinnInvestChannel | LMND | `/new-position LMND` — Quality Score **38.0/100.0 — FAIL** (hard disqualifier: not FCF-positive 3+ consecutive years, FY2022–FY2025 all negative) — watchlist only, no entry | New top post FinnInvestChannel/3007 (~10:58 UTC, 2026-07-29), advancing marker from FinnInvestChannel/3006 (~06:40 UTC, 2026-07-29) — a ~4h18m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (3006→3007), sequential, no post skipped. Post's attached chart image identified "Lemonade, Inc. (LMND)" (ticker not in the post's text) reporting Q2 2026 earnings — independently verified via WebSearch (revenue $294.4M +79% YoY beat, EPS −$0.56 in-line, In-Force Premium +32%, reinsurance cession cut 20%→18%). Live price (IBKR) $51.54, −17.02% pre-market — well beyond the post-image's own ~11% snapshot, underscoring Rule 0. [Session](../../sessions/2026-07-29-new-position-lmnd.md). |
 | 2026-07-29 | https://t.me/tarasguk | — | no action — no company/ticker named (tax-declaration-reminder video ahead of the July 31 IBKR filing deadline) | New top post tarasguk/11514 (~09:46 UTC, 2026-07-29), advancing marker from tarasguk/11513 (~07:09 UTC, 2026-07-29) — a ~2h37m gap, above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (11513→11514), sequential, no post skipped. |
 | 2026-07-29 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2594 (~14:24:36 UTC, 2026-07-28, sarcastic one-liner with no named company, already evaluated in the prior run) — reconfirmed via raw-HTML fetch this run (2026-07-29 12:25 UTC check); no new post since the prior check. |
