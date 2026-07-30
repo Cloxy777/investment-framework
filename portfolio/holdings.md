@@ -39,7 +39,7 @@ Combined total ≈ **$57,832.61** = IBKR Net Liquidation Value $42,709.07 + Free
 | GOOG | 0.55% | 64.2 | 71.4 | 46.4 | 22 Jul 2026 | IBKR |
 | **MBGL** | 0.04% | not scored — ungoverned position, see note above | | | n/a | IBKR |
 | META | 6.16% | 31.3 | 89.9 | 20.7 | 28 Jul 2026 | IBKR + Freedom24 |
-| MSFT | 14.62% | 35.5 | 78.3 | 28.6 | 05 Jul 2026 | IBKR + Freedom24 |
+| MSFT | 14.62%⚠️ | 38.9 | 79.9 | 29.5 (ref only, gate fail) | 30 Jul 2026 | IBKR + Freedom24 |
 | NFLX | 1.45% | 49.3 | 69.8 | 39.8 | 17 Jul 2026 | IBKR |
 | NKE | 1.44% | 13.9 | 44.4 | 34.8 | 1 Jul 2026 | IBKR |
 | NOW | 2.03% | 61.3 | 78.7 | 41.3 | 05 Jul 2026 | IBKR |
@@ -57,6 +57,8 @@ Combined total ≈ **$57,832.61** = IBKR Net Liquidation Value $42,709.07 + Free
 | VEEV | 0.97% | 45.1 | 85.7 | 29.7 | 01 Jul 2026 | IBKR |
 | XEON | 2.94% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
 | ZS | 0.25% | 43.1 | 59.4 | 41.9 | 05 Jul 2026 | IBKR |
+
+**MSFT's 14.62% weight (⚠️) is pre-earnings** (26 Jul 2026 sync) — the stock moved +15.1% on its 29 Jul FY2026 Q4 earnings beat, so the actual current weight is almost certainly higher and may be back over the 15% cap; not recomputed here (that's `/sync-portfolio`'s job) — see [sessions/2026-07-30-rescore-msft.md](../sessions/2026-07-30-rescore-msft.md) §11/§13. Composite Score for MSFT is a reference figure only (not adopted) — its Quality Score (79.9) fails the 80.0+ gate by 0.1 point.
 
 **XEON is EUR-denominated** (€1,497.35 market value). Its USD-equivalent (**$1,702.40**, used for the weight above) comes from the *live* EUR→USD rate (1.1369399) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
 
