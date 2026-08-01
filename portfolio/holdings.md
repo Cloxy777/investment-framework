@@ -29,7 +29,7 @@ Combined total ≈ **$57,832.61** = IBKR Net Liquidation Value $42,709.07 + Free
 | Ticker | Weight % | Last Score | Quality Score | Composite Score | Last Review | Broker |
 |--------|----------|------------|----------------|------------------|-------------|--------|
 | ADBE | 3.88% | 0.0 | 83.9 | 8.1 | 29 Jul 2026 | IBKR |
-| AMZN | 9.48% | 78.1 | 56.7 | 60.7 | 31 Jul 2026 | IBKR + Freedom24 |
+| AMZN | 9.48% | 82.7 | 56.7 | 63.0 | 01 Aug 2026 | IBKR + Freedom24 |
 | AVGO | 3.96% | 68.2 | 82.1 | 43.1 | 04 Jul 2026 | IBKR |
 | CASH (Freedom24) | 0.18% | | | | | Freedom24 |
 | CASH (IBKR) | -3.79% | | | | | IBKR |
