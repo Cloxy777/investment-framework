@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11573 (~11:00 UTC, 2026-08-02) | 2026-08-02 16:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01) | 2026-08-02 16:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2615 (~07:36 UTC, 2026-08-01) | 2026-08-02 16:05 UTC |
-| https://t.me/bolshegold | bolshegold/9890 (~13:10 UTC, 2026-08-01) | 2026-08-02 16:05 UTC |
+| https://t.me/tarasguk | tarasguk/11575 (~18:36 UTC, 2026-08-02) | 2026-08-02 20:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01) | 2026-08-02 20:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2615 (~07:36 UTC, 2026-08-01) | 2026-08-02 20:05 UTC |
+| https://t.me/bolshegold | bolshegold/9890 (~13:10 UTC, 2026-08-01) | 2026-08-02 20:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-02 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9890 (~13:10 UTC, 2026-08-01, post-meetup thank-you message, already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-02 20:05 UTC check); no new post since the prior check. |
+| 2026-08-02 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2615 (~07:36 UTC, 2026-08-01, birthday greeting to "Dias," already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-02 20:05 UTC check); no new post since the prior check. |
+| 2026-08-02 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01, PLTR forward-PE speculation, already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-02 20:05 UTC check); no new post since the prior check. |
+| 2026-08-02 | https://t.me/tarasguk | AMZN, MSFT, META | no action — promo for own YouTube content covering already-actioned earnings, no new claimed event | New top post tarasguk/11575 (~18:36 UTC, 2026-08-02), advancing marker from tarasguk/11573 (~11:00 UTC, 2026-08-02) — a ~7h36m gap, well above the ~1hr threshold, flagging explicitly; post-ID delta is 2 (11573→11575), so post #11574 was superseded and not individually evaluated per this command's latest-post-only scope — #11574 does not appear in the channel preview at all (consistent with the deleted/grouped-media pattern seen in prior runs), so nothing of substance is known to have been skipped. New top post (#11575, ~18:36 UTC): announces a new Sunday YouTube episode that will cover "Amazon, Microsoft, and Meta earnings reports," investment mistakes via the Leopold Aschenbrenner/Situational Awareness fund case study (same story already logged no-action across multiple prior rows), and whether the NBU's currency-liberalization signals are genuine or PR, with links to the author's paid platform/private club — a content-promo post, not a report of any new figure, guidance, M&A, or management-change claim itself. All three named tickers are current holdings already reviewed on exactly the earnings prints this post references: AMZN ([2026-08-01 rescore](../../sessions/2026-08-01-rescore-amzn.md), Composite 63.0, HOLD), MSFT ([2026-07-30 rescore](../../sessions/2026-07-30-rescore-msft.md)), META ([2026-07-28 review](../../watchlist/in-portfolio/META/), 28 Jul 2026). This post supplies no information beyond those already-scored prints, and per CLAUDE.md/operating-brief.md action is never taken on a content-promo mention alone. No action on any of the three, mentions logged only. |
 | 2026-08-02 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11573 (~11:00 UTC, 2026-08-02, worst month for chip manufacturers since 2008 / worst July for Nasdaq in 20 years — generic sector/index commentary, no company named, already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-02 16:05 UTC check); no new post since the prior check. |
 | 2026-08-02 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01, PLTR forward-PE speculation, already evaluated in prior runs) — reconfirmed via web fetch this run (2026-08-02 16:05 UTC check); no new post since the prior check. |
 | 2026-08-02 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2615 (~07:36 UTC, 2026-08-01, birthday greeting to "Dias," already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-02 16:05 UTC check); no new post since the prior check. |
