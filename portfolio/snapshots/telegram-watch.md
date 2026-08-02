@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11570 (~17:27 UTC, 2026-08-01) | 2026-08-02 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01) | 2026-08-02 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2615 (~07:36 UTC, 2026-08-01) | 2026-08-02 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/9890 (~13:10 UTC, 2026-08-01) | 2026-08-02 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11571 (~07:43 UTC, 2026-08-02) | 2026-08-02 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01) | 2026-08-02 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2615 (~07:36 UTC, 2026-08-01) | 2026-08-02 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/9890 (~13:10 UTC, 2026-08-01) | 2026-08-02 08:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-02 | https://t.me/tarasguk | — | no action — no company/ticker named | New top post tarasguk/11571 (~07:43:59 UTC, 2026-08-02), advancing marker from tarasguk/11570 (~17:27 UTC, 2026-08-01) — a ~14h17m gap, well above the ~1hr threshold, flagging explicitly; post-ID delta is 1 (11570→11571), sequential, no post skipped. Post text: "🇮🇷 Трамп скасував атаки на Іран, які він же анонсував в пʼятницю. Каже, що це іранці його попросили." ("Trump canceled the attacks on Iran he himself announced on Friday. Says it was the Iranians who asked him to.") — geopolitical/macro commentary only, no company or ticker named. |
+| 2026-08-02 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01, PLTR forward-PE speculation, already evaluated in the prior run) — reconfirmed via raw-HTML fetch this run (2026-08-02 08:05 UTC check); no new post since the prior check. |
+| 2026-08-02 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2615 (~07:36 UTC, 2026-08-01, birthday greeting to "Dias," already evaluated in the prior run) — reconfirmed via raw-HTML fetch this run (2026-08-02 08:05 UTC check); no new post since the prior check. |
+| 2026-08-02 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9890 (~13:10 UTC, 2026-08-01, post-meetup thank-you message, already evaluated in the prior run) — reconfirmed via raw-HTML fetch this run (2026-08-02 08:05 UTC check); no new post since the prior check. |
 | 2026-08-02 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11570 (~17:27 UTC, 2026-08-01, Amazon/OpenAI $50B investment completion post, already evaluated in the prior run) — reconfirmed via raw-HTML fetch this run (2026-08-02 00:05 UTC check); no new post since the prior check. |
 | 2026-08-02 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01, PLTR forward-PE speculation, already evaluated in the prior run) — reconfirmed via raw-HTML fetch this run (2026-08-02 00:05 UTC check); no new post since the prior check. |
 | 2026-08-02 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2615 (~07:36 UTC, 2026-08-01, birthday greeting to "Dias," already evaluated in the prior run) — reconfirmed via raw-HTML fetch this run (2026-08-02 00:05 UTC check); no new post since the prior check. |
