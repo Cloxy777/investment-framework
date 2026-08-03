@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11575 (~18:36 UTC, 2026-08-02) | 2026-08-03 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01) | 2026-08-03 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2615 (~07:36 UTC, 2026-08-01) | 2026-08-03 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/9890 (~13:10 UTC, 2026-08-01) | 2026-08-03 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11577 (~06:58 UTC, 2026-08-03) | 2026-08-03 08:06 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01) | 2026-08-03 08:06 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2615 (~07:36 UTC, 2026-08-01) | 2026-08-03 08:06 UTC |
+| https://t.me/bolshegold | bolshegold/9890 (~13:10 UTC, 2026-08-01) | 2026-08-03 08:06 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-03 | https://t.me/tarasguk | — | no action — no company/ticker named | New top post tarasguk/11577 (~06:58 UTC, 2026-08-03), advancing marker from tarasguk/11575 (~18:36 UTC, 2026-08-02) — a ~12h22m gap, well above the ~1hr threshold, flagging explicitly; post-ID delta is 2 (11575→11577), sequential, so post #11576 was superseded and not individually evaluated per this command's latest-post-only scope, but its content was read for the record: #11576 (~06:05 UTC) read "🤗 Гіперскейлери нарешті дали ріст. Проте, всі ці компанії все ще досить дешеві." ("Hyperscalers finally showed growth. However, all these companies are still quite cheap.") — generic sector-level commentary ("hyperscalers" collectively), no specific identifiable publicly-traded company or ticker named, same treatment as prior generic-sector-commentary precedents (e.g. the 2026-08-02 "chip manufacturers" row). New top post (#11577, ~06:58 UTC): "🇺🇸 Трамп заявив, що відновлює переговори з Іраном сьогодні" ("Trump stated he is resuming negotiations with Iran today") — geopolitical/macro commentary only, no company or ticker named. No action, mentions logged only. |
+| 2026-08-03 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01, PLTR forward-PE speculation, already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-03 08:06 UTC check); no new post since the prior check. |
+| 2026-08-03 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2615 (~07:36 UTC, 2026-08-01, birthday greeting to "Dias," already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-03 08:06 UTC check); no new post since the prior check. |
+| 2026-08-03 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9890 (~13:10 UTC, 2026-08-01, post-meetup thank-you message, already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-03 08:06 UTC check); no new post since the prior check. |
 | 2026-08-03 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11575 (~18:36 UTC, 2026-08-02, YouTube-episode promo covering AMZN/MSFT/META earnings, already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-03 00:05 UTC check); no new post since the prior check. |
 | 2026-08-03 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3028 (~14:11 UTC, 2026-08-01, PLTR forward-PE speculation, already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-03 00:05 UTC check); no new post since the prior check. |
 | 2026-08-03 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2615 (~07:36 UTC, 2026-08-01, birthday greeting to "Dias," already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-03 00:05 UTC check); no new post since the prior check. |
