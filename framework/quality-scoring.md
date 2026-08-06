@@ -23,6 +23,8 @@ A deliberately high bar, set per explicit user instruction (2026-06-29) — stri
 
 These mirror the existing Phase 01 non-negotiables — a weighted average can't average away an outright balance-sheet or cash-flow-quality failure.
 
+> **Rolling-window clarification (2026-08-05):** both the "2+ consecutive years" and "3+ consecutive years" tests above are evaluated on the **most recently completed fiscal years available at the time of scoring** — the window rolls forward as each new fiscal year reports, exactly like every other trailing metric in this framework (TTM ratios, 3yr revenue CAGR, Net Debt/EBITDA off the latest balance sheet). A disqualifier that fired in a past session because an *older* window (e.g. FY2023–FY2025) was uniformly negative is **not** a permanent scar: it is re-tested fresh each session against the *current* window (e.g. FY2024–FY2026), and does not fire if that current window is no longer uniformly negative — even if it contains 2 of 3 negative years. This mirrors how the FCF/NI conversion disqualifier is already applied on a rolling, not cumulative-history, basis (see the MELI 2026-08-05 session's explicit "TTM-rolling-window, not two distinct fiscal years" reasoning). See [decisions/2026-08-05-framework-clarification-fcf-disqualifier-rolling-window.md](../decisions/2026-08-05-framework-clarification-fcf-disqualifier-rolling-window.md) for the case (SNDK) that prompted this clarification and the full reasoning for why the alternative ("requires a fresh 3-consecutive-*positive*-year streak to ever clear") reading was rejected.
+
 ## Final Quality Score Formula
 
 ```
