@@ -59,7 +59,7 @@ Combined total ≈ **$60,829.03** = IBKR Net Liquidation Value $45,705.49 + Free
 | STIM | 1.63% | not scored — going-concern override | | | Jun 2026 | IBKR |
 | TLT | 29.93% | not scored — non-equity, framework gap | | | Jun 2026 | IBKR + Freedom24 |
 | TRN | 3.16% | 10.0 | 67.2 | 21.4 | 05 Jul 2026 | IBKR |
-| UBER | 0.35% | 39.4 | 61.0 | 39.2 | 14 Jul 2026 | IBKR |
+| UBER | 0.35% | 43.6 | 55.5 | 44.1 | 07 Aug 2026 | IBKR |
 | V | 0.60% | 54.5 | 85.6 | 34.5 | 29 Jul 2026 | IBKR |
 | VEEV | 1.01% | 45.1 | 85.7 | 29.7 | 01 Jul 2026 | IBKR |
 | XEON | 2.84% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
