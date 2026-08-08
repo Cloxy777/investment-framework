@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11632 (~14:08:18 UTC, 2026-08-08) | 2026-08-08 16:09 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08) | 2026-08-08 16:09 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-08 16:09 UTC |
-| https://t.me/bolshegold | bolshegold/9929 (~14:54:34 UTC, 2026-08-08) | 2026-08-08 16:09 UTC |
+| https://t.me/tarasguk | tarasguk/11632 (~14:08:18 UTC, 2026-08-08) | 2026-08-08 20:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08) | 2026-08-08 20:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-08 20:05 UTC |
+| https://t.me/bolshegold | bolshegold/9929 (~14:54:34 UTC, 2026-08-08) | 2026-08-08 20:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-08 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9929 (~14:54:34 UTC, 2026-08-08, the BRK Q2 2026 cash-position post already evaluated in a prior run — see the tarasguk/BRK.B row below) — reconfirmed via web fetch this run (2026-08-08 20:05 UTC check); no new post since the prior check. |
+| 2026-08-08 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07, the TTWO Q1 FY2027 post already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-08 20:05 UTC check); no new post since the prior check. |
+| 2026-08-08 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08, the RBRK portfolio-audio post already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-08 20:05 UTC check); no new post since the prior check. |
+| 2026-08-08 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11632 (~14:08:18 UTC, 2026-08-08, the BRK Q2 2026 earnings post already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-08 20:05 UTC check); no new post since the prior check. |
 | 2026-08-08 | https://t.me/bolshegold | BRK.B | duplicate trigger — same `/new-position BRK.B` attempt as the tarasguk row below (data gap, not committed) | New top post bolshegold/9929 (~14:54:34 UTC, 2026-08-08), advancing marker from bolshegold/9928 (~11:37:10 UTC, 2026-08-07) — a ~27h17m gap, well above the ~1hr threshold, flagged (bolshegold simply posted infrequently over that window; post IDs consecutive (9928→9929) so only one post landed in the gap). Post reports Berkshire's Q2 2026 cash position ($365.5B, down from $397.4B at Q1-end, ~$32B invested) — the same underlying Q2 2026 earnings event as the tarasguk/11632 post below. Evaluated as part of the same single `/new-position BRK.B` attempt (not run twice) — see the tarasguk row for the data-gap outcome. |
 | 2026-08-08 | https://t.me/FinnInvestChannel | RBRK | no action — held position, mention only, no fundamental event claimed | New top post FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08), advancing marker from FinnInvestChannel/3068 (~08:52:47 UTC, 2026-08-08) — a ~5h28m gap, above the ~1hr threshold, flagged; post IDs consecutive (3068→3069), one post. Post is an audio "portfolio management" update directing listeners to the comments for a photo of the poster's Rubrik (RBRK) purchase and position size — no earnings/guidance/M&A/management-change claim in the post itself, just the influencer disclosing their own trade. RBRK is a current holding (0.36% weight; watchlist/in-portfolio/RBRK/RBRK-2026-06-07.md — not scored, fails both the Phase 01 Quality Gate and the Turnaround Sub-Gate; next review trigger is RBRK's own next earnings, not a passing third-party mention). No `/rescore` run — logged only. |
 | 2026-08-08 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07, the TTWO Q1 FY2027 post already evaluated and actioned in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-08 16:09 UTC check); no new post since the prior check. |
