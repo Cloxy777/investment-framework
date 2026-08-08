@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11630 (~06:18:31 UTC, 2026-08-08) | 2026-08-08 08:06 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3066 (~18:16:14 UTC, 2026-08-07) | 2026-08-08 08:06 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-08 08:06 UTC |
-| https://t.me/bolshegold | bolshegold/9928 (~11:37:10 UTC, 2026-08-07) | 2026-08-08 08:06 UTC |
+| https://t.me/tarasguk | tarasguk/11631 (~09:43:15 UTC, 2026-08-08) | 2026-08-08 12:11 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3068 (~08:52:47 UTC, 2026-08-08) | 2026-08-08 12:11 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-08 12:11 UTC |
+| https://t.me/bolshegold | bolshegold/9928 (~11:37:10 UTC, 2026-08-07) | 2026-08-08 12:11 UTC |
 
 ## Mention log
 
@@ -17,7 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
-| 2026-08-08 | https://t.me/tarasguk | — (no company mentioned) | no action — post is generic market-breadth commentary, no ticker/company identifiable | New top post tarasguk/11630 (~06:18:31 UTC, 2026-08-08), advancing marker from tarasguk/11627 (~19:22:17 UTC, 2026-08-07) — an ~11h gap, above the ~1hr threshold, flagged (posts 11628/11629 landed in the gap and were superseded, per the delta-check rule only 11630 was evaluated). Post: "Понад 72% акцій індексу S&P500 зараз торгуються вище своєї 200-денної ковзної середньої - це найсильніша ширина ринку з грудня 2024 року" (More than 72% of S&P 500 constituents are trading above their 200-day moving average — the strongest market breadth since December 2024) — index-level breadth statistic, no single company or ticker named. |
+| 2026-08-08 | https://t.me/tarasguk | — (no company mentioned) | no action — post names no resolvable company | New top post tarasguk/11631 (~09:43:15 UTC, 2026-08-08), advancing marker from tarasguk/11630 (~06:18:31 UTC, 2026-08-08) — a ~3h25m gap, above the ~1hr threshold, flagged, though post IDs are consecutive (11630→11631) so only one post landed in the gap, not several. Post: "Клауд у другому кварталі 2026 року зріс на 35% рік до року. Беклог зріс ще більше. Маржа прибутковості також бʼє усі рекорди." (Cloud grew 35% YoY in Q2 2026. Backlog grew even more. Profit margin also breaking all records.) — no specific company or ticker named ("Клауд"/"Cloud" is used generically, not as a company nickname resolvable to a single ticker); per CLAUDE.md Rule 0, never guess — skipped. |
+| 2026-08-08 | https://t.me/FinnInvestChannel | — (no company mentioned) | no action — post is a generic engagement poll, no ticker/company identifiable | New top post FinnInvestChannel/3068 (~08:52:47 UTC, 2026-08-08), advancing marker from FinnInvestChannel/3066 (~18:16:14 UTC, 2026-08-07) — a ~14h36m gap, above the ~1hr threshold, flagged (post 3067 landed in the gap and was superseded, per the delta-check rule only 3068 was evaluated). Post is an anonymous poll asking subscribers whether the channel should do a mini-podcast on portfolio management — no company/ticker mentioned. |
+| 2026-08-08 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07, the TTWO Q1 FY2027 post already evaluated and actioned in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-08 12:11 UTC check); no new post since the prior check. |
+| 2026-08-08 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9928 (~11:37:10 UTC, 2026-08-07, the CHTR Cox-financing correction post already evaluated in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-08 12:11 UTC check); no new post since the prior check. |
 | 2026-08-08 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3066 (~18:16:14 UTC, 2026-08-07, the CELH activist-stake post already evaluated and actioned in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-08 08:06 UTC check); no new post since the prior check. |
 | 2026-08-08 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07, the TTWO Q1 FY2027 post already evaluated and actioned in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-08 08:06 UTC check); no new post since the prior check. |
 | 2026-08-08 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9928 (~11:37:10 UTC, 2026-08-07, the CHTR Cox-financing correction post already evaluated in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-08 08:06 UTC check); no new post since the prior check. |
