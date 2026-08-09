@@ -1,26 +1,27 @@
 # IBKR Active Orders Snapshot
 
 **Account:** U19421206
-**Last synced:** 2026-08-02 (live via Interactive Brokers MCP — `get_account_orders`)
-**Active orders:** 7 working (status `NEW`/`PARTIALLY_FILLED`) · 4 non-active orders shown in this fetch (all `REPLACED`, none with a live successor visible).
+**Last synced:** 2026-08-09 (live via Interactive Brokers MCP — `get_account_orders`)
+**Active orders:** 8 working (status `NEW`/`PARTIALLY_FILLED`) · 4 non-active orders shown in this fetch (all `REPLACED`, none with a live successor visible).
 
 | Order ID | Side | Ticker | Qty | Order Type | Limit Price | Time in Force | Status | Order Placed (UTC) |
 |----------|------|--------|-----|------------|--------------|---------------|--------|---------------------|
 | 934588783 | SELL | GOOG | 1 | LIMIT | 389.00 | GTC | NEW | 2026-06-07T18:27:18Z |
 | 862563682 | BUY | MA | 4 | LIMIT | 464.00 | GTC | NEW | 2026-07-05T19:17:13Z |
+| 264783699 | SELL | MSFT | 3 | LIMIT | 500.00 | GTC | NEW | 2026-08-09T09:09:34Z |
 | 1872552219 | SELL | NKE | 20 | LIMIT | 54.20 | GTC | NEW | 2026-06-01T20:06:50Z |
 | 862563683 | BUY | NOW | 20 | LIMIT | 80.00 | GTC | NEW | 2026-07-05T19:17:13Z |
 | 1150965513 | BUY | PDD | 10 | LIMIT | 72.55 | GTC | NEW | 2026-07-02T09:28:52Z |
 | 1040104046 | SELL | TLT | 1 (contract, SEP30'26 $90 CALL) | LIMIT | 0.25 | GTC | NEW | 2026-07-21T13:59:42Z |
 | 862563681 | BUY | V | 9 | LIMIT | 285.00 | GTC | NEW | 2026-07-05T19:17:13Z |
 
-> ## ⚠️ SPOT `SELL 1 @ $518.00` order (934588780) has vanished from the fetch entirely — not filled, not `REPLACED`, not `CANCELLED`
+> ## ⚠️ New this sync — MSFT `SELL 3 @ $500.00` GTC order (264783699), placed today
 >
-> This order showed `NEW` status in every sync back to 2026-06-07. This sync's `get_account_orders` fetch does not return it in **any** status — the same "vanished order" anomaly pattern as the AMZN bracket (2026-07-20) and the TLT `BUY 13 @ $83.54` order (2026-07-26). Coincident with this: the underlying **SPOT equity position has also vanished** from this sync's `get_account_positions` fetch — see [ibkr.md](ibkr.md) for the full flag. Flagged for the user to confirm directly in TWS/Client Portal.
+> Not present in the 2026-08-02 sync. Order time 2026-08-09T09:09:34Z (today). See [ibkr.md](ibkr.md) for the full flag and the (unconfirmed) read that this may be a manual response to MSFT's 15% position-cap breach — flagged for the user to confirm intent, not assumed.
 
-> ## ⚠️ META `SELL 1 @ $611.01` order (862563692) flipped from `NEW` to `REPLACED`, no live successor — coincident with a +1 share META position change
+> ## SPOT `SELL 1 @ $518.00` order (934588780) — still absent, unchanged from 2026-08-02
 >
-> This order held `NEW` status in every sync since 2026-07-04 (part of an undocumented 1-share GTC pattern already flagged in [override-log.md](../override-log.md)). This sync it shows `REPLACED`, with no live successor order visible in the fetch. Coincident with this, the META equity position grew from 5 to 6 shares this sync — see [ibkr.md](ibkr.md) for the full flag and the caveat that the mechanical link between the two is not confirmed (would require `get_account_trades`, out of scope here).
+> Still does not appear in this fetch in any status, coincident with the SPOT equity position also still being absent. See [ibkr.md](ibkr.md) for the standing flag — no new information this sync.
 
 > **Carried, still unresolved from prior syncs — no new session/decision/override-log entry has appeared for any of these:**
 
@@ -42,6 +43,6 @@
 | TRN | BUY | 900 | 1.615 (GBX 161.50) | 2026-06-24T16:31:15Z |
 | CSGP | SELL | 25 | 35.50 | 2026-05-26T19:00:33Z |
 
-> Worth a manual TWS/Client Portal check on all four if any were expected to still be live. META is newly in this list this sync (see flag above); HDSN, TRN, and CSGP are carried unchanged.
+> Unchanged from the 2026-08-02 sync — worth a manual TWS/Client Portal check on all four if any were expected to still be live.
 
 *This file is overwritten on every IBKR active-orders sync — see [sync-sop.md](../sync-sop.md). Prior snapshots live in git history, not as separate files.*
