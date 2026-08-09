@@ -36,7 +36,7 @@ Starting-point audit based on the May 2026 portfolio snapshot — verify with ac
 | Ticker | Override Type | Estimated Score at Entry | Current Status | Action |
 | --- | --- | --- | --- | --- |
 | DUOL | Quality waiver (FCF negative at entry) | Score 77.7–88.8 est. | Under review | Run Phase 06 analysis |
-| STIM | Quality waiver (micro-cap, no FCF) | N/A | Monitoring | Exit at next review unless thesis documented |
+| STIM | Quality waiver (micro-cap, no FCF) | N/A | **EXIT recommended, 2026-08-09** — going-concern doubt still formally disclosed (Perceptive Facility TTM revenue covenant breach projected for period ending 2027-03-31, per the only 10-Q on record); no thesis was ever documented in the ~2 months since this review was first flagged as overdue. See [2026-08-09 exit review](../sessions/2026-08-09-exit-review-stim.md) for full reasoning (Rule 9 trigger investigation, going-concern re-check, Phase 06 trigger analysis, exit order mechanics for both the equity and the short-call leg). Not yet executed as of this log entry — human action pending. | Two Phase 06 Full Exit triggers (balance sheet crisis, management change) were independently satisfied; recommendation only, no order placed by this framework. |
 | RLYB | Quality waiver (pre-profit biotech) | N/A | Monitoring | Exit at next review unless thesis documented |
 | FSLY | Quality waiver (FCF borderline) | Score 66.6–77.7 est. | Monitoring | Run Phase 01 re-screen |
 | SOFI | Quality waiver (fintech, borderline) | Score 66.6+ est. | Monitoring | Run Phase 01 re-screen |
