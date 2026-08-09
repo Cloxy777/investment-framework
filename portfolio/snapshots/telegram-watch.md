@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11633 (~07:55:41 UTC, 2026-08-09) | 2026-08-09 12:06 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08) | 2026-08-09 12:06 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-09 12:06 UTC |
-| https://t.me/bolshegold | bolshegold/9929 (~14:54:34 UTC, 2026-08-08) | 2026-08-09 12:06 UTC |
+| https://t.me/tarasguk | tarasguk/11636 (~16:04:11 UTC, 2026-08-09) | 2026-08-09 16:10 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08) | 2026-08-09 16:10 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-09 16:10 UTC |
+| https://t.me/bolshegold | bolshegold/9930 (~14:37:10 UTC, 2026-08-09) | 2026-08-09 16:10 UTC |
 
 ## Mention log
 
@@ -17,6 +17,8 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-09 | https://t.me/bolshegold | HOOD | no action — mention only | New top post bolshegold/9930 (2026-08-09T14:37:10 UTC; marker was 9929, consecutive post number so nothing superseded despite the ~23h42m gap). Post: "$HOOD появилось обслуживание Трастов... рост AUM (рост EPS)" — Robinhood launching trust-account services for SSN/ITIN holders, framed by the poster as AUM/EPS-positive. Resolved ticker HOOD; checked `watchlist/not-in-portfolio/HOOD/` (latest entry 2026-07-30, Quality Score 63.0, FAILS 80.0+ gate — Hard Disqualifier #1, not FCF-positive 3+ consecutive years). This product-feature announcement isn't a Rule 9 event (not earnings/guidance revision/management change/M&A/macro shift/>15% move) and doesn't touch the FCF-history disqualifier that's the actual gate blocker (documented next triggers: FY2026 10-K ~Feb 2027, or Q3 2026 earnings) — not materially new beyond the 07-30 entry. No `/new-position` run; mention logged only. |
+| 2026-08-09 | https://t.me/tarasguk | UBER | no action — mention only | New top post tarasguk/11636 (2026-08-09T16:04:11 UTC; marker was 11633). Marker gap >1h (~8h09m) so multiple posts landed since last check — checked the two superseded posts for visibility: 11634 (pure macro/geopolitical commentary, Trump-Iran-oil, no company named) and 11635 (near-duplicate of 11636's text) — neither adds anything beyond what 11636 itself carries, so only 11636 needed evaluation. Post: YouTube-video promo mentioning "що варто робити з Uber після звіту" (what to do with Uber after its earnings report) — no figures, no new claim, just a video teaser. Resolved ticker UBER; held at 0.35% weight, rescored 2 days ago (2026-08-07, Valuation 43.6 · Quality 55.5, session: sessions/2026-08-07-rescore-uber.md) which already covered the Q2 2026 earnings this post vaguely references. Next documented review trigger is Q3 2026 earnings (~Nov 2026) or a specific Rule 9 event — this post claims neither. No `/rescore` run; mention logged only. |
 | 2026-08-09 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9929 (~14:54:34 UTC, 2026-08-08, the BRK Q2 2026 cash-position post already evaluated in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-09 12:06 UTC check); no new post since the prior check. |
 | 2026-08-09 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08, the RBRK portfolio-audio post already evaluated in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-09 12:06 UTC check); no new post since the prior check. |
 | 2026-08-09 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07, the TTWO Q1 FY2027 post already evaluated and actioned in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-09 12:06 UTC check); no new post since the prior check. |
