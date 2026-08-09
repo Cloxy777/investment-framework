@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11633 (~07:55:41 UTC, 2026-08-09) | 2026-08-09 08:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08) | 2026-08-09 08:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-09 08:05 UTC |
-| https://t.me/bolshegold | bolshegold/9929 (~14:54:34 UTC, 2026-08-08) | 2026-08-09 08:05 UTC |
+| https://t.me/tarasguk | tarasguk/11633 (~07:55:41 UTC, 2026-08-09) | 2026-08-09 12:06 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08) | 2026-08-09 12:06 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-09 12:06 UTC |
+| https://t.me/bolshegold | bolshegold/9929 (~14:54:34 UTC, 2026-08-08) | 2026-08-09 12:06 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-09 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9929 (~14:54:34 UTC, 2026-08-08, the BRK Q2 2026 cash-position post already evaluated in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-09 12:06 UTC check); no new post since the prior check. |
+| 2026-08-09 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08, the RBRK portfolio-audio post already evaluated in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-09 12:06 UTC check); no new post since the prior check. |
+| 2026-08-09 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07, the TTWO Q1 FY2027 post already evaluated and actioned in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-09 12:06 UTC check); no new post since the prior check. |
+| 2026-08-09 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11633 (~07:55:41 UTC, 2026-08-09, the generic ATH-continuation post already evaluated in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-09 12:06 UTC check); no new post since the prior check. |
 | 2026-08-09 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9929 (~14:54:34 UTC, 2026-08-08, the BRK Q2 2026 cash-position post already evaluated in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-09 08:05 UTC check); no new post since the prior check. |
 | 2026-08-09 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08, the RBRK portfolio-audio post already evaluated in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-09 08:05 UTC check); no new post since the prior check. |
 | 2026-08-09 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07, the TTWO Q1 FY2027 post already evaluated and actioned in a prior run) — reconfirmed via raw-HTML fetch this run (2026-08-09 08:05 UTC check); no new post since the prior check. |
