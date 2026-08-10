@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11636 (~16:04:11 UTC, 2026-08-09) | 2026-08-10 00:12 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08) | 2026-08-10 00:12 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-10 00:12 UTC |
-| https://t.me/bolshegold | bolshegold/9931 (~00:01 UTC, 2026-08-10) | 2026-08-10 00:12 UTC |
+| https://t.me/tarasguk | tarasguk/11639 (~07:51:34 UTC, 2026-08-10) | 2026-08-10 08:14 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3070 (~07:20:02 UTC, 2026-08-10) | 2026-08-10 08:14 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-10 08:14 UTC |
+| https://t.me/bolshegold | bolshegold/9931 (~00:01 UTC, 2026-08-10) | 2026-08-10 08:14 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-10 | https://t.me/tarasguk | — | no action — no resolvable company named | New top post tarasguk/11639 (~07:51:34 UTC, 2026-08-10; marker was 11636 at ~16:04:11 UTC, 2026-08-09 — post-ID delta 3, so posts 11637 and 11638 were superseded and never individually evaluated per this routine's single-latest-post design; time gap ~15h47m, above the ~1hr threshold, flagged explicitly per step 2). Message is `text_not_supported_wrap` (unsupported media type — video/voice note) with zero caption text in the public preview; no company, ticker, or financial content of any kind extractable. No action; mention logged only. |
+| 2026-08-10 | https://t.me/FinnInvestChannel | HIMS | no action — anticipated event only, not yet reported | New top post FinnInvestChannel/3070 (~07:20:02 UTC, 2026-08-10; marker was 3069 at ~14:20:44 UTC, 2026-08-08 — post-ID delta 1, sequential, nothing superseded; the ~41h gap is fully explained by the sequential ID, not multiple missed posts). Full text (Ukrainian): "На цьому тижні знову звіти, але вже не так багато 😎 Сьогодні Hims після закриття ринку, очікування обережні, не чекаю росту ціни, але чекаю покращення бізнесу. Цифри в коментарі ✍️" (translation: "Reports again this week, though fewer than before. Today Hims [reports] after market close, expectations are cautious — I don't expect a price rally, but I do expect business improvement. Numbers in the comments.") — names Hims & Hers Health (HIMS). Not held; prior not-in-portfolio entry exists ([watchlist/not-in-portfolio/HIMS/HIMS-2026-06-12.md](../../watchlist/not-in-portfolio/HIMS/HIMS-2026-06-12.md), 2026-07-09 addendum) whose own "Next review trigger" is precisely HIMS's Q2 2026 earnings release, expected 10 Aug 2026 — today. But as of this run (2026-08-10 08:14 UTC, well before US market close), the report itself has not been released; the post only reconfirms the already-documented anticipated date and the author's subjective (non-numeric) expectation, not new results. Per Rule 0/Rule 9 the trigger is the earnings release itself, not its scheduling — running `/new-position HIMS` now would find no new quarter reported and just reconfirm the existing 49.1 Quality Score, so no action taken this run. Flagged for a follow-up check after today's US market close (or the next `/telegram-scan`/`/rescore` pass once Q2 figures are actually out) to evaluate the real Rule 9 trigger against live data. |
+| 2026-08-10 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07, the TTWO Q1 FY2027 post already evaluated and actioned in a prior run) — reconfirmed via web fetch this run (2026-08-10 08:14 UTC check); no new post since the prior check. |
+| 2026-08-10 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9931 (~00:01 UTC, 2026-08-10, the "Ачивка / Ночные больнички" personal joke post already evaluated as non-company content in a prior run) — reconfirmed via web fetch this run (2026-08-10 08:14 UTC check); no new post since the prior check. |
 | 2026-08-10 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11636 (~16:04:11 UTC, 2026-08-09, the Uber-post-earnings video-promo already evaluated as UBER in a prior run) — reconfirmed via web fetch this run (2026-08-10 00:12 UTC check); no new post since the prior check. |
 | 2026-08-10 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08, the RBRK portfolio-audio post already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-10 00:12 UTC check); no new post since the prior check. |
 | 2026-08-10 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07, the TTWO Q1 FY2027 post already evaluated and actioned in a prior run) — reconfirmed via web fetch this run (2026-08-10 00:12 UTC check); no new post since the prior check. |
