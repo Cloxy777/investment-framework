@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11636 (~16:04:11 UTC, 2026-08-09) | 2026-08-09 20:06 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08) | 2026-08-09 20:06 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-09 20:06 UTC |
-| https://t.me/bolshegold | bolshegold/9930 (~14:37:10 UTC, 2026-08-09) | 2026-08-09 20:06 UTC |
+| https://t.me/tarasguk | tarasguk/11636 (~16:04:11 UTC, 2026-08-09) | 2026-08-10 00:12 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08) | 2026-08-10 00:12 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07) | 2026-08-10 00:12 UTC |
+| https://t.me/bolshegold | bolshegold/9931 (~00:01 UTC, 2026-08-10) | 2026-08-10 00:12 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-10 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11636 (~16:04:11 UTC, 2026-08-09, the Uber-post-earnings video-promo already evaluated as UBER in a prior run) — reconfirmed via web fetch this run (2026-08-10 00:12 UTC check); no new post since the prior check. |
+| 2026-08-10 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08, the RBRK portfolio-audio post already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-10 00:12 UTC check); no new post since the prior check. |
+| 2026-08-10 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07, the TTWO Q1 FY2027 post already evaluated and actioned in a prior run) — reconfirmed via web fetch this run (2026-08-10 00:12 UTC check); no new post since the prior check. |
+| 2026-08-10 | https://t.me/bolshegold | — | no action — no resolvable company named | New top post bolshegold/9931 (~00:01 UTC, 2026-08-10; marker was 9930 at ~14:37:10 UTC, 2026-08-09 — a ~9h24m gap, above the ~1hr threshold, flagged explicitly; post-ID delta is 1, sequential, so nothing was superseded). Full text: "Ачивка / **Ночные больнички** - unlocked 🔓" (personal "achievement unlocked / night clinics" joke post) — no company, ticker, or financial content of any kind. No action; mention logged only. |
 | 2026-08-09 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11636 (~16:04:11 UTC, 2026-08-09, the Uber-post-earnings video-promo already evaluated as UBER in a prior run) — reconfirmed via web fetch this run (2026-08-09 20:06 UTC check); no new post since the prior check. |
 | 2026-08-09 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3069 (~14:20:44 UTC, 2026-08-08, the RBRK portfolio-audio post already evaluated in a prior run) — reconfirmed via web fetch this run (2026-08-09 20:06 UTC check); no new post since the prior check. |
 | 2026-08-09 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2634 (~18:50:47 UTC, 2026-08-07, the TTWO Q1 FY2027 post already evaluated and actioned in a prior run) — reconfirmed via web fetch this run (2026-08-09 20:06 UTC check); no new post since the prior check. |
