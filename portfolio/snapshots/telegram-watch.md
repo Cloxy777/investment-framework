@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11674 (~17:05 UTC, 2026-08-13) | 2026-08-14 00:11 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3095 (~18:47 UTC, 2026-08-13) | 2026-08-14 00:11 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2645 (~15:44 UTC, 2026-08-13) | 2026-08-14 00:11 UTC |
-| https://t.me/bolshegold | bolshegold/9975 (~19:24 UTC, 2026-08-13) | 2026-08-14 00:11 UTC |
+| https://t.me/tarasguk | tarasguk/11677 (~05:57 UTC, 2026-08-14) | 2026-08-14 08:30 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3096 (~07:17 UTC, 2026-08-14) | 2026-08-14 08:30 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2645 (~15:44 UTC, 2026-08-13) | 2026-08-14 08:30 UTC |
+| https://t.me/bolshegold | bolshegold/9975 (~19:24 UTC, 2026-08-13) | 2026-08-14 08:30 UTC |
 
 ## Mention log
 
@@ -17,7 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
-| 2026-08-14 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9975 (~19:24:34 UTC, 2026-08-13, the "go relax at the sea instead of reading macro data" lifestyle-commentary post already evaluated as non-actionable in the prior run) — reconfirmed via web fetch this run (2026-08-14 00:11 UTC check); no new post since the prior check. |
+| 2026-08-14 | https://t.me/FinnInvestChannel | — | no action — no publicly traded company identified | New top post FinnInvestChannel/3096 (~07:17 UTC, 2026-08-14), prior marker FinnInvestChannel/3095 (~18:47 UTC, 2026-08-13). Post discusses OpenAI's ~$40B annualized revenue run-rate (Bloomberg-sourced) and compares Claude vs. GPT revenue — generic AI-industry commentary naming no specific publicly-traded company/ticker (OpenAI and Anthropic are both private); skipped per step 3, no ticker guessed. |
+| 2026-08-14 | https://t.me/tarasguk | AMZN | no action — recently reviewed, no new Rule 9 event | New top post tarasguk/11677 (~05:57 UTC, 2026-08-14) — prior marker was tarasguk/11674 (~17:05 UTC, 2026-08-13), a >1h gap, so posts 11675–11676 were superseded and not individually evaluated (only the latest post per channel per run is ever checked). Post: "Seth Klarman's fund added $AMZN last quarter, now his largest position" — a passing 13F/holder-commentary mention, not a Rule 9 fundamental event. AMZN is held (9.48% wt per holdings.md 2026-07-26 sync) and was last rescored 2026-08-01 (Composite 63.0, HOLD, Quality Watch open, [session](../../sessions/2026-08-01-rescore-amzn.md)); next review trigger is Q3 FY2026 earnings (not yet reported) or an earlier Rule 9 event/management change/M&A/>15% unexplained price move — none of which this post claims. No action taken; the post's text was not used as a financial input per Rule 0. |
+| 2026-08-14 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2645 (~15:44 UTC, 2026-08-13, edited, $SNDK Investor Day recap) already evaluated in a prior run; no new post since the prior check (checked 2026-08-14 08:30 UTC). |
+| 2026-08-14 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9975 (~19:24:34 UTC, 2026-08-13, the "go relax at the sea instead of reading macro data" lifestyle-commentary post already evaluated as non-actionable in the prior run) — reconfirmed via web fetch this run (2026-08-14 08:30 UTC check); no new post since the prior check. |
 | 2026-08-14 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2645 (~15:44:14 UTC, 2026-08-13, the SNDK Investor Day outcome post already actioned via `/new-position SNDK` in a prior run, PR #533 merged) — reconfirmed via web fetch this run (2026-08-14 00:11 UTC check); no new post since the prior check. |
 | 2026-08-14 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3095 (~18:47:27 UTC, 2026-08-13, the federal budget-deficit/interest-expense macro-commentary post already evaluated as non-actionable in the prior run) — reconfirmed via web fetch this run (2026-08-14 00:11 UTC check); no new post since the prior check. |
 | 2026-08-14 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11674 (~17:05:15 UTC, 2026-08-13, the "will you buy the Anthropic IPO" poll post already evaluated as non-actionable — private company, no resolvable ticker — in the prior run) — reconfirmed via web fetch this run (2026-08-14 00:11 UTC check); no new post since the prior check. |
