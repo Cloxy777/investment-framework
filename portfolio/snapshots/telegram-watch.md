@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11689 (~13:05:44 UTC, 2026-08-15) | 2026-08-15 20:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3102 (~12:49:11 UTC, 2026-08-15) | 2026-08-15 20:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2647 (~18:36:36 UTC, 2026-08-15) | 2026-08-15 20:05 UTC |
-| https://t.me/bolshegold | bolshegold/9985 (~16:15:50 UTC, 2026-08-15) | 2026-08-15 20:05 UTC |
+| https://t.me/tarasguk | tarasguk/11689 (~13:05:44 UTC, 2026-08-15) | 2026-08-16 00:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3102 (~12:49:11 UTC, 2026-08-15) | 2026-08-16 00:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2647 (~18:36:36 UTC, 2026-08-15) | 2026-08-16 00:05 UTC |
+| https://t.me/bolshegold | bolshegold/9985 (~16:15:50 UTC, 2026-08-15) | 2026-08-16 00:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-16 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11689 (~13:05:44 UTC, 2026-08-15, already evaluated in a prior run); reconfirmed via web-preview fetch this run (2026-08-16 00:05 UTC check); no new post since the prior check. |
+| 2026-08-16 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3102 (~12:49:11 UTC, 2026-08-15, already evaluated in a prior run — Anthropic/private-company mention, no ticker); reconfirmed via web-preview fetch this run (2026-08-16 00:05 UTC check); no new post since the prior check. |
+| 2026-08-16 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2647 (~18:36:36 UTC, 2026-08-15, already evaluated in a prior run — COIN mention, no action); reconfirmed via web-preview fetch this run (2026-08-16 00:05 UTC check); no new post since the prior check. |
+| 2026-08-16 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9985 (~16:15:50 UTC, 2026-08-15, already evaluated in a prior run — COIN mention, no action); reconfirmed via web-preview fetch this run (2026-08-16 00:05 UTC check); no new post since the prior check. |
 | 2026-08-15 | https://t.me/myroslavkorol | COIN | no action — passing mention, no Rule 9 event | New top post myroslavkorol/2647 (2026-08-15T18:36:36 UTC), advancing marker from myroslavkorol/2646 (~16:46:11 UTC, 2026-08-14) — a ~25h50m gap, well above the ~1hr threshold, flagged explicitly; post-ID delta is 1 (2646→2647), sequential, nothing superseded. Post is a forward from bolshegold/9985 (same content evaluated separately below): "📈🔥$COIN\n\nCoinbase предлагает ипотеку под залог биткоина по 6.7% ставке (чуть ниже обычной). Получается двойной залог) недвига и $BTC" (Coinbase is offering a BTC-collateralized mortgage at 6.7%, "double collateral" of real estate + BTC). Ticker resolves unambiguously to COIN (Coinbase Global, Inc., NASDAQ). COIN is not held; prior not-in-portfolio entries exist ([2026-07-25](../../watchlist/not-in-portfolio/COIN/COIN-2026-07-25.md), [2026-07-31](../../watchlist/not-in-portfolio/COIN/COIN-2026-07-31.md)) — most recent (2026-07-31) recorded a decisive Quality Score FAIL (60.9 vs. the 80.0 gate, 19.1 points short) driven by Profitability collapsing to 7.61 post-Q2-earnings, with "Next review trigger" explicitly naming Q3 2026 earnings (not yet announced), a guidance revision, management change, material M&A, or a >15% unexplained price move. A new consumer-lending product (BTC-backed mortgages) is a business-development item, not any of those named Rule 9 triggers, and does not plausibly move the dominant Profitability sub-score that drives the current gap. Judged not materially new beyond what the existing entry already reflects — no `/new-position` re-run; mention logged only. Post text never used as a financial input per Rule 0. |
 | 2026-08-15 | https://t.me/bolshegold | COIN | no action — passing mention, no Rule 9 event | New top post bolshegold/9985 (2026-08-15T16:15:50 UTC), advancing marker from bolshegold/9984 (~21:14:39 UTC, 2026-08-14) — a ~19h01m gap, well above the ~1hr threshold, flagged explicitly; post-ID delta is 1 (9984→9985), sequential, nothing superseded. This is the origin post forwarded into myroslavkorol/2647 (same content, evaluated above) — Coinbase offering a BTC-collateralized mortgage at 6.7%. Same reasoning as the myroslavkorol row above: COIN not held, prior 2026-07-31 not-in-portfolio entry already on record with a decisive gate FAIL (60.9), this news item doesn't match any of that entry's named Rule 9 triggers. No action; mention logged only. |
 | 2026-08-15 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3102 (~12:49:11 UTC, 2026-08-15, already evaluated in a prior run); reconfirmed via raw-HTML fetch this run (2026-08-15 20:05 UTC check); no new post since the prior check. |
