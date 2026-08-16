@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11689 (~13:05:44 UTC, 2026-08-15) | 2026-08-16 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3102 (~12:49:11 UTC, 2026-08-15) | 2026-08-16 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2647 (~18:36:36 UTC, 2026-08-15) | 2026-08-16 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/9985 (~16:15:50 UTC, 2026-08-15) | 2026-08-16 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11690 (~07:46:05 UTC, 2026-08-16) | 2026-08-16 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3102 (~12:49:11 UTC, 2026-08-15) | 2026-08-16 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2647 (~18:36:36 UTC, 2026-08-15) | 2026-08-16 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/9985 (~16:15:50 UTC, 2026-08-15) | 2026-08-16 08:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-16 | https://t.me/tarasguk | — | no action — no publicly traded company/ticker named | New top post tarasguk/11690 (2026-08-16T07:46:05 UTC), advancing marker from tarasguk/11689 (~13:05:44 UTC, 2026-08-15) — a ~18h40m gap, well above the ~1hr threshold, flagged explicitly; post-ID delta is 1, sequential, nothing superseded. Post text (Ukrainian): "🛒 Наступного тижня звітують супермаркети\n\nГоловний звіт сезону очікуємо в середу 26-го серпня." ("Next week supermarkets report earnings. We expect the main report of the season on Wednesday, August 26th.") — refers to the supermarket/retail sector generically, without naming any specific publicly-traded company or ticker (could plausibly be Walmart, Target, Kroger, or another retailer's earnings date); per Rule 0/step 3 (never guess a ticker match), skipped rather than actioned. No action taken. FinnInvestChannel, myroslavkorol, and bolshegold had no new top post this run (see rows below). |
+| 2026-08-16 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3102 (~12:49:11 UTC, 2026-08-15, already evaluated in a prior run — Anthropic/private-company mention, no ticker); reconfirmed via web-preview fetch this run (2026-08-16 08:05 UTC check); no new post since the prior check. |
+| 2026-08-16 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2647 (~18:36:36 UTC, 2026-08-15, already evaluated in a prior run — COIN mention, no action); reconfirmed via web-preview fetch this run (2026-08-16 08:05 UTC check); no new post since the prior check. |
+| 2026-08-16 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9985 (~16:15:50 UTC, 2026-08-15, already evaluated in a prior run — COIN mention, no action); reconfirmed via web-preview fetch this run (2026-08-16 08:05 UTC check); no new post since the prior check. |
 | 2026-08-16 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11689 (~13:05:44 UTC, 2026-08-15, already evaluated in a prior run); reconfirmed via web-preview fetch this run (2026-08-16 00:05 UTC check); no new post since the prior check. |
 | 2026-08-16 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3102 (~12:49:11 UTC, 2026-08-15, already evaluated in a prior run — Anthropic/private-company mention, no ticker); reconfirmed via web-preview fetch this run (2026-08-16 00:05 UTC check); no new post since the prior check. |
 | 2026-08-16 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2647 (~18:36:36 UTC, 2026-08-15, already evaluated in a prior run — COIN mention, no action); reconfirmed via web-preview fetch this run (2026-08-16 00:05 UTC check); no new post since the prior check. |
