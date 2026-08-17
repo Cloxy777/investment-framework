@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11693 (~17:48:22 UTC, 2026-08-16) | 2026-08-16 20:07 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3103 (~10:13:27 UTC, 2026-08-16) | 2026-08-16 20:07 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2647 (~18:36:36 UTC, 2026-08-15) | 2026-08-16 20:07 UTC |
-| https://t.me/bolshegold | bolshegold/9986 (~09:37:07 UTC, 2026-08-16) | 2026-08-16 20:07 UTC |
+| https://t.me/tarasguk | tarasguk/11693 (~17:48:22 UTC, 2026-08-16) | 2026-08-17 00:12 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3103 (~10:13:27 UTC, 2026-08-16) | 2026-08-17 00:12 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2647 (~18:36:36 UTC, 2026-08-15) | 2026-08-17 00:12 UTC |
+| https://t.me/bolshegold | bolshegold/9988 (~20:24 UTC, 2026-08-16) | 2026-08-17 00:12 UTC |
 
 ## Mention log
 
@@ -17,6 +17,11 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-17 | https://t.me/bolshegold | GOOG | no action — recently reviewed, no Rule 9 event | Marker advanced from bolshegold/9986 (~09:37:07 UTC, 2026-08-16) to bolshegold/9988 (~20:24 UTC, 2026-08-16) — a delta of 2, so post 9987 is superseded per the command's by-design "latest post only" scope and not individually evaluated; flagging per command step 2 since more than one post may have landed in the gap. New top post (#9988): the channel admin comments on Google's (Alphabet) portfolio holdings, noting SpaceX was an early investment that appreciated significantly upon IPO rather than a market purchase, resulting in "colossal profits" for Google. GOOG is a current holding (0.52% weight, Quality 71.4 / Valuation 64.2 / Composite 46.4, last reviewed [2026-07-22](../../watchlist/in-portfolio/GOOG/GOOG-2026-07-22.md)) whose next mandatory review trigger is Q3 FY2026 earnings (late Oct 2026) or a Rule 9 event. This post is retrospective commentary on a known, long-standing SpaceX stake — no earnings, guidance revision, M&A, management change, or macro/rate-relevant claim — so it doesn't meet either `/rescore` condition in command step 4. Mention logged only. |
+| 2026-08-17 | https://t.me/bolshegold | — | no action — private company, unresolvable | Same post (#9988) also names SpaceX, which is privately held (no public listing) — no resolvable ticker, so per command step 3 it's skipped rather than guessed. |
+| 2026-08-17 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2647 (~18:36:36 UTC, 2026-08-15, already evaluated in a prior run — COIN mention, no action); reconfirmed via web-preview fetch this run (2026-08-17 00:12 UTC check); no new post since the prior check. |
+| 2026-08-17 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3103 (~10:13:27 UTC, 2026-08-16, already evaluated in a prior run — Nokia mention); reconfirmed via web-preview fetch this run (2026-08-17 00:12 UTC check); no new post since the prior check. |
+| 2026-08-17 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11693 (~17:48:22 UTC, 2026-08-16, already evaluated in a prior run); reconfirmed via web-preview fetch this run (2026-08-17 00:12 UTC check); no new post since the prior check. |
 | 2026-08-16 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/9986 (~09:37:07 UTC, 2026-08-16, already evaluated in a prior run — HD/WMT/BULL/HOOD mentions, HD and WMT actioned via `/new-position`); reconfirmed via web-preview fetch this run (2026-08-16 20:07 UTC check); no new post since the prior check. |
 | 2026-08-16 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2647 (~18:36:36 UTC, 2026-08-15, already evaluated in a prior run — COIN mention, no action); reconfirmed via web-preview fetch this run (2026-08-16 20:07 UTC check); no new post since the prior check. |
 | 2026-08-16 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3103 (~10:13:27 UTC, 2026-08-16, already evaluated in a prior run — DFC/Nokia meeting mention, NOK judged not materially new); reconfirmed via web-preview fetch this run (2026-08-16 20:07 UTC check); no new post since the prior check. |
