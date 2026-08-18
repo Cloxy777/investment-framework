@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11703 (~06:55:09 UTC, 2026-08-18) | 2026-08-18 08:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3109 (~07:32:51 UTC, 2026-08-18) | 2026-08-18 08:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2650 (~12:25:34 UTC, 2026-08-17) | 2026-08-18 08:05 UTC |
-| https://t.me/bolshegold | bolshegold/10001 (~16:35:30 UTC, 2026-08-17) | 2026-08-18 08:05 UTC |
+| https://t.me/tarasguk | tarasguk/11705 (~12:05:43 UTC, 2026-08-18) | 2026-08-18 12:20 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3109 (~07:32:51 UTC, 2026-08-18) | 2026-08-18 12:20 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2651 (~11:10:15 UTC, 2026-08-18) | 2026-08-18 12:20 UTC |
+| https://t.me/bolshegold | bolshegold/10003 (~11:52:07 UTC, 2026-08-18) | 2026-08-18 12:20 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-18 | https://t.me/bolshegold | — | no action — no resolvable company named | New top post bolshegold/10003 (2026-08-18T11:52:07 UTC), advancing marker from bolshegold/10001 (~16:35:30 UTC, 2026-08-17) — a ~19h17m gap, well above the ~1hr threshold, flagged explicitly; post-ID delta is 2 (10001→10003), so post #10002 is superseded per the command's by-design "latest post only" scope and not individually evaluated — flagged for the record since it discusses AI-industry financials: #10002 (~10:24:07 UTC) is commentary on Big Tech capex vs. OpenAI/Anthropic cash flow and a claimed Anthropic 2028 profit projection ($190-200B); both OpenAI and Anthropic are privately held with no resolvable public ticker, consistent with the SpaceX precedent (2026-08-17, FinnInvestChannel/3108 row) — no specific publicly-traded company named, so would not have actioned regardless. New top post (#10003, 2026-08-18T11:52:07 UTC, Russian): "Поздравляем Мирослава с Днем Рождения! Тепла, яркой жизни и успехов! От всей души, обнимаю бро!" (birthday congratulations to a person named Miroslav) — no company or ticker named. No action taken. |
+| 2026-08-18 | https://t.me/myroslavkorol | — | no action — no resolvable company named | New top post myroslavkorol/2651 (2026-08-18T11:10:15 UTC), advancing marker from myroslavkorol/2650 (~12:25:34 UTC, 2026-08-17) — a ~22h45m gap, well above the ~1hr threshold, flagged explicitly; post-ID delta is 1, sequential, nothing superseded. Post text (Ukrainian): "Сьогодні мені *28 (по внутрішнім відчуттям).. А так то вже 38)) Ну, по якійсь там європейській метриці наче ще відношусь до «молодих чоловіків» Гуляємо" (personal birthday post — "turning 28 by internal feelings, actually 38", celebrating) — no company or ticker named anywhere. No action taken. |
+| 2026-08-18 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3109 (~07:32:51 UTC, 2026-08-18, already evaluated in a prior run — Israeli elections/Iran macro commentary, no action); reconfirmed via raw-HTML fetch this run (2026-08-18 12:20 UTC check); no new post since the prior check. |
+| 2026-08-18 | https://t.me/tarasguk | — | no action — no resolvable company named | New top post tarasguk/11705 (2026-08-18T12:05:43 UTC), advancing marker from tarasguk/11703 (~06:55:09 UTC, 2026-08-18) — a ~5h10m gap, above the ~1hr threshold, flagged explicitly; post-ID delta is 2 (11703→11705), so post #11704 is superseded per the command's by-design "latest post only" scope and not individually evaluated: #11704 (~11:23:11 UTC) is macro commentary on the US debt-to-GDP ratio being at a record high but still low by global standards — no specific company or ticker named. New top post (#11705, 2026-08-18T12:05:43 UTC, Ukrainian): "Трамп, будь ласка, припини перемагати" ("Trump, please stop winning") plus the channel's standard self-promo links (Вишкіл / Закритий клуб / YouTube) — a political joke about a person, not a company; no ticker named. No action taken. |
 | 2026-08-18 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10001 (~16:35:30 UTC, 2026-08-17) — no new post since the prior check. |
 | 2026-08-18 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2650 (~12:25:34 UTC, 2026-08-17) — no new post since the prior check. |
 | 2026-08-18 | https://t.me/FinnInvestChannel | — | no action — no resolvable company named | Marker advanced from FinnInvestChannel/3108 (~20:10:08 UTC, 2026-08-17) to FinnInvestChannel/3109 (~07:32:51 UTC, 2026-08-18) — a ~11h23m gap, above the ~1hr threshold in command step 2, flagging explicitly; post-ID delta is 1, sequential, nothing superseded. New top post text: "Нарешті трохи червоні дні на горизонті 😎 Купувати практично немає чого, але скоро вибори + Іран, думаю будуть гарні дні ще 🤓" ("Finally some red days on the horizon. Not much to buy, but elections + Iran are coming soon, I think there will be more good days") — generic macro/geopolitical commentary (elections, Iran) with no specific publicly-traded company or ticker named, so no action per step 3. |
