@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11700 (~18:19:11 UTC, 2026-08-17) | 2026-08-18 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3108 (~20:10:08 UTC, 2026-08-17) | 2026-08-18 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2650 (~12:25:34 UTC, 2026-08-17) | 2026-08-18 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/10001 (~16:35:30 UTC, 2026-08-17) | 2026-08-18 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11703 (~06:55:09 UTC, 2026-08-18) | 2026-08-18 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3109 (~07:32:51 UTC, 2026-08-18) | 2026-08-18 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2650 (~12:25:34 UTC, 2026-08-17) | 2026-08-18 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/10001 (~16:35:30 UTC, 2026-08-17) | 2026-08-18 08:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-18 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10001 (~16:35:30 UTC, 2026-08-17) — no new post since the prior check. |
+| 2026-08-18 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2650 (~12:25:34 UTC, 2026-08-17) — no new post since the prior check. |
+| 2026-08-18 | https://t.me/FinnInvestChannel | — | no action — no resolvable company named | Marker advanced from FinnInvestChannel/3108 (~20:10:08 UTC, 2026-08-17) to FinnInvestChannel/3109 (~07:32:51 UTC, 2026-08-18) — a ~11h23m gap, above the ~1hr threshold in command step 2, flagging explicitly; post-ID delta is 1, sequential, nothing superseded. New top post text: "Нарешті трохи червоні дні на горизонті 😎 Купувати практично немає чого, але скоро вибори + Іран, думаю будуть гарні дні ще 🤓" ("Finally some red days on the horizon. Not much to buy, but elections + Iran are coming soon, I think there will be more good days") — generic macro/geopolitical commentary (elections, Iran) with no specific publicly-traded company or ticker named, so no action per step 3. |
+| 2026-08-18 | https://t.me/tarasguk | — | no action — no resolvable company named | Marker advanced from tarasguk/11700 (~18:19:11 UTC, 2026-08-17) to tarasguk/11703 (~06:55:09 UTC, 2026-08-18) — a ~12h36m gap, well above the ~1hr threshold in command step 2, flagging explicitly; posts 11701–11702 landed in that gap and are superseded per the command's by-design "latest post only" scope, not individually evaluated. New top post (#11703, image with caption, edited): "🇩🇪 Леопольд, як виявляється, втратив найбільше грошей в історії фондового ринку" ("Leopold, as it turns out, lost the most money in stock market history" — "Леопольд" links back to an earlier post, tarasguk/11564, and reads as a meme/joke reference to a person, not a company) plus channel self-promo links (Вишкіл / Закритий клуб / YouTube) — no specific publicly-traded company or ticker named anywhere in the text, so no action per step 3. |
 | 2026-08-18 | https://t.me/FinnInvestChannel | — | no action — private company (SpaceX), unresolvable; Musk is a person, not a ticker | New top post FinnInvestChannel/3108 (2026-08-17T20:10:08 UTC), advancing marker from FinnInvestChannel/3107 (~18:57:28 UTC, 2026-08-17) — a ~1h13m gap, above the ~1hr threshold, flagged explicitly; post-ID delta is 1, sequential, nothing superseded. New top post is a 0:38 video (caption only, video content not processed) quoting Ukraine's Deputy PM for Digital Transformation Mykhailo Fedorov (captioned in the post itself as "minister of defense of Ukraine"): "Musk is probably the most important tech person and entrepreneur in the world for our country. Elon and SpaceX protected our air defense, saved our Air Force, and preserved thousands of civilian lives." Post text never used as financial data per Rule 0. The only entities named are Elon Musk (a person, not a company) and SpaceX (privately held, no resolvable public ticker) — consistent with the SpaceX precedent already logged 2026-08-17 (bolshegold/9988 row). No publicly-traded company identifiable per step 3; skipped rather than guessed. No `/new-position` or `/rescore` triggered. |
 | 2026-08-18 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11700 (~18:19:11 UTC, 2026-08-17, already evaluated in a prior run — NVDA/Jackson Hole mention, no action); reconfirmed via raw-HTML fetch this run (2026-08-18 00:05 UTC check); no new post since the prior check. |
 | 2026-08-18 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2650 (~12:25:34 UTC, 2026-08-17, already evaluated in a prior run — Wise/ZEN mention, no action); reconfirmed via raw-HTML fetch this run (2026-08-18 00:05 UTC check); no new post since the prior check. |
