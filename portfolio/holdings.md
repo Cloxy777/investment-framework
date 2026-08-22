@@ -18,9 +18,9 @@ Combined total ≈ **$61,101.89** = IBKR Net Liquidation Value $50,211.93 + Free
 >
 > Share count unchanged (600); this is a price move, not a trade. Past the ±15% Rule 9 "unexplained move" trigger — this sync didn't pull news, so the cause is unverified. **Flagging for investigation/rescore**, not diagnosing here. See [ibkr.md](snapshots/ibkr.md).
 >
-> ## ⚠️ Freedom24: MSFT, META, and AMZN missing from this sync's screenshot — not confirmed as sold
+> ## ✅ Freedom24: MSFT, META, AMZN confirmed sold — user-confirmed 2026-08-22, undocumented trade
 >
-> The account's Freedom24 positions dropped from 5 tickers ($15,016.69) to 2 (DUOL, TLT — $10,844.98); MSFT/META/AMZN are absent. The value gap is close to (but not exactly) those three tickers' last-known combined value, which is *suggestive* of a sale but Freedom24 has no trade-history API to confirm — and cash *fell* rather than rising, which cuts against a simple sale story. **MSFT/META/AMZN weights below use the IBKR-only portion** (Freedom24 leg marked unconfirmed, not assumed zero or carried forward as current). See [freedom-finance.md](snapshots/freedom-finance.md) for full detail — **needs your confirmation** (check the Freedom24 app's Trades/Orders tab, or re-send a screenshot if this one was incomplete).
+> The account's Freedom24 positions dropped from 5 tickers ($15,016.69) to 2 (DUOL, TLT — $10,844.98). User confirmed directly this sync that MSFT, META, and AMZN were sold — not a screenshot gap. No fill dates/prices/P&L available (no trade-history API), and **no `sessions/`/`decisions/`/`override-log` entry authorized it** — logged to [override-log.md](override-log.md) as an undocumented trade, same pattern as the IBKR NOW/META trims. **MSFT/META/AMZN weights below are now IBKR-only** (Freedom24 leg exited, not a data gap). Cash still doesn't reconcile with the implied ~$4,000+ proceeds — see [freedom-finance.md](snapshots/freedom-finance.md).
 >
 > ## SPOT position and its sell order remain absent — unchanged, still unresolved since 2026-08-02
 >
@@ -32,7 +32,6 @@ Combined total ≈ **$61,101.89** = IBKR Net Liquidation Value $50,211.93 + Free
 >
 > **AVGO's 2026-06-16 override is still marked "Open — under review" in [override-log.md](override-log.md)** despite having been resolved via the 2026-07-04 full rescore — carried forward as an open housekeeping item, not corrected this pass (outside `/sync-portfolio`'s scope).
 >
-> **Weight column may not sum to ~100%** this sync — both the STIM removal (cleaner) and the Freedom24 MSFT/META/AMZN gap (likely understates the true total if those weren't actually sold) pull in opposite directions. Treat total-weight sanity-checking as unreliable until the Freedom24 anomaly above is resolved.
 
 **Score scale (2026-06-11):** Valuation scores run **0.0–100.0** (continuous, 0 = cheapest, 100.0 = most expensive) instead of the old 1–10 integers — see [valuation-scoring.md](../framework/valuation-scoring.md) and [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md).
 
@@ -41,7 +40,7 @@ Combined total ≈ **$61,101.89** = IBKR Net Liquidation Value $50,211.93 + Free
 | Ticker | Weight % | Last Score | Quality Score | Composite Score | Last Review | Broker |
 |--------|----------|------------|----------------|------------------|-------------|--------|
 | ADBE | 4.50% | 0.0 | 83.9 | 8.1 | 29 Jul 2026 | IBKR |
-| AMZN | 5.10%⚠️ | 82.7 | 56.7 | 63.0 | 01 Aug 2026 | IBKR (Freedom24 leg unconfirmed this sync) |
+| AMZN | 5.10% | 82.7 | 56.7 | 63.0 | 01 Aug 2026 | IBKR (Freedom24 leg sold — see note above) |
 | AVGO | 3.62% | 68.2 | 82.1 | 43.1 | 04 Jul 2026 | IBKR |
 | CASH (Freedom24) | 0.07% | | | | | Freedom24 |
 | CASH (IBKR) | 6.65% | | | | | IBKR |
@@ -50,8 +49,8 @@ Combined total ≈ **$61,101.89** = IBKR Net Liquidation Value $50,211.93 + Free
 | DUOL | 9.06% | 72.2 | 83.2 | 44.5 | 06 Aug 2026 | IBKR + Freedom24 |
 | GOOG | 0.56% | 64.2 | 71.4 | 46.4 | 22 Jul 2026 | IBKR |
 | **MBGL** | 0.03% | not scored — fails quality gates | 51.0 | | 09 Aug 2026 | IBKR |
-| META | 4.52%⚠️ | 41.2 | 87.5 | 26.9 | 05 Aug 2026 | IBKR (Freedom24 leg unconfirmed this sync) |
-| MSFT | 13.45%⚠️ | 38.9 | 79.9 | 29.5 (ref only, gate fail) | 30 Jul 2026 | IBKR (Freedom24 leg unconfirmed this sync) |
+| META | 4.52% | 41.2 | 87.5 | 26.9 | 05 Aug 2026 | IBKR (Freedom24 leg sold — see note above) |
+| MSFT | 13.45% | 38.9 | 79.9 | 29.5 (ref only, gate fail) | 30 Jul 2026 | IBKR (Freedom24 leg sold — see note above) |
 | NFLX | 1.56% | 49.3 | 69.8 | 39.8 | 17 Jul 2026 | IBKR |
 | NKE | 1.33% | 13.9 | 44.4 | 34.8 | 1 Jul 2026 | IBKR |
 | NOW | 1.88%⚠️ | 75.9 | 73.2 | 51.4 (ref only, gate fail) | 09 Aug 2026 | IBKR |
@@ -72,7 +71,7 @@ Combined total ≈ **$61,101.89** = IBKR Net Liquidation Value $50,211.93 + Free
 
 **SPOT (previously 0.83%) remains absent from this table** — its 1-share position has now been missing for four consecutive syncs (2026-08-02, 08-09, 08-16, 08-22), undocumented; see the flag above and [ibkr.md](snapshots/ibkr.md).
 
-**MSFT's weight (13.45%⚠️) uses IBKR only this sync** — see the Freedom24 flag above. If the Freedom24 leg (last known 2 shares, $825.00) is still held, true combined weight would be higher; not assumed either way. Composite Score for MSFT remains a reference figure only (not adopted) — its Quality Score (79.9) fails the 80.0+ gate by 0.1 point.
+**MSFT's weight (13.45%) is now IBKR-only** — the 2-share Freedom24 leg was sold (confirmed, see flag above). Composite Score for MSFT remains a reference figure only (not adopted) — its Quality Score (79.9) fails the 80.0+ gate by 0.1 point.
 
 **NOW's weight (⚠️) still carries the 2026-08-10 undocumented 3-share trim** — unresolved, see [override-log.md](override-log.md).
 
@@ -88,7 +87,7 @@ Combined total ≈ **$61,101.89** = IBKR Net Liquidation Value $50,211.93 + Free
 
 **`CASH (Freedom24)`** = $44.98 (single-currency, USD — no FX conversion needed). Down from $106.85 last sync (-$61.87) — see the Freedom24 anomaly flag above; this drop is part of what makes a simple "MSFT/META/AMZN were sold" explanation incomplete (sale proceeds would be expected to raise cash, not lower it).
 
-**Combined positions across both brokers:** DUOL and TLT are confirmed held in both IBKR and Freedom Finance this sync (weights = sum of both). AMZN, META, and MSFT were combined-broker prior to this sync, but Freedom24 didn't show them this round — see the flag above; their weights here are IBKR-only pending confirmation. All other equity tickers are IBKR-only; both `CASH` rows are naturally broker-specific.
+**Combined positions across both brokers:** DUOL and TLT are held in both IBKR and Freedom Finance (weights = sum of both). AMZN, META, and MSFT were combined-broker through the 2026-08-16 sync but their Freedom24 legs were sold (confirmed 2026-08-22, see flag above) — now IBKR-only. All other equity tickers are IBKR-only; both `CASH` rows are naturally broker-specific.
 
 **AVGO has a prior, untracked history on this account:** `get_account_trades` shows a 1-share AVGO position sold on 2026-05-26 (predating this framework's records), which is what the now-superseded "AVGO no longer appears in either broker account" placeholder note (removed in a prior sync) was referring to. The 6-share position now held is a fresh, separate buy from 2026-06-16 — see the override flag in [override-log.md](override-log.md).
 

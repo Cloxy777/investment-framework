@@ -12,13 +12,15 @@
 
 > **Note:** the 2 positions shown sum exactly to the reported total opened-positions value ($1,165.44 + $9,679.54 = $10,844.98), and each row's `qty × current price` cross-checks against the per-share prices visible in the screenshot (DUOL $145.68/sh, TLT $82.03/sh) — internally consistent, and the screenshot's footer ("Service is provided by Freedom24") was visible below the TLT row, indicating this is the full list, not a scrolled/truncated view.
 
-## ⚠️ MSFT, META, and AMZN are absent from this sync — unconfirmed whether sold or a screenshot gap
+## MSFT, META, AMZN confirmed sold out of Freedom24 — user-confirmed 2026-08-22
 
 The **2026-06-07 snapshot** (last full sync) showed **5 positions**: MSFT (2 sh, $825.00), META (1 sh, $589.65), DUOL (8 sh, $863.44), AMZN (11 sh, $2,702.70), TLT (118 sh, $10,035.90), totaling $15,016.69 in opened positions + $106.85 cash = $15,123.54 NAV.
 
-This sync's screenshot shows **only DUOL and TLT** — MSFT, META, and AMZN are nowhere in the list, and the positions total ($10,844.98) ties out exactly to just those two, with no room for the other three. The value gap ($15,016.69 → $10,844.98 = **-$4,171.71**) is in the same ballpark as the three missing tickers' last-known combined value (**$4,117.35**), which is *consistent with* those three having been sold — but this account has no API/trade-history access, only screenshots, so **that cannot be confirmed from this data alone**. Cash also dropped ($106.85 → $44.98), which cuts against a simple "sold and cash is sitting there" story (proceeds from a $4,171-ish sale would be expected to show up as cash, not a cash *decrease*) — worth asking about directly.
+This sync's screenshot shows only DUOL and TLT ($10,844.98 total, ties out exactly to those two). **User confirmed directly (2026-08-22): MSFT, META, and AMZN were sold** — the screenshot is complete, not truncated. No fill dates, prices, or realized P&L are available (Freedom24 has no trade-history API, only screenshots) — **not on record anywhere** as an authorized trade; no `sessions/`, `decisions/`, or prior `override-log.md` entry covers it. Logged to [override-log.md](../override-log.md).
 
-**Not treated as a confirmed exit.** MSFT, META, and AMZN weights in `holdings.md` this sync use the **IBKR-only** portion of each (Freedom24 leg marked unconfirmed, not zeroed and not carried forward as stale-but-current) — see the flag there. **Action needed: confirm directly in the Freedom24 app (Trades/Orders history tab, if available) whether these three were sold, transferred out, or if this screenshot is incomplete, and re-sync.**
+**Cash still doesn't reconcile:** cash *fell* $106.85 → $44.98 despite what should have been a ~$4,000+ proceeds event. Not explained by this data — possible withdrawal, or the sale happened before the last cash figure and proceeds were since moved out. Flagged, not resolved.
+
+**MSFT/META/AMZN are now IBKR-only holdings** — `holdings.md` updated accordingly.
 
 ## Cash Balance
 
