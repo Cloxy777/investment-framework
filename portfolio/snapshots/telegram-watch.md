@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11745 (2026-08-21T19:00:41 UTC) | 2026-08-22 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3130 (2026-08-21T17:51:47 UTC) | 2026-08-22 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2654 (2026-08-21T09:55:07 UTC) | 2026-08-22 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/10037 (2026-08-21T17:50:39 UTC) | 2026-08-22 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11747 (2026-08-22T06:45 UTC, approx — time-only from web preview, no structured datetime attribute recoverable via fetch) | 2026-08-22 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3130 (2026-08-21T17:51:47 UTC) | 2026-08-22 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2654 (2026-08-21T09:55:07 UTC) | 2026-08-22 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/10037 (2026-08-21T17:50:39 UTC) | 2026-08-22 08:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-22 | https://t.me/bolshegold | — | no action — marker unchanged, no new top post this run | Top post remains bolshegold/10037 (2026-08-21T17:50:39 UTC, already evaluated in a prior run — psychology YouTube video about re-entering a sold position, no resolvable public company named); reconfirmed via web-preview fetch this run (2026-08-22 08:05 UTC check); no new post since the stored marker. |
+| 2026-08-22 | https://t.me/myroslavkorol | — | no action — marker unchanged, no new top post this run | Top post remains myroslavkorol/2654 (2026-08-21T09:55:07 UTC, already evaluated in a prior run — Cyberpunk: Edgerunners II $CDR trailer/premiere-date tease, same category previously dismissed as not materially new for the CDR not-in-portfolio entry); reconfirmed via web-preview fetch this run (2026-08-22 08:05 UTC check); no new post since the stored marker. |
+| 2026-08-22 | https://t.me/FinnInvestChannel | — | no action — marker unchanged, no new top post this run | Top post remains FinnInvestChannel/3130 (2026-08-21T17:51:47 UTC, already evaluated in a prior run — Jim Cramer/Micron pundit commentary, no Rule 9 event for MU); reconfirmed via web-preview fetch this run (2026-08-22 08:05 UTC check); no new post since the stored marker. |
+| 2026-08-22 | https://t.me/tarasguk | — | no action — generic AI-investment macro risk/opportunity commentary, no resolvable public company named | New top post tarasguk/11747 (~2026-08-22T06:45 UTC, time-only from web preview), advancing marker from tarasguk/11745 (2026-08-21T19:00:41 UTC) — an ~11h45m gap, well above the ~1hr threshold, flagged explicitly; post-ID delta is 2, so post #11746 is superseded per the command's by-design "latest post only" scope and not individually evaluated — checked on inspection anyway for visibility: #11746 (~06:20 UTC) reports "Anthropic буде виходити на IPO із оцінкою $2 трильйона" (Anthropic reportedly planning an IPO at a ~$2T valuation, $100B+ raise, S-1 filing expected within weeks) — names Anthropic, which is privately held with no public ticker at time of this post (S-1 not yet filed), so not a resolvable public company per step 3; flagged for a future run to catch once/if an actual listing exists. New top post (#11747): aggregate economist survey on US economic risks/opportunities (AI-investment pullback 59%, geopolitical escalation 47%, high energy prices 35% as top downside risks; AI investment 29%, lower energy prices 20%, consumer spending 10% as top upside factors) plus standard channel footer links — no specific identifiable public company or ticker named. Post text never used as financial data per Rule 0. No action taken. |
 | 2026-08-22 | https://t.me/bolshegold | — | no action — marker unchanged, no new top post this run | Top post remains bolshegold/10037 (2026-08-21T17:50:39 UTC, already evaluated in a prior run — psychology YouTube video about re-entering a sold position, no resolvable public company named); reconfirmed via web-preview fetch this run (2026-08-22 00:05 UTC check); no new post since the stored marker. |
 | 2026-08-22 | https://t.me/myroslavkorol | — | no action — marker unchanged, no new top post this run | Top post remains myroslavkorol/2654 (2026-08-21T09:55:07 UTC, already evaluated in a prior run — Cyberpunk: Edgerunners II $CDR trailer/premiere-date tease, same category previously dismissed as not materially new for the CDR not-in-portfolio entry); reconfirmed via web-preview fetch this run (2026-08-22 00:05 UTC check); no new post since the stored marker. |
 | 2026-08-22 | https://t.me/FinnInvestChannel | — | no action — marker unchanged, no new top post this run | Top post remains FinnInvestChannel/3130 (2026-08-21T17:51:47 UTC, already evaluated in a prior run — Jim Cramer/Micron pundit commentary, no Rule 9 event for MU); reconfirmed via web-preview fetch this run (2026-08-22 00:05 UTC check); no new post since the stored marker. |
