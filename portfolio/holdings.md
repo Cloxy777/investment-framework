@@ -60,7 +60,7 @@ Combined total ≈ **$61,101.89** = IBKR Net Liquidation Value $50,211.93 + Free
 | **RGL** | 0.70% | not scored — ungoverned position, see note above | | | n/a | IBKR |
 | SPGI | 0.71% | 31.3 | 67.7 | 31.8 | 09 Aug 2026 | IBKR |
 | TLT | 29.27% | not scored — non-equity, framework gap | | | Jun 2026 | IBKR + Freedom24 |
-| TRN | 2.65%⚠️ | 10.0 | 67.2 | 21.4 | 05 Jul 2026 | IBKR |
+| TRN | 2.65%⚠️ | 10.0 | 67.2 | 21.4 (ref only, gate fail) | 22 Aug 2026 | IBKR |
 | UBER | 0.39% | 43.6 | 55.5 | 44.1 | 07 Aug 2026 | IBKR |
 | V | 0.61% | 54.5 | 85.6 | 34.5 | 29 Jul 2026 | IBKR |
 | VEEV | 1.22% | 45.1 | 85.7 | 29.7 | 01 Jul 2026 | IBKR |
@@ -75,7 +75,7 @@ Combined total ≈ **$61,101.89** = IBKR Net Liquidation Value $50,211.93 + Free
 
 **NOW's weight (⚠️) still carries the 2026-08-10 undocumented 3-share trim** — unresolved, see [override-log.md](override-log.md).
 
-**TRN's weight (⚠️) reflects a 22.4% price drop since the last sync** — see flag above, not a share-count change.
+**TRN's weight (⚠️) reflects a 22.4% price drop since the last sync** — caused by a CMA "drip pricing" investigation opened 2026-08-19 (see [2026-08-22 rescore](../sessions/2026-08-22-rescore-trn.md)), not a share-count change. Rescored same day: Quality Score 67.2 still fails the 80.0+ gate (unchanged), Composite 21.4 reference-only. **HOLD, no top-up** — Quality Gate already blocked adding before this news; the CMA probe adds a second, independent reason.
 
 **XEON is EUR-denominated** (€1,499.83 market value). Its USD-equivalent (**$1,751.64**, used for the weight above) comes from the *live* EUR→USD rate (1.1678947) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
 
