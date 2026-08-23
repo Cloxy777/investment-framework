@@ -1,8 +1,8 @@
 # IBKR Active Orders Snapshot
 
 **Account:** U19421206
-**Last synced:** 2026-08-22 (live via Interactive Brokers MCP — `get_account_orders`)
-**Active orders:** 7 working (status `NEW`) · 0 non-active orders shown in this fetch.
+**Last synced:** 2026-08-23 (live via Interactive Brokers MCP — `get_account_orders`)
+**Active orders:** 7 working (status `NEW`) · 1 non-active order shown in this fetch (CSGP, `REPLACED` — excluded, see below).
 
 | Order ID | Side | Ticker | Qty | Order Type | Limit Price | Time in Force | Status | Order Placed (UTC) |
 |----------|------|--------|-----|------------|--------------|---------------|--------|---------------------|
@@ -14,15 +14,11 @@
 | 1040104046 | SELL | TLT | 1 (contract, SEP30'26 $90 CALL) | LIMIT | 0.25 | GTC | NEW | 2026-07-21T13:59:42Z |
 | 862563681 | BUY | V | 9 | LIMIT | 285.00 | GTC | NEW | 2026-07-05T19:17:13Z |
 
-**All 7 active orders identical to the 2026-08-16 sync — no fills, no new placements, no cancellations this window.**
+**All 7 active orders identical to the 2026-08-22 sync — no fills, no new placements, no cancellations this window.**
 
-> ## ✅ STIM and DOCS options resolved via expiry, not visible here — see [ibkr.md](ibkr.md)
+> ## CSGP `REPLACED` order (1986163848, placed 2026-05-26) reappeared in this fetch
 >
-> Both the STIM short covered call and the DOCS short put expired 2026-08-21 and settled via assignment/worthless-expiry (order 1811922406 / 1811922407, `get_account_trades`). Neither ever appeared in this active-orders feed as a standalone order to begin with (options positions, not resting orders) — full detail in [ibkr.md](ibkr.md).
->
-> ## CSGP and HDSN `REPLACED` orders (carried in the 2026-08-16 sync) have aged out of this fetch entirely
->
-> `get_account_orders` no longer returns either order in any status, and neither has a matching trade in `get_account_trades` (DAYS_7). Same pattern as TRN's dropped `REPLACED` order in the prior sync — the API's lookback window appears to eventually drop stale `REPLACED` entries. Not treated as new information.
+> Excluded from the active-orders table above per this file's filtering rule (`REPLACED` = superseded, not live). This same order had aged out of `get_account_orders` entirely as of the 2026-08-22 sync; it's back in this fetch, still `REPLACED`, with no matching live successor order for CSGP. See [ibkr.md](ibkr.md) for the note on this not being new information despite reappearing.
 
 > **Carried, still unresolved from prior syncs — no new session/decision/override-log entry has appeared for any of these:**
 
