@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11754 (2026-08-22T17:24:01 UTC) | 2026-08-22 20:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3131 (2026-08-22T12:17 UTC, approx — time-only from web preview, no structured datetime attribute recoverable via fetch) | 2026-08-22 20:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2654 (2026-08-21T09:55:07 UTC) | 2026-08-22 20:04 UTC |
-| https://t.me/bolshegold | bolshegold/10037 (2026-08-21T17:50:39 UTC) | 2026-08-22 20:04 UTC |
+| https://t.me/tarasguk | tarasguk/11754 (2026-08-22T17:24:01 UTC) | 2026-08-23 00:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3131 (2026-08-22T12:17 UTC, approx — time-only from web preview, no structured datetime attribute recoverable via fetch) | 2026-08-23 00:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2654 (2026-08-21T09:55:07 UTC) | 2026-08-23 00:05 UTC |
+| https://t.me/bolshegold | bolshegold/10039 (2026-08-22T20:34:45 UTC) | 2026-08-23 00:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-23 | https://t.me/bolshegold | — | no action — breaking-news political post, no resolvable public company named | New top post bolshegold/10039 (2026-08-22T20:34:45 UTC), advancing marker from bolshegold/10037 (2026-08-21T17:50:39 UTC) — a ~26h44m gap, well above the ~1hr threshold, flagged explicitly; post-ID delta is 2 (10038 missing from the public preview between them — superseded, never individually evaluated, consistent with the "only latest post per run" rule). New top post (#10039): Russian-language "Breaking news!" post about a proposed change to Ukraine's conscription age (citing a 24tv.ua article on Ministry of Defense plans), stressing that "compulsory legal mobilization" continues regardless — generic macro/political commentary, no publicly-traded company or ticker named. No action. |
+| 2026-08-23 | https://t.me/tarasguk | — | no action — marker unchanged, no new top post this run | Top post remains tarasguk/11754 (2026-08-22T17:24:01 UTC, already evaluated in a prior run — humanoid-robot 100m sprint clip, no resolvable public company named); reconfirmed via web-preview fetch this run (2026-08-23 00:05 UTC check); no new post since the stored marker. |
+| 2026-08-23 | https://t.me/FinnInvestChannel | — | no action — marker unchanged, no new top post this run | Top post remains FinnInvestChannel/3131 (2026-08-22T12:17 UTC approx, already evaluated in a prior run — filming an interview with a financial blogger, no resolvable public company named); reconfirmed via web-preview fetch this run (2026-08-23 00:05 UTC check); no new post since the stored marker. |
+| 2026-08-23 | https://t.me/myroslavkorol | — | no action — marker unchanged, no new top post this run | Top post remains myroslavkorol/2654 (2026-08-21T09:55:07 UTC, already evaluated in a prior run — Cyberpunk: Edgerunners II $CDR trailer/premiere-date tease, same category previously dismissed as not materially new for the CDR not-in-portfolio entry); reconfirmed via web-preview fetch this run (2026-08-23 00:05 UTC check); no new post since the stored marker. |
 | 2026-08-22 | https://t.me/bolshegold | — | no action — marker unchanged, no new top post this run | Top post remains bolshegold/10037 (2026-08-21T17:50:39 UTC, already evaluated in a prior run — psychology YouTube video about re-entering a sold position, no resolvable public company named); reconfirmed via web-preview fetch this run (2026-08-22 20:04 UTC check); no new post since the stored marker. |
 | 2026-08-22 | https://t.me/myroslavkorol | — | no action — marker unchanged, no new top post this run | Top post remains myroslavkorol/2654 (2026-08-21T09:55:07 UTC, already evaluated in a prior run — Cyberpunk: Edgerunners II $CDR trailer/premiere-date tease, same category previously dismissed as not materially new for the CDR not-in-portfolio entry); reconfirmed via web-preview fetch this run (2026-08-22 20:04 UTC check); no new post since the stored marker. |
 | 2026-08-22 | https://t.me/FinnInvestChannel | — | no action — marker unchanged, no new top post this run | Top post remains FinnInvestChannel/3131 (2026-08-22T12:17 UTC, already evaluated in a prior run — filming an interview with a financial blogger, no resolvable public company named); reconfirmed via web-preview fetch this run (2026-08-22 20:04 UTC check); no new post since the stored marker. |
