@@ -17,9 +17,10 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 | Ticker | Location | Score | Scored (date) | Flagged stale |
 |--------|----------|-------|----------------|----------------|
-| SGE | not-in-portfolio | 21.1 | 2026-06-19 | 2026-06-29 |
 
 *Not listed (no real Phase 02 score for this addition to invalidate): every not-in-portfolio entry that is Phase 01 FAIL / not scored (CBRS, CCL, CHTR, CIEN, CRM, CVX, DASH, FDX, FICO, FUBO, GTLB, HIMS, IBM, LULU, MCD, MELI, MU, NOK, ORCL, PLTR, PYPL, TTD, TTWO, WSE) and the in-portfolio rows that are cash/non-equity/override/quality-gate-fail (RBRK, STIM, TLT, XEON). BULL, HY9H, SOFI, and SSU also excluded — each is Phase 01 FAIL with a Phase 02 number computed only for the record, never a binding score. (CBRS, CHTR, FUBO, and LULU additionally now carry a Quality Score under the engine added this same date — see each ticker's session file — but that score still fails the 80.0+ gate, so no Phase 02/Composite Score exists to go stale either way.)*
+
+**SGE resolved 2026-08-24:** rescored under the current Quality Score engine — Quality Score 66.8, **fails the 80.0+ gate** (a clear fail, not a knife-edge one). Per quality-scoring.md's strict gate, no Phase 02 valuation score or Composite Score was computed this session (same treatment as CBRS/CHTR/FUBO/LULU above) — see [sessions/2026-08-24-rescore-sge.md](../sessions/2026-08-24-rescore-sge.md) and [not-in-portfolio/SGE/SGE-2026-08-24.md](not-in-portfolio/SGE/SGE-2026-08-24.md), which supersedes the old 21.1 (pre-Quality-Score) figure.
 
 **AVGO resolved 2026-07-04:** rescored under the full current methodology (Quality 82.1, Valuation 68.2, Composite 43.1) — see [sessions/2026-07-04-rescore-avgo.md](../sessions/2026-07-04-rescore-avgo.md) and [in-portfolio/AVGO/AVGO-2026-07-04.md](in-portfolio/AVGO/AVGO-2026-07-04.md), which supersedes both the old 69.5 and the never-adopted 74.8 figures. `watchlist/not-in-portfolio/AVGO/` remains a leftover duplicate folder (AVGO is held, per `holdings.md`) that `/sync-portfolio` should still fold into `in-portfolio/`.
 
@@ -27,7 +28,8 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 
 | Ticker | Location | Stale score | Scored (methodology) | Flagged stale |
 |--------|----------|-------------|----------------------|---------------|
-| SGE | not-in-portfolio | 21.1 | 2026-06-19 (pre-modifier) | 2026-06-20 |
+
+*SGE removed 2026-08-24 (see the 2026-06-29 table above — resolved to a Quality Gate fail, no Phase 02 score exists to be stale under either methodology version now).*
 
 *MA removed from this table during the 2026-06-29 update: `MA-2026-06-22.md` already carries a fresh post-modifier score (38.0, scored 2026-06-22) and never carried a 2026-06-20 banner — the row was simply never cleared when that rescore happened. Corrected here as a registry bookkeeping fix, not a re-score.*
 
