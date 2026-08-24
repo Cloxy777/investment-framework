@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11762 (~2026-08-24T07:58 UTC, approx — time-only from web preview) | 2026-08-24 08:09 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3135 (~2026-08-24T06:53 UTC, approx — time-only from web preview) | 2026-08-24 08:09 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2655 (~2026-08-24T06:29 UTC, approx — time-only from web preview) | 2026-08-24 08:09 UTC |
-| https://t.me/bolshegold | bolshegold/10042 (~2026-08-23T08:54 UTC, approx — time-only from web preview) | 2026-08-24 08:09 UTC |
+| https://t.me/tarasguk | tarasguk/11762 (~2026-08-24T07:58 UTC, approx — time-only from web preview) | 2026-08-24 12:30 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3136 (~2026-08-24T12:14 UTC, approx — time-only from web preview) | 2026-08-24 12:30 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2655 (~2026-08-24T06:29 UTC, approx — time-only from web preview) | 2026-08-24 12:30 UTC |
+| https://t.me/bolshegold | bolshegold/10043 (~2026-08-24T11:13 UTC, approx — time-only from web preview) | 2026-08-24 12:30 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-24 | https://t.me/FinnInvestChannel | SOUN | `/new-position` run — **PASS**, hard disqualifier | New top post FinnInvestChannel/3136 (~12:14 UTC) discusses SoundHound betting on AI to improve margins, Q2 revenue +45% YoY to $61.9M, OASYS platform, Polaris speech model — resolves unambiguously to SoundHound AI, Inc. (NASDAQ: SOUN). No prior watchlist entry existed → full `/new-position` evaluation run. Result: Quality Gate hard-disqualifier fail (not FCF-positive for 3+ consecutive years — every FY2021–FY2025 year is FCF-negative per SEC XBRL data). No position opened. See [session](../../sessions/2026-08-24-new-position-soun.md) and [watchlist entry](../../watchlist/not-in-portfolio/SOUN/SOUN-2026-08-24.md). Gap note: prior marker was FinnInvestChannel/3135 (~06:53 UTC); new top is 3136, a ~5h21m gap — within the ~1h-flag threshold's intent to note, but only one post number separates the markers, so exactly one post landed in the gap (not multiple superseded posts). |
+| 2026-08-24 | https://t.me/bolshegold | — | no action — no company named | New top post bolshegold/10043 (~11:13 UTC) is a Ukrainian Independence Day message (patriotic well-wishes, no company/ticker mentioned). Gap note: prior marker was bolshegold/10042 (~2026-08-23T08:54 UTC); new top is 10043, a **~26.3h gap** — well beyond the ~1h flag threshold, explicitly noted per step 2, though only one post number separates the two markers so only one post (not multiple) appears to have landed in that window. |
+| 2026-08-24 | https://t.me/tarasguk | — | no action — marker unchanged, no new top post this run | Top post remains tarasguk/11762 (same as last check, ~08:09 UTC) — nothing new to evaluate. |
+| 2026-08-24 | https://t.me/myroslavkorol | — | no action — marker unchanged, no new top post this run | Top post remains myroslavkorol/2655 (same as last check, ~08:09 UTC) — nothing new to evaluate. |
 | 2026-08-24 | https://t.me/tarasguk | OZON | skip — listing outside framework's coverage | New top post tarasguk/11762 (~2026-08-24T07:58 UTC approx) reads only "Ozon 🔥🔥🔥" plus standard footer links — resolves unambiguously to Ozon Holdings PLC (Russian e-commerce). IBKR `search_contracts` returns it only under exchange "VALUE" (non-tradable reference listing, not a live trading venue) and it is absent from `portfolio/reference/ibkr-ticker-lookup.csv`, consistent with NASDAQ having suspended OZON ADR trading under Russia sanctions. Treated as a listing outside this framework's coverage per step 3 — no `/new-position` run. Gap note: prior marker was tarasguk/11760 (2026-08-23T18:28:54 UTC); new top is 11762, a ~13.5h gap, so post 11761 was superseded and not individually evaluated (step 2 caveat). |
 | 2026-08-24 | https://t.me/FinnInvestChannel | — | no action — generic macro commentary, no company named | New top post FinnInvestChannel/3135 (~06:53, exact UTC not recoverable via web preview) discusses AI-driven data-center electricity demand growth (~315 GW by 2033, ~64% US share, GPU load-spike commentary) — no specific publicly-traded company or ticker named, so no resolvable trigger per step 3. |
 | 2026-08-24 | https://t.me/myroslavkorol | — | no action — no company named | New top post myroslavkorol/2655 (~06:29, exact UTC not recoverable via web preview) is a Ukrainian Independence Day (35th anniversary) greeting — no company or ticker mentioned. |
