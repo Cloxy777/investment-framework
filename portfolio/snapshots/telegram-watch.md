@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11760 (2026-08-23T18:28:54 UTC) | 2026-08-24 00:08 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3134 (~2026-08-23, approx — time-only from web preview, "edited at 12:05" stamp with no date recoverable via fetch) | 2026-08-24 00:08 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2654 (2026-08-21T09:55:07 UTC) | 2026-08-24 00:08 UTC |
-| https://t.me/bolshegold | bolshegold/10042 (~2026-08-23T08:54 UTC, approx — time-only from web preview) | 2026-08-24 00:08 UTC |
+| https://t.me/tarasguk | tarasguk/11762 (~2026-08-24T07:58 UTC, approx — time-only from web preview) | 2026-08-24 08:09 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3135 (~2026-08-24T06:53 UTC, approx — time-only from web preview) | 2026-08-24 08:09 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2655 (~2026-08-24T06:29 UTC, approx — time-only from web preview) | 2026-08-24 08:09 UTC |
+| https://t.me/bolshegold | bolshegold/10042 (~2026-08-23T08:54 UTC, approx — time-only from web preview) | 2026-08-24 08:09 UTC |
 
 ## Mention log
 
@@ -17,7 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
-| 2026-08-24 | https://t.me/bolshegold | — | no action — marker unchanged, no new top post this run | Top post remains bolshegold/10042 (~2026-08-23T08:54 UTC approx, already evaluated in a prior run — "Отчеты на неделе" earnings-preview post naming $INTU/$ADSK/$CRM/$NVDA/$AFRM/$CRWD, all already actioned/logged); reconfirmed via web-preview fetch this run (2026-08-24 00:08 UTC check); no new post since the stored marker. |
+| 2026-08-24 | https://t.me/tarasguk | OZON | skip — listing outside framework's coverage | New top post tarasguk/11762 (~2026-08-24T07:58 UTC approx) reads only "Ozon 🔥🔥🔥" plus standard footer links — resolves unambiguously to Ozon Holdings PLC (Russian e-commerce). IBKR `search_contracts` returns it only under exchange "VALUE" (non-tradable reference listing, not a live trading venue) and it is absent from `portfolio/reference/ibkr-ticker-lookup.csv`, consistent with NASDAQ having suspended OZON ADR trading under Russia sanctions. Treated as a listing outside this framework's coverage per step 3 — no `/new-position` run. Gap note: prior marker was tarasguk/11760 (2026-08-23T18:28:54 UTC); new top is 11762, a ~13.5h gap, so post 11761 was superseded and not individually evaluated (step 2 caveat). |
+| 2026-08-24 | https://t.me/FinnInvestChannel | — | no action — generic macro commentary, no company named | New top post FinnInvestChannel/3135 (~06:53, exact UTC not recoverable via web preview) discusses AI-driven data-center electricity demand growth (~315 GW by 2033, ~64% US share, GPU load-spike commentary) — no specific publicly-traded company or ticker named, so no resolvable trigger per step 3. |
+| 2026-08-24 | https://t.me/myroslavkorol | — | no action — no company named | New top post myroslavkorol/2655 (~06:29, exact UTC not recoverable via web preview) is a Ukrainian Independence Day (35th anniversary) greeting — no company or ticker mentioned. |
+| 2026-08-24 | https://t.me/bolshegold | — | no action — marker unchanged, no new top post this run | Top post remains bolshegold/10042 (~2026-08-23T08:54 UTC approx, already evaluated in a prior run — "Отчеты на неделе" earnings-preview post naming $INTU/$ADSK/$CRM/$NVDA/$AFRM/$CRWD, all already actioned/logged); reconfirmed via web-preview fetch this run (2026-08-24 08:09 UTC check); no new post since the stored marker. |
 | 2026-08-24 | https://t.me/myroslavkorol | — | no action — marker unchanged, no new top post this run | Top post remains myroslavkorol/2654 (2026-08-21T09:55:07 UTC, already evaluated in a prior run — Cyberpunk: Edgerunners II $CDR trailer/premiere-date tease, same category previously dismissed as not materially new for the CDR not-in-portfolio entry); reconfirmed via web-preview fetch this run (2026-08-24 00:08 UTC check); no new post since the stored marker. |
 | 2026-08-24 | https://t.me/FinnInvestChannel | — | no action — marker unchanged, no new top post this run | Top post remains FinnInvestChannel/3134 (~2026-08-23, exact date/time not recoverable beyond the "edited at 12:05" stamp, already evaluated in a prior run — personal channel-management audio note, no resolvable public company named); reconfirmed via web-preview fetch this run (2026-08-24 00:08 UTC check); no new post since the stored marker. |
 | 2026-08-24 | https://t.me/tarasguk | — | no action — marker unchanged, no new top post this run | Top post remains tarasguk/11760 (2026-08-23T18:28:54 UTC, already evaluated in a prior run — YouTube-episode teaser naming zero companies/tickers in the post text itself, four companies revealed only inside the unfetchable linked video); reconfirmed via web-preview fetch this run (2026-08-24 00:08 UTC check); no new post since the stored marker. |
