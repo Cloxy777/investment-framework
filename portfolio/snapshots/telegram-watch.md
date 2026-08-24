@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11760 (2026-08-23T18:28:54 UTC) | 2026-08-23 20:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3134 (~2026-08-23, approx — time-only from web preview, "edited at 12:05" stamp with no date recoverable via fetch) | 2026-08-23 20:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2654 (2026-08-21T09:55:07 UTC) | 2026-08-23 20:04 UTC |
-| https://t.me/bolshegold | bolshegold/10042 (~2026-08-23T08:54 UTC, approx — time-only from web preview) | 2026-08-23 20:04 UTC |
+| https://t.me/tarasguk | tarasguk/11760 (2026-08-23T18:28:54 UTC) | 2026-08-24 00:08 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3134 (~2026-08-23, approx — time-only from web preview, "edited at 12:05" stamp with no date recoverable via fetch) | 2026-08-24 00:08 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2654 (2026-08-21T09:55:07 UTC) | 2026-08-24 00:08 UTC |
+| https://t.me/bolshegold | bolshegold/10042 (~2026-08-23T08:54 UTC, approx — time-only from web preview) | 2026-08-24 00:08 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-24 | https://t.me/bolshegold | — | no action — marker unchanged, no new top post this run | Top post remains bolshegold/10042 (~2026-08-23T08:54 UTC approx, already evaluated in a prior run — "Отчеты на неделе" earnings-preview post naming $INTU/$ADSK/$CRM/$NVDA/$AFRM/$CRWD, all already actioned/logged); reconfirmed via web-preview fetch this run (2026-08-24 00:08 UTC check); no new post since the stored marker. |
+| 2026-08-24 | https://t.me/myroslavkorol | — | no action — marker unchanged, no new top post this run | Top post remains myroslavkorol/2654 (2026-08-21T09:55:07 UTC, already evaluated in a prior run — Cyberpunk: Edgerunners II $CDR trailer/premiere-date tease, same category previously dismissed as not materially new for the CDR not-in-portfolio entry); reconfirmed via web-preview fetch this run (2026-08-24 00:08 UTC check); no new post since the stored marker. |
+| 2026-08-24 | https://t.me/FinnInvestChannel | — | no action — marker unchanged, no new top post this run | Top post remains FinnInvestChannel/3134 (~2026-08-23, exact date/time not recoverable beyond the "edited at 12:05" stamp, already evaluated in a prior run — personal channel-management audio note, no resolvable public company named); reconfirmed via web-preview fetch this run (2026-08-24 00:08 UTC check); no new post since the stored marker. |
+| 2026-08-24 | https://t.me/tarasguk | — | no action — marker unchanged, no new top post this run | Top post remains tarasguk/11760 (2026-08-23T18:28:54 UTC, already evaluated in a prior run — YouTube-episode teaser naming zero companies/tickers in the post text itself, four companies revealed only inside the unfetchable linked video); reconfirmed via web-preview fetch this run (2026-08-24 00:08 UTC check); no new post since the stored marker. |
 | 2026-08-23 | https://t.me/bolshegold | — | no action — marker unchanged, no new top post this run | Top post remains bolshegold/10042 (~2026-08-23T08:54 UTC approx, already evaluated in a prior run — "Отчеты на неделе" earnings-preview post naming $INTU/$ADSK/$CRM/$NVDA/$AFRM/$CRWD, all already actioned/logged); reconfirmed via web-preview fetch this run (2026-08-23 20:04 UTC check); no new post since the stored marker. |
 | 2026-08-23 | https://t.me/myroslavkorol | — | no action — marker unchanged, no new top post this run | Top post remains myroslavkorol/2654 (2026-08-21T09:55:07 UTC, already evaluated in a prior run — Cyberpunk: Edgerunners II $CDR trailer/premiere-date tease, same category previously dismissed as not materially new for the CDR not-in-portfolio entry); reconfirmed via web-preview fetch this run (2026-08-23 20:04 UTC check); no new post since the stored marker. |
 | 2026-08-23 | https://t.me/FinnInvestChannel | — | no action — marker unchanged, no new top post this run | Top post remains FinnInvestChannel/3134 (~2026-08-23, exact date/time not recoverable beyond the "edited at 12:05" stamp, already evaluated in a prior run — personal channel-management audio note, no resolvable public company named); reconfirmed via web-preview fetch this run (2026-08-23 20:04 UTC check); no new post since the stored marker. |
