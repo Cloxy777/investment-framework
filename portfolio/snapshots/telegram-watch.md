@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11768 (~2026-08-25T07:24 UTC, approx — time-only from web preview) | 2026-08-25 08:06 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3139 (~2026-08-25T04:59 UTC, approx — time-only from web preview) | 2026-08-25 08:06 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2660 (~2026-08-24T18:50 UTC, approx — time-only from web preview) | 2026-08-25 08:06 UTC |
-| https://t.me/bolshegold | bolshegold/10047 (~2026-08-24T19:54 UTC, approx — time-only from web preview) | 2026-08-25 08:06 UTC |
+| https://t.me/tarasguk | tarasguk/11768 (~2026-08-25T07:24 UTC, approx — time-only from web preview) | 2026-08-25 12:27 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3139 (~2026-08-25T04:59 UTC, approx — time-only from web preview) | 2026-08-25 12:27 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2661 (~2026-08-25T09:07 UTC, approx — time-only from web preview) | 2026-08-25 12:27 UTC |
+| https://t.me/bolshegold | bolshegold/10048 (~2026-08-25T10:30 UTC, approx — time-only from web preview) | 2026-08-25 12:27 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-25 | https://t.me/bolshegold | — | no action — generic crypto commentary, no identifiable company | New top post bolshegold/10048 (~10:30 UTC) is generic Bitcoin price commentary ("BTC hits 80k, short-sellers punished") — no specific publicly-traded company or ticker named; excluded per step 3. |
+| 2026-08-25 | https://t.me/myroslavkorol | — | no action — not a company/ticker mention | New top post myroslavkorol/2661 (~09:07 UTC) is commentary on video-game release-date news, unrelated to any publicly-traded company. |
+| 2026-08-25 | https://t.me/FinnInvestChannel | — | no action — marker unchanged, no new top post this run | Top post remains FinnInvestChannel/3139 (~04:59 UTC, same as last check) — nothing new to evaluate. |
+| 2026-08-25 | https://t.me/tarasguk | — | no action — marker unchanged, no new top post this run | Top post remains tarasguk/11768 (~07:24 UTC, same as last check) — nothing new to evaluate. |
 | 2026-08-25 | https://t.me/bolshegold | — | no action — marker unchanged, no new top post this run | Top post remains bolshegold/10047 (~19:54 UTC, same as last check) — nothing new to evaluate. |
 | 2026-08-25 | https://t.me/myroslavkorol | — | no action — marker unchanged, no new top post this run | Top post remains myroslavkorol/2660 (~18:50 UTC, same as last check) — nothing new to evaluate. |
 | 2026-08-25 | https://t.me/FinnInvestChannel | — | no action — company named is private, no ticker to resolve | New top post FinnInvestChannel/3139 (~04:59 UTC) reports Trump purchased SpaceX shares in June ($15,001–$50,000 on June 23, via third-party-managed accounts). SpaceX is privately held with no public ticker — per Rule 0/step 3, never guess a ticker, so skipped. Gap note: prior marker was FinnInvestChannel/3138 (~2026-08-24T17:18 UTC); new top is 3139, a post-ID delta of 1, but a **~11h41m time gap** — above the ~1h flag threshold, noted per step 2 though only one post separates the markers. |
