@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11768 (~2026-08-25T07:24 UTC, approx — time-only from web preview) | 2026-08-25 12:27 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3139 (~2026-08-25T04:59 UTC, approx — time-only from web preview) | 2026-08-25 12:27 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2661 (~2026-08-25T09:07 UTC, approx — time-only from web preview) | 2026-08-25 12:27 UTC |
-| https://t.me/bolshegold | bolshegold/10048 (~2026-08-25T10:30 UTC, approx — time-only from web preview) | 2026-08-25 12:27 UTC |
+| https://t.me/tarasguk | tarasguk/11769 (2026-08-25T14:53:37 UTC, exact — data-post/datetime attrs) | 2026-08-25 16:28 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3140 (2026-08-25T13:53:55 UTC, exact — data-post/datetime attrs) | 2026-08-25 16:28 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2662 (2026-08-25T12:45:28 UTC, exact — data-post/datetime attrs) | 2026-08-25 16:28 UTC |
+| https://t.me/bolshegold | bolshegold/10048 (2026-08-25T10:30:35 UTC, exact — data-post/datetime attrs) | 2026-08-25 16:28 UTC |
 
 ## Mention log
 
@@ -17,7 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
-| 2026-08-25 | https://t.me/bolshegold | — | no action — generic crypto commentary, no identifiable company | New top post bolshegold/10048 (~10:30 UTC) is generic Bitcoin price commentary ("BTC hits 80k, short-sellers punished") — no specific publicly-traded company or ticker named; excluded per step 3. |
+| 2026-08-25 | https://t.me/FinnInvestChannel | LLY | `/new-position` → **PASS** (Quality Score 60.8/100.0, fails 80.0+ gate — weak Moat 20.0 and FCF Quality 17.9; no hard disqualifier) | New top post FinnInvestChannel/3140 (13:53 UTC): Eli Lilly launched Foundayo (orforglipron) in Britain, its first European market (also an FDA Alzheimer's blood-test item, no company named for that one). No prior watchlist entry existed for LLY → triggered per decision rule. Live price $1,257.42 (IBKR, 2026-08-25T16:08:51Z). Watchlist-only, no position opened. [Session](../../sessions/2026-08-25-new-position-lly.md) · [watchlist entry](../../watchlist/not-in-portfolio/LLY/LLY-2026-08-25.md) · PR [#631](https://github.com/Cloxy777/investment-framework/pull/631) (merged). |
+| 2026-08-25 | https://t.me/tarasguk | MELI | no action — no new information beyond existing entry | New top post tarasguk/11769 (14:53 UTC): "$MELI знову вище $2000" — price-level commentary only, no claimed Rule 9 event. MELI's existing `not-in-portfolio` entry (2026-08-05, Quality Score 62.3, fails gate) already covers this; next review trigger is Q3 2026 earnings or a genuine Rule 9 event, neither of which this post is. |
+| 2026-08-25 | https://t.me/myroslavkorol | — | no action — no company/ticker named in post text | New top post myroslavkorol/2662 (12:45 UTC) is a personal note about buying more shares to balance a position that fell >7% that day — the post itself names no company or ticker (only the single top post is evaluated per step 2, not surrounding channel context). |
+| 2026-08-25 | https://t.me/bolshegold | — | no new post this run | Top post unchanged at bolshegold/10048 (10:30 UTC) — already evaluated and logged in the prior run. |
 | 2026-08-25 | https://t.me/myroslavkorol | — | no action — not a company/ticker mention | New top post myroslavkorol/2661 (~09:07 UTC) is commentary on video-game release-date news, unrelated to any publicly-traded company. |
 | 2026-08-25 | https://t.me/FinnInvestChannel | — | no action — marker unchanged, no new top post this run | Top post remains FinnInvestChannel/3139 (~04:59 UTC, same as last check) — nothing new to evaluate. |
 | 2026-08-25 | https://t.me/tarasguk | — | no action — marker unchanged, no new top post this run | Top post remains tarasguk/11768 (~07:24 UTC, same as last check) — nothing new to evaluate. |
