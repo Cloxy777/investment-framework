@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11766 (~2026-08-24T18:10 UTC, approx — time-only from web preview) | 2026-08-24 20:09 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3138 (~2026-08-24T17:18 UTC, approx — time-only from web preview) | 2026-08-24 20:09 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2660 (~2026-08-24T18:50 UTC, approx — time-only from web preview) | 2026-08-24 20:09 UTC |
-| https://t.me/bolshegold | bolshegold/10047 (~2026-08-24T19:54 UTC, approx — time-only from web preview) | 2026-08-24 20:09 UTC |
+| https://t.me/tarasguk | tarasguk/11766 (~2026-08-24T18:10 UTC, approx — time-only from web preview) | 2026-08-25 00:07 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3138 (~2026-08-24T17:18 UTC, approx — time-only from web preview) | 2026-08-25 00:07 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2660 (~2026-08-24T18:50 UTC, approx — time-only from web preview) | 2026-08-25 00:07 UTC |
+| https://t.me/bolshegold | bolshegold/10047 (~2026-08-24T19:54 UTC, approx — time-only from web preview) | 2026-08-25 00:07 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-25 | https://t.me/bolshegold | — | no action — marker unchanged, no new top post this run | Top post remains bolshegold/10047 (~19:54 UTC, same as last check) — nothing new to evaluate. |
+| 2026-08-25 | https://t.me/myroslavkorol | — | no action — marker unchanged, no new top post this run | Top post remains myroslavkorol/2660 (~18:50 UTC, same as last check) — nothing new to evaluate. |
+| 2026-08-25 | https://t.me/FinnInvestChannel | — | no action — marker unchanged, no new top post this run | Top post remains FinnInvestChannel/3138 (~17:18 UTC, same as last check) — nothing new to evaluate. |
+| 2026-08-25 | https://t.me/tarasguk | — | no action — marker unchanged, no new top post this run | Top post remains tarasguk/11766 (~18:10 UTC, same as last check) — nothing new to evaluate. |
 | 2026-08-24 | https://t.me/bolshegold | — | no action — no company named | New top post bolshegold/10047 (~19:54 UTC approx) is a brief casual greeting ("Доброе утро! Доброе, б\*\*\*ь, утро!") with no company or ticker mentioned. Gap note: prior marker was bolshegold/10043 (~11:13 UTC); new top is 10047, a post-ID delta of 4 and a **~8h41m gap** — well above the ~1h flag threshold, so posts #10044–10046 were likely superseded and were not individually evaluated per the command's by-design "latest post only" scope. |
 | 2026-08-24 | https://t.me/myroslavkorol | — | no action — no company named | New top post myroslavkorol/2660 (~18:50 UTC approx) contains only emoji reactions, no text and no company/ticker named, so no resolvable trigger per step 3. Gap note: prior marker was myroslavkorol/2659 (~16:04 UTC); new top is 2660, a post-ID delta of 1 and a ~2h46m gap — above the ~1h flag threshold to note, but only one post separates the markers so exactly one post landed in the gap (not multiple superseded posts). |
 | 2026-08-24 | https://t.me/FinnInvestChannel | — | no action — generic macro commentary, no company named | New top post FinnInvestChannel/3138 (~17:18 UTC approx) discusses potential new US tariffs on China (additional 7.5%, raising second-term tariffs to ~20%) and Treasury Secretary Bessent's comment that anyone "assisting Iran" will be disconnected from the US dollar system — macro/geopolitical commentary, no specific publicly-traded company or ticker named, so no resolvable trigger per step 3. Gap note: prior marker was FinnInvestChannel/3137 (~15:42 UTC); new top is 3138, a post-ID delta of 1 and a ~1h36m gap — above the ~1h flag threshold to note, but only one post separates the markers so exactly one post landed in the gap. |
