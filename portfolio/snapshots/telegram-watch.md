@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11772 (2026-08-25T19:55:38 UTC, exact — data-post/datetime attrs) | 2026-08-25 20:07 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3142 (2026-08-25T18:37:36 UTC, exact — data-post/datetime attrs) | 2026-08-25 20:07 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2664 (2026-08-25T19:21:09 UTC, exact — data-post/datetime attrs) | 2026-08-25 20:07 UTC |
-| https://t.me/bolshegold | bolshegold/10048 (2026-08-25T10:30:35 UTC, exact — data-post/datetime attrs) | 2026-08-25 20:07 UTC |
+| https://t.me/tarasguk | tarasguk/11772 (2026-08-25T19:55:38 UTC, exact — data-post/datetime attrs) | 2026-08-26 00:08 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3142 (2026-08-25T18:37:36 UTC, exact — data-post/datetime attrs) | 2026-08-26 00:08 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2664 (2026-08-25T19:21:09 UTC, exact — data-post/datetime attrs) | 2026-08-26 00:08 UTC |
+| https://t.me/bolshegold | bolshegold/10048 (2026-08-25T10:30:35 UTC, exact — data-post/datetime attrs) | 2026-08-26 00:08 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-26 | https://t.me/bolshegold | — | no new post this run | Top post unchanged at bolshegold/10048 (10:30 UTC) — already evaluated and logged in a prior run; reconfirmed via web-preview fetch this run (2026-08-26 00:08 UTC check). |
+| 2026-08-26 | https://t.me/myroslavkorol | — | no new post this run | Top post unchanged at myroslavkorol/2664 (19:21 UTC) — already evaluated and logged in a prior run; reconfirmed via web-preview fetch this run (2026-08-26 00:08 UTC check). |
+| 2026-08-26 | https://t.me/FinnInvestChannel | — | no new post this run | Top post unchanged at FinnInvestChannel/3142 (18:37 UTC) — already evaluated and logged in a prior run; reconfirmed via web-preview fetch this run (2026-08-26 00:08 UTC check). |
+| 2026-08-26 | https://t.me/tarasguk | — | no new post this run | Top post unchanged at tarasguk/11772 (19:55 UTC) — already evaluated and logged in a prior run; reconfirmed via web-preview fetch this run (2026-08-26 00:08 UTC check). |
 | 2026-08-25 | https://t.me/myroslavkorol | — | no action — not a company/ticker mention | New top post myroslavkorol/2664 (19:21 UTC) announces a video episode about selling covered call options and personal trade results — educational content, no specific company/ticker named. Gap note: prior marker was myroslavkorol/2662 (12:45 UTC); new top is 2664, a **~6h36m time gap** — above the ~1h flag threshold. Post 2663 does not appear in the current preview window (deleted, non-text, or otherwise superseded) and post 2661 (~09:07 UTC, macro/political commentary, no ticker) was likewise superseded and not individually evaluated per this routine's latest-post-only design. |
 | 2026-08-25 | https://t.me/FinnInvestChannel | — | no action — indirect subsidiary mention, no resolvable ticker/Rule 9 event | New top post FinnInvestChannel/3142 (18:37 UTC) reports Waymo will start testing autonomous vehicles in Munich, targeting a commercial robotaxi launch there in late 2027. Waymo is a wholly-owned Alphabet subsidiary, not itself a listed security — per Rule 0, this routine does not guess a ticker mapping for an unlisted subsidiary, and the item is not a Rule 9 fundamental event (earnings/guidance/M&A/management/macro) for GOOG itself, so no `/rescore` trigger even under the indirect reading. GOOG is a current holding (0.56% weight, last reviewed 2026-07-22) — left untouched. Gap note: prior marker was FinnInvestChannel/3140 (13:53 UTC); new top is 3142, a **~4h44m time gap** — above the ~1h flag threshold; intermediate post 3141 (~16:59 UTC, claiming OpenAI's Broadcom-built "Jalapeno" inference chip beat Nvidia GB300 in tests — would concern AVGO, a current holding) was superseded and not individually evaluated per this routine's latest-post-only design. |
 | 2026-08-25 | https://t.me/tarasguk | — | no action — not a company/ticker mention | New top post tarasguk/11772 (19:55 UTC) is political/macro commentary (Trump renaming a lake on the US-Canada border) — no company or ticker named. Gap note: prior marker was tarasguk/11769 (14:53 UTC); new top is 11772, a **~5h02m time gap** — above the ~1h flag threshold; intermediate posts 11770 (~17:28 UTC, commentary on Anthropic's revenue projections — a private company, no public ticker) and 11771 (~19:18 UTC, generic App Store spending commentary, no ticker) were superseded and not individually evaluated per this routine's latest-post-only design. |
