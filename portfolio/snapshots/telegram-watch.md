@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11787 (~2026-08-27T18:08 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-28 00:08 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3153 (~2026-08-27T16:54 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-28 00:08 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2665 (2026-08-27T08:16 UTC, exact — data-post/datetime attrs) | 2026-08-28 00:08 UTC |
-| https://t.me/bolshegold | bolshegold/10051 (2026-08-27T09:05 UTC, exact — data-post/datetime attrs, shown "edited") | 2026-08-28 00:08 UTC |
+| https://t.me/tarasguk | tarasguk/11789 (~2026-08-28T06:08 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-28 08:08 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3154 (~2026-08-28T06:19 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-28 08:08 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2666 (~2026-08-28T05:39 UTC, approximate — fetch returned an anomalous relative-time string, not a clean datetime attribute) | 2026-08-28 08:08 UTC |
+| https://t.me/bolshegold | bolshegold/10052 (~2026-08-28T05:03 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-28 08:08 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-28 | https://t.me/tarasguk | PYPL | `/new-position PYPL` triggered | tarasguk/11789 (~06:08 UTC): "Stripe відмовився купляти PayPal... Раніше пропонували $60 за акцію." Post-ID jumped from 11787 (prior marker) to 11789 — **11788 was skipped and never individually evaluated**, per this command's single-latest-post-per-run limitation; flagging per step 2 since the ~12h gap is consistent with more than one post landing since the last check. Independently verified (Bloomberg, 28 Aug 2026): Advent/Stripe consortium has abandoned its PayPal acquisition pursuit — real, materially new vs. the 2026-07-17 watchlist entry. Full evaluation: [session](../../sessions/2026-08-28-new-position-pypl.md) — Quality Score 57.6, fails the 80.0+ gate, no position opened. |
+| 2026-08-28 | https://t.me/bolshegold | PYPL | `/new-position PYPL` triggered (same session as tarasguk row above — not double-run) | bolshegold/10052 (~05:03 UTC): "Stripe, Adyen отказались платить больше $50В за $PYPL и вышли из переговоров." Same underlying M&A-collapse event as the tarasguk post above (~1h earlier), already actioned by the single PYPL session this run. **The Adyen claim in this post is not corroborated** by independent sources (Bloomberg/Engadget name only Stripe + Advent) — flagged in the session, not treated as verified. Full evaluation: [session](../../sessions/2026-08-28-new-position-pypl.md). |
+| 2026-08-28 | https://t.me/FinnInvestChannel | NOK | no action — mention only | FinnInvestChannel/3154 (~06:19 UTC): Nokia/Nscale AI-story thesis piece (contracted revenue backlog, planned IPO, insider buying $10–16 range). Checked against [watchlist/not-in-portfolio/NOK/NOK-2026-06-24.md](../../watchlist/not-in-portfolio/NOK/NOK-2026-06-24.md)'s documented "Next review trigger" list (AI/Cloud order book converting to recognized revenue, M&A, management change, macro shift, >15% price move) — this post matches none of them; it's thesis/commentary on a private company's (Nscale) IPO plans, not a Rule 9 event for Nokia itself. Logged only, no `/rescore` run. |
+| 2026-08-28 | https://t.me/myroslavkorol | TTWO | no action — mention only | myroslavkorol/2666 (~05:39 UTC): GTA VI extended gameplay trailer release, "<3 months to launch." [watchlist/not-in-portfolio/TTWO/TTWO-2026-08-07.md](../../watchlist/not-in-portfolio/TTWO/TTWO-2026-08-07.md) explicitly instructs that "routine Telegram mentions (including further GTA VI pre-order/marketing hype) should be logged as 'last checked, no change,' not a full re-run" — applied verbatim. Logged only, no `/new-position` run. |
 | 2026-08-28 | https://t.me/bolshegold | — | no new post this run | Top post unchanged at bolshegold/10051 (2026-08-27T09:05 UTC, shown "edited") — already evaluated and logged in a prior run; reconfirmed via web-preview fetch this run (2026-08-28 00:08 UTC check). |
 | 2026-08-28 | https://t.me/myroslavkorol | — | no new post this run | Top post unchanged at myroslavkorol/2665 (2026-08-27T08:16 UTC) — already evaluated and logged in a prior run; reconfirmed via web-preview fetch this run (2026-08-28 00:08 UTC check). |
 | 2026-08-28 | https://t.me/FinnInvestChannel | — | no new post this run | Top post unchanged at FinnInvestChannel/3153 (~2026-08-27T16:54 UTC) — already evaluated and logged in a prior run (triggered `/new-position VST`); reconfirmed via web-preview fetch this run (2026-08-28 00:08 UTC check). |
