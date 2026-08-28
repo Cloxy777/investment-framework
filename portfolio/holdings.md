@@ -33,7 +33,7 @@ Combined total ≈ **$61,101.28** = IBKR Net Liquidation Value $50,211.32 + Free
 |--------|----------|------------|----------------|------------------|-------------|--------|
 | ADBE | 4.51% | 0.0 | 83.9 | 8.1 | 29 Jul 2026 | IBKR |
 | AMZN | 5.08% | 82.7 | 56.7 | 63.0 | 01 Aug 2026 | IBKR (Freedom24 leg sold — see note above) |
-| AVGO | 3.68% | 68.2 | 82.1 | 43.1 | 04 Jul 2026 | IBKR |
+| AVGO | 3.68% | 68.5 | 82.1 | 43.2 | 28 Aug 2026 | IBKR |
 | CASH (Freedom24) | 0.07% | | | | | Freedom24 |
 | CASH (IBKR) | 6.65% | | | | | IBKR |
 | CSGP | 1.32% | 84.8 | 69.2 | 57.8 | 09 Aug 2026 | IBKR |
