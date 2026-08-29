@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11794 (~2026-08-28T18:22 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-29 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3157 (~2026-08-28T17:48 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-29 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2666 (~2026-08-28T05:39 UTC, approximate — fetch returned an anomalous relative-time string, not a clean datetime attribute) | 2026-08-29 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/10052 (~2026-08-28T05:03 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-29 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11795 (~2026-08-29T06:44 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-29 08:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3157 (~2026-08-28T17:48 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-29 08:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2666 (~2026-08-28T05:39 UTC, approximate — fetch returned an anomalous relative-time string, not a clean datetime attribute) | 2026-08-29 08:04 UTC |
+| https://t.me/bolshegold | bolshegold/10054 (~2026-08-29T07:26 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-29 08:04 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-29 | https://t.me/bolshegold | — | no action — no identifiable company/ticker named | Marker advanced from bolshegold/10052 (~2026-08-28T05:03 UTC) to bolshegold/10054 (~2026-08-29T07:26 UTC) — a ~26h23m gap, well above the ~1hr threshold, flagging explicitly; delta 2 (10052→10054) means post 10053 was superseded and not individually evaluated, per the command's by-design "latest post only" scope. New top post: "Когда забыл про фонду, но вспомнил что у тебя не etf, а акции 😄" ("When you forgot about the market, but remembered you have stocks, not an ETF") — a generic joke about holding individual stocks vs. an ETF, no specific identifiable company or ticker named in the text itself. Skipped per command step 3 (never guess a ticker/company). |
+| 2026-08-29 | https://t.me/myroslavkorol | — | no new post this run | Top post unchanged at myroslavkorol/2666 (~2026-08-28T05:39 UTC) — already evaluated and logged in a prior run; reconfirmed via web-preview fetch this run (2026-08-29 08:04 UTC check). |
+| 2026-08-29 | https://t.me/FinnInvestChannel | — | no new post this run | Top post unchanged at FinnInvestChannel/3157 (~2026-08-28T17:48 UTC) — already evaluated and logged in a prior run (META, no action — not a Rule 9 event); reconfirmed via web-preview fetch this run (2026-08-29 08:04 UTC check). |
+| 2026-08-29 | https://t.me/tarasguk | — | no action — no identifiable company/ticker named | Marker advanced from tarasguk/11794 (~2026-08-28T18:22 UTC) to tarasguk/11795 (~2026-08-29T06:44 UTC) — a ~12h22m gap, above the ~1hr threshold, flagging explicitly; delta 1 (11794→11795), so nothing superseded. New top post: "🇻🇪 Венесуела віддала безкоштовно 🇺🇸 штатам 65 мільярдів барелів нафти 🛢️" ("Venezuela gave the US 65 billion barrels of oil for free") — generic geopolitical/commodity commentary, no specific identifiable publicly-traded company or ticker named in the text itself. Skipped per command step 3 (never guess a ticker/company). |
 | 2026-08-29 | https://t.me/tarasguk | — | no new post this run | Top post unchanged at tarasguk/11794 (~2026-08-28T18:22 UTC) — already evaluated and logged in a prior run (no identifiable company/ticker); reconfirmed via web-preview fetch this run (2026-08-29 00:05 UTC check). |
 | 2026-08-29 | https://t.me/FinnInvestChannel | — | no new post this run | Top post unchanged at FinnInvestChannel/3157 (~2026-08-28T17:48 UTC) — already evaluated and logged in a prior run (META, no action — not a Rule 9 event); reconfirmed via web-preview fetch this run (2026-08-29 00:05 UTC check). |
 | 2026-08-29 | https://t.me/myroslavkorol | — | no new post this run | Top post unchanged at myroslavkorol/2666 (~2026-08-28T05:39 UTC) — already evaluated and logged in a prior run; reconfirmed via web-preview fetch this run (2026-08-29 00:05 UTC check). |
