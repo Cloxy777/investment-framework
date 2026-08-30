@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11798 (~2026-08-29T16:49 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-30 00:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3158 (~2026-08-29T10:11 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-30 00:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2666 (~2026-08-28T05:39 UTC, approximate — fetch returned an anomalous relative-time string, not a clean datetime attribute) | 2026-08-30 00:04 UTC |
-| https://t.me/bolshegold | bolshegold/10057 (~2026-08-29T11:21 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute, shown "edited") | 2026-08-30 00:04 UTC |
+| https://t.me/tarasguk | tarasguk/11798 (~2026-08-29T16:49 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-30 08:03 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3158 (~2026-08-29T10:11 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute) | 2026-08-30 08:03 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2666 (~2026-08-28T05:39 UTC, approximate — fetch returned an anomalous relative-time string, not a clean datetime attribute) | 2026-08-30 08:03 UTC |
+| https://t.me/bolshegold | bolshegold/10057 (~2026-08-29T11:21 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute, shown "edited") | 2026-08-30 08:03 UTC |
 
 ## Mention log
 
@@ -17,7 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
-| 2026-08-30 | https://t.me/bolshegold | — | no new post this run | Top post unchanged at bolshegold/10057 (~2026-08-29T11:21 UTC, shown "edited") — already evaluated and logged in a prior run (see the SPYM row below); reconfirmed via web-preview fetch this run (2026-08-30 00:04 UTC check). |
+| 2026-08-30 | https://t.me/bolshegold | — | no new post this run | Top post unchanged at bolshegold/10057 (~2026-08-29T11:21 UTC, shown "edited") — already evaluated and logged in a prior run (see the SPYM row below); reconfirmed via web-preview fetch this run (2026-08-30 08:03 UTC check). |
+| 2026-08-30 | https://t.me/myroslavkorol | — | no new post this run | Top post unchanged at myroslavkorol/2666 (~2026-08-28T05:39 UTC, GTA VI trailer) — already evaluated and logged in a prior run (see the TTWO row below); reconfirmed via web-preview fetch this run (2026-08-30 08:03 UTC check). |
+| 2026-08-30 | https://t.me/FinnInvestChannel | — | no new post this run | Top post unchanged at FinnInvestChannel/3158 (~2026-08-29T10:11 UTC) — already evaluated and logged in a prior run (Venezuela-oil geopolitical commentary, no identifiable company); reconfirmed via web-preview fetch this run (2026-08-30 08:03 UTC check). |
+| 2026-08-30 | https://t.me/tarasguk | — | no new post this run | Top post unchanged at tarasguk/11798 (~2026-08-29T16:49 UTC) — already evaluated and logged in a prior run (MU/SSU/SKHY memory-sector statistic, no action); reconfirmed via web-preview fetch this run (2026-08-30 08:03 UTC check). |
 | 2026-08-30 | https://t.me/myroslavkorol | — | no new post this run | Top post unchanged at myroslavkorol/2666 (~2026-08-28T05:39 UTC) — already evaluated and logged in a prior run; reconfirmed via web-preview fetch this run (2026-08-30 00:04 UTC check). |
 | 2026-08-30 | https://t.me/FinnInvestChannel | — | no new post this run | Top post unchanged at FinnInvestChannel/3158 (~2026-08-29T10:11 UTC) — already evaluated and logged in a prior run (Venezuela-oil geopolitical commentary, no identifiable company); reconfirmed via web-preview fetch this run (2026-08-30 00:04 UTC check). |
 | 2026-08-30 | https://t.me/tarasguk | — | no new post this run | Top post unchanged at tarasguk/11798 (~2026-08-29T16:49 UTC) — already evaluated and logged in a prior run (MU/SSU/SKHY memory-sector statistic, no action); reconfirmed via web-preview fetch this run (2026-08-30 00:04 UTC check). |
