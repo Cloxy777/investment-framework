@@ -48,14 +48,14 @@ Combined total ≈ **$61,101.28** = IBKR Net Liquidation Value $50,211.32 + Free
 | NOW | 1.89%⚠️ | 75.9 | 73.2 | 51.4 (ref only, gate fail) | 09 Aug 2026 | IBKR |
 | NVDA | 6.78% | 41.2 | 90.3 | 25.5 | 27 Aug 2026 | IBKR |
 | NVO | 0.38% | 51.4 | 67.2 | 42.1 (ref only, gate fail) | 09 Aug 2026 | IBKR |
-| RBRK | 0.48% | not scored — fails quality gates | | | Jun 2026 | IBKR |
+| RBRK | 0.48% | not scored — fails quality gates | | | 30 Aug 2026 | IBKR |
 | **RGL** | 0.70% | not scored — ungoverned position, see note above | | | n/a | IBKR |
 | SPGI | 0.71% | 31.3 | 67.7 | 31.8 | 09 Aug 2026 | IBKR |
 | TLT | 29.27% | not scored — non-equity, framework gap | | | Jun 2026 | IBKR + Freedom24 |
 | TRN | 2.65%⚠️ | 10.0 | 67.2 | 21.4 (ref only, gate fail) | 22 Aug 2026 | IBKR |
 | UBER | 0.39% | 43.6 | 55.5 | 44.1 | 07 Aug 2026 | IBKR |
 | V | 0.61% | 54.5 | 85.6 | 34.5 | 29 Jul 2026 | IBKR |
-| VEEV | 1.22% | 45.1 | 85.7 | 29.7 | 01 Jul 2026 | IBKR |
+| VEEV | 1.22% | 65.9 | 86.0 | 40.0 | 30 Aug 2026 | IBKR |
 | XEON | 2.87% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
 | ZS | 0.30% | 43.1 | 59.4 | 41.9 | 05 Jul 2026 | IBKR |
 
