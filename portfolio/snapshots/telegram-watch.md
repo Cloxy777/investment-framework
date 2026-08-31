@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11803 (2026-08-30T17:57:01 UTC, confirmed via raw-HTML `<time datetime>` attribute) | 2026-08-30 20:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3159 (~2026-08-30T12:53 UTC, approximate — fetch returned HH:MM only, not the full datetime attribute, shown "edited") | 2026-08-30 20:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2666 (~2026-08-28T05:39 UTC, approximate — fetch returned an anomalous relative-time string, not a clean datetime attribute) | 2026-08-30 20:05 UTC |
-| https://t.me/bolshegold | bolshegold/10059 (~2026-08-30T16:01 UTC, approximate — fetch returned HH:MM only) | 2026-08-30 20:05 UTC |
+| https://t.me/tarasguk | tarasguk/11803 (2026-08-30T17:57:01 UTC, confirmed via raw-HTML `<time datetime>` attribute) | 2026-08-31 00:13 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3159 (2026-08-30T12:53:31 UTC, confirmed via raw-HTML `<time datetime>` attribute this run) | 2026-08-31 00:13 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2666 (2026-08-28T05:39:29 UTC, confirmed via raw-HTML `<time datetime>` attribute this run) | 2026-08-31 00:13 UTC |
+| https://t.me/bolshegold | bolshegold/10059 (2026-08-30T16:01:33 UTC, confirmed via raw-HTML `<time datetime>` attribute this run) | 2026-08-31 00:13 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-08-31 | https://t.me/bolshegold | — | no new post this run | Top post unchanged at bolshegold/10059 (2026-08-30T16:01:33 UTC, already evaluated in a prior run — see the EVO row below); reconfirmed via raw-HTML fetch this run (2026-08-31 00:13 UTC check). |
+| 2026-08-31 | https://t.me/myroslavkorol | — | no new post this run | Top post unchanged at myroslavkorol/2666 (2026-08-28T05:39:29 UTC, GTA VI trailer, already evaluated in a prior run); reconfirmed via raw-HTML fetch this run (2026-08-31 00:13 UTC check). |
+| 2026-08-31 | https://t.me/FinnInvestChannel | — | no new post this run | Top post unchanged at FinnInvestChannel/3159 (2026-08-30T12:53:31 UTC, already evaluated in a prior run — personal/travel content, no company named); reconfirmed via raw-HTML fetch this run (2026-08-31 00:13 UTC check). |
+| 2026-08-31 | https://t.me/tarasguk | — | no new post this run | Top post unchanged at tarasguk/11803 (2026-08-30T17:57:01 UTC, already evaluated in a prior run — see the NVDA/META row below); reconfirmed via raw-HTML fetch this run (2026-08-31 00:13 UTC check). |
 | 2026-08-30 | https://t.me/bolshegold | — | no new post this run | Top post unchanged at bolshegold/10059 (~2026-08-30T16:01 UTC, already evaluated in a prior run — see the EVO row below); reconfirmed via raw-HTML fetch this run (2026-08-30 20:05 UTC check). |
 | 2026-08-30 | https://t.me/myroslavkorol | — | no new post this run | Top post unchanged at myroslavkorol/2666 (~2026-08-28T05:39 UTC, GTA VI trailer, already evaluated in a prior run); reconfirmed via raw-HTML fetch this run (2026-08-30 20:05 UTC check). |
 | 2026-08-30 | https://t.me/FinnInvestChannel | — | no new post this run | Top post unchanged at FinnInvestChannel/3159 (~2026-08-30T12:53 UTC, shown "edited," already evaluated in a prior run — personal/travel content, no company named); reconfirmed via raw-HTML fetch this run (2026-08-30 20:05 UTC check). |
