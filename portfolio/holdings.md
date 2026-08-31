@@ -52,7 +52,7 @@ Combined total ≈ **$62,381.53** = IBKR Net Liquidation Value $51,491.57 + Free
 | **RGL** | 0.76% | not scored — ungoverned position, see note above | | | n/a | IBKR |
 | SPGI | 0.71% | 31.3 | 67.7 | 31.8 | 09 Aug 2026 | IBKR |
 | TLT | 28.80% | not scored — non-equity, framework gap | | | Jun 2026 | IBKR + Freedom24 |
-| TRN | 2.59%⚠️ | 10.0 | 67.2 | 21.4 (ref only, gate fail) | 22 Aug 2026 | IBKR |
+| TRN | 2.59%⚠️ | 10.0 | 67.2 | 21.4 (ref only, gate fail) | 31 Aug 2026 | IBKR |
 | UBER | 0.38% | 43.6 | 55.5 | 44.1 | 07 Aug 2026 | IBKR |
 | V | 0.61% | 54.5 | 85.6 | 34.5 | 29 Jul 2026 | IBKR |
 | VEEV | 1.33% | 65.9 | 86.0 | 40.0 | 30 Aug 2026 | IBKR |
@@ -67,7 +67,7 @@ Combined total ≈ **$62,381.53** = IBKR Net Liquidation Value $51,491.57 + Free
 
 **NOW's weight (⚠️) still carries the 2026-08-10 undocumented 3-share trim** — unresolved, see [override-log.md](override-log.md).
 
-**TRN's weight (⚠️) still reflects the 22.4% price drop from the 08-16→08-22 window** — caused by a CMA "drip pricing" investigation opened 2026-08-19 (see [2026-08-22 rescore](../sessions/2026-08-22-rescore-trn.md)); price ticked up slightly this week (+0.81%) but the underlying drop is unchanged. Quality Score 67.2 still fails the 80.0+ gate, Composite 21.4 reference-only. **HOLD, no top-up** — Quality Gate already blocked adding before this news; the CMA probe adds a second, independent reason.
+**TRN's weight (⚠️) still reflects the 22.4% price drop from the 08-16→08-22 window** — caused by a CMA "drip pricing" investigation opened 2026-08-19, still open with no finding as of the [2026-08-31 rescore](../sessions/2026-08-31-rescore-trn.md) (see also [2026-08-22 rescore](../sessions/2026-08-22-rescore-trn.md)). Quality Score 67.2 and Composite 21.4 numerically unchanged across both sessions. **HOLD, no top-up** — Quality Gate already blocked adding before this news; the CMA probe adds a second, independent reason. Note: JPMorgan cut its TRN price target to 185p (below the live ~199p price) this week — first bearish analyst target to actually price in the CMA overhang, flagged in the 08-31 session but not a Phase 06 trigger.
 
 **XEON is EUR-denominated** (€1,500.60 market value). Its USD-equivalent (**$1,738.39**, used for the weight above) comes from the *live* EUR→USD rate (1.1584620) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
 
