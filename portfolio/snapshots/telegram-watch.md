@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11803 (2026-08-30T17:57:01 UTC, confirmed via raw-HTML `<time datetime>` attribute) | 2026-08-31 00:13 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3159 (2026-08-30T12:53:31 UTC, confirmed via raw-HTML `<time datetime>` attribute this run) | 2026-08-31 00:13 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2666 (2026-08-28T05:39:29 UTC, confirmed via raw-HTML `<time datetime>` attribute this run) | 2026-08-31 00:13 UTC |
-| https://t.me/bolshegold | bolshegold/10059 (2026-08-30T16:01:33 UTC, confirmed via raw-HTML `<time datetime>` attribute this run) | 2026-08-31 00:13 UTC |
+| https://t.me/tarasguk | tarasguk/11806 (2026-08-31T07:58:27 UTC, confirmed via raw-HTML `<time datetime>` attribute this run) | 2026-08-31 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3160 (2026-08-31T07:55:44 UTC, confirmed via raw-HTML `<time datetime>` attribute this run) | 2026-08-31 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2666 (2026-08-28T05:39:29 UTC, confirmed via raw-HTML `<time datetime>` attribute this run) | 2026-08-31 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/10059 (2026-08-30T16:01:33 UTC, confirmed via raw-HTML `<time datetime>` attribute this run) | 2026-08-31 08:05 UTC |
 
 ## Mention log
 
@@ -17,7 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
-| 2026-08-31 | https://t.me/bolshegold | — | no new post this run | Top post unchanged at bolshegold/10059 (2026-08-30T16:01:33 UTC, already evaluated in a prior run — see the EVO row below); reconfirmed via raw-HTML fetch this run (2026-08-31 00:13 UTC check). |
+| 2026-08-31 | https://t.me/bolshegold | — | no new post this run | Top post unchanged at bolshegold/10059 (2026-08-30T16:01:33 UTC, already evaluated in a prior run — see the EVO row below); reconfirmed via raw-HTML fetch this run (2026-08-31 08:05 UTC check). |
+| 2026-08-31 | https://t.me/myroslavkorol | — | no new post this run | Top post unchanged at myroslavkorol/2666 (2026-08-28T05:39:29 UTC, GTA VI trailer, already evaluated in a prior run); reconfirmed via raw-HTML fetch this run (2026-08-31 08:05 UTC check). |
+| 2026-08-31 | https://t.me/FinnInvestChannel | — | no action — no identifiable company/ticker named | Marker advanced from FinnInvestChannel/3159 (2026-08-30T12:53:31 UTC) to FinnInvestChannel/3160 (2026-08-31T07:55:44 UTC) — a ~19h02m gap, above the ~1hr threshold, flagging explicitly; delta 1, so nothing superseded. New top post (Ukrainian, verbatim): "✅ Ілон Маск заявив, що близько 15 ГВт нових AI-обчислювальних потужностей, які мають запуститися у 2027 році, можуть простоювати через неготову інфраструктуру✅ Проблема не в самих GPU, а в електроенергії, трансформаторах, охолодженні та мережевому обладнанні, які можуть не встигнути побудувати вчасно💡Мережеве обладнання, тобто частково фотоніка" ("Elon Musk said ~15 GW of new AI compute capacity due to launch in 2027 may sit idle due to unready infrastructure — the problem isn't the GPUs themselves but power, transformers, cooling, and networking equipment that may not be built in time; networking equipment, i.e. partly photonics") — names Elon Musk (a person) but no specific identifiable publicly-traded company or ticker in the text itself (no TSLA/mention of Tesla, SpaceX, xAI, or any supplier by name) — generic AI-infrastructure macro commentary. Skipped per command step 3 (never guess a ticker/company). |
+| 2026-08-31 | https://t.me/tarasguk | — | no action — no identifiable company/ticker named | Marker advanced from tarasguk/11803 (2026-08-30T17:57:01 UTC) to tarasguk/11806 (2026-08-31T07:58:27 UTC) — a ~14h01m gap, above the ~1hr threshold, flagging explicitly; delta 3 (11803→11806) means posts 11804–11805 were superseded and not individually evaluated, per the command's by-design "latest post only" scope. New top post (Ukrainian, verbatim): "🎁 У колеги-інвестора сьогодні 96-й ДН Многая літ, дядьку Воррене 😇Нашому поколінню дуже пощастило жити разом із таким світочем 🥹" plus the standard channel-promo footer (Вишкіл | Закритий клуб | YouTube) — a birthday tribute to Warren Buffett ("Uncle Warren," 96th birthday), no specific identifiable publicly-traded company or ticker named in the text itself. Skipped per command step 3 (never guess a ticker/company). |
 | 2026-08-31 | https://t.me/myroslavkorol | — | no new post this run | Top post unchanged at myroslavkorol/2666 (2026-08-28T05:39:29 UTC, GTA VI trailer, already evaluated in a prior run); reconfirmed via raw-HTML fetch this run (2026-08-31 00:13 UTC check). |
 | 2026-08-31 | https://t.me/FinnInvestChannel | — | no new post this run | Top post unchanged at FinnInvestChannel/3159 (2026-08-30T12:53:31 UTC, already evaluated in a prior run — personal/travel content, no company named); reconfirmed via raw-HTML fetch this run (2026-08-31 00:13 UTC check). |
 | 2026-08-31 | https://t.me/tarasguk | — | no new post this run | Top post unchanged at tarasguk/11803 (2026-08-30T17:57:01 UTC, already evaluated in a prior run — see the NVDA/META row below); reconfirmed via raw-HTML fetch this run (2026-08-31 00:13 UTC check). |
