@@ -46,7 +46,7 @@ Combined total ≈ **$62,381.53** = IBKR Net Liquidation Value $51,491.57 + Free
 | NFLX | 1.56% | 49.3 | 69.8 | 39.8 | 17 Jul 2026 | IBKR |
 | NKE | 1.27% | 13.9 | 44.4 | 34.8 | 1 Jul 2026 | IBKR |
 | NOW | 2.08%⚠️ | 75.9 | 73.2 | 51.4 (ref only, gate fail) | 09 Aug 2026 | IBKR |
-| NVDA | 6.65% | 41.2 | 90.3 | 25.5 | 27 Aug 2026 | IBKR |
+| NVDA | 6.65% | 36.2 | 90.3 | 23.0 | 01 Sep 2026 | IBKR |
 | NVO | 0.37% | 51.4 | 67.2 | 42.1 (ref only, gate fail) | 09 Aug 2026 | IBKR |
 | RBRK | 0.45% | not scored — fails quality gates | | | 30 Aug 2026 | IBKR |
 | **RGL** | 0.76% | not scored — ungoverned position, see note above | | | n/a | IBKR |
