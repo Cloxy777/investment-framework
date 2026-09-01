@@ -38,7 +38,7 @@ Combined total ≈ **$62,381.53** = IBKR Net Liquidation Value $51,491.57 + Free
 | CASH (IBKR) | 6.51% | | | | | IBKR |
 | CSGP | 1.29% | 84.8 | 69.2 | 57.8 | 09 Aug 2026 | IBKR |
 | **DOCS (short put)** | n/a — expired worthless 2026-08-21, position closed | n/a | | | n/a | IBKR |
-| DUOL | 8.94% | 72.2 | 83.2 | 44.5 | 06 Aug 2026 | IBKR + Freedom24 |
+| DUOL | 8.94% | 85.1 | 83.2 | 51.0 | 01 Sep 2026 | IBKR + Freedom24 |
 | GOOG | 0.55% | 64.2 | 71.4 | 46.4 | 22 Jul 2026 | IBKR |
 | **MBGL** | 0.03% | not scored — fails quality gates | 51.0 | | 09 Aug 2026 | IBKR |
 | META | 4.63% | 39.4 | 87.5 | 26.0 | 26 Aug 2026 (PM) | IBKR (Freedom24 leg sold — see note above) |
