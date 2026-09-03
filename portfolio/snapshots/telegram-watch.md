@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11827 (2026-09-02T19:23:42 UTC, marker unchanged this run — reconfirmed via raw-HTML `<time datetime>` attribute) | 2026-09-03 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3174 (2026-09-02T19:48:48 UTC, marker unchanged this run — reconfirmed via raw-HTML `<time datetime>` attribute) | 2026-09-03 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2670 (2026-09-02T12:20:42 UTC, marker unchanged this run — reconfirmed via raw-HTML `<time datetime>` attribute) | 2026-09-03 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/10076 (2026-09-02T17:39:59 UTC, marker unchanged this run — reconfirmed via raw-HTML `<time datetime>` attribute) | 2026-09-03 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11829 (2026-09-03T06:38:42 UTC, marker advanced this run — raw-HTML `<time datetime>` attribute) | 2026-09-03 08:23 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3174 (2026-09-02T19:48:48 UTC, marker unchanged this run — reconfirmed via raw-HTML `<time datetime>` attribute) | 2026-09-03 08:23 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2670 (2026-09-02T12:20:42 UTC, marker unchanged this run — reconfirmed via raw-HTML `<time datetime>` attribute) | 2026-09-03 08:23 UTC |
+| https://t.me/bolshegold | bolshegold/10076 (2026-09-02T17:39:59 UTC, marker unchanged this run — reconfirmed via raw-HTML `<time datetime>` attribute) | 2026-09-03 08:23 UTC |
 
 ## Mention log
 
@@ -17,7 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
-| 2026-09-03 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11827 (2026-09-02T19:23:42 UTC) — no new post since the 20:04 UTC check. |
+| 2026-09-03 | https://t.me/tarasguk | AVGO | **`/rescore AVGO`** — Composite Score 40.2 (down from 43.2, stays in "Cheap" 30.0–49.9 band); Quality Score 86.3 (up from 82.1, resolving the prior borderline-moat gate-margin flag); Valuation Score 66.6 (down from 68.5) — action **HOLD, no trim/exit, no add** (R/R best case 1.71:1, fails the 2:1 minimum; position already at 3–5% target size) | Marker advanced from tarasguk/11827 (2026-09-02T19:23:42 UTC) to tarasguk/11829 (2026-09-03T06:38:42 UTC) — an ~11h15m gap, well above the ~1hr threshold, flagged explicitly; delta 2 (post #11828 superseded, never individually evaluated). New top post (Ukrainian): "📡 AVGO показав чудовий звіт" ("AVGO posted a great report") — claims Q3 FY2026 revenue/profit growth of 86%/96% YoY, guidance a few % below expectations next quarter but strong FY26–FY28 long-term growth guidance and EPS >$30 by FY2028. AVGO is held (~3.55% weight, IBKR) and its own [2026-08-28 watchlist entry](../../watchlist/in-portfolio/AVGO/AVGO-2026-08-28.md) already named this exact Q3 FY2026 earnings release as the next mandatory re-check — a legitimate Rule 9 trigger, not a speculative match. Post text never used as financial data per Rule 0: `/rescore` independently confirmed the release via IBKR/`yfinance` live data and AVGO's own SEC 8-K (filed 2026-09-02) — actual reported figures (revenue $29.6B +86% YoY, GAAP EBIT $16.0B, FCF $13.7B, Net Debt paydown $45.3B→$35.4B) differed in presentation from the post's framing but confirmed the same underlying beat. [session](../../sessions/2026-09-03-rescore-avgo.md) · [watchlist entry](../../watchlist/in-portfolio/AVGO/AVGO-2026-09-03.md) · PR [#704](https://github.com/Cloxy777/investment-framework/pull/704) (merged, commit `f9a5be4`). Priority tier **P2** (earnings-driven RESCORE on a holding <5% weight, no trim/exit fired) — due next business day (Fri 2026-09-04) 21:00 UTC; `.ics` sent via Telegram. Data gaps flagged (non-blocking, noted in session log): 5yr trailing PE range carried forward unchanged (`yfinance` earnings-date history hadn't backfilled the new quarter yet); VMware-amortization and tax-rate normalization carried forward per established convention. |
+| 2026-09-03 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3174 (2026-09-02T19:48:48 UTC) — no new post since the 00:05 UTC check. |
+| 2026-09-03 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2670 (2026-09-02T12:20:42 UTC) — no new post since the 00:05 UTC check. |
+| 2026-09-03 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10076 (2026-09-02T17:39:59 UTC) — no new post since the 00:05 UTC check. |
 | 2026-09-03 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3174 (2026-09-02T19:48:48 UTC) — no new post since the 20:04 UTC check. |
 | 2026-09-03 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2670 (2026-09-02T12:20:42 UTC) — no new post since the 20:04 UTC check. |
 | 2026-09-03 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10076 (2026-09-02T17:39:59 UTC) — no new post since the 20:04 UTC check. |
