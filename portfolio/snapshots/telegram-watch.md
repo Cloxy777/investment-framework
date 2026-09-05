@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11844 (2026-09-04T18:39:01 UTC) | 2026-09-05 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3181 (2026-09-04T17:30:17 UTC) | 2026-09-05 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-05 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/10092 (2026-09-04T22:00:17 UTC) | 2026-09-05 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11845 (2026-09-05T07:18 UTC) | 2026-09-05 08:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3181 (2026-09-04T17:30:17 UTC) | 2026-09-05 08:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-05 08:04 UTC |
+| https://t.me/bolshegold | bolshegold/10092 (2026-09-04T22:00:17 UTC) | 2026-09-05 08:04 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-09-05 | https://t.me/tarasguk | BE | no action — congressional-trade disclosure + index-inclusion mention; doesn't clear the 2026-08-24 hard FCF disqualifier | Marker advanced from tarasguk/11844 (2026-09-04T18:39:01 UTC) to tarasguk/11845 (2026-09-05T07:18 UTC, minute precision only — page markup exposed no seconds-level `datetime` attribute this run) — a ~12h39m gap, well above the ~1hr threshold, flagged explicitly; delta 1, so nothing superseded. New top post: "Nancy Pelosi disclosed a $12 million purchase of $BE shares two weeks ago. Yesterday, the company was added to the S&P 500. Bloom Energy was previously one of Leopold's fund's largest positions before its bankruptcy." Names Bloom Energy Corporation ($BE) unambiguously via cashtag. BE is not held; it has one prior `not-in-portfolio` FAIL entry ([2026-08-24](../../watchlist/not-in-portfolio/BE/BE-2026-08-24.md), Phase 01 Quality Score FAIL — hard disqualifier, FCF not positive 3 consecutive years: FY2023 −$456.3M, FY2024 +$33.1M, FY2025 +$57.2M), whose own "Next review trigger" names (1) BE's FY2026 10-K (~Feb 2027) if FY2026 closes FCF-positive, (2) a material documented reversal in the FCF trend, or (3) standard Rule 9 events (guidance revision, management change, M&A, macro/rate shift, >15% unexplained move) — this post claims none of them: a congressional-trading disclosure and an S&P 500 index-inclusion announcement are neither a Rule 9 event nor a change to the historical FY2023–FY2025 FCF window the disqualifier is keyed to (same non-financial-catalyst category as the original 2026-08-24 entry's own triggering Paul Pelosi disclosure, which was likewise not used as a scored input). Per command step 4's fourth bullet, no `/new-position` triggered by this scan; mention logged only. Post text never used as financial data per Rule 0. |
+| 2026-09-05 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3181 (2026-09-04T17:30:17 UTC, Micron/Rallies-Arena post, already evaluated in the prior run) — no new post since the 00:05 UTC check. |
+| 2026-09-05 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2675 (2026-09-04T17:30:29 UTC, CD Projekt Red weekend-episode promo, already evaluated in the prior run) — no new post since the 00:05 UTC check. |
+| 2026-09-05 | https://t.me/bolshegold | — | no action — marker unchanged (post edited, message ID unaffected) | Top post still bolshegold/10092 (2026-09-04T22:00:17 UTC), already evaluated in the prior run — page now flags it "edited"; the marker mechanism is ID-based (a delta check on the post ID), not a content-diff, so an edit to the same message ID is not treated as a new post per command step 2. No re-evaluation performed. |
 | 2026-09-05 | https://t.me/bolshegold | — | no action — geopolitical/diplomatic commentary, no company or ticker named | Marker advanced from bolshegold/10089 (2026-09-04T18:52:22 UTC) to bolshegold/10092 (2026-09-04T22:00:17 UTC) — a ~3h08m gap, above the ~1hr threshold, flagged explicitly; delta 3 (posts #10090–#10091 visible/superseded, never individually evaluated). New top post (mixed Russian/Ukrainian, translated): "Whoa, suddenly! Powerful, unbreakable, etc. — is this the end or what?) [spoiler] So Witkoff and co. arrived there [/spoiler]" — apparent reference to US envoy Steve Witkoff in a Russia/Ukraine diplomatic context; no specific identifiable publicly-traded company or ticker named. Skipped per command step 3. |
 | 2026-09-05 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2675 (2026-09-04T17:30:29 UTC, CD Projekt Red weekend-episode promo, already evaluated in the prior run) — no new post since the 20:04 UTC check. |
 | 2026-09-05 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3181 (2026-09-04T17:30:17 UTC, Micron/Rallies-Arena post, already evaluated in the prior run) — no new post since the 20:04 UTC check. |
