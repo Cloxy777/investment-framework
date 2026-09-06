@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11849 (2026-09-05T14:59:07 UTC) | 2026-09-05 20:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3183 (2026-09-05T08:18:28 UTC) | 2026-09-05 20:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-05 20:04 UTC |
-| https://t.me/bolshegold | bolshegold/10099 (2026-09-05T10:37:56 UTC) | 2026-09-05 20:04 UTC |
+| https://t.me/tarasguk | tarasguk/11849 (2026-09-05T14:59:07 UTC) | 2026-09-06 00:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3183 (2026-09-05T08:18:28 UTC) | 2026-09-06 00:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-06 00:04 UTC |
+| https://t.me/bolshegold | bolshegold/10099 (2026-09-05T10:37:56 UTC) | 2026-09-06 00:04 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-09-06 | https://t.me/tarasguk | — | no action — marker unchanged (post edited, message ID unaffected) | Top post still tarasguk/11849 (2026-09-05T14:59:07 UTC), already evaluated in the prior run — no new post since the 20:04 UTC check. The web preview now shows this message flagged "(edited)" with different visible text ("НАБУ показали готівку, яку знайшли в офісі генерального прокурора. Це жесть (с)" — NABU displaying cash found at the Prosecutor General's office) than what was captured at evaluation time (the "Interactive Brokers" prosecutors meme); same precedent as the 2026-09-04 bolshegold row below (row for bolshegold/10092): the marker mechanism is ID-based (a delta check on the post ID), not a content-diff, so an edit to the same message ID is not treated as a new post per command step 2. No re-evaluation performed. |
+| 2026-09-06 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3183 (2026-09-05T08:18:28 UTC, Anthropic IPO poll, already evaluated in the prior run) — no new post since the 20:04 UTC check. |
+| 2026-09-06 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2675 (2026-09-04T17:30:29 UTC, CD Projekt Red weekend-episode promo, already evaluated in the prior run) — no new post since the 20:04 UTC check (now ~30h34m with no new post from this channel). |
+| 2026-09-06 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10099 (2026-09-05T10:37:56 UTC, Freedom Finance meme, already evaluated in the prior run) — no new post since the 20:04 UTC check. |
 | 2026-09-05 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11849 (no new post since the 16:04 UTC check). |
 | 2026-09-05 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3183 (no new post since the 16:04 UTC check). Content is an anonymous poll following up on post 3182's Anthropic IPO discussion ("Купуєте IPO Anthropic?") — private company, not a resolvable ticker, so would not have actioned regardless. |
 | 2026-09-05 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2675 (no new post since the 2026-09-04 17:30 UTC check — over 24h with no new post from this channel). |
