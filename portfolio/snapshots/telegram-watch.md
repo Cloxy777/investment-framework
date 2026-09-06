@@ -6,16 +6,21 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11850 (2026-09-06T08:58 UTC) | 2026-09-06 12:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3183 (2026-09-05T08:18:28 UTC) | 2026-09-06 12:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-06 12:05 UTC |
-| https://t.me/bolshegold | bolshegold/10099 (2026-09-05T10:37:56 UTC) | 2026-09-06 12:05 UTC |
+| https://t.me/tarasguk | tarasguk/11852 (2026-09-06T15:59:37 UTC) | 2026-09-06 16:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3184 (2026-09-06T14:49:35 UTC) | 2026-09-06 16:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-06 16:04 UTC |
+| https://t.me/bolshegold | bolshegold/10099 (2026-09-05T10:37:56 UTC) | 2026-09-06 16:04 UTC |
 
 ## Mention log
 
 *(most recent first — one row per ticker mention evaluated, whether or not it triggered an action)*
 
 | Date | Channel | Ticker | Action | Note |
+|---|---|---|---|---|
+| 2026-09-06 | https://t.me/tarasguk | — | marker advanced, gap >1hr flagged | tarasguk/11852 (2026-09-06T15:59:37 UTC) supersedes the prior marker tarasguk/11850 (2026-09-06T08:58:58 UTC) — a ~7h01m gap, above the ~1hr threshold in command step 2, flagged explicitly; delta 2 (post #11851, 2026-09-06T14:21:27 UTC, superseded, never individually evaluated). New top post: "S&P500 зараз вдвічі дешевший ніж його середня оцінка за останні 20 років" ("S&P 500 is now twice as cheap as its average valuation over the last 20 years") plus the poster's own course/club/YouTube links — generic index-valuation macro commentary, no specific company or ticker named. No action. |
+| 2026-09-06 | https://t.me/FinnInvestChannel | — | no action — private company, no ticker to resolve (same precedent as the 2026-09-05 Anthropic row) | Marker advanced from FinnInvestChannel/3183 (2026-09-05T08:18:28 UTC) to FinnInvestChannel/3184 (2026-09-06T14:49:35 UTC) — a ~30h31m gap, well above the ~1hr threshold, flagged explicitly; delta 1, nothing superseded. New top post (Ukrainian, translated): "Anthropic's IPO is slipping a bit, but the story is getting even bigger" — reports IPO marketing now expected no earlier than mid-October with listing possibly days before the US November elections, a public prospectus likely by late September, a pre-IPO $15B credit facility Anthropic is seeking, underwriters Morgan Stanley/Goldman Sachs/JPMorgan/Citi, and a ~$2T valuation. Names Anthropic, a specific and unambiguous company, but Anthropic remains privately held with no publicly-traded ticker to resolve (as of this run), so it falls outside this framework's coverage per command step 3 — same precedent as FinnInvestChannel/3183 (2026-09-05). The underwriting banks are named only incidentally as deal participants, not as the subject of any claimed event about their own business, so not logged as separate mentions. No action; mention logged only. |
+| 2026-09-06 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2675 (2026-09-04T17:30:29 UTC, CD Projekt Red weekend-episode promo, already evaluated) — no new post since the 12:05 UTC check. |
+| 2026-09-06 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10099 (2026-09-05T10:37:56 UTC, Freedom Finance Ukraine speculation post, already evaluated) — no new post since the 12:05 UTC check. |
 |---|---|---|---|---|
 | 2026-09-06 | https://t.me/tarasguk | — | marker advanced, gap >1hr flagged | tarasguk/11850 (~08:58 UTC) supersedes the prior marker tarasguk/11849 (2026-09-05T14:59:07 UTC) — an ~18h gap, well past the ~1hr threshold in command step 2, so flagging explicitly that more than one post may have landed in between (only the new top post was evaluated, per the command's by-design "latest post only" scope). New top post is generic S&P 500 YTD/drawdown stats ("+12% YTD, -9% max drawdown") — no specific company or ticker named, no action. |
 | 2026-09-06 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3183 (Anthropic IPO poll, already evaluated) — no new post since the 08:04 UTC check. |
