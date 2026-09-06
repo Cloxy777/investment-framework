@@ -6,16 +6,21 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11849 (2026-09-05T14:59:07 UTC) | 2026-09-06 08:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3183 (2026-09-05T08:18:28 UTC) | 2026-09-06 08:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-06 08:04 UTC |
-| https://t.me/bolshegold | bolshegold/10099 (2026-09-05T10:37:56 UTC) | 2026-09-06 08:04 UTC |
+| https://t.me/tarasguk | tarasguk/11850 (2026-09-06T08:58 UTC) | 2026-09-06 12:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3183 (2026-09-05T08:18:28 UTC) | 2026-09-06 12:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-06 12:05 UTC |
+| https://t.me/bolshegold | bolshegold/10099 (2026-09-05T10:37:56 UTC) | 2026-09-06 12:05 UTC |
 
 ## Mention log
 
 *(most recent first — one row per ticker mention evaluated, whether or not it triggered an action)*
 
 | Date | Channel | Ticker | Action | Note |
+|---|---|---|---|---|
+| 2026-09-06 | https://t.me/tarasguk | — | marker advanced, gap >1hr flagged | tarasguk/11850 (~08:58 UTC) supersedes the prior marker tarasguk/11849 (2026-09-05T14:59:07 UTC) — an ~18h gap, well past the ~1hr threshold in command step 2, so flagging explicitly that more than one post may have landed in between (only the new top post was evaluated, per the command's by-design "latest post only" scope). New top post is generic S&P 500 YTD/drawdown stats ("+12% YTD, -9% max drawdown") — no specific company or ticker named, no action. |
+| 2026-09-06 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3183 (Anthropic IPO poll, already evaluated) — no new post since the 08:04 UTC check. |
+| 2026-09-06 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2675 (2026-09-04T17:30:29 UTC, CD Projekt Red weekend-episode promo, already evaluated) — no new post since the 08:04 UTC check. |
+| 2026-09-06 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10099 (2026-09-05T10:37:56 UTC, Freedom Finance Ukraine speculation post, already evaluated) — no new post since the 08:04 UTC check. |
 |---|---|---|---|---|
 | 2026-09-06 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11849 (2026-09-05T14:59:07 UTC), same edited "НАБУ" cash-at-Prosecutor-General's-office post already on record — no new post since the 00:04 UTC check (~8h gap between checks; no sign of an intervening post since the marker itself is unchanged). |
 | 2026-09-06 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3183 (Anthropic IPO poll, already evaluated) — no new post since the 00:04 UTC check. |
