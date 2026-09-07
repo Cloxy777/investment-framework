@@ -6,16 +6,21 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11852 (2026-09-06T15:59:37 UTC) | 2026-09-06 20:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3184 (2026-09-06T14:49:35 UTC) | 2026-09-06 20:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-06 20:04 UTC |
-| https://t.me/bolshegold | bolshegold/10099 (2026-09-05T10:37:56 UTC) | 2026-09-06 20:04 UTC |
+| https://t.me/tarasguk | tarasguk/11852 (2026-09-06T15:59:37 UTC) | 2026-09-07 00:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3184 (2026-09-06T14:49:35 UTC) | 2026-09-07 00:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-07 00:05 UTC |
+| https://t.me/bolshegold | bolshegold/10099 (2026-09-05T10:37:56 UTC) | 2026-09-07 00:05 UTC |
 
 ## Mention log
 
 *(most recent first — one row per ticker mention evaluated, whether or not it triggered an action)*
 
 | Date | Channel | Ticker | Action | Note |
+|---|---|---|---|---|
+| 2026-09-07 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11852 (2026-09-06T15:59:37 UTC, no edit flag, timestamp confirmed unchanged via direct fetch) — same YouTube-episode-teaser post (September seasonality, market valuation, AI progress/Anthropic/OpenAI commentary) already evaluated; no new post since the 20:04 UTC check. |
+| 2026-09-07 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3184 (2026-09-06T14:49:35 UTC, no edit flag) — same GPT-6 Astra/Code Arena post already evaluated; no new post since the 20:04 UTC check. |
+| 2026-09-07 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2675 (2026-09-04T17:30:29 UTC, no edit flag, timestamp confirmed via direct fetch) — same CD Projekt Red weekend-episode promo already evaluated; no new post since the 20:04 UTC check (now ~58h34m with no new post from this channel). |
+| 2026-09-07 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10099 (2026-09-05T10:37:56 UTC, no edit flag) — same Freedom Finance Ukraine speculation post already evaluated; no new post since the 20:04 UTC check. |
 |---|---|---|---|---|
 | 2026-09-06 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11852 (2026-09-06T15:59:37 UTC, generic S&P 500 valuation macro commentary, already evaluated) — no new post since the 16:04 UTC check. |
 | 2026-09-06 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3184 (2026-09-06T14:49:35 UTC, Anthropic IPO update, already evaluated) — no new post since the 16:04 UTC check. |
