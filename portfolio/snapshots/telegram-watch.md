@@ -6,16 +6,21 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11852 (2026-09-06T15:59:37 UTC) | 2026-09-07 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3184 (2026-09-06T14:49:35 UTC) | 2026-09-07 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-07 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/10099 (2026-09-05T10:37:56 UTC) | 2026-09-07 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11855 (2026-09-07T07:03:31 UTC) | 2026-09-07 08:09 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3184 (2026-09-06T14:49:35 UTC) | 2026-09-07 08:09 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-07 08:09 UTC |
+| https://t.me/bolshegold | bolshegold/10099 (2026-09-05T10:37:56 UTC) | 2026-09-07 08:09 UTC |
 
 ## Mention log
 
 *(most recent first — one row per ticker mention evaluated, whether or not it triggered an action)*
 
 | Date | Channel | Ticker | Action | Note |
+|---|---|---|---|---|
+| 2026-09-07 | https://t.me/tarasguk | NOK | no action — no new claimed Rule 9 event, not held, prior not-in-portfolio FAIL entry stands | Marker advanced from tarasguk/11852 (2026-09-06T15:59:37 UTC) to tarasguk/11855 (2026-09-07T07:03:31 UTC, edited) — a ~15h04m gap, well above the ~1hr threshold in command step 2, flagged explicitly; delta 3 (posts #11853 and #11854 superseded, never individually evaluated). New top post: "☎️ Мобільні телефони за продажами" (mobile-phones-on-sale line, unrelated) plus "🇫🇮 $NOK - як можна було так усе профукати?" ("$NOK - how could they screw everything up like this?") — a rhetorical complaint about Nokia's stock performance, no claimed earnings/guidance/M&A/management-change/macro event. $NOK resolves unambiguously to Nokia Corporation (NYSE: NOK). Not a current holding (absent from holdings.md); has a prior `not-in-portfolio` entry (watchlist/not-in-portfolio/NOK/NOK-2026-06-24.md — Quality Score 44.4/100.0, fails the 80.0+ gate; a 2026-07-10 addendum re-checked the AWS/Databricks AI-networking Rule 9 condition and found it still pre-revenue). This post claims no materially new information beyond that entry — just a passing critical remark, no fundamental event — so per command step 4 branch 4, no action; mention logged only. |
+| 2026-09-07 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3184 (2026-09-06T14:49:35 UTC, Anthropic IPO update, already evaluated) — no new post since the 00:05 UTC check. |
+| 2026-09-07 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2675 (2026-09-04T17:30:29 UTC, CD Projekt Red weekend-episode promo, already evaluated) — no new post since the 00:05 UTC check (now ~62h39m with no new post from this channel). |
+| 2026-09-07 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10099 (2026-09-05T10:37:56 UTC, Freedom Finance Ukraine speculation post, already evaluated) — no new post since the 00:05 UTC check. |
 |---|---|---|---|---|
 | 2026-09-07 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11852 (2026-09-06T15:59:37 UTC, no edit flag, timestamp confirmed unchanged via direct fetch) — same YouTube-episode-teaser post (September seasonality, market valuation, AI progress/Anthropic/OpenAI commentary) already evaluated; no new post since the 20:04 UTC check. |
 | 2026-09-07 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3184 (2026-09-06T14:49:35 UTC, no edit flag) — same GPT-6 Astra/Code Arena post already evaluated; no new post since the 20:04 UTC check. |
