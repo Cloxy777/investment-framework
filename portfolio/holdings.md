@@ -57,7 +57,7 @@ Combined total ≈ **$62,135.17** = IBKR Net Liquidation Value $51,245.21 + Free
 | V | 0.60% | 54.5 | 85.6 | 34.5 | 29 Jul 2026 | IBKR |
 | VEEV | 1.33% | 65.9 | 86.0 | 40.0 | 30 Aug 2026 | IBKR |
 | XEON | 2.81% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
-| ZS | 0.27% | 43.1 | 59.4 | 41.9 | 05 Jul 2026 | IBKR |
+| ZS | 0.27% | 47.9 | 59.4 | 44.3 | 07 Sep 2026 | IBKR |
 
 **STIM (previously 2.47%) removed this sync** — position fully exited via forced option assignment, see flag above. Moved to `watchlist/not-in-portfolio/STIM/`.
 
