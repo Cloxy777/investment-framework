@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11861 (2026-09-07T19:39:49 UTC) | 2026-09-08 00:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3187 (2026-09-07T18:51:44 UTC) | 2026-09-08 00:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-08 00:05 UTC |
-| https://t.me/bolshegold | bolshegold/10103 (2026-09-07T16:52:42 UTC) | 2026-09-08 00:05 UTC |
+| https://t.me/tarasguk | tarasguk/11864 (2026-09-08T07:47:52 UTC) | 2026-09-08 08:06 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3188 (2026-09-08T07:36:05 UTC) | 2026-09-08 08:06 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2675 (2026-09-04T17:30:29 UTC) | 2026-09-08 08:06 UTC |
+| https://t.me/bolshegold | bolshegold/10103 (2026-09-07T16:52:42 UTC) | 2026-09-08 08:06 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-09-08 | https://t.me/tarasguk | — | no action — no resolvable company/ticker named | Marker advanced from tarasguk/11861 (2026-09-07T19:39:49 UTC) to tarasguk/11864 (2026-09-08T07:47:52 UTC) — a ~12h08m gap, well above the ~1hr threshold, flagged explicitly; delta 3 (posts #11862 [2026-09-08T06:56:05 UTC, German AfD-party regional-election commentary, no company named] and #11863 [2026-09-08T07:42:29 UTC, "Grandpa" (Trump) map-with-Canada/Mexico/Greenland meme, no company named] superseded, never individually evaluated). New top post (#11864): "🏳️‍🌈 80 відтінків сірого" ("80 shades of grey") — generic personal/rainbow-flag post with only the channel's own course/club/YouTube links, no company or ticker named. No action; mention logged only. |
+| 2026-09-08 | https://t.me/FinnInvestChannel | ORCL | no action — anticipatory earnings-week preview, no reported event (same "Reports this week" precedent as the 2026-09-07 bolshegold row and the 2026-08-23/2026-07-20/2026-06-21 rows) | Marker advanced from FinnInvestChannel/3187 (2026-09-07T18:51:44 UTC) to FinnInvestChannel/3188 (2026-09-08T07:36:05 UTC) — a ~12h44m gap, well above the ~1hr threshold, flagged explicitly; delta 1, nothing superseded. New top post: "Після довгих вихідних, ринок знову відкривається в США. На цьому тижні звітує Oracle, у мене 3% в ньому, це середня позиція за розміром. Чекаємо збільшення витрат та корекцію в ціні" (after the long holiday the US market reopens; Oracle reports this week, the author holds a 3% medium-sized personal position, expecting rising spend and a price correction) — the author's own forward-looking anticipation ahead of a scheduled report, no earnings actually released, no guidance revision, M&A, or management change claimed. $ORCL resolves unambiguously to Oracle Corporation. Not held (absent from holdings.md); existing [not-in-portfolio entry](../../watchlist/not-in-portfolio/ORCL/ORCL-2026-06-12.md) (last addended 2026-07-16, Quality Score 38.7/100.0, fails the gate two independent ways — FCF-positivity and Net Debt/EBITDA hard disqualifiers) already documents the capex-super-cycle/debt-servicing/credit-risk narrative in depth, with FY2027 Q1 earnings (~mid-September 2026, not yet reported) as the next review trigger. This post's "waiting for cost increases and a price correction" is the same anticipation already captured by that trigger, not materially new information per step 4's third bullet. No `/new-position` triggered; mention logged only. |
+| 2026-09-08 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2675 (2026-09-04T17:30:29 UTC, CD Projekt Red weekend-episode promo, already evaluated) — no new post since the 00:05 UTC check (now ~110h35m with no new post from this channel). |
+| 2026-09-08 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10103 (2026-09-07T16:52:42 UTC, "At 20:30 as scheduled" bare YouTube livestream link, already evaluated) — no new post since the 00:05 UTC check. |
 | 2026-09-08 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11861 (2026-09-07T19:39:49 UTC, PANW video-preview post, already evaluated) — no new post since the 20:10 UTC check. |
 | 2026-09-08 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3187 (2026-09-07T18:51:44 UTC, Anette Instagram-videos lifestyle post, already evaluated) — no new post since the 20:10 UTC check. |
 | 2026-09-08 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2675 (2026-09-04T17:30:29 UTC, CD Projekt Red weekend-episode promo, already evaluated) — no new post since the 20:10 UTC check (now ~78h35m with no new post from this channel). |
