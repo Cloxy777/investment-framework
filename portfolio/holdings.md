@@ -52,7 +52,7 @@ Combined total ≈ **$62,135.17** = IBKR Net Liquidation Value $51,245.21 + Free
 | **RGL** | 0.77% | not scored — ungoverned position, see note above | | | n/a | IBKR |
 | SPGI | 0.71% | 31.3 | 67.7 | 31.8 | 09 Aug 2026 | IBKR |
 | TLT | 28.81% | not scored — non-equity, framework gap | | | Jun 2026 | IBKR + Freedom24 |
-| TRN | 2.51%⚠️ | 10.0 | 67.2 | 21.4 (ref only, gate fail) | 31 Aug 2026 | IBKR |
+| TRN | 2.51%⚠️ | 10.0 | 66.4 | 21.8 (ref only, gate fail) | 10 Sep 2026 | IBKR |
 | UBER | 0.37% | 43.6 | 55.5 | 44.1 | 07 Aug 2026 | IBKR |
 | V | 0.60% | 54.5 | 85.6 | 34.5 | 29 Jul 2026 | IBKR |
 | VEEV | 1.33% | 65.9 | 86.0 | 40.0 | 30 Aug 2026 | IBKR |
@@ -67,7 +67,7 @@ Combined total ≈ **$62,135.17** = IBKR Net Liquidation Value $51,245.21 + Free
 
 **NOW's weight (⚠️) still carries the 2026-08-10 undocumented 3-share trim** — unresolved, see [override-log.md](override-log.md).
 
-**TRN's weight (⚠️) still reflects the 22.4% price drop from the 08-16→08-22 window** — caused by a CMA "drip pricing" investigation opened 2026-08-19, still open with no finding as of the [2026-08-31 rescore](../sessions/2026-08-31-rescore-trn.md) (see also [2026-08-22 rescore](../sessions/2026-08-22-rescore-trn.md)). Quality Score 67.2 and Composite 21.4 numerically unchanged across both sessions. **HOLD, no top-up** — Quality Gate already blocked adding before this news; the CMA probe adds a second, independent reason. Note: JPMorgan cut its TRN price target to 185p (below the live ~199p price) this week — first bearish analyst target to actually price in the CMA overhang, flagged in the 08-31 session but not a Phase 06 trigger.
+**TRN's weight (⚠️) still reflects the 22.4% price drop from the 08-16→08-22 window** — caused by a CMA "drip pricing" investigation opened 2026-08-19, still open with no finding as of the [2026-09-10 rescore](../sessions/2026-09-10-rescore-trn.md) (see also [2026-08-31](../sessions/2026-08-31-rescore-trn.md) and [2026-08-22](../sessions/2026-08-22-rescore-trn.md) sessions). **HOLD, no top-up** — Quality Gate already blocked adding before this news; the CMA probe adds a second, independent reason. Quality Score moved 67.2 → 66.4 this session (Composite 21.4 → 21.8) — a data-quality correction to the Net Debt/EBITDA sub-score (a lease-liability inconsistency in the leverage figure used since TRN's original evaluation, now resolved per Rule 6), **not** a fundamentals decline. New CEO Ian Brown started 7 Sept 2026 (full handover 28 Sept) — the trigger for this rescore; too early for any Moat evidence to move. FY2026 FCF fell −17.0% YoY (£79.5M vs £95.9M FY2025) — flagged, not yet explained by disclosed management commentary. Friday 11 Sept 2026 brings a sales/KPI trading update only, not full financials — won't resolve either open item.
 
 **XEON is EUR-denominated** (€1,501.40 market value). Its USD-equivalent (**$1,743.67**, used for the weight above) comes from the *live* EUR→USD rate (1.1613635) returned by IBKR's `get_account_balances` — broker-reported, not assumed.
 
