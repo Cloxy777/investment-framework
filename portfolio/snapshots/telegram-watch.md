@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11882 (2026-09-09T18:18:38 UTC) | 2026-09-09 20:05 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3197 (2026-09-09T19:43:34 UTC) | 2026-09-09 20:05 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2676 (2026-09-08T17:32:56 UTC) | 2026-09-09 20:05 UTC |
-| https://t.me/bolshegold | bolshegold/10114 (2026-09-09T15:08:54 UTC) | 2026-09-09 20:05 UTC |
+| https://t.me/tarasguk | tarasguk/11882 (2026-09-09T18:18:38 UTC) | 2026-09-10 00:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3197 (2026-09-09T19:43:34 UTC) | 2026-09-10 00:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2676 (2026-09-08T17:32:56 UTC) | 2026-09-10 00:05 UTC |
+| https://t.me/bolshegold | bolshegold/10114 (2026-09-09T15:08:54 UTC) | 2026-09-10 00:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-09-10 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11882 (2026-09-09T18:18:38 UTC, dual-screen iPhone $1,999 pricing/availability post, already evaluated) — no new post since the prior 2026-09-09 20:05 UTC check. |
+| 2026-09-10 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3197 (2026-09-09T19:43:34 UTC, Apple "iPhone Duo" $2,000 pricing commentary, already evaluated) — no new post since the prior check. |
+| 2026-09-10 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2676 (2026-09-08T17:32:56 UTC, McDonald's/Nike video-teaser post, already evaluated) — no new post since the prior check (now ~30h33m with no new post from this channel). |
+| 2026-09-10 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10114 (2026-09-09T15:08:54 UTC, "appetite of our guys" reaction forward, already evaluated) — no new post since the prior check. |
 | 2026-09-09 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2676 (2026-09-08T17:32:56 UTC, McDonald's/Nike video-teaser post, already evaluated) — no new post since the 15:20 UTC check (now ~26h33m with no new post from this channel). |
 | 2026-09-09 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10114 (2026-09-09T15:08:54 UTC, "appetite of our guys" reaction forward, already evaluated) — no new post since the 15:20 UTC check. |
 | 2026-09-09 | https://t.me/FinnInvestChannel | AAPL | no action — Apple hardware-launch pricing announcement, not a listed Rule 9 category, no materially new information beyond existing entry | Marker advanced from FinnInvestChannel/3195 (2026-09-09T13:21:18 UTC) to FinnInvestChannel/3197 (2026-09-09T19:43:34 UTC) — a ~6h22m gap, well above the ~1hr threshold, flagged explicitly; delta 2 (post #3196 [2026-09-09T17:39:04 UTC], "Google invests at least €13 billion in AI infrastructure in Finland" — new data centers in Kajaani/Muhos/Vaala, expanded Hamina, added wind power + a 94 MW battery, a 22-year Fortum electricity-supply agreement — names Google/Alphabet (GOOGL/GOOG, not held, no watchlist entry) and Fortum (FORTUM.HE, not held, outside this framework's coverage), superseded per command step 2's "latest post only" scope and not individually evaluated despite naming two identifiable public companies). New top post (#3197, Ukrainian, translated): "Apple released a Duo device for $2,000. Next year, you won't be able to buy a normal iPhone cheaper than 2k anymore 😎" — commentary on Apple's newly-launched foldable "iPhone Duo" and its pricing implications. AAPL resolves unambiguously; not held (absent from `holdings.md`); prior `watchlist/not-in-portfolio/AAPL/AAPL-2026-07-06.md` entry (with 2026-07-31 post-earnings addendum) most recently scored Quality Score 76.6 against the 80.0+ gate — a narrow FAIL (misses by 3.4 points), recommendation PASS/watchlist-only. That entry's own "Next review trigger" list names the FY2026 10-K (~early November 2026), FY2026 Q4 results (~late October 2026), a guidance revision, management change/M&A, a >15% unexplained move, or explicit framework-level resolution of a flagged fiscal-year-vs-TTM Growth-sub-score ambiguity — a disclosed launch price for a new hardware SKU is none of these. A confirmed hardware-launch pricing disclosure (as opposed to the earlier same-day rumor) is still not one of Rule 9's six categories (earnings, guidance revision, management change, M&A, macro shift, unexplained >15% move) and touches none of profitability, margins, growth, balance sheet, moat, or FCF quality inputs directly — same treatment as the 2026-09-09 tarasguk AAPL-pricing-rumor row earlier today and the 2026-09-01 HOOD/2026-09-02 NOK precedents (news-flow that doesn't move the scoring inputs). Per command step 4's fourth bullet, no `/new-position` re-triggered; mention logged only. Post text never used as financial data per Rule 0. |
