@@ -44,7 +44,7 @@ Combined total ≈ **$62,135.17** = IBKR Net Liquidation Value $51,245.21 + Free
 | META | 4.95% | 39.4 | 87.5 | 26.0 | 26 Aug 2026 (PM) | IBKR (Freedom24 leg sold — see note above) |
 | MSFT | 13.66% | 38.9 | 79.9 | 29.5 (ref only, gate fail) | 30 Jul 2026 | IBKR (Freedom24 leg sold — see note above) |
 | NFLX | 1.51% | 49.3 | 69.8 | 39.8 | 17 Jul 2026 | IBKR |
-| NKE | 1.24% | 13.9 | 44.4 | 34.8 | 1 Jul 2026 | IBKR |
+| NKE | 1.24% | 34.4 | 39.5 | 47.5 (ref only, gate fail) | 11 Sep 2026 | IBKR |
 | NOW | 2.05%⚠️ | 75.9 | 73.2 | 51.4 (ref only, gate fail) | 09 Aug 2026 | IBKR |
 | NVDA | 7.02% | 38.5 | 90.3 | 24.1 | 04 Sep 2026 | IBKR |
 | NVO | 0.37% | 51.4 | 67.2 | 42.1 (ref only, gate fail) | 09 Aug 2026 | IBKR |
