@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11907 (2026-09-12T06:45:11 UTC) | 2026-09-12 07:50 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC) | 2026-09-12 07:50 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2676 (2026-09-08T17:32:56 UTC) | 2026-09-12 07:50 UTC |
-| https://t.me/bolshegold | bolshegold/10142 (2026-09-11T17:33:55 UTC) | 2026-09-12 07:50 UTC |
+| https://t.me/tarasguk | tarasguk/11909 (2026-09-12T09:04:53 UTC) | 2026-09-12 12:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC) | 2026-09-12 12:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2676 (2026-09-08T17:32:56 UTC) | 2026-09-12 12:04 UTC |
+| https://t.me/bolshegold | bolshegold/10142 (2026-09-11T17:33:55 UTC) | 2026-09-12 12:04 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-09-12 | https://t.me/tarasguk | — | no action — no resolvable company named | Marker advanced from tarasguk/11907 (2026-09-12T06:45:11 UTC) to tarasguk/11909 (2026-09-12T09:04:53 UTC) — a ~2h20m gap, above the ~1hr threshold, flagging explicitly: **one intervening post was superseded and not individually evaluated per design** — tarasguk/11908 (2026-09-12T08:53:03 UTC) named $MCD ("McDonald's stock price fell to its lowest in two years") and was never scored this run; flagged here for visibility and left for a future run/manual follow-up if it recurs. New top post (11909): Trump commentary on a promised $5,000 "parachute payment" for voting Republican — political/macro only, no specific company or ticker named, so no action per step 3. |
+| 2026-09-12 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC) — no new post since the last check. |
+| 2026-09-12 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2676 (2026-09-08T17:32:56 UTC) — no new post since the last check. |
+| 2026-09-12 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10142 (2026-09-11T17:33:55 UTC) — no new post since the last check. |
 | 2026-09-12 | https://t.me/tarasguk | WBD | `/new-position WBD` — [session](../../sessions/2026-09-12-new-position-wbd.md), [watchlist entry](../../watchlist/not-in-portfolio/WBD/WBD-2026-09-12.md) | Marker advanced from tarasguk/11905 (2026-09-11T17:58:46 UTC) to tarasguk/11907 (2026-09-12T06:45:11 UTC) — a ~12h47m gap, well above the ~1hr threshold, flagging explicitly: **one intervening post was superseded and not individually evaluated per design** — tarasguk/11906 (2026-09-12T05:32:38 UTC) named $NVDA (Nvidia investing $10B in Anthropic's IPO at a $2T valuation) and was never scored this run; flagged here for visibility and left for a future run/manual follow-up if it recurs. New top post (11907): Larry Ellison selling ~$7.5B of $ORCL shares, funds reportedly for his son to buy $WBD (Warner Bros. Discovery). ORCL: no watchlist-entry-worthy action (see next row). WBD: no existing watchlist entry → triggered `/new-position WBD` — Quality Score 22.9/100.0, fails the 80.0+ gate and independently fails the Net Debt/EBITDA hard disqualifier (4.38x); also flagged as a merger-arbitrage situation (pending $31.00/share Paramount Skydance cash deal, litigation-delayed to as late as June 2027) the Telegram post didn't disclose. PASS — watchlist only. |
 | 2026-09-12 | https://t.me/tarasguk | ORCL | no action — recently reviewed, no new Rule 9 event | Same post (tarasguk/11907) also named $ORCL as the seller. ORCL already has a watchlist entry dated 2026-09-11 (one day old) from its Q1 FY2027 earnings re-score. A pre-arranged Rule 10b5-1 insider-sale plan (explicitly confirmed as such by the companion FinnInvestChannel/3211 post) is not one of the six Rule 9 trigger categories and adds no new fundamental information beyond the 2026-09-11 entry — logged as a passing mention only. |
 | 2026-09-12 | https://t.me/FinnInvestChannel | ORCL | no action — duplicate of tarasguk/11907, same reasoning | Marker advanced from FinnInvestChannel/3210 (2026-09-11T18:24:00 UTC) to FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC) — a ~13h20m gap, above the ~1hr threshold, flagging explicitly; no intervening post found for this channel in that gap (delta 1, nothing superseded). New top post: Larry Ellison may sell up to 50M $ORCL shares (~$7.5B) under a pre-approved Rule 10b5-1 plan — explicitly framed by the post itself as scheduled, not full liquidation (he'd retain ~1.1B shares); no $WBD mention in this post. Same ORCL reasoning as the tarasguk row above — no action, mention logged only. |
