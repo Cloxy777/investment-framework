@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11910 (2026-09-12T14:35 UTC) | 2026-09-13 00:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC) | 2026-09-13 00:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2681 (2026-09-12T17:49 UTC) | 2026-09-13 00:04 UTC |
-| https://t.me/bolshegold | bolshegold/10146 (2026-09-12T20:36:59 UTC) | 2026-09-13 00:04 UTC |
+| https://t.me/tarasguk | tarasguk/11910 (2026-09-12T14:35 UTC) | 2026-09-13 08:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC) | 2026-09-13 08:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2681 (2026-09-12T17:49 UTC) | 2026-09-13 08:04 UTC |
+| https://t.me/bolshegold | bolshegold/10146 (2026-09-12T20:36:59 UTC) | 2026-09-13 08:04 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-09-13 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10146 (2026-09-12T20:36:59 UTC, StarCraft "Dominion" trailer reaction, already evaluated) — no new post since the prior check. |
+| 2026-09-13 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2681 (2026-09-12T17:49 UTC, Bilderlings payment-service episode teaser, already evaluated) — no new post since the prior check. |
+| 2026-09-13 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC, Larry Ellison ORCL 10b5-1 sale-plan post, already evaluated) — no new post since the prior check. |
+| 2026-09-13 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11910 (2026-09-12T14:35 UTC, edited, Dario Amodei/Anthropic AI-regulation post, already evaluated) — no new post since the prior check. |
 | 2026-09-13 | https://t.me/bolshegold | — | no action — no company/ticker mention | Marker advanced from bolshegold/10145 (2026-09-12T14:43 UTC) to bolshegold/10146 (2026-09-12T20:36:59 UTC) — a ~5h54m gap, above the ~1hr threshold, flagging explicitly; delta 1, nothing superseded. New top post: reaction to a StarCraft ("Dominion") announcement-trailer YouTube link ("Да есть же! Беру отпуск в 2030!" — "Oh it exists! Taking a vacation in 2030!"), followed by a comment hoping for a shooter or MMORPG over an RTS — gaming/entertainment commentary, no publicly-traded company or ticker named. No action taken; logged as a mention only. |
 | 2026-09-13 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2681 (2026-09-12T17:49 UTC, Bilderlings payment-service episode teaser, already evaluated) — no new post since the prior check. |
 | 2026-09-13 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC, Larry Ellison ORCL 10b5-1 sale-plan post, already evaluated) — no new post since the prior check. |
