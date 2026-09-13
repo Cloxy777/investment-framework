@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11910 (2026-09-12T14:35 UTC) | 2026-09-12 20:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC) | 2026-09-12 20:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2681 (2026-09-12T17:49 UTC) | 2026-09-12 20:04 UTC |
-| https://t.me/bolshegold | bolshegold/10145 (2026-09-12T14:43 UTC) | 2026-09-12 20:04 UTC |
+| https://t.me/tarasguk | tarasguk/11910 (2026-09-12T14:35 UTC) | 2026-09-13 00:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC) | 2026-09-13 00:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2681 (2026-09-12T17:49 UTC) | 2026-09-13 00:04 UTC |
+| https://t.me/bolshegold | bolshegold/10146 (2026-09-12T20:36:59 UTC) | 2026-09-13 00:04 UTC |
 
 ## Mention log
 
@@ -17,7 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
-| 2026-09-12 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10145 (2026-09-12T14:43 UTC, pornbot-meme reaction post, already evaluated) — no new post since the prior check. |
+| 2026-09-13 | https://t.me/bolshegold | — | no action — no company/ticker mention | Marker advanced from bolshegold/10145 (2026-09-12T14:43 UTC) to bolshegold/10146 (2026-09-12T20:36:59 UTC) — a ~5h54m gap, above the ~1hr threshold, flagging explicitly; delta 1, nothing superseded. New top post: reaction to a StarCraft ("Dominion") announcement-trailer YouTube link ("Да есть же! Беру отпуск в 2030!" — "Oh it exists! Taking a vacation in 2030!"), followed by a comment hoping for a shooter or MMORPG over an RTS — gaming/entertainment commentary, no publicly-traded company or ticker named. No action taken; logged as a mention only. |
+| 2026-09-13 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2681 (2026-09-12T17:49 UTC, Bilderlings payment-service episode teaser, already evaluated) — no new post since the prior check. |
+| 2026-09-13 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC, Larry Ellison ORCL 10b5-1 sale-plan post, already evaluated) — no new post since the prior check. |
+| 2026-09-13 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11910 (2026-09-12T14:35 UTC, edited, Dario Amodei/Anthropic AI-regulation post, already evaluated) — no new post since the prior check. |
 | 2026-09-12 | https://t.me/myroslavkorol | — (Bilderlings, private payment-processing service) | no action — no resolvable public ticker | Marker advanced from myroslavkorol/2680 (2026-09-12T14:48 UTC, edited) to myroslavkorol/2681 (2026-09-12T17:49 UTC) — a ~3h01m gap, above the ~1hr threshold, flagging explicitly; sequential post numbers (2680→2681, delta 1) confirm exactly one post landed, nothing superseded. New top post: episode-announcement for the channel's YouTube show (#421) about "Bilderlings," described as a new way to top up Interactive Brokers and Freedom Finance accounts (an alternative to Wise for USD transfers), urging viewers to complete verification before a cutoff. Bilderlings is a private payment-processing service, not a publicly-traded company — no ticker to resolve per CLAUDE.md Rule 0 ("never invent or estimate" applies to identification too), consistent with the 2026-09-11 bolshegold/10137 precedent for the same entity. No action taken; logged as a mention only. |
 | 2026-09-12 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC, Larry Ellison ORCL 10b5-1 sale-plan post, already evaluated) — no new post since the prior check. |
 | 2026-09-12 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11910 (2026-09-12T14:35 UTC, edited, Dario Amodei/Anthropic AI-regulation post, already evaluated) — no new post since the prior check. |
