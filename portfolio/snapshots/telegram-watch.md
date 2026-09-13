@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11910 (2026-09-12T14:35 UTC) | 2026-09-13 08:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC) | 2026-09-13 08:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2681 (2026-09-12T17:49 UTC) | 2026-09-13 08:04 UTC |
-| https://t.me/bolshegold | bolshegold/10146 (2026-09-12T20:36:59 UTC) | 2026-09-13 08:04 UTC |
+| https://t.me/tarasguk | tarasguk/11912 (2026-09-13T09:24:59 UTC) | 2026-09-13 12:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3212 (2026-09-13T09:48:45 UTC) | 2026-09-13 12:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2681 (2026-09-12T17:49 UTC) | 2026-09-13 12:04 UTC |
+| https://t.me/bolshegold | bolshegold/10146 (2026-09-12T20:36:59 UTC) | 2026-09-13 12:04 UTC |
 
 ## Mention log
 
@@ -18,6 +18,9 @@
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
 | 2026-09-13 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10146 (2026-09-12T20:36:59 UTC, StarCraft "Dominion" trailer reaction, already evaluated) — no new post since the prior check. |
+| 2026-09-13 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2681 (2026-09-12T17:49 UTC, Bilderlings payment-service episode teaser, already evaluated) — no new post since the prior check. |
+| 2026-09-13 | https://t.me/FinnInvestChannel | — (OpenAI, Anthropic, xAI — all private companies) | no action — no resolvable public ticker | Marker advanced from FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC) to FinnInvestChannel/3212 (2026-09-13T09:48:45 UTC) — a ~26h05m gap, well above the ~1hr threshold, flagging explicitly; delta 1, nothing superseded. New top post: "Керівники OpenAI, Anthropic і xAI вперше публічно погодилися, що розвиток AI варто сповільнити 😎 Говорить про те, що дисрупція дійсна і занадто швидка, а потенціалу ще багато 🤓" (Leaders of OpenAI, Anthropic, and xAI have for the first time publicly agreed that AI development should be slowed down; this reflects that disruption is real and too fast, with substantial potential still ahead) — all three named entities (OpenAI, Anthropic, xAI) are privately held, no publicly-traded ticker to resolve per CLAUDE.md Rule 0 ("never invent or estimate" applies to identification too); no other company named. No action taken; logged as a mention only. Same underlying news cycle as the tarasguk/11912 row below (same day, same story). |
+| 2026-09-13 | https://t.me/tarasguk | — (OpenAI, Anthropic — private companies; Musk named with no company-specific claim) | no action — no resolvable public ticker | Marker advanced from tarasguk/11910 (2026-09-12T14:35:10 UTC) to tarasguk/11912 (2026-09-13T09:24:59 UTC) — a ~18h50m gap, well above the ~1hr threshold, flagging explicitly; delta 2, one intervening post superseded per the command's by-design "latest post only" scope — checked on inspection: tarasguk/11911 (2026-09-13T08:13:38 UTC) is pure macro/rate commentary ("US inflation fell to 2.5% excluding oil; a rate hike won't change oil prices, so despite a 90% probability of a rate increase, experts tend to believe it won't happen") — no company or ticker named, would not have actioned regardless. New top post (11912, 09:24:59 UTC): "Сем Альтман погодився із Даріо Амодеєм і сказав, що прогрес ШІ треба зупиняти... Раніше Сем і Даріо настільки ненавиділи один одного, що не могли потиснути руки... Також позицію про необхідність сповільнення ШІ підтримав Ілон Маск" (Sam Altman agreed with Dario Amodei that AI progress must be stopped; the two previously disliked each other so much they couldn't shake hands; Elon Musk also backed the AI-slowdown position) — OpenAI and Anthropic are both privately held, no publicly-traded ticker to resolve per CLAUDE.md Rule 0; Musk is named only as a supporter of the position, with no claim tied to any of his public companies (Tesla/TSLA). No action taken; logged as a mention only. Same underlying news cycle as the FinnInvestChannel/3212 row above. |
 | 2026-09-13 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2681 (2026-09-12T17:49 UTC, Bilderlings payment-service episode teaser, already evaluated) — no new post since the prior check. |
 | 2026-09-13 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3211 (2026-09-12T07:43:45 UTC, Larry Ellison ORCL 10b5-1 sale-plan post, already evaluated) — no new post since the prior check. |
 | 2026-09-13 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11910 (2026-09-12T14:35 UTC, edited, Dario Amodei/Anthropic AI-regulation post, already evaluated) — no new post since the prior check. |
