@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11933 (2026-09-14T16:50:07 UTC) | 2026-09-14 20:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3219 (2026-09-14T17:47:44 UTC) | 2026-09-14 20:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2685 (2026-09-14T09:49:59 UTC) | 2026-09-14 20:04 UTC |
-| https://t.me/bolshegold | bolshegold/10165 (2026-09-14T18:37:12 UTC) | 2026-09-14 20:04 UTC |
+| https://t.me/tarasguk | tarasguk/11933 (2026-09-14T16:50:07 UTC) | 2026-09-15 00:04 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3219 (2026-09-14T17:47:44 UTC) | 2026-09-15 00:04 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2685 (2026-09-14T09:49:59 UTC) | 2026-09-15 00:04 UTC |
+| https://t.me/bolshegold | bolshegold/10165 (2026-09-14T18:37:12 UTC) | 2026-09-15 00:04 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-09-15 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10165 (2026-09-14T18:37:12 UTC, BBC Russian-service article on the Scotland/Wales/Northern Ireland devolution agreement, already evaluated) — no new post since the prior check. |
+| 2026-09-15 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2685 (2026-09-14T09:49:59 UTC, Ukrainian political-news frustration one-liner, already evaluated) — no new post since the prior check. |
+| 2026-09-15 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3219 (2026-09-14T17:47:44 UTC, generic cybersecurity-risk commentary, already evaluated) — no new post since the prior check. |
+| 2026-09-15 | https://t.me/tarasguk | — | no action — marker unchanged | Top post still tarasguk/11933 (2026-09-14T16:50:07 UTC, $SPOT & $NFLX emoji-label promo post for the channel's paid training/club, already evaluated) — no new post since the prior check. |
 | 2026-09-14 | https://t.me/bolshegold | — | no action — no company/ticker mention | Marker advanced from bolshegold/10162 (2026-09-14T12:07:12 UTC) to bolshegold/10165 (2026-09-14T18:37:12 UTC) — a ~6h30m gap, well above the ~1hr threshold, flagging explicitly; delta 3, two intervening posts checked on inspection for the record: **#10163 (16:54:40 UTC) named $MU** in a livestream teaser ("Нефть по $100: что происходит с рынком? $MU +1360% ... Станьте спонсором канала") — a specific, identifiable publicly-traded company (Micron Technology, NASDAQ: MU), but the "+1360%" figure is an undated promotional/marketing stat with no claimed Rule 9 fundamental event, and it is not the top post this run and is therefore not actioned per this command's strict single-latest-post-per-run scope; MU has no existing watchlist entry either way — flagged here for visibility and left for a future run/manual follow-up if it recurs as the top post. #10164 (18:36:40 UTC, edited) links a Sky News article on UK party politics (Burnham/Labour/Farage/Badenoch/Reform/Macron), no company or ticker named. New top post (#10165, 18:37:12 UTC, Russian) links a BBC Russian-service article on the Scotland/Wales/Northern Ireland nationalist-leaders' Westminster-devolution agreement — political commentary, no publicly-traded company or ticker named. No action taken; logged as a mention only. |
 | 2026-09-14 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2685 (2026-09-14T09:49:59 UTC, Ukrainian political-news frustration one-liner, already evaluated) — no new post since the prior check. |
 | 2026-09-14 | https://t.me/FinnInvestChannel | — | no action — no company/ticker mention | Marker advanced from FinnInvestChannel/3217 (2026-09-14T15:50:05 UTC) to FinnInvestChannel/3219 (2026-09-14T17:47:44 UTC) — a ~1h57m gap, above the ~1hr threshold, flagging explicitly; delta 2, one intervening post checked on inspection for the record: **#3218 (17:32:50 UTC) named Elmet Group** ("Пентагон витратить $450 млн, щоб отримати майже 20% у американському виробнику вольфраму Elmet Group" — the Pentagon will spend $450M for a near-20% stake in US tungsten producer Elmet Group) — a specific, identifiable company with a claimed government-investment event, but Elmet Group's public-listing status could not be confidently confirmed (no ticker independently verified), so per CLAUDE.md Rule 0 no ticker is resolved; it is also not the top post this run and is therefore not actioned per this command's strict single-latest-post-per-run scope — flagged here for visibility and left for a future run/manual follow-up if it recurs as the top post or its listing status is confirmed. New top post (#3219, 17:47:44 UTC, Ukrainian): "Кібербезпека сьогодні в топі через ризики в кібербезпеці" (Cybersecurity is trending today on cybersecurity risk) — generic sector/thematic commentary, no specific publicly-traded company or ticker named. No action taken; logged as a mention only. |
