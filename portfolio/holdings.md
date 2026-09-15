@@ -41,7 +41,7 @@ Combined total ≈ **$61,192.89** = IBKR Net Liquidation Value $50,302.93 + Free
 |--------|----------|------------|----------------|------------------|-------------|--------|
 | ADBE | 4.13% | 0.0 | 83.3 | 8.4 | 11 Sep 2026 | IBKR |
 | AMZN | 4.96% | 82.7 | 56.7 | 63.0 | 01 Aug 2026 | IBKR (Freedom24 leg sold — see note above) |
-| AVGO | 3.49% | 66.6 | 86.3 | 40.2 | 03 Sep 2026 | IBKR |
+| AVGO | 3.49% | 70.9 | 86.3 | 42.3 | 15 Sep 2026 | IBKR |
 | CASH (Freedom24) | 0.07% | | | | | Freedom24 |
 | CASH (IBKR) | 6.70% | | | | | IBKR |
 | CSGP | 1.24% | 84.8 | 69.2 | 57.8 | 09 Aug 2026 | IBKR |
@@ -61,7 +61,7 @@ Combined total ≈ **$61,192.89** = IBKR Net Liquidation Value $50,302.93 + Free
 | SPGI | 0.67% | 31.3 | 67.7 | 31.8 | 09 Aug 2026 | IBKR |
 | TLT | 29.04% | not scored — non-equity, framework gap | | | Jun 2026 | IBKR + Freedom24 |
 | TRN | 2.56%⚠️ | 10.0 | 66.4 | 21.8 (ref only, gate fail) | 10 Sep 2026 | IBKR |
-| UBER | 0.35% | 43.6 | 55.5 | 44.1 | 07 Aug 2026 | IBKR |
+| UBER | 0.35% | 37.4 | 59.3 | 39.1 (ref only, gate fail) | 15 Sep 2026 | IBKR |
 | V | 0.60% | 54.5 | 85.6 | 34.5 | 29 Jul 2026 | IBKR |
 | VEEV | 1.29% | 65.9 | 86.0 | 40.0 | 30 Aug 2026 | IBKR |
 | XEON | 2.85% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
