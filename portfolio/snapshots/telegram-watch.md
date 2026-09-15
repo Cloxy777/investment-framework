@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11933 (2026-09-14T16:50:07 UTC) | 2026-09-15 00:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3219 (2026-09-14T17:47:44 UTC) | 2026-09-15 00:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2685 (2026-09-14T09:49:59 UTC) | 2026-09-15 00:04 UTC |
-| https://t.me/bolshegold | bolshegold/10165 (2026-09-14T18:37:12 UTC) | 2026-09-15 00:04 UTC |
+| https://t.me/tarasguk | tarasguk/11937 (2026-09-15T07:38:54 UTC) | 2026-09-15 08:06 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3219 (2026-09-14T17:47:44 UTC) | 2026-09-15 08:06 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2686 (2026-09-15T07:03:33 UTC) | 2026-09-15 08:06 UTC |
+| https://t.me/bolshegold | bolshegold/10165 (2026-09-14T18:37:12 UTC) | 2026-09-15 08:06 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-09-15 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10165 (2026-09-14T18:37:12 UTC, BBC Russian-service article on the Scotland/Wales/Northern Ireland devolution agreement, already evaluated) — no new post since the prior check. |
+| 2026-09-15 | https://t.me/myroslavkorol | — (Dario Amodei / Sam Altman, private-company execs) | no action — no resolvable public ticker | Marker advanced from myroslavkorol/2685 (2026-09-14T09:49:59 UTC) to myroslavkorol/2686 (2026-09-15T07:03:33 UTC) — a ~21h14m gap, well above the ~1hr threshold, flagging explicitly; delta 1, nothing superseded. New top post (#2686, 07:03:33 UTC, Ukrainian): "📌 Ранковий випуск вже на каналі! Розповім, що там такого опублікували Даріо Амодей та Сем Альтман, що весь ШІ сектор впав" (new episode is up — what Dario Amodei and Sam Altman published that made the whole AI sector fall) with a YouTube link — names two individuals (Anthropic's and OpenAI's CEOs) tied to a generic "AI sector fell" claim, but neither Anthropic nor OpenAI is a publicly-traded company with a resolvable ticker, so per CLAUDE.md Rule 0 no ticker is resolved (same precedent as the 2026-09-14 SpaceX mention). No action taken; logged as a mention only. |
+| 2026-09-15 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3219 (2026-09-14T17:47:44 UTC, generic cybersecurity-risk commentary, already evaluated) — no new post since the prior check. |
+| 2026-09-15 | https://t.me/tarasguk | — | no action — no company/ticker mention | Marker advanced from tarasguk/11933 (2026-09-14T16:50:07 UTC) to tarasguk/11937 (2026-09-15T07:38:54 UTC) — a ~14h49m gap, well above the ~1hr threshold, flagging explicitly; delta 4, two intervening posts checked on inspection for the record (#11934 has no independent wrapper in the web preview — media-group companion, no separate caption): #11935 (06:27:19 UTC) is Ukrainian commentary paraphrasing Jensen Huang dismissing Dario Amodei's AI-risk warnings as made up — no publicly-traded company or ticker named; #11936 (06:59:37 UTC) predicts a 10% market drop after rate hikes with a deeper December bottom — generic macro commentary, no company named. New top post (#11937, 07:38:54 UTC, Ukrainian): "🙃 Джим Крамер прогнозує падіння цін на нафту, зменшення облікових ставок та ріст фондового ринку. Тим часом трейдери, які робили протилежне до того, що каже Крамер показують найкращі результати з усіх публічних торгових стратегій" (Jim Cramer predicts oil falling, rate cuts and a stock market rally; meanwhile traders doing the opposite of Cramer are outperforming) — names a media personality (Jim Cramer) and generic market commentary, no specific publicly-traded company or ticker named. No action taken; logged as a mention only. |
 | 2026-09-15 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10165 (2026-09-14T18:37:12 UTC, BBC Russian-service article on the Scotland/Wales/Northern Ireland devolution agreement, already evaluated) — no new post since the prior check. |
 | 2026-09-15 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2685 (2026-09-14T09:49:59 UTC, Ukrainian political-news frustration one-liner, already evaluated) — no new post since the prior check. |
 | 2026-09-15 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3219 (2026-09-14T17:47:44 UTC, generic cybersecurity-risk commentary, already evaluated) — no new post since the prior check. |
