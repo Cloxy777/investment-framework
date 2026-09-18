@@ -6,10 +6,10 @@
 
 | Channel | Last-seen post (UTC) | Last checked |
 |---|---|---|
-| https://t.me/tarasguk | tarasguk/11966 (2026-09-17T18:08:15 UTC) | 2026-09-18 00:04 UTC |
-| https://t.me/FinnInvestChannel | FinnInvestChannel/3234 (2026-09-17T18:44:01 UTC) | 2026-09-18 00:04 UTC |
-| https://t.me/myroslavkorol | myroslavkorol/2693 (2026-09-17T11:09:20 UTC) | 2026-09-18 00:04 UTC |
-| https://t.me/bolshegold | bolshegold/10179 (2026-09-17T11:50:49 UTC) | 2026-09-18 00:04 UTC |
+| https://t.me/tarasguk | tarasguk/11969 (2026-09-18T07:17:38 UTC) | 2026-09-18 08:05 UTC |
+| https://t.me/FinnInvestChannel | FinnInvestChannel/3234 (2026-09-17T18:44:01 UTC) | 2026-09-18 08:05 UTC |
+| https://t.me/myroslavkorol | myroslavkorol/2693 (2026-09-17T11:09:20 UTC) | 2026-09-18 08:05 UTC |
+| https://t.me/bolshegold | bolshegold/10186 (2026-09-18T06:05:12 UTC) | 2026-09-18 08:05 UTC |
 
 ## Mention log
 
@@ -17,6 +17,10 @@
 
 | Date | Channel | Ticker | Action | Note |
 |---|---|---|---|---|
+| 2026-09-18 | https://t.me/bolshegold | — | no action — no company named | New top post bolshegold/10186 (2026-09-18T06:05:12 UTC, image caption "Угадайте город по погоде… И тут мы пулы планируем" — weather/pools banter, no company or ticker). Marker was bolshegold/10179 (2026-09-17T11:50:49 UTC); gap of ~18h20m and several intervening post IDs (10180–10185) — more than one post may have landed since the last check, but per the delta-check rule only this latest post (10186) was evaluated. |
+| 2026-09-18 | https://t.me/tarasguk | — | no action — generic macro, not a specific company | New top post tarasguk/11969 (2026-09-18T07:17:38 UTC): Bank of Japan raised its policy rate to a 30+ year high — generic macro/rate commentary, no specific publicly-traded company or ticker named. Marker was tarasguk/11966 (2026-09-17T18:08:15 UTC); gap of ~13h and two intervening post IDs (11967–11968) — more than one post may have landed since the last check, but per the delta-check rule only this latest post (11969) was evaluated. |
+| 2026-09-18 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3234 (2026-09-17T18:44:01 UTC), already evaluated in a prior run — no new post since the 2026-09-18 00:04 UTC check. |
+| 2026-09-18 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2693 (2026-09-17T11:09:20 UTC), already evaluated in a prior run — no new post since the 2026-09-18 00:04 UTC check. |
 | 2026-09-18 | https://t.me/bolshegold | — | no action — marker unchanged | Top post still bolshegold/10179 (2026-09-17T11:50:49 UTC, Zelensky-demographics/workforce-ratio commentary, already evaluated) — no new post since the 2026-09-17 20:04 UTC check. |
 | 2026-09-18 | https://t.me/myroslavkorol | — | no action — marker unchanged | Top post still myroslavkorol/2693 (2026-09-17T11:09:20 UTC, NBU discount-rate-hike forward, already evaluated) — no new post since the 2026-09-17 20:04 UTC check. |
 | 2026-09-18 | https://t.me/FinnInvestChannel | — | no action — marker unchanged | Top post still FinnInvestChannel/3234 (2026-09-17T18:44:01 UTC, channel-author Uber add-to-position commentary, already evaluated — UBER logged no action that run) — no new post since the 2026-09-17 20:04 UTC check. |
