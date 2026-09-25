@@ -8,10 +8,12 @@ Ticker: $ARGUMENTS (if empty, ask which ticker).
 
 Steps:
 1. Fetch the live price first (Rule 0 — never infer it).
-2. Compute the full Phase 01 Quality Score (every sub-score shown) per [quality-scoring.md](../../framework/quality-scoring.md). If it's below 80.0, or a hard disqualifier fires, stop and report why rather than proceeding to scoring.
-3. Run the Rate Environment Gate, then the full Phase 02 valuation score (every sub-score + modifier shown), per [valuation-scoring.md](../../framework/valuation-scoring.md). Combine with the Quality Score into the Composite Score (50/50) per the same file's "Composite Score" section.
-4. If the Composite Score and quality gate support an entry, produce the full fair-value + order setup from [fair-value-methodology.md](../../framework/fair-value-methodology.md) (blended FV, buy price, sell target, stop loss, R/R, position size — cross-checked against the 15% cap).
+2. Gather the raw quantitative inputs (never invent or estimate a missing one — stop and ask), then run `python -m scripts.scoring.quality_score --input <inputs.json>` to compute the full Phase 01 Quality Score. **Paste the script's full markdown output into the session log verbatim** — this satisfies the operating brief's "show every calculation, no black-box outputs" rule; the script computing it doesn't remove the requirement to display it. If it's below 80.0, or a hard disqualifier fires (the script prints `FAILS GATE` with the reason), stop and report why rather than proceeding to scoring.
+3. Run the Rate Environment Gate inputs (10Y Treasury) through `python -m scripts.scoring.valuation_score --input <inputs.json>` for the full Phase 02 valuation score (every sub-score + modifier). Then run `python -m scripts.scoring.composite_score --set quality_score=<X> --set valuation_score=<Y>` (or its `{"quality": {...}, "valuation": {...}}` raw-input mode) to combine into the Composite Score (50/50). Paste both scripts' full output into the session log.
+4. If the Composite Score and quality gate support an entry, run `python -m scripts.scoring.order_setup --input <inputs.json>` for the full fair-value + order setup (buy price, sell target, stop loss, R/R, position size — cross-checked against the allocation cap table; it flags, not silently passes, an R/R below 2:1). Paste its output into the session log.
 5. State the recommendation plainly: enter now / set limit order / watchlist only / pass — and why, citing the Composite Score against the Phase 03 table.
+
+If a script exits with `ERROR: Missing required input: ...`, that's the same "never invent or estimate" stop-and-ask signal as doing the calculation by hand — go get the missing data point, don't fill in a guess.
 
 Save as `sessions/YYYY-MM-DD-new-position-<ticker>.md`. If a position is actually opened, also log it in `decisions/`.
 
