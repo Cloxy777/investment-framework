@@ -117,7 +117,7 @@ bump pending); simulate a bump, confirm the expected set gets flagged. `glossary
 10 known terms → exact match; an unknown term → an explicit "not found, add first" flag
 (preserves the no-invent rule for jargon too).
 
-### Stage 5 — Git/PR helper
+### Stage 5 — Git/PR helper (shipped: `scripts/commit_pr.sh`)
 
 `scripts/commit_pr.sh <branch-prefix> "<msg>" <files...>` — wraps the
 fetch-main → merge-conflict-check → add → commit → push → `gh pr create` → `gh pr merge
