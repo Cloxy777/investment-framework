@@ -24,7 +24,7 @@ Before spending analysis budget on every candidate, eliminate names that plainly
 
 ## Step 2 — Full Phase 01 quantitative gate
 
-Run the complete set of Phase 01 filters with real, sourced numbers on the survivors — pull exact metrics per candidate via the free `yfinance` Python package as documented in [valuation-scoring.md](../../framework/valuation-scoring.md#yfinance--per-candidate-phase-01-verification-verified-working-2026-06-14) (`t.info`, `t.financials`, `t.cashflow`, `t.balance_sheet` — works with exchange-suffixed tickers like `.AX`/`.HK`/`.SI`/`.TW`). Produce the Qualified Quality List.
+Run the complete set of Phase 01 filters with real, sourced numbers on the survivors. Run `python -m scripts.fetch_fundamentals <TICKER>` per candidate (works with exchange-suffixed tickers like `.AX`/`.HK`/`.SI`/`.TW`) instead of hand-typing the `t.info`/`t.financials`/`t.cashflow`/`t.balance_sheet` calls documented in [valuation-scoring.md](../../framework/valuation-scoring.md#yfinance--per-candidate-phase-01-verification-verified-working-2026-06-14) — paste its output per candidate. If it exits with `MissingInputError` (e.g. fewer than 20 usable PE-history quarters, or a required field yfinance doesn't return), that's the same "flag the gap, don't estimate" signal as Step 4 below — note it and move on rather than filling in a guess. Produce the Qualified Quality List.
 
 ## Step 3 — Qualitative pass
 

@@ -6,15 +6,20 @@ Run an INTEGRATION HEALTHCHECK for cloxy777/investment-framework. This command i
 
 ## Checks
 
-Run all of these independently — one failing must not skip the rest. Record a pass/fail + one-line detail for each.
+Checks 1 and 2 are MCP-only — no standalone script can call `get_account_summary` or `get_me` (see [scripts/TOKEN-OPTIMIZATION-PLAN.md](../../scripts/TOKEN-OPTIMIZATION-PLAN.md) finding #1) — perform them yourself first:
 
 1. **Interactive Brokers connector** — call `get_account_summary` for account `U19421206`. Pass = account data returned. Fail = auth/connection error (see [sync-sop.md](../../portfolio/sync-sop.md) Troubleshooting: "disconnect/reconnect the MCP in Settings → Connections, complete OAuth").
 2. **GitHub connector** — call `get_me`. Pass = authenticated user returned. (If this one fails, note it in the run's own output — nothing on this list can be reported as a GitHub issue in that case; that's this check's one blind spot.)
-3. **Yahoo Finance market data (`yfinance`)** — `pip install --quiet yfinance`, then fetch a stable liquid ticker: `yf.Ticker("AAPL").fast_info["last_price"]`. Pass = a numeric price is returned.
-4. **FRED (10Y Treasury yield)** — fetch `https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10`. Pass = the most recent row has a non-blank value.
-5. **Telegram Bot API** — `curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getMe"`. Pass = `"ok":true`. Use `getMe`, not `sendMessage` — this check must not ping the chat.
-6. **Telegram monitored channels** — for each channel listed in [`portfolio/snapshots/telegram-watch.md`](../../portfolio/snapshots/telegram-watch.md) (currently `t.me/tarasguk`, `t.me/FinnInvestChannel`, `t.me/myroslavkorol`, `t.me/bolshegold`): `curl -s -o /dev/null -w "%{http_code}" "https://t.me/s/<channel>"`. Pass = HTTP 200.
-7. **IBKR ticker lookup CSV** — fetch `https://www.interactivebrokers.com/download/fracshare_stk.csv`. Pass = non-empty response with the expected `#SYMBOL,...` header row.
+
+Then run `python -m scripts.healthcheck --ibkr-result '{"passed": <bool>, "detail": "..."}' --github-result '{"passed": <bool>, "detail": "..."}'` (inline JSON or a file path for either flag) to run checks 3–7 itself and combine all 7 into one pass/fail report — paste its output. It performs:
+
+3. **Yahoo Finance market data (`yfinance`)** — fetches a stable liquid ticker's last price.
+4. **FRED (10Y Treasury yield)** — fetches `https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10`.
+5. **Telegram Bot API** — calls `getMe` (never `sendMessage` — this check must not ping the chat).
+6. **Telegram monitored channels** — checks each channel listed in [`portfolio/snapshots/telegram-watch.md`](../../portfolio/snapshots/telegram-watch.md) (pass `--telegram-watch-file` if it isn't at the script's default path) for HTTP 200.
+7. **IBKR ticker lookup CSV** — fetches `https://www.interactivebrokers.com/download/fracshare_stk.csv`, checking for a non-empty response with the expected `#SYMBOL,...` header row.
+
+If the script's own checks 1/2 inputs are missing, it hard-fails naming exactly what's missing (per CLAUDE.md's "never invent or estimate") rather than reporting a guessed pass/fail — that's the same stop-and-supply-it signal as everywhere else; go back and run the MCP calls above.
 
 ## Reporting
 
