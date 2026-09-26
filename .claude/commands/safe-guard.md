@@ -22,7 +22,7 @@ Fetch `get_account_balances` (Interactive Brokers MCP) for the per-currency cash
 
 **Definition (show this explicitly in the output so it's never re-derived ambiguously):** the worst case assumes every active BUY order fills, and no active SELL order fills to offset it — a SELL might not fill at all, or might fill on a different day, so it cannot be relied on to provide cash in the same worst-case window. SELL orders are therefore excluded from the draw calculation entirely. This is a **per-currency, non-netted** calculation — margin used in one currency is not assumed to be covered by a cash surplus in another (matching how `ibkr.md` already tracks the GBP cash balance as its own line, independent of the USD/EUR balances).
 
-For each currency `C` that appears among active BUY orders or held cash:
+Assemble the active orders (Step 1) and per-currency cash balances/FX rates (Step 2) into the JSON shape `python -m scripts.safe_guard` expects (`{"orders": [...], "balances": {...}}` — see the script's `--help`/docstring for the exact field names) and run `python -m scripts.safe_guard --input <file>` (or `--input -` to pipe it via stdin). It computes, per currency, BUY Notional / Available Cash / Shortfall / Margin Usage (USD) exactly per the formulas below, and the combined total — **paste its markdown output verbatim** as the shown Step 3 table:
 
 ```
 BUY Notional(C)      = Σ (qty × limit/stop price) over active BUY orders in C
@@ -31,17 +31,15 @@ Available Cash(C)    = live cash_balance for C from get_account_balances
 Shortfall(C)         = BUY Notional(C) − Available Cash(C)
 Margin Usage(C)      = max(0, Shortfall(C))
 Margin Usage(C, USD) = Margin Usage(C) × live exchange_rate for C
-```
 
-```
 Total Potential Margin Usage (USD) = Σ over all currencies C of Margin Usage(C, USD)
 ```
 
-Show a full table — one row per currency: BUY Notional, Available Cash, Shortfall, Margin Usage (USD) — plus, for every currency with `Margin Usage(C) > 0`, the list of contributing active BUY orders (ticker, order ID, qty, price, notional), sorted by notional descending. This ordering is what Step 5's grouping proposal uses.
+The script's table already lists, for every currency with `Margin Usage(C) > 0`, the contributing active BUY orders sorted by notional descending, and flags any unbounded (no-fixed-price) BUY order separately rather than inventing a price for it. If it exits with `ERROR: ...` (e.g. a currency with orders but no balance entry, or an unfamiliar order status), that's the same stop-and-ask signal as doing this by hand — go get the missing data, don't guess.
 
 ## Step 4 — Compare to the $5,000 threshold
 
-**Threshold: $5,000 USD**, fixed. Compare `Total Potential Margin Usage (USD)` from Step 3 against it.
+**Threshold: $5,000 USD**, fixed (pass `--threshold` to the script above if a different threshold is ever needed). The script already compares `Total Potential Margin Usage (USD)` against it and returns exit code 0 (within threshold), 1 (breach), or 2 (missing input — stop and ask) — use its printed verdict rather than re-comparing by hand.
 
 ### Pass ($5,000 or under)
 
@@ -55,7 +53,7 @@ If an open GitHub issue labeled `margin-safeguard` exists from a previous breach
 
 ### Breach (over $5,000)
 
-1. **Compute a suggested OCA grouping** — see "Grouping algorithm" below. This is the parameter set the Telegram message and the GitHub issue will both hand to `/update-orders`.
+1. **Suggested OCA grouping** — the same `safe_guard.py` run from Step 3 already computed this (see "Grouping algorithm" below for what it's doing); its markdown output includes a `### Suggested OCA grouping` section with the exact `/update-orders GROUP-A: ...` invocation string ready to hand to the Telegram message and the GitHub issue.
 2. **Open or update a GitHub issue** labeled `margin-safeguard` (create the label first if it doesn't exist). No open issue found → create one titled `Margin Safe-Guard: worst-case exposure $X,XXX exceeds $5,000 threshold — YYYY-MM-DD` containing: the full per-currency table from Step 3, the contributing BUY orders, current cash position, the suggested grouping, and the exact `/update-orders` invocation to run (see below). Open issue already exists → don't duplicate; add a dated comment with today's figures and note what changed since the last comment.
 3. **Send a Telegram message** prefixed `‼️ IMPORTANT ‼️` with the full description — total potential margin exposure, the per-currency breakdown, the top contributing BUY orders, and the exact suggested `/update-orders` command (see below):
    `curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d chat_id="${TELEGRAM_CHAT_ID}" -d parse_mode="Markdown" --data-urlencode text="‼️ IMPORTANT ‼️ ..."`
@@ -66,20 +64,22 @@ If an open GitHub issue labeled `margin-safeguard` exists from a previous breach
 
 Goal: propose **OCA (One-Cancels-All)** groupings among the active BUY orders so that, once applied, the worst case can no longer sum every order in a currency — only the single largest live order in each OCA group counts, since an OCA fill cancels its siblings.
 
-For each currency with `Margin Usage(C) > 0`, working from the contributing-orders list (sorted by notional descending, from Step 3):
+This is implemented in `scripts/safe_guard.py`'s `propose_grouping()` — the same `--input`/`--json` run from Step 3 computes it automatically whenever the total breaches the threshold, so there is nothing further to derive by hand. For reference, what it does per breaching currency (largest margin usage first), working from the contributing-orders list sorted by notional descending:
 
 1. Start with every contributing BUY order ungrouped.
-2. Greedily merge the two largest remaining ungrouped orders into a new group. Recompute that currency's **capped worst case** = (sum of the largest order in each group so far, plus every still-ungrouped order's own notional) − Available Cash(C), converted to USD.
-3. Repeat step 2 (merge the next-largest remaining order into the group with the current largest capped contribution, or start a new group if that reduces the total more) until `Total Potential Margin Usage (USD)` recomputed under the proposed grouping is ≤ $5,000, or until every contributing order in that currency is in one single group.
-4. **If a single OCA group covering every contributing order in a currency still leaves that currency's capped worst case over $5,000** (i.e., the largest single order's notional alone, netted against available cash, already exceeds the per-currency share of the threshold), grouping alone cannot fix it — say so explicitly and additionally suggest cancelling or reducing the size of that largest order as the only remaining lever.
+2. Merge the two largest remaining ungrouped orders into one growing group per currency (a single group, not the doc's earlier "new group per merge" phrasing — see the flagged drift note below).
+3. Keep folding in the next-largest remaining order until the grand total (across all currencies) drops to/under the threshold, or every contributing order in that currency is in the one group.
+4. **If a single OCA group covering every contributing order in a currency still leaves the grand total over $5,000**, the script reports `clears_threshold: false` and names the `unresolved_currencies` — say so explicitly and additionally suggest cancelling or reducing the size of that currency's largest order as the only remaining lever.
 
-Express the result as the exact argument to pass to `/update-orders`, e.g.:
+**Flagged implementation drift (not silently reconciled):** this doc's algorithm as originally written describes possibly starting *multiple* new groups per currency ("start a new group if that reduces the total more"); `scripts/safe_guard.py` implements a simpler single-growing-group-per-currency greedy merge (verified against this doc's own MA/V/NOW worked example — same GROUP-A/GROUP-B split). If a future breach ever needs genuinely multiple OCA groups within one currency to clear the threshold, the script's simpler algorithm won't produce that — flag it rather than hand-deriving a multi-group split that the script can't reproduce next run.
+
+The script's own output already contains the exact argument to pass to `/update-orders`, e.g.:
 
 ```
 /update-orders GROUP-A: MA(652254171)+V(652254170); GROUP-B: NOW(1423738919)
 ```
 
-(ticker + order ID pairs, `+`-joined within a group, `;`-separated between groups — see [`update-orders.md`](update-orders.md) for the full grammar). Include this literal command in both the GitHub issue and the Telegram message so the user can run it directly.
+(ticker + order ID pairs, `+`-joined within a group, `;`-separated between groups — see [`update-orders.md`](update-orders.md) for the full grammar). Include this literal command, copied from the script's output, in both the GitHub issue and the Telegram message so the user can run it directly.
 
 ## What this command never does
 

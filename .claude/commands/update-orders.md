@@ -13,7 +13,7 @@ GROUP-<name>: <TICKER>(<orderID>)+<TICKER>(<orderID>)+...; GROUP-<name>: ...
 - Each `GROUP-<name>` becomes one **OCA (One-Cancels-All)** group — see [glossary.md](../../framework/glossary.md).
 - Orders within a group are `+`-joined; groups are `;`-separated.
 - An order not mentioned in any group is left as-is (ungrouped, unchanged).
-- **If `$ARGUMENTS` is empty:** re-derive the grouping from scratch — run [`/safe-guard`](safe-guard.md) Steps 1–3 fresh (live orders + live cash balances), then apply its "Grouping algorithm" section to produce your own proposal before continuing below. Don't ask the user to re-run `/safe-guard` first; this command is self-contained.
+- **If `$ARGUMENTS` is empty:** re-derive the grouping from scratch — fetch live orders + live cash balances exactly as [`/safe-guard`](safe-guard.md) Steps 1–2 do, then run `python -m scripts.safe_guard --input <file>` (the same script and grouping code path `/safe-guard` itself calls — see safe-guard.md Step 3/"Grouping algorithm") to produce the proposal. Paste its markdown output and reuse its `/update-orders GROUP-...` invocation directly rather than re-implementing the OCA-grouping logic in prose. Don't ask the user to re-run `/safe-guard` first; this command is self-contained.
 
 ## Step 1 — Re-validate against live state
 
@@ -25,10 +25,11 @@ Fetch `get_account_orders` fresh (never reuse a stale snapshot or the order IDs 
 
 ## Step 2 — Recompute worst-case exposure, before and after
 
-Using [`/safe-guard`](safe-guard.md) Step 3's formulas exactly (same per-currency, non-netted, BUY-orders-only definition of worst case):
+**Before:** run `python -m scripts.safe_guard --input <file>` on the re-validated live orders + live balances (same JSON shape as `/safe-guard` Step 3) — paste its per-currency table and `Total Potential Margin Usage (USD)` as the "before" figure (every order fully independent, ungrouped).
 
-- **Before:** worst-case margin usage treating every order in the plan as fully independent (today's live state, ungrouped).
-- **After:** worst-case margin usage applying the proposed OCA grouping — within each group, only the **largest** live order's notional counts toward the currency's BUY Notional (since an OCA fill cancels its siblings before they can also fill); every ungrouped order still counts in full.
+**After:**
+- **Self-derived path** (`$ARGUMENTS` was empty, Step 0): the same `safe_guard.py` run already computed its own greedy grouping and `recomputed_total_usd` — that number *is* the "after" figure, no separate computation needed. Paste it directly.
+- **Supplied-plan path** (`$ARGUMENTS` gave an explicit grouping): `safe_guard.py` only proposes its *own* greedy grouping — it has no CLI input for evaluating an arbitrary caller-supplied grouping against the live data. **Flagged gap, not silently worked around:** apply [`/safe-guard`](safe-guard.md) Step 3's formulas by hand for this one "after" figure — within each supplied group, only the **largest** live order's notional counts toward the currency's BUY Notional (since an OCA fill cancels its siblings before they can also fill); every ungrouped order still counts in full. `scripts/safe_guard.py` would need an `--apply-grouping <file>` mode (or similar) to close this gap — noted in the PR description.
 
 Show both figures side by side, per currency and combined (USD-equivalent, using live FX rates from `get_account_balances` — never assumed). State plainly whether the "after" figure clears $5,000 (or whatever threshold prompted this run, if not the default).
 
