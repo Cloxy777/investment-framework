@@ -34,3 +34,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 *MA removed from this table during the 2026-06-29 update: `MA-2026-06-22.md` already carries a fresh post-modifier score (38.0, scored 2026-06-22) and never carried a 2026-06-20 banner — the row was simply never cleared when that rescore happened. Corrected here as a registry bookkeeping fix, not a re-score.*
 
 *Not listed (not affected by the 2026-06-20 Phase 02 change): the 10 not-in-portfolio entries that are Phase 01 FAIL / not scored (CIEN, CRM, DASH, FICO, GTLB, HIMS, MELI, ORCL, PYPL, TTD) and MU (Phase 01 FAIL). All in-portfolio holdings except AVGO (see note above) were rescored under the current methodology on 2026-06-20 and are current on that axis.*
+
+<!-- stale-score:auto version=2026-06-29 -->
+<!-- /stale-score:auto -->

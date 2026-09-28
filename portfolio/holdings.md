@@ -32,6 +32,10 @@ Combined total ≈ **$61,220.66** = IBKR Net Liquidation Value $50,330.70 + Free
 >
 > **AVGO's 2026-06-16 override is still marked "Open — under review" in [override-log.md](override-log.md)** despite having been resolved via the 2026-07-04 full rescore — carried forward as an open housekeeping item, not corrected this pass (outside `/sync-portfolio`'s scope).
 >
+> ## 🚨 AMZN: TRIM signal + a 3-session Composite Score rule violation found during 2026-09-28 rescore
+>
+> AMZN's Quality Score (56.7) fails the 80.0+ gate — per [valuation-scoring.md](../framework/valuation-scoring.md), a Composite Score should never have been computed. The 2026-07-04, 07-31, and 08-01 AMZN sessions all computed one anyway (62.1/60.7/63.0) and issued HOLD on that basis. The 2026-09-28 rescore correctly refuses to compute one and acts on the raw Valuation Score (79.1) instead, which recommends **TRIM 25–30%** — a different call than the prior three HOLDs. **Not yet actioned as a trade** — flagged here for user review before any order is placed. A `decisions/` entry documenting the correction, and a check of other gate-failing holdings for the same error, are still outstanding.
+>
 
 **Score scale (2026-06-11):** Valuation scores run **0.0–100.0** (continuous, 0 = cheapest, 100.0 = most expensive) instead of the old 1–10 integers — see [valuation-scoring.md](../framework/valuation-scoring.md) and [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md).
 
@@ -39,8 +43,8 @@ Combined total ≈ **$61,220.66** = IBKR Net Liquidation Value $50,330.70 + Free
 
 | Ticker | Weight % | Last Score | Quality Score | Composite Score | Last Review | Broker |
 |--------|----------|------------|----------------|------------------|-------------|--------|
-| ADBE | 4.06% | 0.0 | 83.3 | 8.4 | 11 Sep 2026 | IBKR |
-| AMZN | 4.99% | 82.7 | 56.7 | 63.0 | 01 Aug 2026 | IBKR (Freedom24 leg sold — see note above) |
+| ADBE | 4.06% | 0.0 | 83.3 | 8.4 | 28 Sep 2026 | IBKR |
+| AMZN | 4.99% | 79.1 | 56.7 | N/A — Quality Gate fails, Composite not computed (see [session](../sessions/2026-09-28-rescore-amzn.md)) | 28 Sep 2026 | IBKR (Freedom24 leg sold — see note above) |
 | AVGO | 3.50% | 70.9 | 86.3 | 42.3 | 15 Sep 2026 | IBKR |
 | CASH (Freedom24) | 0.07% | | | | | Freedom24 |
 | CASH (IBKR) | 6.69% | | | | | IBKR |
