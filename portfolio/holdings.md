@@ -32,9 +32,13 @@ Combined total ≈ **$61,220.66** = IBKR Net Liquidation Value $50,330.70 + Free
 >
 > **AVGO's 2026-06-16 override is still marked "Open — under review" in [override-log.md](override-log.md)** despite having been resolved via the 2026-07-04 full rescore — carried forward as an open housekeeping item, not corrected this pass (outside `/sync-portfolio`'s scope).
 >
-> ## 🚨 AMZN: TRIM signal + a 3-session Composite Score rule violation found during 2026-09-28 rescore
+> ## 🚨 Systemic Composite Score rule violation found across multiple prior sessions (discovered during 2026-09-28 rescore batch)
 >
-> AMZN's Quality Score (56.7) fails the 80.0+ gate — per [valuation-scoring.md](../framework/valuation-scoring.md), a Composite Score should never have been computed. The 2026-07-04, 07-31, and 08-01 AMZN sessions all computed one anyway (62.1/60.7/63.0) and issued HOLD on that basis. The 2026-09-28 rescore correctly refuses to compute one and acts on the raw Valuation Score (79.1) instead, which recommends **TRIM 25–30%** — a different call than the prior three HOLDs. **Not yet actioned as a trade** — flagged here for user review before any order is placed. A `decisions/` entry documenting the correction, and a check of other gate-failing holdings for the same error, are still outstanding.
+> [valuation-scoring.md](../framework/valuation-scoring.md) states a Composite Score must **not** be computed for a company failing the 80.0+ Quality Gate. Two tickers rescored on 2026-09-28 exposed prior sessions that violated this rule:
+> - **AMZN**: Quality Score (56.7) fails the gate. The 2026-07-04, 07-31, and 08-01 sessions all computed a Composite anyway (62.1/60.7/63.0) and issued HOLD on that basis. The 2026-09-28 rescore correctly withholds a Composite and acts on the raw Valuation Score (79.1) instead — **TRIM 25–30%**, a different call than the prior three HOLDs. **Not yet actioned as a trade.**
+> - **CSGP**: Quality Score fails the gate (hard disqualifier — not FCF-positive 3+ consecutive years). The 2026-07-04 and 2026-08-09 sessions both computed a Composite anyway (56.1/57.8) and issued HOLD/action calls on that basis. The 2026-09-28 rescore correctly withholds a Composite; no Composite-driven action recommendation exists this cycle (still HOLD by framework convention with no Composite to act on).
+>
+> **Flagged here for user review before any order is placed on either name.** A `decisions/` entry documenting the correction, and a check of every other currently-held gate-failing ticker (MBGL, RBRK, MSFT, NKE, NOW, NVO, TRN, UBER — all currently marked "ref only, gate fail" in this table) for the same historical error, are still outstanding.
 >
 
 **Score scale (2026-06-11):** Valuation scores run **0.0–100.0** (continuous, 0 = cheapest, 100.0 = most expensive) instead of the old 1–10 integers — see [valuation-scoring.md](../framework/valuation-scoring.md) and [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md).
@@ -45,10 +49,10 @@ Combined total ≈ **$61,220.66** = IBKR Net Liquidation Value $50,330.70 + Free
 |--------|----------|------------|----------------|------------------|-------------|--------|
 | ADBE | 4.06% | 0.0 | 83.3 | 8.4 | 28 Sep 2026 | IBKR |
 | AMZN | 4.99% | 79.1 | 56.7 | N/A — Quality Gate fails, Composite not computed (see [session](../sessions/2026-09-28-rescore-amzn.md)) | 28 Sep 2026 | IBKR (Freedom24 leg sold — see note above) |
-| AVGO | 3.50% | 70.9 | 86.3 | 42.3 | 15 Sep 2026 | IBKR |
+| AVGO | 3.50% | 71.1 | 86.3 | 42.4 | 28 Sep 2026 | IBKR |
 | CASH (Freedom24) | 0.07% | | | | | Freedom24 |
 | CASH (IBKR) | 6.69% | | | | | IBKR |
-| CSGP | 1.19% | 84.8 | 69.2 | 57.8 | 09 Aug 2026 | IBKR |
+| CSGP | 1.19% | 71.9 | not scored — fails quality gates | N/A — Quality Gate fails, Composite not computed (see [session](../sessions/2026-09-28-rescore-csgp.md)) | 28 Sep 2026 | IBKR |
 | **DOCS (short put)** | n/a — expired worthless 2026-08-21, position closed | n/a | | | n/a | IBKR |
 | DUOL | 8.86% | 85.1 | 83.2 | 51.0 | 01 Sep 2026 | IBKR + Freedom24 |
 | GOOG | 0.57% | 64.2 | 71.4 | 46.4 | 22 Jul 2026 | IBKR |
