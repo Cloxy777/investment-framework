@@ -54,8 +54,8 @@ Combined total ≈ **$61,220.66** = IBKR Net Liquidation Value $50,330.70 + Free
 | CASH (IBKR) | 6.69% | | | | | IBKR |
 | CSGP | 1.19% | 71.9 | not scored — fails quality gates | N/A — Quality Gate fails, Composite not computed (see [session](../sessions/2026-09-28-rescore-csgp.md)) | 28 Sep 2026 | IBKR |
 | **DOCS (short put)** | n/a — expired worthless 2026-08-21, position closed | n/a | | | n/a | IBKR |
-| DUOL | 8.86% | 85.1 | 83.2 | 51.0 | 01 Sep 2026 | IBKR + Freedom24 |
-| GOOG | 0.57% | 64.2 | 71.4 | 46.4 | 22 Jul 2026 | IBKR |
+| DUOL | 8.86% | 84.8 | 83.2 | 50.8 | 28 Sep 2026 | IBKR + Freedom24 |
+| GOOG | 0.57% | 72.4 | 71.4 | N/A — Quality Gate fails, Composite not computed (see [session](../sessions/2026-09-28-rescore-goog.md)) | 28 Sep 2026 | IBKR |
 | **MBGL** | 0.03% | not scored — fails quality gates | 51.0 | | 09 Aug 2026 | IBKR |
 | META | 5.43% | 39.4 | 87.5 | 26.0 | 26 Aug 2026 (PM) | IBKR (Freedom24 leg sold — see note above) |
 | MSFT | 13.78% | 38.9 | 79.9 | 29.5 (ref only, gate fail) | 30 Jul 2026 | IBKR (Freedom24 leg sold — see note above) |
