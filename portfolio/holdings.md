@@ -56,8 +56,8 @@ Combined total ≈ **$61,220.66** = IBKR Net Liquidation Value $50,330.70 + Free
 | **DOCS (short put)** | n/a — expired worthless 2026-08-21, position closed | n/a | | | n/a | IBKR |
 | DUOL | 8.86% | 84.8 | 83.2 | 50.8 | 28 Sep 2026 | IBKR + Freedom24 |
 | GOOG | 0.57% | 72.4 | 71.4 | N/A — Quality Gate fails, Composite not computed (see [session](../sessions/2026-09-28-rescore-goog.md)) | 28 Sep 2026 | IBKR |
-| **MBGL** | 0.03% | not scored — fails quality gates | 51.0 | | 09 Aug 2026 | IBKR |
-| META | 5.43% | 39.4 | 87.5 | 26.0 | 26 Aug 2026 (PM) | IBKR (Freedom24 leg sold — see note above) |
+| **MBGL** | 0.03% | not scored — fails quality gates | 51.0 | | 28 Sep 2026 | IBKR |
+| META | 5.43% | 73.2 | 87.5 | 42.9 | 28 Sep 2026 | IBKR (Freedom24 leg sold — see note above) |
 | MSFT | 13.78% | 38.9 | 79.9 | 29.5 (ref only, gate fail) | 30 Jul 2026 | IBKR (Freedom24 leg sold — see note above) |
 | NFLX | 1.42% | 49.3 | 69.8 | 39.8 | 17 Jul 2026 | IBKR |
 | NKE | 1.17% | 34.4 | 39.5 | 47.5 (ref only, gate fail) | 11 Sep 2026 | IBKR |
@@ -84,6 +84,8 @@ Combined total ≈ **$61,220.66** = IBKR Net Liquidation Value $50,330.70 + Free
 **MSFT's weight (13.78%) is now IBKR-only** — the 2-share Freedom24 leg was sold (confirmed, see flag above). Composite Score for MSFT remains a reference figure only (not adopted) — its Quality Score (79.9) fails the 80.0+ gate by 0.1 point.
 
 **NOW's weight (⚠️) still carries the 2026-08-10 undocumented 3-share trim** — unresolved, see [override-log.md](override-log.md).
+
+**META's weight (5.43%) is now 0.43pp above its new BUY-Standard 3–5% band** (was 6–8% Full prior to 2026-09-28's Composite category change, 26.0→42.9) — no forced trim, flagged for awareness only; see [2026-09-28 session](../sessions/2026-09-28-rescore-meta.md).
 
 **TRN's weight (⚠️) still reflects the 22.4% price drop from the 08-16→08-22 window** — caused by a CMA "drip pricing" investigation opened 2026-08-19, still open with no finding as of the [2026-09-10 rescore](../sessions/2026-09-10-rescore-trn.md) (see also [2026-08-31](../sessions/2026-08-31-rescore-trn.md) and [2026-08-22](../sessions/2026-08-22-rescore-trn.md) sessions). **HOLD, no top-up** — Quality Gate already blocked adding before this news; the CMA probe adds a second, independent reason. Quality Score moved 67.2 → 66.4 this session (Composite 21.4 → 21.8) — a data-quality correction to the Net Debt/EBITDA sub-score (a lease-liability inconsistency in the leverage figure used since TRN's original evaluation, now resolved per Rule 6), **not** a fundamentals decline. New CEO Ian Brown started 7 Sept 2026 (full handover 28 Sept) — the trigger for this rescore; too early for any Moat evidence to move. FY2026 FCF fell −17.0% YoY (£79.5M vs £95.9M FY2025) — flagged, not yet explained by disclosed management commentary. Friday 11 Sept 2026 brings a sales/KPI trading update only, not full financials — won't resolve either open item.
 
