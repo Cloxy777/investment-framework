@@ -37,8 +37,13 @@ Combined total ≈ **$61,220.66** = IBKR Net Liquidation Value $50,330.70 + Free
 > [valuation-scoring.md](../framework/valuation-scoring.md) states a Composite Score must **not** be computed for a company failing the 80.0+ Quality Gate. Two tickers rescored on 2026-09-28 exposed prior sessions that violated this rule:
 > - **AMZN**: Quality Score (56.7) fails the gate. The 2026-07-04, 07-31, and 08-01 sessions all computed a Composite anyway (62.1/60.7/63.0) and issued HOLD on that basis. The 2026-09-28 rescore correctly withholds a Composite and acts on the raw Valuation Score (79.1) instead — **TRIM 25–30%**, a different call than the prior three HOLDs. **Not yet actioned as a trade.**
 > - **CSGP**: Quality Score fails the gate (hard disqualifier — not FCF-positive 3+ consecutive years). The 2026-07-04 and 2026-08-09 sessions both computed a Composite anyway (56.1/57.8) and issued HOLD/action calls on that basis. The 2026-09-28 rescore correctly withholds a Composite; no Composite-driven action recommendation exists this cycle (still HOLD by framework convention with no Composite to act on).
+> - **NFLX**: Quality Score fails the gate (69.8). The 2026-07-05 and 2026-07-17 sessions both computed a Composite anyway (43.0/39.8) and used it to drive the action call. The 2026-09-28 rescore correctly withholds a Composite — HOLD either way, no trade impact this time, but the same process violation.
 >
-> **Flagged here for user review before any order is placed on either name.** A `decisions/` entry documenting the correction, and a check of every other currently-held gate-failing ticker (MBGL, RBRK, MSFT, NKE, NOW, NVO, TRN, UBER — all currently marked "ref only, gate fail" in this table) for the same historical error, are still outstanding.
+> **Flagged here for user review before any order is placed on AMZN or CSGP** (the two where the correction changed or could change the action call). A `decisions/` entry documenting the correction, and a check of every other currently-held gate-failing ticker (MBGL, RBRK, NKE, NOW, NVO, TRN, UBER, plus MSFT's ref-only-labeled figure) for the same historical error, are still outstanding.
+>
+> ## ℹ️ Portfolio-wide Rate Environment Gate shift (2026-09-28 rescore batch)
+>
+> The 10Y Treasury crossed above 5% this week (Fed hike 16 Sep 2026, now ~5.2%, highest since 2007) — first time in this framework's tracked history for most holdings. This pushes the Rate Regime Modifier's Step 2 bracket from the 3.5–5% band to the >5% band (typically +5→+10 or +10→+15) for **every** ticker, not just the ones rescored so far in this batch. Every ticker's Valuation Score in this 2026-09-28 rescore run reflects the new bracket; tickers not yet rescored in this batch still carry the old, now-stale bracket until their turn comes up.
 >
 
 **Score scale (2026-06-11):** Valuation scores run **0.0–100.0** (continuous, 0 = cheapest, 100.0 = most expensive) instead of the old 1–10 integers — see [valuation-scoring.md](../framework/valuation-scoring.md) and [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md).
@@ -59,7 +64,7 @@ Combined total ≈ **$61,220.66** = IBKR Net Liquidation Value $50,330.70 + Free
 | **MBGL** | 0.03% | not scored — fails quality gates | 51.0 | | 28 Sep 2026 | IBKR |
 | META | 5.43% | 73.2 | 87.5 | 42.9 | 28 Sep 2026 | IBKR (Freedom24 leg sold — see note above) |
 | MSFT | 13.78% | 48.4 | 79.9 | 34.3 (ref only, gate fail) | 28 Sep 2026 | IBKR (Freedom24 leg sold — see note above) |
-| NFLX | 1.42% | 49.3 | 69.8 | 39.8 | 17 Jul 2026 | IBKR |
+| NFLX | 1.42% | 55.9 | 69.8 | N/A — Quality Gate fails, Composite not computed (see [session](../sessions/2026-09-28-rescore-nflx.md)) | 28 Sep 2026 | IBKR |
 | NKE | 1.17% | 34.4 | 39.5 | 47.5 (ref only, gate fail) | 11 Sep 2026 | IBKR |
 | NOW | 2.00%⚠️ | 75.9 | 73.2 | 51.4 (ref only, gate fail) | 09 Aug 2026 | IBKR |
 | NVDA | 6.90% | 36.2 | 90.3 | 23.0 | 17 Sep 2026 | IBKR |
