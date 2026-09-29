@@ -12,3 +12,14 @@
 10. **Header state**: on first paint of `/screener/` the header showed "Увійти" instead of "Кабінет" — auth state resolves after load (loading state). Unverified whether logged-out visitors see a reduced feature set.
 11. **Data freshness rules**: nightly recompute; "one point per nightly recompute"; histories accumulating since 14–19.09.2026 (so lens "own history" uses trailing multiples until 365 days of forward snapshots exist).
 12. Ticker-level thresholds come from "our settings" (configuration with 600+ thresholds) — exact config file not visible; only those printed in methodology are captured.
+
+13. **Investment/formula details seen only partially (candidates to capture before access ends 06.10.2026)** — found in the 2026-09-29 completeness review:
+    - x2 tile "buy price" table rows (`Ціна купівлі | Ціна | Базовий CAGR | До поточної`) and exact formula for "х2 досягається у році N" and for the decay of growth in years 3–5.
+    - Card "Пояснення рівня" full text, quality-cap explanations on a capped company (e.g. level lower than score), the flags "Прапорці: серйозність і вага" for a company with several critical flags (penalty maths in practice).
+    - Full flag catalogue with thresholds per flag: only severity/category are printed (34 checks stated on /welcome/; ~33 rows captured), numeric thresholds for most flags are "from settings" and not visible.
+    - "Basis switcher" (P/E, P/OCF, P/FCF) buttons on a card where the basis is not forced; effect on gates 2/3.
+    - Compare page: per-row values for GOOG/META beyond verdict/level/score (lens rows, ten signs, flags) — my read of that page was ambiguous; re-read to fill component/lens tables.
+    - Valuation-change tile with a non-empty history (needs ≥63 snapshots — will exist only later).
+    - Scatter/"Карта матриці" formula for X (sum of lenses incl. regime bonus) and the 4 unplotted BUY-zone names.
+    - Taras's "Оцінка"/tags (what values exist besides STRONG BUY? review states: переглянув / частково / лише рушій).
+    See also rules-supplement.md section E for internal inconsistencies to verify.

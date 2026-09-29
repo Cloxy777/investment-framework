@@ -9,7 +9,7 @@ Isolation: everything lives in this folder only.
 - `sitemap.md` — pages and connections
 - `screens/<slug>.md` — one file per screen
 - `flows/<slug>.md` — end-to-end flows
-- `rules-and-metrics.md`, `glossary.md`, `open-questions.md`
+- `rules-and-metrics.md` (methodology-page rules), `rules-supplement.md` (formulas verified on live cards, constants, test vectors, inconsistencies), `glossary.md`, `open-questions.md`
 - `screenshots/<slug>__<state>.jpg`
 
 ## How to resume

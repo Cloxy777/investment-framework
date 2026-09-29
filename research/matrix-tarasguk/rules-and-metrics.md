@@ -1,5 +1,7 @@
 # Rules & metrics (as shown on the site)
 
+**See also [rules-supplement.md](rules-supplement.md)** (formulas verified on real cards, constants index, test vectors, inconsistencies).
+
 Site text is Ukrainian; terms below give UA + EN gloss. Sources noted per line. Updated 2026-09-29.
 
 ## Core model
