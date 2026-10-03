@@ -50,7 +50,7 @@ Combined total ≈ **$61,622.32** = IBKR Net Liquidation Value $50,732.36 + Free
 |--------|----------|------------|----------------|------------------|-------------|--------|
 | **ADBE** | **7.65%🚨** | 0.0 | 83.3 | 8.4 | 11 Sep 2026 | IBKR |
 | AMZN | 4.85% | 82.7 | 56.7 | 63.0 | 01 Aug 2026 | IBKR (Freedom24 leg sold — see note above) |
-| AVGO | 3.43% | 71.3 | 86.3 | 42.5 | 28 Sep 2026 | IBKR |
+| AVGO | 3.43% | 71.4 | 86.3 | 42.6 | 3 Oct 2026 | IBKR |
 | **BKNG** | **2.67%🚨 (new)** | not scored — "WATCHLIST ONLY, do not enter" per [2026-08-05 session](../sessions/2026-08-05-new-position-bkng.md) | 89.6 | 21.6 | n/a (no `/new-position` re-run) | IBKR |
 | CASH (Freedom24) | 0.07% | | | | | Freedom24 |
 | CASH (IBKR) | 0.17% | | | | | IBKR |
@@ -61,7 +61,7 @@ Combined total ≈ **$61,622.32** = IBKR Net Liquidation Value $50,732.36 + Free
 | **MBGL** | 0.03% | not scored — fails quality gates | 51.0 | | 09 Aug 2026 | IBKR |
 | META | 6.07% | 39.4 | 87.5 | 26.0 | 26 Aug 2026 (PM) | IBKR (Freedom24 leg sold — see note above) |
 | MSFT | 14.24% | 38.9 | 79.9 | 29.5 (ref only, gate fail) | 30 Jul 2026 | IBKR (Freedom24 leg sold — see note above) |
-| NFLX | 1.38% | 49.3 | 69.8 | 39.8 | 17 Jul 2026 | IBKR |
+| NFLX | 1.38% | 55.2 | 69.9 | 42.7 | 3 Oct 2026 | IBKR |
 | NKE | 1.17% | 34.4 | 39.5 | 47.5 (ref only, gate fail) | 11 Sep 2026 | IBKR |
 | NOW | 1.98%⚠️ | 75.9 | 73.2 | 51.4 (ref only, gate fail) | 09 Aug 2026 | IBKR |
 | NVDA | 6.92% | 36.2 | 90.3 | 23.0 | 17 Sep 2026 | IBKR |
