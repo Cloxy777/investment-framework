@@ -1,0 +1,5 @@
+data/
+test-vectors.json
+test-vectors.ndjson
+coverage-matrix.csv
+__pycache__/

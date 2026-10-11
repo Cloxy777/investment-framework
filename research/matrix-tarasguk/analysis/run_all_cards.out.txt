@@ -1,0 +1,29 @@
+cards parsed 488
+comp:Баланс                           488 / 488  []
+comp:Дисципліна                       488 / 488  []
+comp:Капітал і SBC                    488 / 488  []
+comp:Маржа                            488 / 488  []
+comp:Моат                             456 / 456  []
+comp:Прибутковість                    488 / 488  []
+comp:Прогнозованість                  456 / 456  []
+comp:Ріст                             488 / 488  []
+lens:FCF yield після SBC              475 / 487  [('DE', -1, 0, 'гістерезис: бал лінз «FCF yield після SBC» лишився з поперед'), ('DLR', 0, 1, 'гістерезис: бал лінз «FCF yield після SBC» лишився з поперед'), ('EL', 1, 0, 'гістерезис: бал лінз «FCF yield після SBC» лишився з поперед'), ('JCI', -1, 0, 'гістерезис: бал лінз «FCF yield після SBC» лишився з поперед')] ...
+lens:PEG                              473 / 487  [('CLX', -2, -1, 'гістерезис: бал лінз «PEG» лишився з попередньої картки, вхі'), ('DHI', 1, 0, 'гістерезис: бал лінз «PEG», «ріст проти EPS індексу» лишився'), ('ETR', 0, 1, 'гістерезис: бал лінз «PEG» лишився з попередньої картки, вхі'), ('GOOG', 0, 1, 'гістерезис: бал лінз «PEG» лишився з попередньої картки, вхі')] ...
+lens:Проти S&P 500                    478 / 487  [('A', 0, -1, 'гістерезис: бал лінз «проти S&P 500» лишився з попередньої к'), ('ABNB', -1, 0, 'гістерезис: бал лінз «проти S&P 500» лишився з попередньої к'), ('DKNG', 0, -1, 'гістерезис: бал лінз «проти S&P 500» лишився з попередньої к'), ('ECHO', -1, 0, 'гістерезис: бал лінз «проти S&P 500» лишився з попередньої к')] ...
+lens:Проти власної історії            481 / 487  [('ASML', -2, -1, 'гістерезис: бал лінз «проти власної історії» лишився з попер'), ('CRWD', 0, -1, ''), ('INTU', 1, 2, 'гістерезис: бал лінз «проти власної історії» лишився з попер'), ('NVDA', 1, 2, 'гістерезис: бал лінз «проти власної історії» лишився з попер')] ...
+lens:Ріст проти EPS індексу           483 / 487  [('BEN', -1, 0, 'гістерезис: бал лінз «ріст проти EPS індексу» лишився з попе'), ('CRH', -1, 0, 'гістерезис: бал лінз «ріст проти EPS індексу» лишився з попе'), ('DHI', 0, -1, 'гістерезис: бал лінз «PEG», «ріст проти EPS індексу» лишився'), ('JNJ', -1, 0, 'гістерезис: бал лінз «ріст проти EPS індексу» лишився з попе')]
+level                                 477 / 488  [('AEP', 'D', 'E', ''), ('BMY', 'D', 'E', ''), ('CEG', 'D', 'E', ''), ('GEV', 'C', 'E', '')] ...
+level E by registry tag (not loss, not SBC>=100%)    0 / 10   ['AEP', 'BMY', 'CEG', 'GEV'] ...
+penalty                               488 / 488  []
+score                                 488 / 488  []
+x2cagr:base                           308 / 456  [('ADM', 32.2, 1.3), ('AES', 23.3, 5.4), ('AIZ', 3.6, 5.1), ('AJG', 10.7, 10.0)] ...
+x2cagr:opt                            307 / 456  [('ADM', 42.7, 9.5), ('AES', 53.2, 30.8), ('AFL', 10.4, 10.7), ('AIZ', 15.2, 16.9)] ...
+x2cagr:pess                           341 / 456  [('ADM', 16.8, 0.7), ('AES', 11.7, 2.7), ('AIZ', 1.8, 2.5), ('AJG', 5.4, 5.0)] ...
+ERR x2:AttributeError 6 [('005930.KS', "'NoneType' object has no attribute 'group'"), ('CRWD', "'NoneType' object has no attribute 'group'"), ('DOC', "'NoneType' object has no attribute 'group'"), ('INTC', "'NoneType' object has no attribute 'group'"), ('LITE', "'NoneType' object has no attribute 'group'")]
+ERR x2:IndexError 6 [('ACHR', 'list index out of range'), ('EVTL', 'list index out of range'), ('JOBY', 'list index out of range'), ('KER', 'list index out of range'), ('L', 'list index out of range')]
+ERR lens:KeyError 1 [('ARE', "'FCF yield після SBC'")]
+ERR x2:TypeError 20 [('ARE', "'NoneType' object is not subscriptable"), ('AZO', "'NoneType' object is not subscriptable"), ('BG', "unsupported operand type(s) for *: 'NoneType' and 'float'"), ('COIN', "'NoneType' object is not subscriptable"), ('CRWV', "'NoneType' object is not subscriptable")]
+--- rule layer on displayed inputs ---
+price_word                      454 / 467  [('AIG', 'VALUE_TRAP', 'EXPENSIVE_NO_GROWTH', 0, 5.3, 'D', 6.8), ('APO', 'FAIR', 'VALUE_TRAP', 3, 17.5, 'D', 13.9), ('CLX', 'VALUE_TRAP', 'EXPENSIVE_NO_GROWTH', -1, 6.6, 'C', 5.8), ('DAL', 'CHEAP', 'VALUE_TRAP', 5, 31.5, 'D', 16.9), ('DTE', 'EXPENSIVE_NO_GROWTH', 'VALUE_TRAP', -2, 13.6, 'D', 5.9), ('FIS', 'VALUE_TRAP', 'FAIR', 2, 8.9, 'D', 8.0), ('FITB', 'CHEAP', 'VALUE_TRAP', 5, 37.5, 'D', 15.4), ('GPN', 'FAIR', 'VALUE_TRAP', 3, 18.4, 'D', 15.0), ('HBAN', 'CHEAP', 'VALUE_TRAP', 5, 26.6, 'D', 12.5), ('IVZ', 'CHEAP', 'VALUE_TRAP', 4, 19.8, 'E', 11.3)]
+verdict(shadow if gate0)        464 / 467  [('DVA', 'ЛИШЕ СПЕКУЛЯЦІЯ', None, 'ЛИШЕ СПЕКУЛЯЦІЯ', 'D', 'CHEAP'), ('FOUR', 'ЛИШЕ СПЕКУЛЯЦІЯ', None, 'ЛИШЕ СПЕКУЛЯЦІЯ', 'D', 'CHEAP'), ('VICI', 'AVOID', 'ЛИШЕ СПЕКУЛЯЦІЯ', 'НЕ МІЙ СЕКТОР', 'D', 'CHEAP')]
+ERR verdict:KeyError 1 [('SKHY', "'verdict_line'")]

@@ -1,0 +1,26 @@
+// Card harvester. Load in a matrix.tarasguk.com tab (same origin): window.__CB = 'http://127.0.0.1:<port>/<token>'; eval(await (await fetch(__CB + '/js/harvest_cards.js', {targetAddressSpace: 'loopback'})).text());
+// then: __start(['NVDA', ...], 3). Progress: __done, __fail, __q.length, __cur. Each card -> POST cards/<T>.simple.txt to the local collector.
+(() => {
+  const W = window;
+  try { navigator.locks.request('harvest-keepalive', () => new Promise(() => {})); } catch (e) {}   // a held Web Lock keeps Chrome from freezing/discarding the hidden tab
+  W.__sleep = ms => new Promise(res => { const t0 = performance.now(); const mc = new MessageChannel(); mc.port1.onmessage = () => { if (performance.now() - t0 >= ms) res(); else mc.port2.postMessage(0); }; mc.port2.postMessage(0); });
+  W.__save = async (path, content, append) => { const r = await fetch(W.__CB + '/save', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ path, content, append: !!append }), targetAddressSpace: 'loopback' }); return r.status + ' ' + (await r.text()); };
+  W.__txt = d => (d.querySelector('article') || d.body).innerText;
+  W.__newlines = (a, b) => { const s = new Set(a.split('\n')); return b.split('\n').filter(l => !s.has(l)).join('\n'); };
+  W.__mk = (id) => { let f = document.getElementById(id); if (f) f.remove(); f = document.createElement('iframe'); f.id = id; f.style.cssText = 'position:fixed;left:0;top:0;width:1200px;height:900px;opacity:0;pointer-events:none'; document.body.appendChild(f); return f; };
+  W.__loadIn = async (id, url) => { const f = W.__mk(id); const p = new Promise(r => f.onload = r); f.src = url; await p; for (let i = 0; i < 40; i++) { const d = f.contentDocument; if (d && d.querySelector('article button[data-tile]')) break; await W.__sleep(300); } await W.__sleep(500); return f; };
+  W.__expandAll = async (d, root) => { let n = 0; root.querySelectorAll('details').forEach(x => { x.open = true; }); for (let pass = 0; pass < 3; pass++) { const bs = Array.from(root.querySelectorAll('button')).filter(b => /^(таблиця|детальніше|розгорнути|Подробиці|Детальні фінанси|Чого рушій|Географія|Події з подань|Розбір текстом)/i.test(b.innerText.trim()) && b.getAttribute('aria-expanded') !== 'true' && !b.dataset.__c); if (!bs.length) break; for (const b of bs) { b.dataset.__c = '1'; b.click(); n++; await W.__sleep(80); } } return n; };
+  W.__simple = async (d) => {
+    const out = { tiles: {}, order: [] }; const art = d.querySelector('article'); out.base = W.__txt(d);
+    const pc = d.querySelector('button[aria-controls="price-charts"]');
+    if (pc) { const t0 = W.__txt(d); pc.click(); await W.__sleep(500); await W.__expandAll(d, art); out.price_charts = W.__newlines(t0, W.__txt(d)); pc.click(); await W.__sleep(100); }
+    for (const b of Array.from(d.querySelectorAll('button[data-tile]'))) { const id = b.getAttribute('data-tile'); if (id === 'ai') continue; const t0 = W.__txt(d); b.click(); await W.__sleep(350); await W.__expandAll(d, art); await W.__sleep(150); out.tiles[id] = W.__newlines(t0, W.__txt(d)); out.order.push(id); b.click(); await W.__sleep(100); }
+    out.periods = {}; d.querySelectorAll('[id^="pp-"]').forEach(e => { out.periods[e.id] = e.textContent.replace(/\s+/g, ' ').trim(); });
+    await W.__expandAll(d, art); out.full = W.__txt(d); return out;
+  };
+  W.__fmt = (o) => { let s = '### BASE (collapsed article text)\n' + o.base + '\n'; if (o.price_charts) s += '\n### PRICE CHARTS STRIP (expanded, new lines)\n' + o.price_charts + '\n'; for (const [k, v] of Object.entries(o.periods || {})) s += '\n### PRICE PERIOD PANEL ' + k + ' (textContent)\n' + v + '\n'; for (const id of o.order) s += '\n=== TILE ' + id + ' ===\n' + o.tiles[id] + '\n'; s += '\n### FULL ARTICLE AFTER EXPANDING EVERYTHING\n' + o.full + '\n'; return s; };
+  W.__done = 0; W.__fail = []; W.__cur = {}; W.__q = [];
+  W.__one = async (id, t, dir) => { const f = await W.__loadIn(id, '/t/' + t + '/'); const d = f.contentDocument; if (!d.querySelector('article button[data-tile]')) { W.__fail.push(t + ':noarticle:' + f.contentWindow.location.pathname); return; } const o = await W.__simple(d); const r = await W.__save((dir || 'cards') + '/' + t + '.simple.txt', '# ' + t + ' simple mode (paid tier), captured ' + new Date().toISOString() + ', url ' + f.contentWindow.location.pathname + '\n' + W.__fmt(o)); W.__done++; if (!r.startsWith('200')) W.__fail.push(t + ':save:' + r); };
+  W.__worker = async (wid, dir) => { const id = '__w' + wid; while (W.__q.length) { const t = W.__q.shift(); W.__cur[wid] = t; try { await Promise.race([W.__one(id, t, dir), new Promise((_, rej) => { const t0 = performance.now(); const mc = new MessageChannel(); mc.port1.onmessage = () => { if (performance.now() - t0 > 90000) rej(new Error('timeout90')); else mc.port2.postMessage(0); }; mc.port2.postMessage(0); })]); } catch (e) { W.__fail.push(t + ':' + e); const fr = document.getElementById(id); if (fr) fr.remove(); } await W.__sleep(1200); } W.__wdone = (W.__wdone || 0) + 1; };
+  W.__start = (tickers, n, dir) => { W.__q = tickers.slice(); W.__wdone = 0; for (let i = 1; i <= (n || 3); i++) W.__worker(i, dir); return 'started ' + W.__q.length; };
+})();

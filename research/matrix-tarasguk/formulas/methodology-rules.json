@@ -1,0 +1,213 @@
+{
+  "_meta": {
+    "source": "https://matrix.tarasguk.com/free/methodology/ (captured 2026-10-03, verbatim copy in data/raw/methodology.free.2026-10-03.txt)",
+    "status": "Exact transcription of every number/table on the page. Interval edge inclusivity (>= vs >) is NOT stated by the site: 'від X' is read as >= X, 'до X' as <= X for the upper lens thresholds and < X for score buckets; mark as Hypothesis until fitted on cards.",
+    "decimal_note": "Site uses decimal comma; JSON uses dot.",
+    "flag_keys_source": "DOM anchor ids flag-<key> on the methodology page (36 rows, same order as the table)."
+  },
+  "level": {
+    "thresholds": {"A": 80, "B": 70, "C": 55, "D": "below 55"},
+    "compare_on": "score rounded to 0.1",
+    "flag_penalty": {"critical": 8, "serious": 4, "minor": 0},
+    "unknown_component_value": "40% of the component weight (also each sub-score has its own explicit 'unknown' points, see sub_scores)",
+    "hysteresis": {"level_points": 2, "lens_fraction_of_threshold": 0.05, "previous_state_from": "card computed by the same code version"},
+    "level_E_regardless_of_score": ["loss-making", "SBC eats cash flow: >=100% of FCF (on OCF basis: SBC > 20% of revenue)", "business tagged 'not understood'"],
+    "caps_in_order": [
+      "no classification: A -> B",
+      "moat determined by AI, not Taras: A -> B",
+      "profitable < 2 years: max C; < 5 years: max B",
+      "level A only with moat in {monopoly, oligopoly, network effect}",
+      "critical flag: max C",
+      "debt > 5x EBITDA with negative FCF, or capex funded by debt: max D (if the capex exception fails); > 3x with capex not from own cash: max C",
+      "growth built on customer promises: max C",
+      "level A with lowered guidance: B"
+    ],
+    "level_A_requires_consensus_growth": {"revenue_ntm_min_pct": 10, "eps_ntm_min_pct": 14, "no_revenue_forecast": "max B with a note"},
+    "one_off_tax_rule": {"trigger": "effective tax rate differs > 10 pts vs prior 12M", "action": "EPS growth computed from normalised base: pre-tax income at company's usual rate = median of 8 quarterly rates; reported shown alongside; no quarterly taxes -> gap not assumption"},
+    "capex_without_backlog_exception": {"contract_driven_sectors": ["cloud", "enterprise software", "vertical software", "databases", "cybersecurity", "GPU rental"], "other_sectors_test": "OCF lags revenue growth by <= 5%", "states": ["pass", "fail", "undetermined"]},
+    "one_fact_one_penalty": "facts graded in a component (debt, dilution/SBC, margin squeeze, opex>revenue, AI risk) stay as labels without own penalty; critical flags keep penalty 8 + cap C",
+    "external_capex_financing": {"trigger": "debt + share issuance > 25% of capex over 12M in capex-heavy company, or capex > 50% of OCF", "severity": "serious", "penalty_per_methodology_text": 0, "discipline_points": {"own_money": "2 of 2", "raised_above_threshold_but_net_cash_positive_and_debt_le_1.5x": "1 of 2", "lands_on_balance_sheet": "0 of 2 and cap B"}},
+    "margin_definition": "smaller of (net margin, normalised where data allow) and (operating margin after tax); tax unknown: statutory 21% for SEC filers with a note, else second definition skipped; if consensus is non-GAAP also compute NTM P/E with options; S&P lens and PEG use the more expensive of the two"
+  },
+  "components": {
+    "weights": {"profitability": 15, "growth": 20, "predictability": 15, "moat": 15, "margin": 10, "balance": 10, "capital_sbc": 10, "discipline": 5},
+    "sub_scores": {
+      "profitability_years": [
+        {"if": "unknown", "pts": 7.5}, {"if": ">=5y", "pts": 15}, {"if": "2..5y", "pts": 9.8}, {"if": "profitable <2y", "pts": 5.2}, {"if": "loss-making", "pts": 0}
+      ],
+      "growth_revenue_ntm_pct (max 8)": [
+        {"if": "unknown", "pts": 3.2}, {"if": "<0", "pts": 0}, {"if": "0..10", "pts": 2}, {"if": "10..20", "pts": 4.8}, {"if": ">=20", "pts": 8}
+      ],
+      "growth_eps_ntm_pct (max 7)": [
+        {"if": "unknown", "pts": 2.8}, {"if": "<0", "pts": 0}, {"if": "0..10", "pts": 1.8}, {"if": "10..15", "pts": 4.2}, {"if": "15..25", "pts": 6}, {"if": ">=25", "pts": 7}
+      ],
+      "growth_fcf_pct (max 5; no FCF forecast -> EPS forecast used)": [
+        {"if": "<0", "pts": 0}, {"if": "0..10", "pts": 1.2}, {"if": "10..15", "pts": 3}, {"if": ">=15", "pts": 5}
+      ],
+      "margin_pct (max 10)": [
+        {"if": "unknown", "pts": 5}, {"if": "<10", "pts": 0}, {"if": "10..15", "pts": 2}, {"if": "15..20", "pts": 4}, {"if": "20..30", "pts": 6}, {"if": "30..45", "pts": 8}, {"if": ">=45", "pts": 10}, {"if": ">=45 and margin falling", "pts": 8}
+      ],
+      "balance": [
+        {"if": "net cash", "pts": 10}, {"if": "debt/EBITDA <=1.5x", "pts": 7}, {"if": "1.5x..3x", "pts": 4}, {"if": ">3x", "pts": 1}, {"if": "unknown", "pts": 5}
+      ],
+      "capital_sbc_to_fcf_pct (max 6)": [
+        {"if": "unknown", "pts": 3.5}, {"if": "<5", "pts": 6}, {"if": "<15", "pts": 5}, {"if": "<30", "pts": 3}, {"if": ">30", "pts": 1}
+      ],
+      "capital_roic_pct (max 8)": [
+        {"if": "unknown", "pts": 6}, {"if": ">=30", "pts": 8}, {"if": ">=20", "pts": 7}, {"if": "10..20", "pts": 6}, {"if": "<10", "pts": 4}
+      ],
+      "capital_share_count_1y (max 7)": [
+        {"if": "unknown", "pts": 6}, {"if": "not grown", "pts": 7}, {"if": "grown <2%", "pts": 6}, {"if": "grown more", "pts": 5}
+      ],
+      "discipline (max 5)": [
+        {"if": "organic growth, capex covered by OCF", "pts": 5},
+        {"if": "mixed growth, capex covered by OCF", "pts": 4},
+        {"if": "growth via acquisitions, capex covered by OCF", "pts": 2},
+        {"if": "growth unknown, capex covered by OCF", "pts": 4},
+        {"if": "organic, no capex numbers, funded from operating cash", "pts": 5},
+        {"if": "organic, no capex numbers, funding unknown", "pts": 4},
+        {"if": "organic, no capex numbers, funded by debt", "pts": 3},
+        {"if": "organic, debt+issuance >25% of capex, net cash>0 and debt<=1.5x EBITDA (can pay)", "pts": 4},
+        {"if": "same, net cash negative or debt>1.5x EBITDA (lands on balance sheet; cap B)", "pts": 3},
+        {"if": "same, balance sheet unknown (no cap)", "pts": 3}
+      ],
+      "predictability_by_business_type (max 15)": {
+        "subscription": 15, "payment_network": 15, "data_and_ratings": 15, "cloud_and_contracts": 14, "platform": 12, "subscription_software": 12,
+        "club_subscription": 10, "advertising": 9, "chips_lumpy_sales": 9, "one_off_brand_sales": 8, "restaurant": 6, "manufacturing_one_off": 6,
+        "rental": 8, "cyclical": 3, "commodities": 2, "bank": 4, "pharma": 3, "undefined": 8
+      },
+      "moat (max 15)": {"monopoly": 15, "oligopoly": 12, "network_effect": 12, "high_switching_cost": 10, "brand": 8, "none": 2, "unknown": 6},
+      "ai_risk_moat_adjustment": {"ai_strengthens": 2, "neutral": 0, "unknown": 0, "ai_threatens": -3}
+    },
+    "growth_component_composition": "revenue + EPS + FCF sub-scores (max 8+7+5 = 20); site note on revenue table: 'contribution of revenue; the rest of growth in the probe is negative'",
+    "table_method_note": "Site: 'points below were computed by the engine itself on one company with full data, changing one field at a time' -> these are measured steps, not literal config"
+  },
+  "price": {
+    "basis": "from registry (P/E, P/FCF or P/OCF); if absent the engine picks and states why; P/OCF forbidden when FCF negative and capex not covered by own cash",
+    "lens_score_range": [-2, 2],
+    "lenses": {
+      "vs_sp500": {"ratio": "company multiple / S&P 500 forward P/E", "scores": [{"ratio_le": 1.0, "pts": 1, "note": "only levels A and B, else 0"}, {"ratio_le": 1.3, "pts": 0}, {"ratio_le": 2.0, "pts": -1}, {"ratio_gt": 2.0, "pts": -2}]},
+      "vs_history": {"rules": [{"if": "multiple <= 5y-min x 1.05", "pts": 2}, {"if": "multiple >= 3y-max x 0.95", "pts": -2}, {"if": "below average by >10%", "pts": 1}, {"if": "above average", "pts": -1}], "history_shorter_than_3y": "clamp to +-1"},
+      "peg": {"definition": "multiple / EPS growth", "scores": [{"lt": 0.5, "pts": 2}, {"lt": 1.0, "pts": 1}, {"le": 1.3, "pts": 0}, {"le": 2.0, "pts": -1}, {"gt": 2.0, "pts": -2}], "missing": "0 and a gap note", "cycle_peak_cap": "+1"},
+      "fcf_yield_after_sbc": {"scores": [{"ge_pct": 4, "pts": 2}, {"ge_pct": 3, "pts": 1}, {"ge_pct": 2, "pts": 0}, {"ge_pct": 1, "pts": -1}, {"lt_pct": 1, "pts": -2}]},
+      "growth_vs_market": {"rules": [{"if": "EPS growth >= 1.5 x index EPS growth", "pts": 1}, {"if": "EPS growth < 0.9 x index EPS growth", "pts": -1}], "index_forecast_missing_default_pct": 13}
+    },
+    "price_word_rules_in_order": [
+      "no multiple -> NO_MULTIPLE ('Немає мультиплікатора') -> verdict NEED_DATA",
+      "multiple <= 15 and quality score < 60 and EPS growth < 10% -> VALUE_TRAP ('Пастка дешевизни')",
+      "lens sum >= 4 -> CHEAP ('Дешево')",
+      "lens sum >= 1 -> FAIR ('Справедлива')",
+      "else EPS growth >= 15% (level A: 14%) -> EXPENSIVE_GROWING ('Дорого, але росте'), otherwise EXPENSIVE_NO_GROWTH ('Дорого без росту')",
+      "EXPENSIVE_NO_GROWTH only if base 5y CAGR < BUY bar (14% for A, 15% others); otherwise EXPENSIVE_GROWING with a note on growth two years ahead"
+    ],
+    "regime_2026": {"mega_cap_min_market_cap_usd": 200000000000, "bonus": "+1 to lens SUM if multiple <= 20 and level in {A,B}", "always_expensive": "multiple >= 30 without >= 30% growth", "price_flags": {"multiple_ceiling": 30, "ceiling_lifted_when": "PEG < 1", "multiple_absurd": 60}},
+    "one_eps_growth_per_card": "geometric mean of two steps: (NTM vs normalised trailing 12M base) and (next year vs that NTM); only one known step -> use it; used for growth score, PEG, price word, lenses; both steps + mean shown on card",
+    "cycle_peak": {"trigger": "manufacturers/cyclicals/commodities with trailing EPS growth > 100%", "effects": "row under verdict + Known risks; NOT a flag; PEG lens capped at +1", "loss_to_profit_turnaround": "NEW 2026-10-03: loss->profit within 12M is marked the same way and does not enter verdict or lenses"}
+  },
+  "matrix": {
+    "columns": ["CHEAP", "FAIR", "EXPENSIVE_GROWING", "EXPENSIVE_NO_GROWTH", "VALUE_TRAP", "NO_MULTIPLE"],
+    "rows": {
+      "A": ["BUY", "BUY", "BUY WAIT", "BUY WAIT", "AVOID", "NEED_DATA"],
+      "B": ["BUY", "BUY", "BUY WAIT", "BUY WAIT", "AVOID", "NEED_DATA"],
+      "C": ["BUY", "BUY WAIT", "BUY WAIT", "AVOID", "AVOID", "NEED_DATA"],
+      "D": ["SPEC_ONLY", "AVOID", "AVOID", "AVOID", "AVOID", "NEED_DATA"],
+      "E": ["AVOID", "AVOID", "AVOID", "AVOID", "AVOID", "NEED_DATA"]
+    },
+    "before_matrix": ["gate 0: stop-list -> NOT_MINE (+ shadow verdict), 'not understood' -> AVOID, speculative basket -> SPEC_ONLY", "level E -> AVOID", "broken thesis (lowered guidance, growth without profit, analysts cutting forecasts) -> BUY WAIT for A/B/C, AVOID for D/E", "no current multiple -> NEED_DATA"],
+    "special_cell": "level A with PEG < 0.5 -> BUY regardless of price word and lens sum; never STRONG BUY",
+    "one_event_one_flag": ["EPS consensus revision 30d/90d = one flag, severity depends on consensus source", "capex > OCF and negative FCF = one inequality, one penalty", "negative-FCF-quarters series critical only if 12M FCF negative or >=4 quarters; shorter series with positive FCF = minor (seasonality)"]
+  },
+  "after_matrix": {
+    "strong_buy": {"levels": ["A", "B"], "price_word": "CHEAP", "revenue_growth_min_pct": 10, "eps_growth_min_pct": 14, "reviewed_by_taras": true, "base_cagr": ">= BUY bar", "bear_scenario_cagr": ">= 0", "critical_flags": 0, "completeness_below_pct_downgrades_to_BUY": 60, "high_completeness_pct": 80},
+    "critical_flag": "no STRONG BUY / BUY -> BUY WAIT for A/B/C else AVOID",
+    "x2_arithmetic": {"horizon_years": 5, "scenario": "base only, no multiple expansion", "growth_per_year": "consensus then decay, max 25% decay per step", "multiple": "min(current, 3y average)", "base_cagr_lt_10_pct": "BUY WAIT", "between_10_and_bar": "STRONG BUY -> BUY", "bar_pct": {"A": 14, "others": 15}, "optimistic": "multiple back to mean; shown, not in verdict"},
+    "data_trust": "no NTM EPS forecast, no current multiple, or no basis -> NEED_DATA, card names fields",
+    "not_reviewed_or_ai_classified": "level <= B, verdict <= BUY with card label; no classification: position <= tracking size 1%",
+    "position_size_pct_by_level": {"A": [5, 10], "B": [5, 10], "C": [1, 5], "D": [0, 1], "E": [0, 0]},
+    "position_caps": "none > 10% of portfolio; STRONG BUY level A up to 15%; NEW: 'mega-cap also not higher' (than 15%); one sub-sector <= 30% total; reader advice, not Taras's portfolio rules"
+  },
+  "verdict_definitions": {
+    "STRONG_BUY": "buy: good company (A/B) at cheap price, x2 passes the bar, no critical flags, Taras reviewed",
+    "BUY": "buy: fair price for a good company, or cheap for level C, or a STRONG BUY lowered by arithmetic or incomplete data",
+    "BUY_WAIT": "want to buy, not now: expensive but growing; or critical flag; or arithmetic short. Card names entry price",
+    "AVOID": "do not buy: weak company (level E), broken thesis or value trap",
+    "SPEC_ONLY": "speculation only: speculative basket behind gate 0 or cheap level D; position <= tracking size",
+    "NEED_DATA": "data missing: no EPS forecast, current multiple or basis; card names fields",
+    "NOT_MINE": "not my sector: stop-list basket, analysis done fully, shadow verdict shown",
+    "public_verdict_is_computed_as": "'I do not hold it'"
+  },
+  "flags": {
+    "concentration_rule": "serious when one customer >= 25% of revenue or top-2 together >= 33%; critical when one >= 40%; a single flag; shares from annual report; customer groups only in Known risks",
+    "rows": [
+      {"key": "fcf_negative_ttm", "ua": "FCF від'ємний", "severity": "critical", "category": "quality", "penalty": true, "live": true},
+      {"key": "fcf_negative_streak", "ua": "FCF від'ємний кілька кварталів поспіль", "severity": "critical|serious|minor by streak length", "category": "quality", "penalty": true, "live": true},
+      {"key": "capex_exceeds_ocf", "ua": "capex більший за операційний кеш", "severity": "critical", "category": "quality", "penalty": true, "live": true},
+      {"key": "leverage_high", "ua": "борг вище 3x EBITDA", "severity": "critical", "category": "quality", "penalty": true, "live": true},
+      {"key": "value_trap", "ua": "вартісна пастка", "severity": "critical", "category": "price", "penalty": false, "live": true},
+      {"key": "growth_without_cash", "ua": "виручка росте, а маржа і FCF ні", "severity": "critical", "category": "quality", "penalty": true, "live": true},
+      {"key": "growth_without_profit", "ua": "виручка росте, а прибутки і маржа ні", "severity": "critical", "category": "quality", "penalty": true, "live": false},
+      {"key": "interest_eats_revenue", "ua": "відсотки зʼїдають виручку", "severity": "critical", "category": "quality", "penalty": true, "live": true},
+      {"key": "guidance_cut", "ua": "зниження guidance", "severity": "critical", "category": "quality", "penalty": true, "live": false},
+      {"key": "guidance_withdrawn", "ua": "компанія зняла guidance", "severity": "critical", "category": "quality", "penalty": true, "live": false},
+      {"key": "customer_concentration", "ua": "концентрація виручки у 2-3 клієнтах", "severity": "critical", "category": "quality", "penalty": true, "live": true},
+      {"key": "multiple_absurd", "ua": "мультиплікатор поза межами розумного", "severity": "critical", "category": "price", "penalty": false, "live": true},
+      {"key": "sbc_revenue_critical", "ua": "опціони зʼїдають виручку критично", "severity": "critical", "category": "quality", "penalty": true, "live": true},
+      {"key": "ceo_exit_guidance_withdrawn", "ua": "пішов CEO і знято guidance", "severity": "critical", "category": "quality", "penalty": true, "live": false},
+      {"key": "buyback_debt", "ua": "buybacks на позичені гроші", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "leverage_above_threshold", "ua": "борг вище 1,5x EBITDA", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "country_concentration", "ua": "виручка з однієї країни", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "opex_outgrows_revenue", "ua": "витрати ростуть швидше за виручку", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "payout_too_high", "ua": "дивіденд більше 60 % FCF", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "dividend_from_debt", "ua": "дивіденд з боргу", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "expensive_no_growth", "ua": "дорого без росту", "severity": "serious", "category": "price", "penalty": false, "live": true},
+      {"key": "adjusted_heavy", "ua": "звітний прибуток далеко від скоригованого", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "capex_external_financing", "ua": "зовнішнє фінансування capex", "severity": "serious", "category": "quality", "penalty": "table says 'penalty in score' but the prose says serious flag WITHOUT penalty (points only in discipline) - INCONSISTENT on the site", "live": true},
+      {"key": "misses_own_guidance", "ua": "компанія не виконує власний guidance", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "customer_concentration_major", "ua": "концентрація клієнтів", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "margin_compression", "ua": "маржа стискається", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "multiple_ceiling", "ua": "мультиплікатор вище стелі", "severity": "serious", "category": "price", "penalty": false, "live": true},
+      {"key": "sbc_revenue_major", "ua": "опціони зʼїдають виручку", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "kpi_down", "ua": "падіння ключового операційного KPI", "severity": "serious", "category": "quality", "penalty": true, "live": false},
+      {"key": "profit_from_investments", "ua": "прибуток від переоцінки інвестицій, не від бізнесу", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "ai_negative", "ua": "ризик дизрапції від ШІ", "severity": "serious", "category": "quality", "penalty": true, "live": false},
+      {"key": "share_dilution", "ua": "розмиття акціонерів", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "growth_on_promises", "ua": "ріст на обіцянках кількох клієнтів", "severity": "serious", "category": "quality", "penalty": true, "live": true},
+      {"key": "capex_funding_unknown", "ua": "джерела фінансування capex не видно", "severity": "minor", "category": "data", "penalty": false, "live": true},
+      {"key": "sbc_revenue_minor", "ua": "опціони помітні у виручці", "severity": "minor", "category": "quality", "penalty": "table says 'penalty in score' (but minor = 0 points by the severity scale)", "live": true},
+      {"key": "ocf_quality_unknown", "ua": "якість операційного кешу невідома", "severity": "minor", "category": "data", "penalty": false, "live": true}
+    ],
+    "not_live_inputs": [
+      {"field": "AI risk", "why": "Taras's tag, not computed", "used_by": "flag ai_negative; component moat"},
+      {"field": "recent CEO change", "why": "news not read by engine", "used_by": "flag ceo_exit_guidance_withdrawn"},
+      {"field": "guidance change", "why": "data source does not publish guidance", "used_by": "flag guidance_cut; sign 'Revenue growth'"},
+      {"field": "guidance withdrawn", "why": "news not read", "used_by": "flags ceo_exit_guidance_withdrawn, guidance_withdrawn"},
+      {"field": "main KPI direction", "why": "Taras's field, absent in our data", "used_by": "flag kpi_down"},
+      {"field": "where margin is heading", "why": "filled manually; from operating margin over 12M not yet computed", "used_by": "flag growth_without_profit; component margin"},
+      {"field": "where market share is heading", "why": "Taras's field, absent", "used_by": "component moat"}
+    ]
+  },
+  "gate0": {
+    "good_baskets": {
+      "internet_cloud": "Власники інтернету", "payments_network": "Платіжні мережі", "subscription": "Підписочні сервіси з операційним важелем",
+      "platform": "Платформи-агрегатори з мережевим ефектом", "data_monopoly": "Дата, рейтинги, індекси", "ai_infrastructure": "AI-інфраструктура з монополією на своєму вузлі", "software": "Софт за підпискою з високою маржею"
+    },
+    "neutral_baskets": {"consumer_brand": "споживчий бренд"},
+    "stop_list": ["auto", "airlines", "bank", "russia_linked", "manufacturer", "energy_utility", "crypto", "luxury", "neocloud", "reit", "defense", "restaurant", "retail", "betting", "insurance"],
+    "speculation_only": ["cyclical", "china", "biotech", "unprofitable_story", "memory", "fresh_ipo", "commodity", "pharma"],
+    "taras_exceptions": {"ASML": "only EUV company", "AVGO": "monopoly maker, Visa-like margin", "BJ": "club subscription, cheaper Costco alternative", "COST": "club subscription, benchmark of good-but-expensive", "HY9H": "memory: speculation with profit-taking", "MA": "payment network without credit risk", "NVDA": "monopoly maker, Visa-like margin", "SSU": "memory: speculation with profit-taking", "TSM": "monopoly in leading-edge chips", "V": "payment network without credit risk"},
+    "not_understood_tag": "AVOID regardless of basket",
+    "spec_position_cap_pct": 1,
+    "unprofitable_story_position_pct": [1, 3]
+  },
+  "indices": {
+    "S&P 500": {"source": "FMP: composition of fund SPY", "as_of": "2026-10-03", "companies": 501},
+    "Nasdaq 100": {"source": "FMP: composition of fund QQQ", "as_of": "2026-10-02", "companies": 100},
+    "price_comparison_uses": "ETF prices SPY / QQQ, not index values (fee difference ~0.1%/yr)",
+    "unreviewed_members": "level <= B, verdict <= BUY",
+    "dual_class": "counted once (one card)"
+  },
+  "subsector_counts_in_our_cards_2026-10-03": {
+    "автомобілі": 2, "авіабудування": 2, "авіадвигуни": 1, "аеротаксі": 3, "аналітика даних": 1, "аукціони": 1, "бази даних": 3, "банки": 1, "біткоїн-казначейство": 1, "важка техніка": 1, "вантажні перевезення": 1, "вантажівки": 1, "вертикальний софт": 4, "ветеринарна діагностика": 1, "виробництво чіпів": 1, "відеозвʼязок": 1, "готелі": 1, "громадська безпека": 1, "доставка": 1, "екомерс": 4, "електроенергія": 6, "залізниця": 1, "клауд": 4, "клубна підписка": 1, "конгломерат": 2, "корпоративний софт": 4, "космос": 2, "креативний софт": 2, "кібербезпека": 7, "ліки": 7, "ліцензування чіпів": 2, "медичне страхування": 1, "медичні пристрої": 3, "мережеве обладнання": 1, "мобільність": 2, "напої": 5, "нафта і газ": 5, "нафтосервіс": 1, "обладнання для енергетики": 1, "обладнання для чіпів": 5, "оборона": 1, "одяг": 2, "оптика": 1, "оренда": 1, "оренда GPU потужностей": 2, "оренда казино": 1, "освіта": 1, "памʼять": 7, "платежі": 5, "послуги для бізнесу": 1, "пошук": 0, "промислова дистрибуція": 1, "промислові гази": 1, "професійні дані": 1, "реклама": 5, "ресторани": 2, "роботизація складів": 1, "розкіш": 2, "розрахунок зарплат": 2, "роялті на землю": 1, "рітейл": 2, "рітейл автозапчастин": 1, "рітейл краси": 1, "скоринг": 1, "снеки": 2, "софт для проєктування чіпів": 2, "споживча електроніка": 2, "спостереження за системами": 1, "ставки": 1, "стримінг": 3, "стримінг музики": 1, "супутники і спектр": 1, "телеком": 4, "телемедицина": 1, "тревел": 2, "фінансовий софт": 1, "фінансові дані": 2, "фінтех": 1, "чіпи": 12, "ігри": 1, "інфраструктурне будівництво": 1
+  },
+  "methodology_page_sections": ["gate0", "gate1", "gate2", "matrix", "after", "verdicts", "flags", "not-fed", "indices", "subsectors"]
+}

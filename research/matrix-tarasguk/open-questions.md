@@ -23,3 +23,21 @@
     - Scatter/"Карта матриці" formula for X (sum of lenses incl. regime bonus) and the 4 unplotted BUY-zone names.
     - Taras's "Оцінка"/tags (what values exist besides STRONG BUY? review states: переглянув / частково / лише рушій).
     See also rules-supplement.md section E for internal inconsistencies to verify.
+
+
+## Open questions added 2026-10-03
+14. Access: where did the invite-code test access go? `/access/` now offers free showcase vs paid plan only; confirm with the site owner if the full 164-card beta set is still obtainable.
+15. Hysteresis state machine (lenses: 5 % band around the threshold; level: 2 points) needs two or more daily snapshots to pin down.
+16. "х2 досягається у році N" formula, next-verdict price route (candidate-multiple search?) and EPS-growth route.
+17. High buy-back threshold in Capital & SBC (between 1.7 % and 3.2 % of market cap) and the exact buy-back/dividend adjustment constants (single observations).
+18. Registry-only inputs (basket, business type, moat, growth source, capex funding, reviewed flag) cannot be derived; AI-assisted drafts ("чернетка ШІ") for guidance and one-off items are a hidden input.
+19. Which companies/types behave differently (non-US, REIT P/FFO, banks, loss-making, biotech, level E, БРАКУЄ ДАНИХ, ЛИШЕ СПЕКУЛЯЦІЯ): only observable on the paid tier.
+20. Flag firing thresholds for about 15 flags (formulas/flags-catalogue.md) and the data-completeness weights of all other fields.
+
+## Open questions after the paid-tier pass
+21. Raw-data layer: validate rebuilding ROIC, SBC/FCF, net cash, debt/EBITDA, NTM EPS (quarterly consensus sum), normalised EPS and FX from SEC/FMP against the printed inputs (replica currently takes them as displayed).
+22. FY+3 consensus (1-2 analysts) used by x2 step 1 for short FY tables; doubling year; next-verdict price and EPS-growth routes.
+23. Price-word outliers (value trap: AIG, CLX, OXY, GPN, MET, APO, DAL, DTE...), 2 unexplained own-history lens scores (CRWD, PANW), level hysteresis state machine (LHX).
+24. Registry E tag ("бізнес незрозумілий"): AEP, BMY, CEG, NEE, SKM, VST, GEV, JPM, LMN, VIST - which rule sets it?
+25. Flags with unknown numeric triggers; AI-drafted guidance/one-off items.
+26. Daily history series (level history 12-16 days, verdict history, quadrant after 63 snapshots) — capture again on later days.
