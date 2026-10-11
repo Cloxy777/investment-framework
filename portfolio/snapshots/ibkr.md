@@ -1,96 +1,66 @@
 # IBKR Portfolio Snapshot
 
 **Account:** U19421206
-**Positions last synced:** 2026-09-27 (live via Interactive Brokers MCP — `get_account_positions`, via `/sync-portfolio`)
-**Cash balances last synced:** 2026-09-27 (live via Interactive Brokers MCP — `get_account_balances`, via `/sync-portfolio`)
-**Account summary:** Net Liquidation $50,732.36 (broker-reported, BASE) · Gross Position Value $50,511.22 (sum of positions below, RGL/TRN/XEON converted at live FX) · Total Cash (USD-equiv) **$103.51** (broker-reported, BASE) · Unrealized P&L +$3,237.89 (broker-reported, BASE/USD-consolidated)
+**Positions last synced:** 2026-10-11 (live via Interactive Brokers MCP — `get_account_positions`, via manual `/sync-portfolio`)
+**Cash balances last synced:** 2026-10-11 (live via Interactive Brokers MCP — `get_account_balances`, via manual `/sync-portfolio`)
+**Account summary:** Net Liquidation $57,211.16 (broker-reported, BASE) · Gross Position Value $51,751.39 (sum of positions below, non-USD converted at live FX; includes the -$71.29 short-put mark) · Total Cash (USD-equiv) **$5,465.05** (broker-reported, BASE) · Unrealized P&L +$4,124.69 (broker-reported, BASE/USD-consolidated)
 
-**Ticker resolution note:** all 25 positions resolved directly from the MCP's `contract_description` field — no `CONID_XXXXXXX` placeholders needed. `RGL @ASX` and `TRN @LSE` normalized (exchange suffix stripped) for consistency with `holdings.md`. **Ticker-lookup CSV not re-fetched this sync** — not needed (every position resolved via `contract_description`); the stored copy is now 27 days stale (last refreshed 2026-08-31).
+**Ticker resolution note:** all 27 positions resolved directly from the MCP's `contract_description` field — no `CONID_XXXXXXX` placeholders. `RGL @ASX`, `LM8 @ASX`, `TRN @LSE`, `XEON @IBIS2` normalized (exchange suffix stripped); `BULL Feb19'27 5 PUT @AMEX` kept as an option row. Ticker-lookup CSV re-fetched live this sync (HTTP 200, needed `--ssl-no-revoke` because Windows schannel could not check certificate revocation) and the stored fallback overwritten.
 
-> ## 🚨 URGENT — ADBE position doubled (10 → 20 shares) with no matching order or session on record
->
-> ADBE's share count jumped from 10 (2026-09-20 sync) to 20 this sync. The blended average cost (now $221.09, up from $202.07) implies the added 10 shares were bought at **~$240.10/share**. No active-order entry for ADBE appeared in any prior `ibkr-orders.md` sync (the only ADBE order on file, 1071856795, has been `REPLACED` with no live successor since 2026-09-11) — there is no order this fill could be tracing back to, and no `sessions/`/`decisions/` entry documents an ADBE add. **Flagged as urgent for the user: confirm this trade in TWS/Client Portal and either document the rationale (Rule 10) or investigate how it happened.** Logged in [override-log.md](../override-log.md).
->
-> ## 🚨 NEW POSITION — BKNG filled: 10 shares @ ~$159.10 avg cost
->
-> This is the fill of the order flagged as undocumented for five consecutive syncs (483688084, BUY 10 @ $159.00 GTC, placed 2026-08-24) — see [ibkr-orders.md](ibkr-orders.md). BKNG's only evaluation on file, the [2026-08-05 new-position session](../../sessions/2026-08-05-new-position-bkng.md), explicitly concluded **"WATCHLIST ONLY — do not enter"** (Composite Score 21.6 — nominally a "Very Cheap" band that would authorize a 6–8% position, but Risk/Reward fails the 2:1 minimum at every authorized MoS/stop combination, best case 1.25:1). No `sessions/`/`decisions/` entry overrides that call. **Flagged as urgent for the user: document the reasoning or treat as an error to unwind.** Logged in [override-log.md](../override-log.md). Watchlist entry moved `not-in-portfolio/` → `in-portfolio/` per [watchlist/README.md](../../watchlist/README.md).
->
-> ## ✅ AVGO's previously-flagged urgent order appears resolved — no longer live, position unchanged
->
-> The AVGO BUY 5 @ $310.60 GTC order (87937891), flagged urgent for two consecutive syncs as contradicting AVGO's own 2026-09-15 rescore ("No order is placed"), **no longer appears in this sync's order fetch in any status**, and the AVGO position is unchanged (still 6 shares, avg cost unchanged at $382.4417) — confirming it did not fill. Reads as a manual cancellation in TWS/Client Portal, consistent with "no tool in this repo places, modifies, or cancels a broker order." Not confirmed with certainty (see order-fetch coverage note below); worth a quick TWS check to be sure.
->
-> ## ⚠️ TRN BUY 900 @ £1.756 GTC — status changed NEW → `PENDING_CANCEL`
->
-> Order 1528612089 (originally placed 2026-09-11, still contradicting the [2026-09-10 rescore](../../sessions/2026-09-10-rescore-trn.md)'s explicit HOLD/no-top-up call) now shows status `PENDING_CANCEL` as of 2026-09-26 — a cancel request appears to be in flight but not yet confirmed complete. `PENDING_CANCEL` isn't one of [sync-sop.md](../sync-sop.md)'s named active/inactive statuses; conservatively excluded from the active-orders table below (see [glossary.md](../../framework/glossary.md#pending_cancel-order-status) — new term added this sync) since it's headed toward cancellation, but not yet confirmed resolved. GBP cash remains $0.00. Worth a TWS check to confirm the cancel completed.
->
-> ## 🚨 RBRK and ZS Rule 9 rescores now 10 days overdue
->
-> Both [#801](https://github.com/Cloxy777/investment-framework/issues/801) (RBRK) and [#802](https://github.com/Cloxy777/investment-framework/issues/802) (ZS) were due 2026-09-17 and remain open. Neither ticker's `holdings.md` review date has moved. RBRK is now $110.00 (vs. $100.20 that triggered #801); ZS is now $193.01 (vs. $191.73 that triggered #802).
->
-> ## SPOT position remains absent — now 10 consecutive syncs (since 2026-08-02)
->
-> No new information this sync; still flagged for the user to confirm directly in TWS/Client Portal. See [holdings.md](../holdings.md).
->
-> ## Order-fetch coverage note — this sync's `get_account_orders` returned only 7 total records (11 active + 2 non-active last sync)
->
-> Per [sync-sop.md](../sync-sop.md), this call is documented to return "every order on record," but several previously-tracked order IDs (AVGO 87937891, ADBE 1071856795 `REPLACED`, NVDA 1306197667, PDD 1150965513, TSM 510436581) are absent from this fetch in **any** status, not just excluded as inactive. Positions confirm no fills occurred for NVDA (unchanged share count/avg cost), and no PDD/TSM position exists — consistent with cancellation, not a fill silently missed. But this is the first sync where "every order on record" hasn't held in practice; worth noting in case the MCP's returned window has a retention limit, which would affect how much this repo can rely on that claim going forward.
->
-> ## ⚠️ TLT short call order (1040104046) still absent from this sync's order fetch, in any status — now 4 consecutive syncs
->
-> First flagged missing in the 2026-09-06 sync. Worth a manual TWS/Client Portal check for whether it filled, expired, or was cancelled; not resolved by this sync.
+> **Change vs. 2026-10-04:** two new positions — **LM8** (1,800 sh @ ASX, AUD; matches the BUY 1800 @ A$0.30 order flagged last sync as "not a current holding — verify intent", now filled) and **BULL Feb19'27 $5 PUT, short 2 contracts** (a new option position, USD; no matching order or session on file). Otherwise same 25 tickers and share counts. **Net Liquidation $50,411.80 → $57,211.16 (+$6,799.36)** and **Total Cash $117.37 → $5,465.05 (+$5,347.68)**: market moves explain only part of the NLV rise; the EUR (+€3,520) and AUD (+A$952) cash balances appeared this week, consistent with a deposit/FX conversion — **not documented anywhere; confirm in Client Portal.** Carried-forward items that remain **unresolved**: ADBE doubling (10 → 20) and BKNG fill (both undocumented), RBRK/ZS Rule 9 rescores overdue ([#801](https://github.com/Cloxy777/investment-framework/issues/801), [#802](https://github.com/Cloxy777/investment-framework/issues/802)), SPOT absent (now 12 consecutive syncs), TLT short-call order still absent from the orders fetch, and two ungoverned equity positions (RGL, MBGL).
 
-> **Two ungoverned equity positions still present (RGL, MBGL) — see [override-log.md](../override-log.md) for detail, unchanged this sync.**
+> **Three ungoverned equity positions now present (RGL, MBGL, LM8)** plus an ungoverned short-put position (BULL) — see [override-log.md](../override-log.md).
 
 | Ticker | Shares | Market Price | Market Value | Avg Cost | Unrealized P&L | P&L % | Currency | Contract ID |
 |--------|--------|--------------|--------------|----------|----------------|-------|----------|-------------|
-| **ADBE** | **20** | 235.62 | 4,712.40 | 221.0850 | +290.70 | +6.58% | USD | 265768 |
-| AMZN | 12 | 248.98 | 2,987.76 | 210.5885 | +460.70 | +18.23% | USD | 3691937 |
-| AVGO | 6 | 352.30 | 2,113.80 | 382.4417 | -180.85 | -7.88% | USD | 313130367 |
-| **BKNG** | **10 (new)** | 164.60 | 1,646.00 | 159.1000 | +55.00 | +3.46% | USD | 308728373 |
-| CSGP | 25 | 28.09 | 702.25 | 35.0400 | -173.75 | -19.83% | USD | 6726677 |
-| DUOL | 30 | 143.51 | 4,305.30 | 168.2479 | -742.14 | -14.71% | USD | 505002183 |
-| GOOG | 1 | 339.80 | 339.80 | 295.7000 | +44.10 | +14.91% | USD | 208813720 |
-| **MBGL** | 1 | 17.87 | 17.87 | 19.8924 | -2.02 | -10.17% | USD | 893054611 |
-| META | 5 | 747.60 | 3,738.00 | 575.0560 | +862.72 | +30.01% | USD | 107113386 |
-| MSFT | 17 | 516.18 | 8,775.06 | 391.2165 | +2,124.38 | +31.94% | USD | 272093 |
-| NFLX | 12 | 71.07 | 852.84 | 87.7905 | -200.65 | -19.05% | USD | 15124833 |
-| NKE | 20 | 35.99 | 719.80 | 43.3100 | -146.40 | -16.90% | USD | 10291 |
-| NOW | 9 | 135.60 | 1,220.40 | 87.6100 | +431.91 | +54.77% | USD | 109911821 |
-| NVDA | 19 | 224.50 | 4,265.50 | 182.5059 | +797.89 | +23.01% | USD | 4815747 |
-| NVO | 5 | 38.67 | 193.35 | 42.5400 | -19.35 | -9.10% | USD | 10611 |
-| RBRK | 3 | 110.00 | 330.00 | 58.0962 | +155.71 | +89.34% | USD | 699030013 |
-| **RGL** | 60,000 | 0.0100 (AUD) | 600.00 (AUD) | 0.0111 | -66.43 | -9.97% | AUD | 291951342 |
-| SPGI | 1 | 403.30 | 403.30 | 391.1076 | +12.19 | +3.12% | USD | 229629397 |
-| TLT | 100 | 79.00 | 7,900.00 | 87.6030 | -860.30 | -9.82% | USD | 15547841 |
-| TRN | 600 | 1.943 (GBP) | 1,165.80 | 2.1195 | -105.91 | -8.33% | GBP | 371871705 |
-| UBER | 3 | 69.66 | 208.98 | 82.0233 | -37.09 | -15.07% | USD | 365207014 |
-| V | 1 | 365.98 | 365.98 | 319.5100 | +46.47 | +14.54% | USD | 49462172 |
-| VEEV | 3 | 280.60 | 841.80 | 164.8333 | +347.30 | +70.21% | USD | 136254493 |
-| XEON | 10 | 150.34 (EUR) | 1,503.40 | 149.0250 | +13.15 | +0.88% | EUR | 46041702 |
-| ZS | 1 | 193.01 | 193.01 | 157.1600 | +35.85 | +22.81% | USD | 310621426 |
+| ADBE | 20 | 242.27 | 4,845.40 | 221.0850 | +423.70 | +9.58% | USD | 265768 |
+| AMZN | 12 | 262.43 | 3,149.16 | 210.5885 | +622.10 | +24.62% | USD | 3691937 |
+| AVGO | 6 | 362.25 | 2,173.50 | 382.4417 | -121.15 | -5.28% | USD | 313130367 |
+| BKNG | 10 | 160.73 | 1,607.30 | 159.1000 | +16.30 | +1.02% | USD | 308728373 |
+| BULL Feb19'27 5 PUT (short) | -2 | 0.3564 | -71.29 | 0.5432 | +37.34 | +34.4% (of credit) | USD | 893374059 |
+| CSGP | 25 | 29.72 | 743.00 | 35.0400 | -133.00 | -15.18% | USD | 6726677 |
+| DUOL | 30 | 149.22 | 4,476.60 | 168.2479 | -570.84 | -11.31% | USD | 505002183 |
+| GOOG | 1 | 347.90 | 347.90 | 295.7000 | +52.20 | +17.65% | USD | 208813720 |
+| LM8 | 1,800 | 0.3400 (AUD) | 612.00 (AUD) | 0.3033 | +66.00 | +12.09% | AUD | 496591503 |
+| MBGL | 1 | 18.22 | 18.22 | 19.8924 | -1.67 | -8.41% | USD | 893054611 |
+| META | 5 | 718.67 | 3,593.35 | 575.0560 | +718.07 | +24.97% | USD | 107113386 |
+| MSFT | 17 | 535.00 | 9,095.00 | 391.2165 | +2,444.32 | +36.75% | USD | 272093 |
+| NFLX | 12 | 70.32 | 843.82 | 87.7905 | -209.67 | -19.90% | USD | 15124833 |
+| NKE | 20 | 34.92 | 698.40 | 43.3100 | -167.80 | -19.37% | USD | 10291 |
+| NOW | 9 | 140.86 | 1,267.74 | 87.6100 | +479.25 | +60.78% | USD | 109911821 |
+| NVDA | 19 | 229.33 | 4,357.27 | 182.5059 | +889.66 | +25.66% | USD | 4815747 |
+| NVO | 5 | 38.64 | 193.20 | 42.5400 | -19.50 | -9.17% | USD | 10611 |
+| RBRK | 3 | 125.14 | 375.42 | 58.0962 | +201.13 | +115.40% | USD | 699030013 |
+| RGL | 60,000 | 0.0080 (AUD) | 480.00 (AUD) | 0.0111 | -186.43 | -27.97% | AUD | 291951342 |
+| SPGI | 1 | 407.82 | 407.82 | 391.1076 | +16.71 | +4.27% | USD | 229629397 |
+| TLT | 100 | 77.97 | 7,796.66 | 87.6030 | -963.64 | -11.00% | USD | 15547841 |
+| TRN | 600 | 2.0940 (GBP) | 1,256.40 (GBP) | 2.1195 | -15.31 | -1.20% | GBP | 371871705 |
+| UBER | 3 | 71.37 | 214.11 | 82.0233 | -31.96 | -12.99% | USD | 365207014 |
+| V | 1 | 385.45 | 385.45 | 319.5100 | +65.94 | +20.64% | USD | 49462172 |
+| VEEV | 3 | 296.13 | 888.39 | 164.8333 | +393.89 | +79.65% | USD | 136254493 |
+| XEON | 10 | 150.46 (EUR) | 1,504.63 (EUR) | 149.0250 | +14.38 | +0.96% | EUR | 46041702 |
+| ZS | 1 | 234.01 | 234.01 | 157.1600 | +76.85 | +48.90% | USD | 310621426 |
 
-> **Note on Gross Position Value vs. Net Liquidation:** Gross Position Value (sum of live position market values above, $50,511.22) plus Total Cash ($103.51) = $50,614.73, ~$117.63 **below** broker-reported Net Liquidation ($50,732.36) — consistent with the same `get_account_positions` (live/intraday) vs. `get_account_balances` (settled, slightly lagged) timing mismatch noted in prior syncs, widened this week by the BKNG fill and ADBE add landing between the two calls; not a calculation error.
+> **Note on Gross Position Value vs. Net Liquidation:** Gross Position Value ($51,751.39) plus Total Cash ($5,465.05) = $57,216.44 vs. broker-reported Net Liquidation ($57,211.16) — the difference ($-5.28) is the live-vs-settled timing/FX-rounding mismatch noted in prior syncs. Broker-reported BASE stock market value is $51,817.96; the $66.57 gap vs. the row sum is the option mark (-$71.29) plus rounding.
 
-> **Currency note:** all positions are USD except **TRN** (GBP, LSE), **XEON** (EUR), and **RGL** (AUD, ASX). USD-equivalents (used for `holdings.md` weighting) use the live FX rates below, fetched directly from `get_account_balances` — never assumed.
+> **Currency note:** all positions are USD except **TRN** (GBP, LSE), **XEON** (EUR), and **RGL** / **LM8** (AUD, ASX). USD-equivalents use the live FX rates below, fetched directly from `get_account_balances` — never assumed.
 
 ## Cash Balances
 
-Source: `get_account_balances` (one entry per currency the account holds, plus a `BASE` row consolidating everything to USD using IBKR's live FX rates).
+Source: `get_account_balances` (one entry per currency, plus a `BASE` row consolidating to USD at IBKR's live FX rates).
 
 | Currency | Cash Balance | Settled Cash | FX Rate → USD | USD Equivalent |
 |----------|--------------|--------------|----------------|-----------------|
-| USD | -155.30 | -155.30 | 1.0000000 | -155.30 |
-| EUR | 227.49 | 227.49 | 1.1391001 | 259.14 |
-| GBP | 0.00 | 0.00 | 1.3244900 | 0.00 |
-| AUD | 0.00 | 0.00 | 0.7023521 | 0.00 |
-| **Total (USD-equiv)** | | | | **103.51** |
+| USD | 602.23 | 602.23 | 1.0000000 | 602.23 |
+| EUR | 3,747.94 | 3,747.94 | 1.1201513 | 4,198.26 |
+| GBP | 0.00 | 0.00 | 1.3236995 | 0.00 |
+| AUD | 951.80 | 951.80 | 0.6982193 | 664.57 |
+| **Total (USD-equiv)** | | | | **5,465.05** |
 
-*Row-by-row FX conversion sums to $103.84; the Total above uses the broker-reported BASE `cash_balance` (103.5054) directly, per Rule 0 — the ~$0.33 gap is a rounding artifact, not an error.*
+*Row-by-row FX conversion sums to $5,465.05, matching the broker-reported BASE `cash_balance` (5,465.0549).*
 
-*The same GBP→USD rate (1.3244900) applied to TRN's £1,165.80 market value gives its USD-equivalent: **$1,544.09** — used in `holdings.md` for weighting. The same EUR→USD rate (1.1391001) applied to XEON's €1,503.40 market value gives its USD-equivalent: **$1,712.52**. The same AUD→USD rate (0.7023521) applied to RGL's AUD $600.00 market value gives its USD-equivalent: **$421.41**.*
+*Live-FX USD-equivalents of non-USD positions: TRN £1,256.40 × 1.3236995 = **$1,663.10**; XEON €1,504.63 × 1.1201513 = **$1,685.41**; RGL A$480.00 × 0.6982193 = **$335.15**; LM8 A$612.00 × 0.6982193 = **$427.31**.*
 
-> **USD cash balance is negative (-$155.30)** — a small margin debit, consistent with this week's BKNG fill (~$1,591 cash outlay) and ADBE add (~$2,401 cash outlay) exceeding available settled cash between syncs. Not flagged as an error; the two undocumented trades above are the far more material issue this week.
->
-> **Cash swung from +$4,097.84 (2026-09-20) to +$103.51 this sync**, a -$3,994.33 change (BASE) over the 7-day window — consistent with the ADBE add (~$2,401) and BKNG fill (~$1,591) cash outlays identified above (~$3,992 combined), which reconciles the swing. **The still-unresolved +$2,523.36 cash jump flagged 2026-08-09 remains open and uninvestigated.**
+> **USD cash balance is positive again (+$602.23)** — the small margin debit of last sync (-$138.74) is gone. The new EUR (+€3,520) and AUD (+A$952) cash is unexplained by any order or session on file.
 
-*This file has two independently-refreshed sections — the positions table (via `/sync-positions`) and the Cash Balances table (via `/sync-balances`), each with its own "last synced" timestamp above. `/sync-portfolio` runs both together (plus `/sync-orders`). See [sync-sop.md](../sync-sop.md). Prior snapshots live in git history, not as separate files.*
+*This file has two independently-refreshed sections — the positions table and the Cash Balances table, each with its own "last synced" timestamp above. See [sync-sop.md](../sync-sop.md). Prior snapshots live in git history.*
