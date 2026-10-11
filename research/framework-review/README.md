@@ -1,6 +1,6 @@
 # Framework review vs. the Matrix — index and executive summary
 
-Review of this repo's *Quality Value + Dynamic Trimming* framework against the external reference system documented in `[matrix research folder]/`. **Proposals only** — no framework, portfolio, script or command file was changed. Draft for your review; nothing has been adopted.
+Review of this repo's *Quality Value + Dynamic Trimming* framework against the external reference system documented in `research/matrix-reference/`. **Proposals only** — no framework, portfolio, script or command file was changed. Draft for your review; nothing has been adopted.
 
 ## Files
 

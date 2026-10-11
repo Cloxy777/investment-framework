@@ -1,6 +1,6 @@
 # Part 5 — Validation: paired comparison, backtest design, acceptance criteria
 
-Nothing in this document recomputes a score. All repo figures are **read from existing dated watchlist entries** (`watchlist/**`) and `portfolio/holdings.md`; Matrix figures are from `[matrix research folder]/rules-supplement.md` section D (`RS`), captured **2026-09-29**. The two sides are therefore **not contemporaneous** (dates differ by 2 days to 3.5 months, and prices moved). Where a disagreement could be a pure time effect, that is said. If any valuation is ever recomputed from this table, Rule 0 applies first (live price, `framework/fair-value-methodology.md:13-30`). Labels: **[F]** fact, **[I]** inference, **[O]** opinion.
+Nothing in this document recomputes a score. All repo figures are **read from existing dated watchlist entries** (`watchlist/**`) and `portfolio/holdings.md`; Matrix figures are from `research/matrix-reference/rules-supplement.md` section D (`RS`), captured **2026-09-29**. The two sides are therefore **not contemporaneous** (dates differ by 2 days to 3.5 months, and prices moved). Where a disagreement could be a pure time effect, that is said. If any valuation is ever recomputed from this table, Rule 0 applies first (live price, `framework/fair-value-methodology.md:13-30`). Labels: **[F]** fact, **[I]** inference, **[O]** opinion.
 
 ## 1. Paired comparison on overlapping tickers
 

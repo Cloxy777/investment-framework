@@ -2,7 +2,7 @@
 
 Read this with [01-verification.md](01-verification.md): Matrix claims are graded there (High/Medium/Low confidence). Where a row rests on a **Low**-confidence Matrix rule, the verdict says so.
 
-Legend. **Type**: *Matrix-only* (repo has nothing equivalent) · *Repo-only* · *Both-different-thresholds* (same idea, different numbers/method) · *Conflict* (the two disagree on principle). **Verdict**: *adopt* (copy the mechanism) · *adapt* (import the idea, change the form) · *ignore* · *keep ours*. Proposal IDs (P-nnn) point to [03-proposals.md](03-proposals.md). Matrix cites: `RM` = `[matrix research folder]/rules-and-metrics.md`, `RS` = `rules-supplement.md`, `CC` = `screens/company-card.md`. Separation: **[F]** fact, **[I]** inference, **[O]** opinion.
+Legend. **Type**: *Matrix-only* (repo has nothing equivalent) · *Repo-only* · *Both-different-thresholds* (same idea, different numbers/method) · *Conflict* (the two disagree on principle). **Verdict**: *adopt* (copy the mechanism) · *adapt* (import the idea, change the form) · *ignore* · *keep ours*. Proposal IDs (P-nnn) point to [03-proposals.md](03-proposals.md). Matrix cites: `RM` = `research/matrix-reference/rules-and-metrics.md`, `RS` = `rules-supplement.md`, `CC` = `screens/company-card.md`. Separation: **[F]** fact, **[I]** inference, **[O]** opinion.
 
 ## A. Gap table
 

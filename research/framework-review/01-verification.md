@@ -1,8 +1,8 @@
-# Part 1 — Verification of the Matrix research (`[matrix research folder]/`)
+# Part 1 — Verification of the Matrix research (`research/matrix-reference/`)
 
 Scope: re-derive the worked examples and test vectors, audit internal consistency, resolve or sharpen the open items, and grade each rule block as a spec for re-implementation. **Proposals only — no source file was edited.** Status of this document: draft for user review.
 
-Notation: **[F]** fact (read directly in a file), **[I]** inference (my deduction), **[O]** opinion. Paths are relative to the repo root. `RM` = `[matrix research folder]/rules-and-metrics.md`, `RS` = `[matrix research folder]/rules-supplement.md`, `CC` = `[matrix research folder]/screens/company-card.md`, `OQ` = `[matrix research folder]/open-questions.md`.
+Notation: **[F]** fact (read directly in a file), **[I]** inference (my deduction), **[O]** opinion. Paths are relative to the repo root. `RM` = `research/matrix-reference/rules-and-metrics.md`, `RS` = `research/matrix-reference/rules-supplement.md`, `CC` = `research/matrix-reference/screens/company-card.md`, `OQ` = `research/matrix-reference/open-questions.md`.
 
 > Site access was **not** used. Everything below is re-computation or cross-reading of what was already captured. Facts that need the live site are marked `LIVE` and collected in [open-questions-for-user.md](open-questions-for-user.md).
 
