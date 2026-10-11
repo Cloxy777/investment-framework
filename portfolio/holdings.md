@@ -22,9 +22,9 @@ Combined total ≈ **$68,101.12** = IBKR Net Liquidation Value $57,211.16 + Free
 >
 > The AVGO BUY 5 @ $310.60 GTC order (87937891) no longer appears in this sync's order fetch, and the AVGO position is unchanged — consistent with a manual cancellation. See [ibkr.md](snapshots/ibkr.md) for the caveat on this sync's order-fetch coverage.
 >
-> ## 🚨 RBRK and ZS Rule 9 rescores now 10 days overdue
+> ## ✅ RBRK and ZS Rule 9 rescores done 2026-10-11 (issues [#801](https://github.com/Cloxy777/investment-framework/issues/801), [#802](https://github.com/Cloxy777/investment-framework/issues/802))
 >
-> [#801](https://github.com/Cloxy777/investment-framework/issues/801) (RBRK) and [#802](https://github.com/Cloxy777/investment-framework/issues/802) (ZS) were due 2026-09-17 and remain open — **10 days overdue** as of this sync. Neither ticker's Last Review date below has moved since the trigger. Both names have moved further since: RBRK now $110.00, ZS now $193.01.
+> The 2026-09-14 +15–16% moves were a sector-wide cybersecurity rally, not company news. **RBRK:** still fails the FCF-positive hard disqualifier (best-case Quality ≤65.0), still not scored — [session](../sessions/2026-10-11-rescore-rbrk.md). **ZS:** Valuation 47.9 → **65.7** (price +37.7%, 10Y now 5.24% → Rate Modifier +15), Quality 59.4 (fails gate), Composite 53.2 (ref only) — HOLD, in the 50–69.9 hold band; no `override-log.md` entry for either still outstanding — [session](../sessions/2026-10-11-rescore-zs.md).
 >
 > ## ⚠️ TRN BUY 900 @ £1.756 GTC — status changed to `PENDING_CANCEL`, not yet confirmed complete
 >
@@ -72,7 +72,7 @@ Combined total ≈ **$68,101.12** = IBKR Net Liquidation Value $57,211.16 + Free
 | NOW | 1.86%⚠️ | 75.9 | 73.2 | 51.4 (ref only, gate fail) | 09 Aug 2026 | IBKR |
 | NVDA | 6.40% | 36.2 | 90.3 | 23.0 | 17 Sep 2026 | IBKR |
 | NVO | 0.28% | 51.4 | 67.2 | 42.1 (ref only, gate fail) | 09 Aug 2026 | IBKR |
-| RBRK | 0.55%🚨 | not scored — fails quality gates | | | 30 Aug 2026 | IBKR |
+| RBRK | 0.55% | not scored — fails quality gates | | | 11 Oct 2026 | IBKR |
 | **RGL** | 0.49% | not scored — ungoverned position, see note above | | | n/a | IBKR |
 | SPGI | 0.60% | 31.3 | 67.7 | 31.8 | 09 Aug 2026 | IBKR |
 | TLT | 25.66% | not scored — non-equity, framework gap | | | Jun 2026 | IBKR + Freedom24 |
@@ -81,7 +81,7 @@ Combined total ≈ **$68,101.12** = IBKR Net Liquidation Value $57,211.16 + Free
 | V | 0.57% | 54.5 | 85.6 | 34.5 | 29 Jul 2026 | IBKR |
 | VEEV | 1.30% | 65.9 | 86.0 | 40.0 | 30 Aug 2026 | IBKR |
 | XEON | 2.47% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
-| ZS | 0.34%🚨 | 47.9 | 59.4 | 44.3 | 07 Sep 2026 | IBKR |
+| ZS | 0.34% | 65.7 | 59.4 | 53.2 (ref only, gate fail) | 11 Oct 2026 | IBKR |
 
 **🚨 RBRK and ZS weights above are pre-Rule-9-rescore** — see the flag at the top of this file; both are overdue for `/rescore` per [#801](https://github.com/Cloxy777/investment-framework/issues/801) and [#802](https://github.com/Cloxy777/investment-framework/issues/802).
 
