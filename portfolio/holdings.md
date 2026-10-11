@@ -14,7 +14,7 @@ Combined total ≈ **$68,101.12** = IBKR Net Liquidation Value $57,211.16 + Free
 >
 > **ADBE:** position doubled with no matching order ever tracked in [ibkr-orders.md](snapshots/ibkr-orders.md) and no `sessions/`/`decisions/` entry. Implied purchase price ~$240.10/share for the added 10 shares.
 >
-> **BKNG:** the order flagged as undocumented for five consecutive syncs (483688084, BUY 10 @ $159.00 GTC) has filled. BKNG's only evaluation on file, the [2026-08-05 new-position session](../sessions/2026-08-05-new-position-bkng.md), explicitly concluded **"WATCHLIST ONLY — do not enter"** (R/R fails the 2:1 minimum at every authorized MoS/stop). No override or decision documents this fill.
+> **BKNG:** the order flagged as undocumented for five consecutive syncs (483688084, BUY 10 @ $159.00 GTC) has filled. A fresh [2026-10-11 rescore](../sessions/2026-10-11-rescore-bkng.md) (Quality 91.9 / Valuation 20.8 / Composite 14.4) concludes **HOLD — keep the existing shares, do not add more** (the mandatory 2:1 R/R gate still fails at every authorized MoS/stop combination, best case 1.25:1 — same structural block as the original 2026-08-05 "WATCHLIST ONLY" conclusion, now applied to an actual holding instead of a prospective entry). **This rescore does not resolve why the fill happened without an order/decision on file** — that documentation gap remains open in override-log.md.
 >
 > Both logged in [override-log.md](override-log.md) this sync. **Flagged as urgent for the user: confirm both trades in TWS/Client Portal and either document the rationale (Rule 10) or treat as errors to unwind.** Full detail: [ibkr.md](snapshots/ibkr.md).
 >
@@ -55,7 +55,7 @@ Combined total ≈ **$68,101.12** = IBKR Net Liquidation Value $57,211.16 + Free
 | **ADBE** | **7.12%🚨** | 0.0 | 83.3 | 8.4 | 11 Sep 2026 | IBKR |
 | AMZN | 4.62% | 82.7 | 56.7 | 63.0 | 01 Aug 2026 | IBKR (Freedom24 leg sold — see note above) |
 | AVGO | 3.19% | 71.3 | 86.3 | 42.5 | 28 Sep 2026 | IBKR |
-| **BKNG** | **2.36%🚨 (new)** | not scored — "WATCHLIST ONLY, do not enter" per [2026-08-05 session](../sessions/2026-08-05-new-position-bkng.md) | 89.6 | 21.6 | n/a (no `/new-position` re-run) | IBKR |
+| **BKNG** | **2.36%🚨** | 20.8 | 91.9 | 14.4 | 11 Oct 2026 | IBKR |
 | CASH (Freedom24) | 0.07% | | | | | Freedom24 |
 | CASH (IBKR) | 8.02% | | | | | IBKR |
 | CSGP | 1.09% | 84.8 | 69.2 | 57.8 | 09 Aug 2026 | IBKR |
@@ -85,7 +85,7 @@ Combined total ≈ **$68,101.12** = IBKR Net Liquidation Value $57,211.16 + Free
 
 **🚨 RBRK and ZS weights above are pre-Rule-9-rescore** — see the flag at the top of this file; both are overdue for `/rescore` per [#801](https://github.com/Cloxy777/investment-framework/issues/801) and [#802](https://github.com/Cloxy777/investment-framework/issues/802).
 
-**🚨 ADBE and BKNG rows above carry the undocumented trades flagged at the top of this file** — ADBE's Last Score/Quality Score/Composite Score predate this week's undocumented share add (no rescore has run since); BKNG's figures are carried from its 2026-08-05 "WATCHLIST ONLY — do not enter" evaluation, now contradicted by an actual fill.
+**🚨 ADBE and BKNG rows above carry the undocumented trades flagged at the top of this file** — ADBE's Last Score/Quality Score/Composite Score predate this week's undocumented share add (no rescore has run since); BKNG's figures are now current (rescored 2026-10-11, HOLD — see session), but the fill itself remains undocumented in override-log.md/decisions/.
 
 **STIM (previously 2.47%) removed prior sync** — position fully exited via forced option assignment; unchanged this round. Moved to `watchlist/not-in-portfolio/STIM/`.
 
