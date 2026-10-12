@@ -2,6 +2,8 @@
 
 > Source of truth for what's actually owned. Update after every [portfolio sync](sync-sop.md) or trade. Each entry should carry the last valuation score and review date so [/rescore](../.claude/commands/rescore.md) knows what's due.
 
+> **2026-10-12 — account segregation.** The framework now governs only IBKR account **U19421206** ([accounts.md](accounts.md)). **RGL, LM8 and TLT were transferred out in-kind** to the non-framework accounts — they are not sales or exits. Their rows below (and all weights/cash) predate the transfer and are **stale until the next `/sync-portfolio`**, which removes them and recomputes weights on the new Net Liquidation Value. Statistics baseline: 2026-10-12.
+
 **As of 2026-10-11 (re-synced by the Weekly Monday run; no position changes vs. the earlier same-day sync, prices/weights refreshed) — live sync from [IBKR](snapshots/ibkr.md) (positions, cash balances, and active orders all refreshed 2026-10-11) + [Freedom Finance](snapshots/freedom-finance.md) snapshot (last refreshed 2026-08-22, not resynced this round — no screenshot provided; Freedom24 sync is manual/screenshot-based, not part of this IBKR sync), including cash balances on both sides.**
 
 Combined total ≈ **$68,141.44** = IBKR Net Liquidation Value $57,251.48 + Freedom24 implied total $10,889.96 (unchanged from 2026-08-22, positions + cash, **not** a broker-labeled "Net Asset Valuation", see prior flag in [freedom-finance.md](snapshots/freedom-finance.md)). Weight % = each row's combined USD-equivalent value ÷ this total. *Score and review-date columns are intentionally blank/unchanged — they're populated by [/rescore](../.claude/commands/rescore.md), not by sync.*
