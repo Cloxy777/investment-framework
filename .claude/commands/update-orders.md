@@ -17,7 +17,7 @@ GROUP-<name>: <TICKER>(<orderID>)+<TICKER>(<orderID>)+...; GROUP-<name>: ...
 
 ## Step 1 — Re-validate against live state
 
-Fetch `get_account_orders` fresh (never reuse a stale snapshot or the order IDs as typed without checking) and confirm every order ID referenced in the grouping plan is still active (`NEW`, `SUBMITTED`, `PRESUBMITTED`, `PARTIALLY_FILLED`). Since this command runs manual order-reorganization guidance for the **main portfolio**, accuracy here matters more than in a routine data sync — treat any mismatch as a stop-and-flag condition, not a guess:
+Fetch `get_account_orders` fresh (never reuse a stale snapshot or the order IDs as typed without checking) and confirm every order ID referenced in the grouping plan is still active (`NEW`, `SUBMITTED`, `PRESUBMITTED`, `PARTIALLY_FILLED`). Since this command runs manual order-reorganization guidance for the **framework account U19421206 only** (see [accounts.md](../../portfolio/accounts.md)), accuracy here matters more than in a routine data sync — treat any mismatch as a stop-and-flag condition, not a guess:
 
 - **Order ID no longer active** (filled, cancelled, replaced since the plan was generated): drop it from its group and say so explicitly — if that group now has 1 or 0 orders, dissolve it (an OCA group needs 2+ live orders to mean anything).
 - **Order ID's price/qty changed** (a `REPLACED` order superseded it): flag the discrepancy, use the live current values, and note that the plan's original numbers are stale.

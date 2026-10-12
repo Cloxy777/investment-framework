@@ -8,7 +8,7 @@ Run an INTEGRATION HEALTHCHECK for cloxy777/investment-framework. This command i
 
 Checks 1 and 2 are MCP-only — no standalone script can call `get_account_summary` or `get_me` (see [scripts/TOKEN-OPTIMIZATION-PLAN.md](../../scripts/TOKEN-OPTIMIZATION-PLAN.md) finding #1) — perform them yourself first:
 
-1. **Interactive Brokers connector** — call `get_account_summary` for account `U19421206`. Pass = account data returned. Fail = auth/connection error (see [sync-sop.md](../../portfolio/sync-sop.md) Troubleshooting: "disconnect/reconnect the MCP in Settings → Connections, complete OAuth").
+1. **Interactive Brokers connector** — call `get_account_summary` for account `U19421206` (the framework account — see [accounts.md](../../portfolio/accounts.md)). Pass = account data returned. Fail = auth/connection error (see [sync-sop.md](../../portfolio/sync-sop.md) Troubleshooting: "disconnect/reconnect the MCP in Settings → Connections, complete OAuth").
 2. **GitHub connector** — call `get_me`. Pass = authenticated user returned. (If this one fails, note it in the run's own output — nothing on this list can be reported as a GitHub issue in that case; that's this check's one blind spot.)
 
 Then run `python -m scripts.healthcheck --ibkr-result '{"passed": <bool>, "detail": "..."}' --github-result '{"passed": <bool>, "detail": "..."}'` (inline JSON or a file path for either flag) to run checks 3–7 itself and combine all 7 into one pass/fail report — paste its output. It performs:

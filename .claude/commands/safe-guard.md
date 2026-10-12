@@ -2,7 +2,7 @@
 description: Check worst-case simultaneous-fill margin exposure from active IBKR orders against current cash; alert if it exceeds $5,000
 ---
 
-Run a MARGIN SAFE-GUARD check for account U19421206. No arguments. This command is deliberately modeled on [`/healthcheck`](healthcheck.md)'s minimalism: **quiet when exposure is within limits, loud (Telegram + GitHub issue) when it isn't.** It never places, modifies, or cancels a broker order — no such capability exists in this repo (see [automation-schedule.md](../../framework/automation-schedule.md), "no routine ever places a broker order"); it only measures risk and, if needed, hands a concrete regrouping proposal to [`/update-orders`](update-orders.md) for the human to execute manually in TWS/Client Portal.
+Run a MARGIN SAFE-GUARD check for account `U19421206` (the framework account only — see [accounts.md](../../portfolio/accounts.md); the other two accounts are out of scope). No arguments. This command is deliberately modeled on [`/healthcheck`](healthcheck.md)'s minimalism: **quiet when exposure is within limits, loud (Telegram + GitHub issue) when it isn't.** It never places, modifies, or cancels a broker order — no such capability exists in this repo (see [automation-schedule.md](../../framework/automation-schedule.md), "no routine ever places a broker order"); it only measures risk and, if needed, hands a concrete regrouping proposal to [`/update-orders`](update-orders.md) for the human to execute manually in TWS/Client Portal.
 
 ## Why this exists
 

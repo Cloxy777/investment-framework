@@ -16,13 +16,24 @@ IBKR has three independent automated syncs — **positions**, **cash balances**,
 
 ---
 
+## Account Scope & Guard (all IBKR syncs)
+
+The framework governs **one** IBKR account: **U19421206**. The other two (U26777756 Investment Supremacy channel, U26777331 Capitalization channel) are persisted in [accounts.md](accounts.md) and are out of scope for every sync. The IBKR MCP tools take no account argument, so every sync enforces scope as a **guard on the response**:
+
+- Before writing anything, check the fetched data against the *Known transfers out* table in [accounts.md](accounts.md) (RGL, LM8, TLT). If any appears in the framework account's positions, or a response-echoed account ID isn't U19421206, **stop and ask** — the connector scope changed.
+- Tickers in that table were moved **in-kind**, not sold. The position-count comparison that flags "undocumented trims" must **skip them**, and `get_account_trades` rows for them around the transfer date are **transfers, not sales** — never realized P&L, never an exit.
+- Syncs never read realized P&L. Only unrealized P&L is stored, so IBKR's cosmetic "realized loss" on the transfer is ignored by design.
+- The first sync after a transfer removes the transferred tickers' rows from `holdings.md` (the weight-patch script never deletes rows) and recomputes every weight on the new Net Liquidation Value.
+
+---
+
 ## IBKR Positions Sync
 
 ### Key Resources
 
 | Resource | Value |
 |----------|-------|
-| IBKR Account | U19421206 |
+| IBKR Account | U19421206 (framework account — see [accounts.md](accounts.md)) |
 | Ticker Lookup CSV (live source) | `https://www.interactivebrokers.com/download/fracshare_stk.csv` — IBKR's own public download, no auth/MCP needed |
 | Ticker Lookup CSV (stored fallback) | [`portfolio/reference/ibkr-ticker-lookup.csv`](../portfolio/reference/ibkr-ticker-lookup.csv) — last-known-good copy, committed to this repo |
 | CSV columns | `#SYMBOL, MAIN_EXCHANGE, DESCRIPTION, IB_CONTRACT_ID, SCHEDULED_INELIGIBILTY_DATE` |
@@ -30,7 +41,7 @@ IBKR has three independent automated syncs — **positions**, **cash balances**,
 
 ### Steps Claude Performs
 
-1. **Fetch live positions** — `get_account_positions` via the Interactive Brokers MCP for account U19421206 (contract IDs, shares, market prices, avg cost, unrealized P&L).
+1. **Fetch live positions** — `get_account_positions` via the Interactive Brokers MCP for account U19421206 (scope guard: see Account Scope & Guard above) (contract IDs, shares, market prices, avg cost, unrealized P&L).
 2. **Resolve tickers** — fetch the ticker lookup CSV from the live source (`https://www.interactivebrokers.com/download/fracshare_stk.csv`).
    - **If the live fetch succeeds:** use it to resolve contract IDs → tickers via the `IB_CONTRACT_ID` column, *and* overwrite [`portfolio/reference/ibkr-ticker-lookup.csv`](../portfolio/reference/ibkr-ticker-lookup.csv) with the freshly fetched copy so it stays the up-to-date fallback (commit it alongside the snapshot in the same commit).
    - **If the live fetch fails** (network error, IBKR changes/removes the URL, etc.): fall back to the stored copy at `portfolio/reference/ibkr-ticker-lookup.csv`, note in the snapshot file and the commit message that the live source was unreachable and the stored copy was used (and how stale it is, per its last commit date), and don't overwrite it with anything.
@@ -58,7 +69,7 @@ IBKR has three independent automated syncs — **positions**, **cash balances**,
 
 | Resource | Value |
 |----------|-------|
-| IBKR Account | U19421206 |
+| IBKR Account | U19421206 (framework account — see [accounts.md](accounts.md)) |
 | Snapshot file | [`portfolio/snapshots/ibkr.md`](snapshots/ibkr.md) — updates the Cash Balances table and the cash-derived header fields (Net Liquidation, Total Cash, "Cash balances last synced") |
 
 ### Steps Claude Performs
@@ -87,7 +98,7 @@ IBKR has three independent automated syncs — **positions**, **cash balances**,
 
 | Resource | Value |
 |----------|-------|
-| IBKR Account | U19421206 |
+| IBKR Account | U19421206 (framework account — see [accounts.md](accounts.md)) |
 | Snapshot file | [`portfolio/snapshots/ibkr-orders.md`](snapshots/ibkr-orders.md) |
 
 ### Steps Claude Performs
