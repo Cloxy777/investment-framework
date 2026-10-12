@@ -12,6 +12,7 @@ Review of this repo's *Quality Value + Dynamic Trimming* framework against the e
 | [04-design.md](04-design.md) | Implementation-ready designs for 8 proposals (+ sketch), tests, command-file diffs (not applied) |
 | [05-validation.md](05-validation.md) | Paired comparison on 14 tickers, backtest design, one-session pilot, acceptance/rollback |
 | [06-roadmap.md](06-roadmap.md) | Ranked roadmap, dependencies, six draft decision entries |
+| [07-phase-b-plan.md](07-phase-b-plan.md) | Scored changes approved 2026-10-12 but deferred behind a pilot (SBC-adjusted yield, operating margin, capex discipline, action-band hysteresis, scored cycle/ceiling limits); Phase A (advisory flags, SBC block) shipped separately |
 | [open-questions-for-user.md](open-questions-for-user.md) | Decisions only you can make; facts to re-check on the site |
 
 ## Executive summary

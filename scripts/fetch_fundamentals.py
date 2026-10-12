@@ -19,6 +19,9 @@ TAM evidence, fair values, and the Rate Gate 10Y input are NOT produced here, Cl
     roic_pct, net_margin_pct, gross_margin_pct, revenue_cagr_3yr_pct
     net_debt_to_ebitda
     shares_outstanding, market_cap, enterprise_value
+    advisory (no score effect): eps_ttm_now, eps_ttm_1y_ago, sbc_ttm, sbc {SBC/FCF, FCF yield
+        reported vs after SBC, severity}, cycle_peak, value_trap_candidate; each None/UNKNOWN
+        when yfinance lacks the quarters needed (see scripts/scoring/flags_common.py, sbc.py)
 
 Known documentation drift (flagged per Stage 2 instructions, not silently adapted): the
 "Screening Tools" section says "`t.info['ebit']`/`enterpriseValue` give EV/EBIT directly."
@@ -41,6 +44,7 @@ import sys
 
 import pandas as pd
 
+from scripts.scoring import flags_common, sbc as sbc_mod
 from scripts.scoring.common import MissingInputError
 
 PE_HISTORY_QUARTERS = 20
@@ -177,6 +181,54 @@ def _roic(balance_sheet: "pd.DataFrame", ebit_ttm: float, tax_provision_ttm: flo
     return roic_pct, detail
 
 
+def _quarters(df: "pd.DataFrame", row_name: str, n: int) -> list[float] | None:
+    """Most-recent-first values of `row_name` over `n` consecutive quarters, or None.
+
+    Advisory-only helper: unlike `_ttm_sum` it never raises. A missing row, NaN, too few
+    quarters, or a gap between quarter-end dates outside 75-105 days (stub period / fiscal-year
+    change) returns None so the dependent advisory flag reports UNKNOWN instead of guessing.
+    """
+    if df is None or row_name not in df.index:
+        return None
+    series = df.loc[row_name]
+    if len(series) < n:
+        return None
+    window = series.iloc[:n]
+    if window.isna().any():
+        return None
+    dates = list(pd.to_datetime(window.index))
+    for newer, older in zip(dates, dates[1:]):
+        if not 75 <= (newer - older).days <= 105:
+            return None
+    return [float(v) for v in window]
+
+
+def _advisory(qf: "pd.DataFrame", qcf: "pd.DataFrame", forward_pe: float, fcf_ttm: float, market_cap: float) -> dict:
+    """Advisory block (no score effect): SBC disclosure + cycle-peak / value-trap flags.
+
+    Inputs that yfinance's free tier often lacks (8 quarters of diluted EPS, SBC) yield
+    None / UNKNOWN, never an estimate.
+    """
+    eps_q = _quarters(qf, "Diluted EPS", 8)
+    eps_now = sum(eps_q[:4]) if eps_q else None
+    eps_prior = sum(eps_q[4:8]) if eps_q else None
+
+    sbc_q = _quarters(qcf, "Stock Based Compensation", 4)
+    sbc_ttm = sum(sbc_q) if sbc_q else None
+    sbc = sbc_mod.sbc_metrics(sbc_ttm, fcf_ttm, market_cap) if sbc_ttm is not None else None
+
+    return {
+        "eps_ttm_now": eps_now,
+        "eps_ttm_1y_ago": eps_prior,
+        "sbc_ttm": sbc_ttm,
+        "sbc": sbc,
+        "cycle_peak": flags_common.cycle_peak(eps_now, eps_prior),
+        "value_trap_candidate": flags_common.value_trap_candidate(
+            forward_pe, flags_common.eps_growth_ttm_pct(eps_now, eps_prior)
+        ),
+    }
+
+
 def _pe_history(ticker) -> dict:
     """Reconstruct the trailing 5yr PE series per valuation-scoring.md's documented method.
 
@@ -291,6 +343,7 @@ def fetch(ticker) -> dict:
     net_debt_to_ebitda = _net_debt_to_ebitda(balance_sheet, ebitda_ttm)
     roic_pct, roic_detail = _roic(balance_sheet, ebit_ttm, tax_provision_ttm, pretax_income_ttm)
     pe_history = _pe_history(ticker)
+    advisory = _advisory(qf, qcf, forward_pe, fcf_ttm, market_cap)
 
     result = {
         "market_cap": market_cap,
@@ -309,6 +362,7 @@ def fetch(ticker) -> dict:
         "fcf_positive_3yr_or_more": fcf_positive_3yr_or_more,
         "ebitda_ttm": ebitda_ttm,
         "_roic_detail": roic_detail,
+        "advisory": advisory,
     }
     result.update(pe_history)
     return result
@@ -345,6 +399,23 @@ def render_markdown(ticker_symbol: str, result: dict) -> str:
         lines.append(
             f"5yr PE history        = NO-HISTORY FALLBACK (n={result['pe_5yr_quarters_used']} usable quarters) "
             f"— {result['no_history_reason']}"
+        )
+    lines.append("```")
+    adv = result["advisory"]
+    lines.append("")
+    lines.append("```")
+    if adv["sbc"] is not None:
+        lines.append(sbc_mod.render(adv["sbc"]))
+    else:
+        lines.append(
+            "SBC block: UNKNOWN - 'Stock Based Compensation' not available for 4 consecutive quarters; "
+            "supply sbc_ttm manually (python -m scripts.scoring.sbc) or state the gap. Never estimate."
+        )
+    lines.append(flags_common.render({k: adv[k] for k in ("cycle_peak", "value_trap_candidate")}))
+    if adv["cycle_peak"]["flag"] == "UNKNOWN":
+        lines.append(
+            "  (cycle_peak / value_trap need 8 consecutive quarters of Diluted EPS; if yfinance lacks them, run "
+            "python -m scripts.scoring.flags_common with manually sourced EPS TTM figures.)"
         )
     lines.append("```")
     return "\n".join(lines)
