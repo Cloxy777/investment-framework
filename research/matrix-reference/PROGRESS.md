@@ -59,3 +59,28 @@ Never click "Вийти". No adds to watchlist/portfolio/alerts, no PDF/CSV/ICS 
 
 ## Resume instructions
 Read README.md + PROGRESS.md, then continue from first `todo` above. Copy screenshots with `cp <printed tool-results path> screenshots/<slug>__<state>.jpg`.
+
+---
+## 2026-10-03 — replication harvest (Phase 0): BLOCKED, waiting for user
+- Baseline files read. Folders created: `data/{cards,lists,history,raw}`, `analysis/probes`, `formulas`. Collector written: `analysis/collector.py` (127.0.0.1, random port + path token, writes only under `data/`); **not yet tested end-to-end** (first page-side `fetch` hung with no request reaching the server — likely Chrome local-network-access prompt or page navigation; re-test once access is back).
+- **Blocker:** the Claude in Chrome profile is NOT on the invite-code test access. `/start/` redirects to `/free/start/`; footer says 547 companies; `/screener/` shows "показано 19 з 20" (Taras's registry only, 20 cards, verdict bars STRONG BUY 2 / BUY 5 / BUY WAIT 8 / AVOID 3 / НЕ МІЙ СЕКТОР 1); `/account/` shows "Підписки ще немає" (no subscription, early-bird plan upsell); no test-access banner. Baseline had 164 cards + banner "access ends 06.10.2026".
+- Rule respected: no code/email/credentials entered. Nothing downloaded, nothing written to the site.
+- Resume: user restores test access in the Chrome profile (or says to proceed on the free tier = 20 cards), then continue at Phase 0 step 3 (collector test).
+
+## 2026-10-03 (later) — user confirmed: proceed on free tier (beta-test free access, 20 registry cards)
+- DONE: `/free/methodology/` fully captured: `data/raw/methodology.free.2026-10-03.txt` (verbatim), `formulas/methodology-rules.json` (structured, script-validated), `formulas/methodology-diff-2026-10-03.md` (diff vs 29.09 + what the page cannot tell us).
+- Free-tier facts: screener "показано 19 з 20", 19 cards visible: NVDA MA MSFT V NFLX ADBE GOOG TSM PLTR AVGO META AAPL AMD AMZN COST UBER CRM ORCL TSLA; "Оцінка Тараса" column and portfolio hidden; card UI changed (price chart with SPY comparison, 1м/6м/YTD/1р/5р/Макс, market cap, dividend). Baseline-only companies (ABNB, SOFI, MU, 005930.KS, ASML, ADSK, GOOG compare, ...) cannot be re-captured.
+- BLOCKER for bulk harvest: Chrome permission `loopback-network` = denied for matrix.tarasguk.com (page fetch to 127.0.0.1 fails). Collector itself works (curl ping OK). Needs user to set Site settings -> Local network / Loopback access = Allow for matrix.tarasguk.com, then reload. Fallback = get_page_text + Write (slower, more tokens).
+- Next: cards x19/20 (simple + detailed, all tiles), screener 15 columns, /free/start, indices, reports, changes/week, locked-card look.
+
+## 2026-10-03 (final state of this session) — free-tier harvest + engine replica
+Done: Phase 0 (collector `analysis/collector.py`, harvest JS pattern documented in data/INVENTORY.md), Phase 1 on the free tier (20/20 cards simple+detailed, parsed JSON, screener controls/rows, compare tables for all 20, reports with "що дивитись", 18 other pages, 17 locked/missing probes, search probes, methodology), Phase 2 probes (A taxonomy/coverage, B search, C screener numeric/sort/hash, D compare limits, E partial: price period panels + tables via textContent, H none that write) and Phase 3 (engine replica: quality 20/20 exact, lenses/price word/verdict 20/20 with hysteresis exceptions, x2 CAGR within 0.2 pp, next-verdict score/CAGR routes exact).
+Deliverables: `formulas/*.md|json`, `analysis/{engine_replica,parse_cards,make_test_vectors,make_coverage,extract_explanations,collector}.py`, `analysis/{REPORT,schema,corrections}.md`, `analysis/probes/`, `test-vectors.json`, `taxonomy.md`, `coverage-matrix.csv`, `data/`.
+Left: second/third daily snapshots (hysteresis, quadrant, history), non-US/REIT/loss-making/E-level examples (paid), CSV export (not requested), doubling-year formula, next-verdict price/growth routes, flag firing logic.
+Collector stopped; Chrome tab created by this session closed; storage side effects reverted. Last URL: https://matrix.tarasguk.com/free/screener/. No commit made.
+
+## 2026-10-03 (evening) — PAID TIER harvest and final fit
+User activated the subscription (monthly plan). Done: all 487 company cards + ABNB harvested (simple mode, every tile; Taras's paid tiles), screener 487 rows x 16 columns, filter membership (baskets, sub-sectors, indices), change feed day/week, portfolio, start page trades, reports (161), index pages, methodology (identical), account/alerts/my/watchlist pages. Parsed 488 JSONs; engine replica run on all (see analysis/REPORT.md): components/penalty/score exact on 488, lenses exact except printed hysteresis, verdict layer 464/467.
+Not done: second/third daily snapshots, detailed-mode text for the 467 new cards, CSV export (not requested), AI analytics (teaser only).
+Stopped: collector; tabs created by this session closed at the end; browser storage keys written by clicks (`chartview:*`) removed. Last URL: https://matrix.tarasguk.com/how-to-read/ (helper tab).
+Operational notes: Chrome freezes/discards hidden tabs (CDP "renderer frozen", tab ids change) — use `analysis/js/harvest_cards.js` (serves from collector `/js/`, holds a Web Lock). Restart recipe in README.

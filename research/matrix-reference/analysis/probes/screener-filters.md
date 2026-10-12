@@ -1,0 +1,4 @@
+# Probe: screener filters, sorting, hash grammar
+Raw: `data/lists/screener-controls.json` (all controls/options), `screener-hash-keys.txt`, `screener-probes.txt`, `screener-free.default.{csv,json}`.
+Summary and grammar: `formulas/misc.md`. Counters: default "показано 19 з 20"; verdict STRONG_BUY 2 of 20; level A 5; price CHEAP 3; quadrant cheaper_on_business 0; sector auto 1; subsector cars 1; review reviewed 11; basis pe 19; risks yes 19; cap review 1; newbuy 0; index nasdaq100 14; own=1 19; crit 3; matrix cell 18.
+Sort headers (15): Компанія/назва, Вердикт, Бал, Ознаки, Ціна, Базис, Мультиплікатор, Ріст EPS NTM, PEG, Дохідність, Зміна оцінки, Дохідність за 5 років, Ризики, До наступного вердикту, Перегляд; click1 best->worst (`dir=1`), click2 reverse. Column chooser: 15 checkboxes (14 on, 'Оцінка Тараса' off and not rendered in free).

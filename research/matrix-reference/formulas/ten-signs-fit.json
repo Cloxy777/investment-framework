@@ -1,0 +1,136 @@
+{
+ "rev": {
+  "n": 488,
+  "pass_min": 8.0,
+  "pass_max": 907.0,
+  "fail_min": -43.0,
+  "fail_max": 8.0,
+  "unknown": 4
+ },
+ "eps": {
+  "n": 477,
+  "pass_min": 10.1,
+  "pass_max": 162.7,
+  "fail_min": -676.7,
+  "fail_max": 10.0,
+  "unknown": 0
+ },
+ "margin": {
+  "n": 488,
+  "pass_min": 15.0,
+  "pass_max": 86.0,
+  "fail_min": -755.0,
+  "fail_max": 15.0,
+  "unknown": 5
+ },
+ "recur": {
+  "циклічний бізнес": {
+   "fail": 86
+  },
+  "виробництво, разові продажі": {
+   "fail": 99
+  },
+  "платформа": {
+   "pass": 15
+  },
+  "фарма": {
+   "fail": 10
+  },
+  "тип бізнесу не визначено": {
+   "unknown": 77
+  },
+  "софт за підпискою": {
+   "pass": 23
+  },
+  "підписка": {
+   "pass": 9
+  },
+  "платіжна мережа": {
+   "pass": 7
+  },
+  "оренда": {
+   "fail": 32
+  },
+  "клауд і контракти": {
+   "pass": 5
+  },
+  "реклама": {
+   "pass": 5
+  },
+  "чіпи, продажі партіями": {
+   "fail": 6
+  },
+  "банк": {
+   "fail": 24
+  },
+  "ритейл": {
+   "fail": 20
+  },
+  "разові продажі бренду": {
+   "fail": 30
+  },
+  "дані і рейтинги": {
+   "pass": 14
+  },
+  "важке машинобудування": {
+   "fail": 14
+  },
+  "сировина": {
+   "fail": 7
+  },
+  "restaurant": {
+   "fail": 4
+  },
+  "клубна підписка": {
+   "pass": 1
+  }
+ },
+ "fcfg": {
+  "n": 488,
+  "pass_min": 5.0,
+  "pass_max": 3162.0,
+  "fail_min": -100,
+  "fail_max": 5.0,
+  "unknown": 28
+ },
+ "bal": {
+  "n": 488,
+  "pass_min": -99,
+  "pass_max": 2.0,
+  "fail_min": 2.0,
+  "fail_max": 235.9,
+  "unknown": 6
+ },
+ "capexlight": {
+  "n": 488,
+  "pass_min": 0.0,
+  "pass_max": 15.0,
+  "fail_min": 15.0,
+  "fail_max": 1733.0,
+  "unknown": 6
+ },
+ "buyback": {
+  "n": 488,
+  "pass_min": -20.0,
+  "pass_max": 1.0,
+  "fail_min": 1.0,
+  "fail_max": 526.0,
+  "unknown": 1
+ },
+ "conc": {
+  "n": 488,
+  "pass_min": 0,
+  "pass_max": 18.0,
+  "fail_min": 22.0,
+  "fail_max": 87.0,
+  "unknown": 412
+ },
+ "capexown": {
+  "n": 488,
+  "pass_min": null,
+  "pass_max": null,
+  "fail_min": null,
+  "fail_max": null,
+  "unknown": 5
+ }
+}
