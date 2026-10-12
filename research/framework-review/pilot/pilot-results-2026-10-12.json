@@ -1,0 +1,844 @@
+[
+  {
+    "ticker": "ADBE",
+    "recorded": {
+      "valuation": 0.0,
+      "quality": 83.3,
+      "composite": 8.4
+    },
+    "fcf_yield_pct": 11.457415355522976,
+    "sbc": {
+      "sbc_ttm": 2071000000.0,
+      "fcf_ttm": 10592000000.0,
+      "market_cap": 92446679040.0,
+      "sbc_pct_fcf": 19.55249244712991,
+      "fcf_yield_reported_pct": 11.457415355522976,
+      "fcf_yield_after_sbc_pct": 9.217205083498044,
+      "severity": "none"
+    },
+    "b1": {
+      "exempt_owner_earnings": false,
+      "fcf_score_before": 0.0,
+      "fcf_score_after": 7.827949165019565,
+      "d_valuation": 3.131179666007826,
+      "new_valuation": 3.131179666007826,
+      "new_composite": 9.915589833003914,
+      "band_change": false
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 89.25298421255295,
+      "ebit_margin_pct": 36.73854447439353,
+      "score_gross": 100.0,
+      "score_op": 91.84636118598381,
+      "d_quality": -1.2230458221024285,
+      "new_quality": 82.07695417789756,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": 54.513009491903965,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 8.583369,
+    "b5": {
+      "n": 3,
+      "series": [
+        [
+          "2026-07-04",
+          8.1
+        ],
+        [
+          "2026-07-29",
+          8.1
+        ],
+        [
+          "2026-09-11",
+          8.4
+        ]
+      ],
+      "flips_baseline": 0,
+      "flips_hysteresis": 0
+    },
+    "edge_distance": {
+      "composite": 8.4,
+      "nearest_edge": 30.0,
+      "distance": -21.6
+    }
+  },
+  {
+    "ticker": "AMZN",
+    "recorded": {
+      "valuation": 82.7,
+      "quality": 56.7,
+      "composite": 63.0
+    },
+    "error": "MissingInputError: TTM EBIT: NaN found in trailing 4 quarters of 'EBIT'"
+  },
+  {
+    "ticker": "AVGO",
+    "recorded": {
+      "valuation": 71.4,
+      "quality": 86.3,
+      "composite": 42.6
+    },
+    "fcf_yield_pct": 2.3225396570610983,
+    "sbc": {
+      "sbc_ttm": 8482000000.0,
+      "fcf_ttm": 39403000000.0,
+      "market_cap": 1696547995648.0,
+      "sbc_pct_fcf": 21.526279724894042,
+      "fcf_yield_reported_pct": 2.3225396570610983,
+      "fcf_yield_after_sbc_pct": 1.8225832737605319,
+      "severity": "none"
+    },
+    "b1": {
+      "exempt_owner_earnings": false,
+      "fcf_score_before": 76.77460342938902,
+      "fcf_score_after": 81.77416726239468,
+      "d_valuation": 1.9998255332022667,
+      "new_valuation": 73.39982553320228,
+      "new_composite": 43.54991276660114,
+      "band_change": false
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 68.7702011133058,
+      "ebit_margin_pct": 48.91475130184952,
+      "score_gross": 85.96275139163225,
+      "score_op": 100.0,
+      "d_quality": 2.105587291255162,
+      "new_quality": 88.40558729125516,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": 147.68607918263092,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 18.325426,
+    "edge_distance": {
+      "composite": 42.6,
+      "nearest_edge": 50.0,
+      "distance": -7.4
+    }
+  },
+  {
+    "ticker": "BKNG",
+    "recorded": {
+      "valuation": 20.8,
+      "quality": 91.9,
+      "composite": 14.4
+    },
+    "error": "MissingInputError: yfinance field missing from TTM Gross Profit: row 'Gross Profit' not found"
+  },
+  {
+    "ticker": "CSGP",
+    "recorded": {
+      "valuation": 87.8,
+      "quality": 69.2,
+      "composite": 59.3
+    },
+    "fcf_yield_pct": 1.9169221932394847,
+    "sbc": {
+      "sbc_ttm": 192000000.0,
+      "fcf_ttm": 227000000.0,
+      "market_cap": 11841899520.0,
+      "sbc_pct_fcf": 84.58149779735683,
+      "fcf_yield_reported_pct": 1.9169221932394847,
+      "fcf_yield_after_sbc_pct": 0.2955606905875857,
+      "severity": "elevated"
+    },
+    "b1": {
+      "exempt_owner_earnings": false,
+      "fcf_score_before": 80.83077806760515,
+      "fcf_score_after": 97.04439309412413,
+      "d_valuation": 6.485446010607593,
+      "new_valuation": 94.28544601060759
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 78.6837294332724,
+      "ebit_margin_pct": 2.1656588384193505,
+      "score_gross": 98.3546617915905,
+      "score_op": 5.414147096048376,
+      "d_quality": -13.941077204331318,
+      "new_quality": 55.25892279566868,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": 884.6722222222222,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 16.488848,
+    "b5": {
+      "n": 2,
+      "series": [
+        [
+          "2026-08-09",
+          57.8
+        ],
+        [
+          "2026-10-11",
+          59.3
+        ]
+      ],
+      "flips_baseline": 0,
+      "flips_hysteresis": 0
+    },
+    "edge_distance": {
+      "composite": 59.3,
+      "nearest_edge": 50.0,
+      "distance": 9.3
+    }
+  },
+  {
+    "ticker": "DUOL",
+    "recorded": {
+      "valuation": 85.1,
+      "quality": 83.2,
+      "composite": 51.0
+    },
+    "fcf_yield_pct": 5.746866935094362,
+    "sbc": {
+      "sbc_ttm": 144684000.0,
+      "fcf_ttm": 397504000.0,
+      "market_cap": 6916881920.0,
+      "sbc_pct_fcf": 36.398124295604575,
+      "fcf_yield_reported_pct": 5.746866935094362,
+      "fcf_yield_after_sbc_pct": 3.6551151649557148,
+      "severity": "elevated"
+    },
+    "b1": {
+      "exempt_owner_earnings": false,
+      "fcf_score_before": 42.531330649056386,
+      "fcf_score_after": 63.44884835044285,
+      "d_valuation": 8.367007080554586,
+      "new_valuation": 93.46700708055458,
+      "new_composite": 55.13350354027729,
+      "band_change": false
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 72.71742756781211,
+      "ebit_margin_pct": 13.719190010148456,
+      "score_gross": 90.89678445976513,
+      "score_op": 34.297975025371144,
+      "d_quality": -8.489821415159097,
+      "new_quality": 74.7101785848409,
+      "gate_change": true
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": -9.280641330166272,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 19.354408,
+    "b5": {
+      "n": 3,
+      "series": [
+        [
+          "2026-07-04",
+          36.4
+        ],
+        [
+          "2026-08-06",
+          44.5
+        ],
+        [
+          "2026-09-01",
+          51.0
+        ]
+      ],
+      "flips_baseline": 1,
+      "flips_hysteresis": 1
+    },
+    "edge_distance": {
+      "composite": 51.0,
+      "nearest_edge": 50.0,
+      "distance": 1.0
+    }
+  },
+  {
+    "ticker": "GOOG",
+    "recorded": {
+      "valuation": 64.2,
+      "quality": 71.4,
+      "composite": 46.4
+    },
+    "fcf_yield_pct": 1.2456073598678354,
+    "sbc": {
+      "sbc_ttm": 28147000000.0,
+      "fcf_ttm": 53273000000.0,
+      "market_cap": 4276869398528.0,
+      "sbc_pct_fcf": 52.835395040639725,
+      "fcf_yield_reported_pct": 1.2456073598678354,
+      "fcf_yield_after_sbc_pct": 0.5874857906263818,
+      "severity": "elevated"
+    },
+    "b1": {
+      "exempt_owner_earnings": true,
+      "fcf_score_before": 87.54392640132164,
+      "fcf_score_after": 94.12514209373619,
+      "d_valuation": 0.0,
+      "new_valuation": 64.2
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 60.89641081309001,
+      "ebit_margin_pct": 67.62577181087633,
+      "score_gross": 76.12051351636251,
+      "score_op": 100.0,
+      "d_quality": 3.5819229725456236,
+      "new_quality": 74.98192297254563,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": -23.667185148018067,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 22.987051,
+    "edge_distance": {
+      "composite": 46.4,
+      "nearest_edge": 50.0,
+      "distance": -3.6
+    }
+  },
+  {
+    "ticker": "MBGL",
+    "recorded": {
+      "valuation": null,
+      "quality": 51.0,
+      "composite": null
+    },
+    "error": "MissingInputError: yfinance field missing from TTM Gross Profit: row 'Gross Profit' not found"
+  },
+  {
+    "ticker": "META",
+    "recorded": {
+      "valuation": 39.4,
+      "quality": 87.5,
+      "composite": 26.0
+    },
+    "fcf_yield_pct": 2.163506575893235,
+    "sbc": {
+      "sbc_ttm": 25136000000.0,
+      "fcf_ttm": 40976000000.0,
+      "market_cap": 1893962350592.0,
+      "sbc_pct_fcf": 61.34322530261617,
+      "fcf_yield_reported_pct": 2.163506575893235,
+      "fcf_yield_after_sbc_pct": 0.8363418626061313,
+      "severity": "elevated"
+    },
+    "b1": {
+      "exempt_owner_earnings": true,
+      "fcf_score_before": 78.36493424106766,
+      "fcf_score_after": 91.63658137393868,
+      "d_valuation": 0.0,
+      "new_valuation": 39.4,
+      "new_composite": 25.95,
+      "band_change": false
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 81.74784334514801,
+      "ebit_margin_pct": 39.23512685818433,
+      "score_gross": 100.0,
+      "score_op": 98.08781714546082,
+      "d_quality": -0.2868274281808773,
+      "new_quality": 87.21317257181913,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": 30.16326299924643,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 21.521214,
+    "b5": {
+      "n": 5,
+      "series": [
+        [
+          "2026-07-01",
+          22.8
+        ],
+        [
+          "2026-07-09",
+          24.5
+        ],
+        [
+          "2026-07-13",
+          27.5
+        ],
+        [
+          "2026-07-28",
+          20.7
+        ],
+        [
+          "2026-08-05",
+          26.9
+        ]
+      ],
+      "flips_baseline": 0,
+      "flips_hysteresis": 0
+    },
+    "edge_distance": {
+      "composite": 26.0,
+      "nearest_edge": 30.0,
+      "distance": -4.0
+    }
+  },
+  {
+    "ticker": "MSFT",
+    "recorded": {
+      "valuation": 38.9,
+      "quality": 79.9,
+      "composite": 29.5
+    },
+    "fcf_yield_pct": 1.671017531582774,
+    "sbc": {
+      "sbc_ttm": 12405000000.0,
+      "fcf_ttm": 66987000000.0,
+      "market_cap": 4008755068928.0,
+      "sbc_pct_fcf": 18.51851851851852,
+      "fcf_yield_reported_pct": 1.671017531582774,
+      "fcf_yield_after_sbc_pct": 1.361569840548927,
+      "severity": "none"
+    },
+    "b1": {
+      "exempt_owner_earnings": true,
+      "fcf_score_before": 83.28982468417226,
+      "fcf_score_after": 86.38430159451073,
+      "d_valuation": 0.0,
+      "new_valuation": 38.9
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 67.94409337058032,
+      "ebit_margin_pct": 50.92379135665187,
+      "score_gross": 84.9301167132254,
+      "score_op": 100.0,
+      "d_quality": 2.2604824930161898,
+      "new_quality": 82.16048249301619,
+      "gate_change": true
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": 31.90707520891367,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 22.800722,
+    "edge_distance": {
+      "composite": 29.5,
+      "nearest_edge": 30.0,
+      "distance": -0.5
+    }
+  },
+  {
+    "ticker": "NFLX",
+    "recorded": {
+      "valuation": 49.3,
+      "quality": 69.8,
+      "composite": 39.8
+    },
+    "fcf_yield_pct": 3.785222388178173,
+    "sbc": {
+      "sbc_ttm": 487327000.0,
+      "fcf_ttm": 11152005000.0,
+      "market_cap": 294619545600.0,
+      "sbc_pct_fcf": 4.369859948950883,
+      "fcf_yield_reported_pct": 3.785222388178173,
+      "fcf_yield_after_sbc_pct": 3.619813471058452,
+      "severity": "none"
+    },
+    "b1": {
+      "exempt_owner_earnings": false,
+      "fcf_score_before": 62.14777611821827,
+      "fcf_score_after": 63.80186528941548,
+      "d_valuation": 0.6616356684788856,
+      "new_valuation": 49.961635668478884
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 49.11787210969006,
+      "ebit_margin_pct": 35.84866676904256,
+      "score_gross": 61.39734013711258,
+      "score_op": 89.62166692260641,
+      "d_quality": 4.233649017824074,
+      "new_quality": 74.03364901782408,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": 19.70503144654088,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 18.587355,
+    "b5": {
+      "n": 2,
+      "series": [
+        [
+          "2026-07-05",
+          43.0
+        ],
+        [
+          "2026-07-17",
+          39.8
+        ]
+      ],
+      "flips_baseline": 0,
+      "flips_hysteresis": 0
+    },
+    "edge_distance": {
+      "composite": 39.8,
+      "nearest_edge": 30.0,
+      "distance": 9.8
+    }
+  },
+  {
+    "ticker": "NKE",
+    "recorded": {
+      "valuation": 55.2,
+      "quality": 39.1,
+      "composite": 58.1
+    },
+    "fcf_yield_pct": 4.168394692754681,
+    "sbc": {
+      "sbc_ttm": 715000000.0,
+      "fcf_ttm": 2184000000.0,
+      "market_cap": 52394270720.0,
+      "sbc_pct_fcf": 32.73809523809524,
+      "fcf_yield_reported_pct": 4.168394692754681,
+      "fcf_yield_after_sbc_pct": 2.803741668340946,
+      "severity": "elevated"
+    },
+    "b1": {
+      "exempt_owner_earnings": false,
+      "fcf_score_before": 58.31605307245319,
+      "fcf_score_after": 71.96258331659054,
+      "d_valuation": 5.4586120976549415,
+      "new_valuation": 60.658612097654945
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 42.913487650329756,
+      "ebit_margin_pct": 8.18354239406871,
+      "score_gross": 53.641859562912195,
+      "score_op": 20.458855985171773,
+      "d_quality": -4.977450536661063,
+      "new_quality": 34.12254946333894,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": -18.707692307692312,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 20.86192,
+    "b5": {
+      "n": 3,
+      "series": [
+        [
+          "2026-07-01",
+          34.8
+        ],
+        [
+          "2026-09-11",
+          47.5
+        ],
+        [
+          "2026-10-11",
+          58.1
+        ]
+      ],
+      "flips_baseline": 1,
+      "flips_hysteresis": 1
+    },
+    "edge_distance": {
+      "composite": 58.1,
+      "nearest_edge": 50.0,
+      "distance": 8.1
+    }
+  },
+  {
+    "ticker": "NOW",
+    "recorded": {
+      "valuation": 75.9,
+      "quality": 73.2,
+      "composite": 51.4
+    },
+    "fcf_yield_pct": 3.1565960249099043,
+    "sbc": {
+      "sbc_ttm": 2185000000.0,
+      "fcf_ttm": 4571000000.0,
+      "market_cap": 144807886848.0,
+      "sbc_pct_fcf": 47.80135637716036,
+      "fcf_yield_reported_pct": 3.1565960249099043,
+      "fcf_yield_after_sbc_pct": 1.6477003096554432,
+      "severity": "elevated"
+    },
+    "b1": {
+      "exempt_owner_earnings": false,
+      "fcf_score_before": 68.43403975090095,
+      "fcf_score_after": 83.52299690344557,
+      "d_valuation": 6.03558286101785,
+      "new_valuation": 81.93558286101785
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 74.76920988324736,
+      "ebit_margin_pct": 16.487917458593536,
+      "score_gross": 93.4615123540592,
+      "score_op": 41.219793646483836,
+      "d_quality": -7.836257806136303,
+      "new_quality": 65.3637421938637,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": 212.84437499999999,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 27.982164,
+    "edge_distance": {
+      "composite": 51.4,
+      "nearest_edge": 50.0,
+      "distance": 1.4
+    }
+  },
+  {
+    "ticker": "NVDA",
+    "recorded": {
+      "valuation": 36.2,
+      "quality": 90.3,
+      "composite": 23.0
+    },
+    "fcf_yield_pct": 2.3205246565211888,
+    "sbc": {
+      "sbc_ttm": 7241000000.0,
+      "fcf_ttm": 127006000000.0,
+      "market_cap": 5473158823936.0,
+      "sbc_pct_fcf": 5.701305450136214,
+      "fcf_yield_reported_pct": 2.3205246565211888,
+      "fcf_yield_after_sbc_pct": 2.1882244578071917,
+      "severity": "none"
+    },
+    "b1": {
+      "exempt_owner_earnings": false,
+      "fcf_score_before": 76.7947534347881,
+      "fcf_score_after": 78.11775542192808,
+      "d_valuation": 0.5292007948559899,
+      "new_valuation": 36.72920079485599,
+      "new_composite": 23.214600397427997,
+      "band_change": false
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 74.67463667900016,
+      "ebit_margin_pct": 75.9836814987672,
+      "score_gross": 93.3432958487502,
+      "score_op": 100.0,
+      "d_quality": 0.9985056226874697,
+      "new_quality": 91.29850562268747,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": 101.19595448798991,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 14.242268,
+    "b5": {
+      "n": 5,
+      "series": [
+        [
+          "2026-07-05",
+          21.3
+        ],
+        [
+          "2026-08-27",
+          25.5
+        ],
+        [
+          "2026-09-01",
+          23.0
+        ],
+        [
+          "2026-09-04",
+          24.1
+        ],
+        [
+          "2026-09-17",
+          23.0
+        ]
+      ],
+      "flips_baseline": 0,
+      "flips_hysteresis": 0
+    },
+    "edge_distance": {
+      "composite": 23.0,
+      "nearest_edge": 30.0,
+      "distance": -7.0
+    }
+  },
+  {
+    "ticker": "NVO",
+    "recorded": {
+      "valuation": 51.4,
+      "quality": 67.2,
+      "composite": 42.1
+    },
+    "fcf_yield_pct": 28.05706202681871,
+    "sbc": null,
+    "b3": {
+      "gross_margin_pct": 80.6484514207831,
+      "ebit_margin_pct": 45.37035069559331,
+      "score_gross": 100.0,
+      "score_op": 100.0,
+      "d_quality": 0.0,
+      "new_quality": 67.2,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": -18.97615158924205,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 11.643467,
+    "edge_distance": {
+      "composite": 42.1,
+      "nearest_edge": 50.0,
+      "distance": -7.9
+    }
+  },
+  {
+    "ticker": "SPGI",
+    "recorded": {
+      "valuation": 31.3,
+      "quality": 67.7,
+      "composite": 31.8
+    },
+    "fcf_yield_pct": 4.58782018953766,
+    "sbc": {
+      "sbc_ttm": 239000000.0,
+      "fcf_ttm": 5573000000.0,
+      "market_cap": 121473810432.0,
+      "sbc_pct_fcf": 4.2885340032298584,
+      "fcf_yield_reported_pct": 4.58782018953766,
+      "fcf_yield_after_sbc_pct": 4.391069960702293,
+      "severity": "none"
+    },
+    "b1": {
+      "exempt_owner_earnings": false,
+      "fcf_score_before": 54.121798104623394,
+      "fcf_score_after": 56.08930039297707,
+      "d_valuation": 0.7870009153414714,
+      "new_valuation": 32.08700091534147
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 70.9013088518082,
+      "ebit_margin_pct": 44.55058619192358,
+      "score_gross": 88.62663606476025,
+      "score_op": 100.0,
+      "d_quality": 1.7060045902859626,
+      "new_quality": 69.40600459028596,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": 22.873889227023735,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 20.410704,
+    "edge_distance": {
+      "composite": 31.8,
+      "nearest_edge": 30.0,
+      "distance": 1.8
+    }
+  },
+  {
+    "ticker": "TRN",
+    "recorded": {
+      "valuation": 10.0,
+      "quality": 66.4,
+      "composite": 21.8
+    },
+    "error": "MissingInputError: yfinance field missing from TTM EBIT: row 'EBIT' not found"
+  },
+  {
+    "ticker": "UBER",
+    "recorded": {
+      "valuation": 37.4,
+      "quality": 59.3,
+      "composite": 39.1
+    },
+    "fcf_yield_pct": 6.928178429323073,
+    "sbc": {
+      "sbc_ttm": 1939000000.0,
+      "fcf_ttm": 10116000000.0,
+      "market_cap": 146012405760.0,
+      "sbc_pct_fcf": 19.16765519968367,
+      "fcf_yield_reported_pct": 6.928178429323073,
+      "fcf_yield_after_sbc_pct": 5.600209076371566,
+      "severity": "none"
+    },
+    "b1": {
+      "exempt_owner_earnings": false,
+      "fcf_score_before": 30.71821570676927,
+      "fcf_score_after": 43.997909236284336,
+      "d_valuation": 5.311877411806027,
+      "new_valuation": 42.71187741180603
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 42.30539410071161,
+      "ebit_margin_pct": 12.939323157151394,
+      "score_gross": 52.881742625889515,
+      "score_op": 32.34830789287849,
+      "d_quality": -3.0800152099516542,
+      "new_quality": 56.21998479004834,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": -4.8875,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 16.197924,
+    "edge_distance": {
+      "composite": 39.1,
+      "nearest_edge": 30.0,
+      "distance": 9.1
+    }
+  },
+  {
+    "ticker": "VEEV",
+    "recorded": {
+      "valuation": 65.9,
+      "quality": 86.0,
+      "composite": 40.0
+    },
+    "fcf_yield_pct": 3.4923010466340045,
+    "sbc": {
+      "sbc_ttm": 494589000.0,
+      "fcf_ttm": 1665459000.0,
+      "market_cap": 47689445376.0,
+      "sbc_pct_fcf": 29.696858343555743,
+      "fcf_yield_reported_pct": 3.4923010466340045,
+      "fcf_yield_after_sbc_pct": 2.45519735188459,
+      "severity": "none"
+    },
+    "b1": {
+      "exempt_owner_earnings": false,
+      "fcf_score_before": 65.07698953365995,
+      "fcf_score_after": 75.4480264811541,
+      "d_valuation": 4.148414778997659,
+      "new_valuation": 70.04841477899767,
+      "new_composite": 42.024207389498834,
+      "band_change": false
+    },
+    "b2_disqualified": false,
+    "b3": {
+      "gross_margin_pct": 74.96085998719528,
+      "ebit_margin_pct": 29.925670122709075,
+      "score_gross": 93.70107498399409,
+      "score_op": 74.8141753067727,
+      "d_quality": -2.8330349515832087,
+      "new_quality": 83.16696504841678,
+      "gate_change": false
+    },
+    "cycle_peak": "UNKNOWN",
+    "fwd_eps_growth_proxy_pct": 68.0432786885246,
+    "multiple_ceiling": "NONE",
+    "forward_pe": 28.734304,
+    "edge_distance": {
+      "composite": 40.0,
+      "nearest_edge": 30.0,
+      "distance": 10.0
+    }
+  },
+  {
+    "ticker": "ZS",
+    "recorded": {
+      "valuation": 65.7,
+      "quality": 59.4,
+      "composite": 53.2
+    },
+    "error": "MissingInputError: TTM Pretax Income is <= 0 \u2014 effective tax rate for ROIC/NOPAT is undefined"
+  }
+]

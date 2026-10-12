@@ -1,6 +1,6 @@
 # Part 7 — Phase B plan: scored changes (not yet applied)
 
-**Status: plan only. Nothing here is applied.** Phase A (this plan's predecessor) shipped as [decisions/2026-10-12-framework-change-advisory-flags-and-sbc-disclosure.md](../../decisions/2026-10-12-framework-change-advisory-flags-and-sbc-disclosure.md): advisory flags and the SBC block, no score effect, no methodology bump.
+**Status: plan only. Nothing here is applied.** *Pilot run 2026-10-12 — results and revised recommendation (adopt B1+B2, drop B3, park B5, B6 awaiting data) in [08-phase-b-pilot-results.md](08-phase-b-pilot-results.md).* Phase A (this plan's predecessor) shipped as [decisions/2026-10-12-framework-change-advisory-flags-and-sbc-disclosure.md](../../decisions/2026-10-12-framework-change-advisory-flags-and-sbc-disclosure.md): advisory flags and the SBC block, no score effect, no methodology bump.
 
 On 2026-10-12 the user approved adopting the items below and chose a **phased** rollout: advisory/no-score items first (done), scored items only after a pilot, then as **one** methodology-version bump with **one** stale-score run (per [06-roadmap.md](06-roadmap.md) §2 — separate bumps would stale-flag overlapping watchlist entries repeatedly). For hysteresis the user chose **action-band edges** (the 70.0 / 80.0 / 90.0 trim bands and the 30.0 / 50.0 entry bands), *not* the 80.0 Quality gate — so the three-state gate (P-009 / Draft F) stays **not adopted**.
 

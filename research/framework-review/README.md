@@ -13,6 +13,7 @@ Review of this repo's *Quality Value + Dynamic Trimming* framework against the e
 | [05-validation.md](05-validation.md) | Paired comparison on 14 tickers, backtest design, one-session pilot, acceptance/rollback |
 | [06-roadmap.md](06-roadmap.md) | Ranked roadmap, dependencies, six draft decision entries |
 | [07-phase-b-plan.md](07-phase-b-plan.md) | Scored changes approved 2026-10-12 but deferred behind a pilot (SBC-adjusted yield, operating margin, capex discipline, action-band hysteresis, scored cycle/ceiling limits); Phase A (advisory flags, SBC block) shipped separately |
+| [08-phase-b-pilot-results.md](08-phase-b-pilot-results.md) | Pilot of the Phase B scored changes on 15 live holdings (script + raw JSON in `pilot/`): B1 passes, B3 fails acceptance, B5 inconclusive, B6 untestable on free data |
 | [open-questions-for-user.md](open-questions-for-user.md) | Decisions only you can make; facts to re-check on the site |
 
 ## Executive summary
