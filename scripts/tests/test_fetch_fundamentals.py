@@ -197,3 +197,68 @@ def test_fewer_than_4_quarters_raises_missing_input_error():
     ticker.quarterly_financials = ticker.quarterly_financials.iloc[:, :3]
     with pytest.raises(MissingInputError, match="4 quarters"):
         fetch(ticker)
+
+
+# --- advisory block (SBC disclosure + cycle-peak / value-trap flags; no score effect) ---
+
+
+def _eight_quarters(eps_newest_first, sbc_newest_first=None):
+    q_dates = pd.date_range(end="2026-06-30", periods=8, freq="90D")[::-1]
+    base_f = {
+        "EBIT": [42_000_000_000] * 8,
+        "Net Income": [33_000_000_000] * 8,
+        "Total Revenue": [83_000_000_000] * 8,
+        "Gross Profit": [56_000_000_000] * 8,
+        "Tax Provision": [8_000_000_000] * 8,
+        "Pretax Income": [41_000_000_000] * 8,
+        "Diluted EPS": eps_newest_first,
+    }
+    qf = pd.DataFrame({k: pd.Series(v, index=q_dates) for k, v in base_f.items()}).T
+    base_c = {
+        "Free Cash Flow": [16_750_000_000] * 8,
+        "Depreciation And Amortization": [5_000_000_000] * 8,
+    }
+    if sbc_newest_first is not None:
+        base_c["Stock Based Compensation"] = sbc_newest_first
+    qcf = pd.DataFrame({k: pd.Series(v, index=q_dates) for k, v in base_c.items()}).T
+    return qf, qcf
+
+
+def test_advisory_unknown_when_rows_missing_never_raises():
+    t, _ = _build_fake_ticker()
+    adv = fetch(t)["advisory"]
+    assert adv["sbc"] is None and adv["sbc_ttm"] is None
+    assert adv["cycle_peak"]["flag"] == "UNKNOWN"
+    assert adv["value_trap_candidate"]["flag"] == "UNKNOWN"
+
+
+def test_advisory_cycle_peak_and_sbc_from_eight_quarters():
+    qf, qcf = _eight_quarters([2.0] * 4 + [0.5] * 4, [2_000_000_000] * 8)
+    t, _ = _build_fake_ticker(quarterly_financials=qf, quarterly_cashflow=qcf)
+    adv = fetch(t)["advisory"]
+    assert adv["eps_ttm_now"] == pytest.approx(8.0)
+    assert adv["eps_ttm_1y_ago"] == pytest.approx(2.0)
+    assert adv["cycle_peak"]["flag"] == "CYCLE_PEAK_CANDIDATE"  # +300%
+    assert adv["sbc_ttm"] == pytest.approx(8_000_000_000)
+    assert adv["sbc"]["sbc_pct_fcf"] == pytest.approx(8e9 / 67e9 * 100)
+    assert adv["sbc"]["severity"] == "none"  # 11.9% of FCF
+
+
+def test_advisory_gap_in_quarter_dates_is_unknown_not_guess():
+    qf, qcf = _eight_quarters([2.0] * 8)
+    # simulate a fiscal-year-change stub: shift older quarters back by an extra 60 days
+    shifted = list(qf.columns)
+    shifted[4:] = [d - pd.Timedelta(days=60) for d in shifted[4:]]
+    qf.columns = shifted
+    t, _ = _build_fake_ticker(quarterly_financials=qf, quarterly_cashflow=qcf)
+    assert fetch(t)["advisory"]["cycle_peak"]["flag"] == "UNKNOWN"
+
+
+def test_advisory_block_renders_in_markdown():
+    from scripts.fetch_fundamentals import render_markdown
+
+    qf, qcf = _eight_quarters([2.0] * 8, [20_000_000_000] * 8)
+    t, _ = _build_fake_ticker(quarterly_financials=qf, quarterly_cashflow=qcf)
+    text = render_markdown("TEST", fetch(t))
+    assert "SBC block" in text and "SEVERE" in text  # SBC 80B > FCF 67B
+    assert "cycle_peak" in text

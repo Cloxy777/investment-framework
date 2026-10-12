@@ -182,6 +182,27 @@ Company C ranks slightly more attractive overall (22.0 vs 23.5) despite Company 
 
 ---
 
+## Advisory Flags (no score effect)
+
+*Added 2026-10-12 — see [decisions/2026-10-12-framework-change-advisory-flags-and-sbc-disclosure.md](../decisions/2026-10-12-framework-change-advisory-flags-and-sbc-disclosure.md). These flags and the SBC block change **no** score, band or eligibility rule, so the scoring methodology version above is **not** bumped and no stale-score run is triggered.*
+
+Four blind spots the score cannot see on its own are surfaced as printed flags at analysis time. A raised flag never changes a score or an action by itself; it forces the analyst to say, in the session log, how it was handled. **`UNKNOWN` is a data gap, not a pass** — record it as such; never fill it with an estimate.
+
+| Flag | Raised when | Why the score can't see it | Analyst must |
+|---|---|---|---|
+| `CYCLE_PEAK_CANDIDATE` | GAAP diluted EPS (TTM) grew **more than 100%** vs the TTM a year earlier, on a positive base | A multiple on peak-cycle earnings looks cheapest exactly at the top; a rolling FCF window can hide it | State why the multiple is compared with a normalised earnings base ([Rule 6](fair-value-methodology.md)); keep `fast_grower` false unless 3 clean years are documented |
+| `LOSS_TO_PROFIT_BASE` | prior-year EPS (TTM) was ≤ 0 and is now positive | Growth is undefined; PEG-ineligible base (see the Fast-Grower eligibility note above) | Do not use PEG; say so |
+| `MULTIPLE_CEILING` | forward PE **≥ 30** and forward EPS growth **< 30%** | Continuous sub-scores can net a rich multiple against a cheap FCF yield | State what growth or quality the price assumes beyond the estimates |
+| `VALUE_TRAP_CANDIDATE` | 0 < forward PE **≤ 15** and TTM EPS growth is negative | A low multiple is the *result* of falling earnings | State why earnings will stabilise, or treat the cheapness as unreliable |
+
+**SBC block.** Alongside the reported FCF yield, print **SBC/FCF** and **FCF yield after SBC** (`(FCF − SBC) ÷ market cap`). Stock-based compensation is a real cost to owners (dilution) that reported FCF adds back; FCF Yield is 40% of this score. Severity labels: `elevated` at SBC/FCF ≥ 30%, `severe` at ≥ 100% (or FCF ≤ 0 with SBC > 0) — the analyst must address `elevated`/`severe` in the session log. **The FCF Score still uses the reported FCF yield** (Owner Earnings names under Upgrade 1 already bear SBC through GAAP net income). Scoring the SBC-adjusted yield is a separate future methodology change, to be decided after a pilot — see [research/framework-review/07-phase-b-plan.md](../research/framework-review/07-phase-b-plan.md).
+
+**Where they come from.** `python -m scripts.fetch_fundamentals <TICKER>` prints the SBC block, `cycle_peak` and `value_trap_candidate` when yfinance supplies 8 consecutive quarters of Diluted EPS and 4 of Stock Based Compensation (otherwise `UNKNOWN` — supply the TTM figures from filings by hand and run `python -m scripts.scoring.flags_common` / `python -m scripts.scoring.sbc`). `MULTIPLE_CEILING` needs the consensus forward EPS growth that is already a manual Phase 02 input, so it is computed with `python -m scripts.scoring.flags_common --forward-pe X --eps-growth Y`.
+
+**Thresholds are placeholders.** 100% / 30 / 30 / 15 and the SBC 30% / 100% lines are taken from an external reference system's printed constants and are **not calibrated on this repo's holdings** (marked † in the scripts). Calibrate before any of them is promoted from advisory to scored.
+
+---
+
 ## Converting Legacy 1–10 Scores
 
 Sessions and decisions logged before 2026-06-11 record scores on the old 1–10 integer scale. To compare against the new 0–100.0 scale:
