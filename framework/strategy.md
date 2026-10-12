@@ -148,6 +148,8 @@ Raw FCF yield penalises moat-building CapEx businesses. For businesses where **G
 
 Practical impact: MSFT Owner Earnings ~$95B vs reported FCF ~$72B — 32% difference, materially changes fair value output.
 
+*SBC note (2026-10-12):* Owner Earnings starts from GAAP net income, which already deducts stock-based compensation, so Owner-Earnings names get **no further SBC deduction** in the FCF yield (see [valuation-scoring.md](valuation-scoring.md)).
+
 ### 🔴 Upgrade 2 — Historical PE Relative Modifier (CRITICAL)
 
 *Lookback shortened from 10yr to 5yr on 2026-06-20 to make this fully automatable via `yfinance` — see [decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md](../decisions/2026-06-20-framework-change-5yr-historical-pe-automation.md).*

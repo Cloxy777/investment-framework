@@ -66,8 +66,13 @@ def watchlist_root(tmp_path):
 
 
 def test_read_current_version_from_real_file():
+    import re
+
     version = read_current_version(REAL_VALUATION_SCORING)
-    assert version == "2026-06-29"
+    assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", version)
+    # quality-scoring.md carries the same stamp: the two docs must be bumped together
+    quality_doc = REAL_VALUATION_SCORING.with_name("quality-scoring.md").read_text(encoding="utf-8")
+    assert f"Scoring methodology version: {version}" in quality_doc
 
 
 def test_read_current_version_missing_file_hard_fails(tmp_path):

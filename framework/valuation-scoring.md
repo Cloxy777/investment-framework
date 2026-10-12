@@ -2,7 +2,7 @@
 
 How to compute Phase 02 score (0–100.0) for a qualified company. See [strategy.md](strategy.md) for where this fits in overall framework.
 
-> **Scoring methodology version: 2026-06-29.** Bump this date whenever a change materially alters how score is computed (new/changed sub-score, modifier, weight, eligibility rule); record why in `decisions/`. Version bump triggers watchlist **stale-score** mechanism: any watchlist entry with score from older version flagged stale (banner + [watchlist/STALE.md](../watchlist/STALE.md) row) until rescored — see [watchlist/README.md](../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes). *Version history: 2026-06-11 (1–10 → 0–100 rescale) → 2026-06-20 (5yr PE lookback, Upside/Downside Modifier, PEG clean-earnings clarification) → 2026-06-29 (Quality Score + 80.0+ gate + Composite Score added, see [quality-scoring.md](quality-scoring.md)).*
+> **Scoring methodology version: 2026-10-12.** *(2026-10-12: stock-based compensation treated as a cost - see [decisions/2026-10-12-framework-change-sbc-as-a-cost.md](../decisions/2026-10-12-framework-change-sbc-as-a-cost.md).)* Bump this date whenever a change materially alters how score is computed (new/changed sub-score, modifier, weight, eligibility rule); record why in `decisions/`. Version bump triggers watchlist **stale-score** mechanism: any watchlist entry with score from older version flagged stale (banner + [watchlist/STALE.md](../watchlist/STALE.md) row) until rescored — see [watchlist/README.md](../watchlist/README.md#stale-scores--when-the-scoring-methodology-changes). *Version history: 2026-06-11 (1–10 → 0–100 rescale) → 2026-06-20 (5yr PE lookback, Upside/Downside Modifier, PEG clean-earnings clarification) → 2026-06-29 (Quality Score + 80.0+ gate + Composite Score added, see [quality-scoring.md](quality-scoring.md)).*
 
 *Rescaled 2026-06-11 from original 1–10 integer scale to continuous 0–100.0 scale for more precision — see [decisions/2026-06-11-framework-change-score-precision-rescale.md](../decisions/2026-06-11-framework-change-score-precision-rescale.md). Cap set to clean 100.0 (rather than 99.9) so EV/EBIT and PEG sub-score formulas land on round numbers at defined extremes (EV/EBIT 35× → exactly 100.0, PEG 2.5 → exactly 100.0).*
 
@@ -27,7 +27,7 @@ Guidance still matters — as **trigger**, not **score**:
 
 Each of the four inputs computed on its own continuous **0.0–100.0** scale before weighting — **0 = cheapest/most attractive, 100.0 = most expensive.** Replaces old discrete 1–10 bucket tables with one formula per metric, so two companies previously landed in same bucket (e.g. both "sub-score 6–7") now distinguished.
 
-**FCF Yield (40% weight)** — use Owner Earnings yield where Upgrade 1 applies:
+**FCF Yield (40% weight)** — use Owner Earnings yield where Upgrade 1 applies; otherwise use the **FCF yield after SBC**, `(FCF − SBC) ÷ market cap` (see the SBC note below the table):
 
 ```
 FCF_Score = clamp(100 × (1 − FCF_Yield% / 10), 0, 100)
@@ -42,6 +42,8 @@ FCF_Score = clamp(100 × (1 − FCF_Yield% / 10), 0, 100)
 | 4% | 60.0 |
 | 2% | 80.0 |
 | ≤0% | 100.0 |
+
+> **SBC is a cost (methodology 2026-10-12).** Reported free cash flow adds back stock-based compensation, but SBC is a real cost to owners (dilution). `FCF_Yield% = (FCF − SBC) ÷ market cap`, both TTM, same currency; a result at or below 0% scores 100.0. **Owner Earnings names (Upgrade 1: net income + D&A − maintenance capex)** are not adjusted again — their net-income base already deducts SBC. Never leave `sbc_yield_pct` blank: pass `0` only if the company reports no SBC, otherwise stop and ask. Professionals are split on this (many sell-side analysts add SBC back; Buffett/Munger, Damodaran and most value/quality shops deduct it); this framework deliberately takes the conservative, deduct-it side. The pilots behind the choice: [08](../research/framework-review/08-phase-b-pilot-results.md), [09](../research/framework-review/09-quality-sbc-pilot-results.md), [10](../research/framework-review/10-duol-filings-check.md).
 
 **EV/EBIT (25% weight):**
 
@@ -122,10 +124,10 @@ If PEG is not applicable (not a Fast Grower), redistribute its 15% weight to EV/
 PW Fair Value   = 0.25×Bull + 0.50×Base + 0.25×Bear          (Rule 7 — downside underwritten via the bear case)
 Gap Upside %    = (PW Fair Value ÷ Live Price) − 1            (Live Price per Rule 0 — fetch first, never infer)
 Annualized gap  = Gap Upside % ÷ catalyst-timeline in years   (Rule 10; if no narrower window, use 2yr)
-E               = Annualized gap + intrinsic growth rate (FCF or EPS CAGR) + shareholder yield (dividend % + net buyback %)
+E               = Annualized gap + intrinsic growth rate (FCF or EPS CAGR) + shareholder yield (dividend % + **gross cash** buyback %)
 ```
 
-`PW` = probability-weighted (the scenario blend). `CAGR` = compound annual growth rate. Shareholder yield = cash returned to owners as a % of price (dividends plus net share buybacks).
+`PW` = probability-weighted (the scenario blend). `CAGR` = compound annual growth rate. Shareholder yield = cash returned to owners as a % of price (dividends plus **gross cash** share buybacks — SBC is already deducted in the FCF yield, so a net-of-issuance figure would count the dilution twice; the calculator requires `buyback_yield_basis = gross_cash`).
 
 **Step 2 — Map `E` to modifier** against hurdle `H = 10%` (midpoint of Rule 4's 8–15% implied-IRR — internal rate of return — sanity band). `pp` = percentage points:
 
@@ -195,7 +197,7 @@ Four blind spots the score cannot see on its own are surfaced as printed flags a
 | `MULTIPLE_CEILING` | forward PE **≥ 30** and forward EPS growth **< 30%** | Continuous sub-scores can net a rich multiple against a cheap FCF yield | State what growth or quality the price assumes beyond the estimates |
 | `VALUE_TRAP_CANDIDATE` | 0 < forward PE **≤ 15** and TTM EPS growth is negative | A low multiple is the *result* of falling earnings | State why earnings will stabilise, or treat the cheapness as unreliable |
 
-**SBC block.** Alongside the reported FCF yield, print **SBC/FCF** and **FCF yield after SBC** (`(FCF − SBC) ÷ market cap`). Stock-based compensation is a real cost to owners (dilution) that reported FCF adds back; FCF Yield is 40% of this score. Severity labels: `elevated` at SBC/FCF ≥ 30%, `severe` at ≥ 100% (or FCF ≤ 0 with SBC > 0) — the analyst must address `elevated`/`severe` in the session log. **The FCF Score still uses the reported FCF yield** (Owner Earnings names under Upgrade 1 already bear SBC through GAAP net income). Scoring the SBC-adjusted yield is a separate future methodology change, to be decided after a pilot — see [research/framework-review/07-phase-b-plan.md](../research/framework-review/07-phase-b-plan.md).
+**SBC block.** `fetch_fundamentals` prints SBC/FCF and the FCF yield after SBC beside the reported yield. Since methodology 2026-10-12 the after-SBC yield is what the FCF Score uses (see "FCF Yield" above) and SBC ≥ 100% of FCF is a Quality hard disqualifier; the severity labels here (`elevated` ≥ 30%†, `severe` ≥ 100%†) remain advisory for the analyst's session log.
 
 **Where they come from.** `python -m scripts.fetch_fundamentals <TICKER>` prints the SBC block, `cycle_peak` and `value_trap_candidate` when yfinance supplies 8 consecutive quarters of Diluted EPS and 4 of Stock Based Compensation (otherwise `UNKNOWN` — supply the TTM figures from filings by hand and run `python -m scripts.scoring.flags_common` / `python -m scripts.scoring.sbc`). `MULTIPLE_CEILING` needs the consensus forward EPS growth that is already a manual Phase 02 input, so it is computed with `python -m scripts.scoring.flags_common --forward-pe X --eps-growth Y`.
 

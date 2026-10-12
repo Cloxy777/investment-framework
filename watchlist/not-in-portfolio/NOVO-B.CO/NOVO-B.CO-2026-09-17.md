@@ -1,5 +1,7 @@
 # NOVO-B.CO — Novo Nordisk A/S (Copenhagen B-shares)
 
+> ⚠️ **STALE SCORE** — this entry predates the 2026-10-12 scoring-methodology change ([SBC treated as a cost in FCF yield and FCF Quality (methodology 2026-10-12)](../../../decisions/2026-10-12-framework-change-sbc-as-a-cost.md)) and is not comparable to current scores. Pending rescore — see the [staleness registry](../../STALE.md) (path relative to a ticker's entry file — adjust if nesting differs). _Remove this banner when the ticker is rescored under the current methodology._
+
 **Sector:** Healthcare — Pharmaceuticals (GLP-1 / Diabetes & Obesity Care)
 **Status:** Not held (as this specific ticker) — **⚠️ but the same underlying company is already held via NVO (NYSE ADR), 0.35% of portfolio.** See [watchlist/in-portfolio/NVO/](../../in-portfolio/NVO/) for that ticker's full, separately-maintained history. NOVO-B.CO and NVO are a **Dual-listing** of one company (Novo Nordisk A/S) — this file exists only because `/new-position` was run against this specific ticker; it is not tracking an independent business.
 
