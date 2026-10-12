@@ -1,0 +1,11 @@
+date,ticker,action,qty,price,ccy,commission,note
+2025-10-13,TLT,open,82,,USD,0,"Held at the first PA date. Inferred: trades start 2025-10-17 and no PA flow spike shows a later transfer-in. Verified: 100 sh at transfer-out reconciles (82 - 5 + 23) and valuation matches PA's -8550 outflow on 2026-10-12."
+2026-02-10,TLT,sell,5,88.44,USD,1.000975,get_account_trades (order 4879438301)
+2026-06-30,RGL,buy,2617,0.009,AUD,6,get_account_trades (order 5372795755)
+2026-07-01,RGL,buy,169,0.009,AUD,0,"3 fills 79+10+80 (order 5372795755)"
+2026-07-06,RGL,buy,57214,0.011,AUD,6,get_account_trades (order 5385304033)
+2026-07-21,TLT,buy,23,83.5522,USD,2.000069,"13 @83.54 + 10 @83.565 (orders 5438021908, 5438342742)"
+2026-10-05,LM8,buy,1800,0.30,AUD,6,get_account_trades (order from 2026-10-06T03:47Z = 2026-10-05 ET)
+2026-10-12,TLT,transfer_out,100,,USD,0,In-kind transfer to a non-framework account - see portfolio/accounts.md
+2026-10-12,RGL,transfer_out,60000,,AUD,0,In-kind transfer
+2026-10-12,LM8,transfer_out,1800,,AUD,0,In-kind transfer

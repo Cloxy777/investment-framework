@@ -33,4 +33,4 @@ Positions moved by the user via an **in-kind (free-of-payment) internal transfer
 
 Fill in the exact transfer date and each destination account when known. IBKR's own reports (Activity Statement, PortfolioAnalyst) may show these as realized losses or closing trades on the main account; treat that as a cosmetic artefact of the transfer — cost basis and holding period carry over with an in-kind transfer. See [decisions/2026-10-12-framework-change-account-segregation.md](../decisions/2026-10-12-framework-change-account-segregation.md).
 
-**Framework statistics baseline: 2026-10-12.** Performance, override-log comparisons, and win-rate figures treat the post-transfer U19421206 portfolio as the framework's population; anything before that date still includes the transferred positions.
+**Framework statistics baseline: 2026-10-12 for position-level figures** (override-log comparisons, win rate: the post-transfer U19421206 portfolio is the population). **Account-level performance (TWR) is rebuilt back to 2025-10-13 with the three transferred positions removed from the whole history** — see [performance/README.md](performance/README.md) and `/performance`.
