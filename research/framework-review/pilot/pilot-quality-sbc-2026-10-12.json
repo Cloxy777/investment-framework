@@ -1,0 +1,699 @@
+[
+  {
+    "ticker": "ADBE",
+    "recorded": {
+      "valuation": 0.0,
+      "quality": 83.3,
+      "composite": 8.4
+    },
+    "fcf_ni": 1.4541460735859417,
+    "adj_fcf_ni": 1.1698242723778143,
+    "fcfq_before": 100.0,
+    "fcfq_after": 100.0,
+    "d_quality": 0.0,
+    "new_quality": 83.3,
+    "annual": [
+      {
+        "year": "2022-11-30",
+        "fcf_ni": 1.5550883095037846,
+        "adj_fcf_ni": 1.2523128679562658
+      },
+      {
+        "year": "2023-11-30",
+        "fcf_ni": 1.2789240972733973,
+        "adj_fcf_ni": 0.9624170965364776
+      },
+      {
+        "year": "2024-11-30",
+        "fcf_ni": 1.4160071942446044,
+        "adj_fcf_ni": 1.0863309352517985
+      },
+      {
+        "year": "2025-11-30",
+        "fcf_ni": 1.3817671809256662,
+        "adj_fcf_ni": 1.1093969144460027
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 3.2256199655187516,
+    "combined": {
+      "new_quality": 83.3,
+      "new_valuation": 3.2256199655187516,
+      "new_composite": 9.962809982759378,
+      "band_change": false
+    }
+  },
+  {
+    "ticker": "AMZN",
+    "recorded": {
+      "valuation": 82.7,
+      "quality": 56.7,
+      "composite": 63.0
+    },
+    "error": "missing TTM Net Income"
+  },
+  {
+    "ticker": "AVGO",
+    "recorded": {
+      "valuation": 71.4,
+      "quality": 86.3,
+      "composite": 42.6
+    },
+    "fcf_ni": 1.0297399712531035,
+    "adj_fcf_ni": 0.8080752646021169,
+    "fcfq_before": 100.0,
+    "fcfq_after": 68.01254410035281,
+    "d_quality": -3.198745589964719,
+    "new_quality": 83.10125441003528,
+    "annual": [
+      {
+        "year": "2022-10-31",
+        "fcf_ni": 1.4190517616354936,
+        "adj_fcf_ni": 1.2856894301870379
+      },
+      {
+        "year": "2023-10-31",
+        "fcf_ni": 1.2521658855276239,
+        "adj_fcf_ni": 1.097997443544951
+      },
+      {
+        "year": "2024-10-31",
+        "fcf_ni": 3.2932994062765055,
+        "adj_fcf_ni": 2.319423240033927
+      },
+      {
+        "year": "2025-10-31",
+        "fcf_ni": 1.1637983222347141,
+        "adj_fcf_ni": 0.8365476087520539
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 2.003602517426731,
+    "combined": {
+      "new_quality": 83.10125441003528,
+      "new_valuation": 73.40360251742673,
+      "new_composite": 45.151174053695726,
+      "band_change": false
+    }
+  },
+  {
+    "ticker": "BKNG",
+    "recorded": {
+      "valuation": 20.8,
+      "quality": 91.9,
+      "composite": 14.4
+    },
+    "fcf_ni": 1.3232071022333194,
+    "adj_fcf_ni": 1.2398390900263558,
+    "fcfq_before": 100.0,
+    "fcfq_after": 100.0,
+    "d_quality": 0.0,
+    "new_quality": 91.9,
+    "annual": [
+      {
+        "year": "2022-12-31",
+        "fcf_ni": 2.022890778286462,
+        "adj_fcf_ni": 1.8907782864617397
+      },
+      {
+        "year": "2023-12-31",
+        "fcf_ni": 1.6318489158311962,
+        "adj_fcf_ni": 1.5082769876428073
+      },
+      {
+        "year": "2024-12-31",
+        "fcf_ni": 1.3420605236314178,
+        "adj_fcf_ni": 1.240224413464808
+      },
+      {
+        "year": "2025-12-31",
+        "fcf_ni": 1.6815321983715765,
+        "adj_fcf_ni": 1.567357512953368
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 1.9582289069701062,
+    "combined": {
+      "new_quality": 91.9,
+      "new_valuation": 22.758228906970107,
+      "new_composite": 15.42911445348505,
+      "band_change": false
+    }
+  },
+  {
+    "ticker": "CSGP",
+    "recorded": {
+      "valuation": 87.8,
+      "quality": 69.2,
+      "composite": 59.3
+    },
+    "fcf_ni": 3.0842391304347827,
+    "adj_fcf_ni": 0.47554347826086957,
+    "fcfq_before": 100.0,
+    "fcfq_after": 12.590579710144926,
+    "d_quality": -8.740942028985508,
+    "new_quality": 60.459057971014495,
+    "annual": [
+      {
+        "year": "2022-12-31",
+        "fcf_ni": 1.0416779431664411,
+        "adj_fcf_ni": 0.8381596752368065
+      },
+      {
+        "year": "2023-12-31",
+        "fcf_ni": 0.9253333333333333,
+        "adj_fcf_ni": 0.6986666666666667
+      },
+      {
+        "year": "2024-12-31",
+        "fcf_ni": -1.7625899280575539,
+        "adj_fcf_ni": -2.402877697841727
+      },
+      {
+        "year": "2025-12-31",
+        "fcf_ni": 5.857142857142857,
+        "adj_fcf_ni": -21.857142857142858
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": true,
+    "d_valuation": 6.4887767089945445
+  },
+  {
+    "ticker": "DUOL",
+    "recorded": {
+      "valuation": 85.1,
+      "quality": 83.2,
+      "composite": 51.0
+    },
+    "fcf_ni": 0.9677116224039419,
+    "adj_fcf_ni": 0.6154827432583435,
+    "fcfq_before": 94.61860373399033,
+    "fcfq_after": 35.91379054305725,
+    "d_quality": -5.870481319093308,
+    "new_quality": 77.32951868090669,
+    "annual": [
+      {
+        "year": "2023-12-31",
+        "fcf_ni": 8.70915541171345,
+        "adj_fcf_ni": 2.7826601107860833
+      },
+      {
+        "year": "2024-12-31",
+        "fcf_ni": 2.9847697970058933,
+        "adj_fcf_ni": 1.7374850407568811
+      },
+      {
+        "year": "2025-12-31",
+        "fcf_ni": 0.8704527067006388,
+        "adj_fcf_ni": 0.5385313899991547
+      }
+    ],
+    "gate_change": true,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 8.372670448135713
+  },
+  {
+    "ticker": "GOOG",
+    "recorded": {
+      "valuation": 64.2,
+      "quality": 71.4,
+      "composite": 46.4
+    },
+    "fcf_ni": 0.21814868655432934,
+    "adj_fcf_ni": 0.10288896623738253,
+    "fcfq_before": 0.0,
+    "fcfq_after": 0.0,
+    "d_quality": 0.0,
+    "new_quality": 71.4,
+    "annual": [
+      {
+        "year": "2022-12-31",
+        "fcf_ni": 1.0006336290268791,
+        "adj_fcf_ni": 0.6777829653838457
+      },
+      {
+        "year": "2023-12-31",
+        "fcf_ni": 0.9417304695440071,
+        "adj_fcf_ni": 0.637373805813402
+      },
+      {
+        "year": "2024-12-31",
+        "fcf_ni": 0.7267823967718092,
+        "adj_fcf_ni": 0.49920094288739286
+      },
+      {
+        "year": "2025-12-31",
+        "fcf_ni": 0.5543315427101461,
+        "adj_fcf_ni": 0.3655368086555194
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": true,
+    "d_valuation": 0.0
+  },
+  {
+    "ticker": "MBGL",
+    "recorded": {
+      "valuation": null,
+      "quality": 51.0,
+      "composite": null
+    },
+    "fcf_ni": 1.8873239436619718,
+    "adj_fcf_ni": 1.8028169014084507,
+    "fcfq_before": 100.0,
+    "fcfq_after": 100.0,
+    "d_quality": 0.0,
+    "new_quality": 51.0,
+    "annual": [
+      {
+        "year": "2023-12-31",
+        "fcf_ni": 2.3006134969325154,
+        "adj_fcf_ni": 2.1779141104294477
+      },
+      {
+        "year": "2024-12-31",
+        "fcf_ni": 1.9807692307692308,
+        "adj_fcf_ni": 1.8461538461538463
+      },
+      {
+        "year": "2025-12-31",
+        "fcf_ni": 3.2928571428571427,
+        "adj_fcf_ni": 3.1357142857142857
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 1.3469720499348483
+  },
+  {
+    "ticker": "META",
+    "recorded": {
+      "valuation": 39.4,
+      "quality": 87.5,
+      "composite": 26.0
+    },
+    "fcf_ni": 0.6017210490763312,
+    "adj_fcf_ni": 0.23260595024817174,
+    "fcfq_before": 33.62017484605519,
+    "fcfq_after": 0.0,
+    "d_quality": -3.3620174846055195,
+    "new_quality": 84.13798251539448,
+    "annual": [
+      {
+        "year": "2022-12-31",
+        "fcf_ni": 0.8314224137931034,
+        "adj_fcf_ni": 0.31452586206896554
+      },
+      {
+        "year": "2023-12-31",
+        "fcf_ni": 1.1271164765461148,
+        "adj_fcf_ni": 0.7683513223182772
+      },
+      {
+        "year": "2024-12-31",
+        "fcf_ni": 0.8670942912123156,
+        "adj_fcf_ni": 0.5994547787042976
+      },
+      {
+        "year": "2025-12-31",
+        "fcf_ni": 0.7626616824903238,
+        "adj_fcf_ni": 0.42479076383605147
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": true,
+    "d_valuation": 0.0,
+    "combined": {
+      "new_quality": 84.13798251539448,
+      "new_valuation": 39.4,
+      "new_composite": 27.631008742302757,
+      "band_change": false
+    }
+  },
+  {
+    "ticker": "MSFT",
+    "recorded": {
+      "valuation": 38.9,
+      "quality": 79.9,
+      "composite": 29.5
+    },
+    "fcf_ni": 0.5008411277841329,
+    "adj_fcf_ni": 0.4080927707870713,
+    "fcfq_before": 16.806854630688818,
+    "fcfq_after": 1.3487951311785449,
+    "d_quality": -1.5458059499510275,
+    "new_quality": 78.35419405004897,
+    "annual": [
+      {
+        "year": "2023-06-30",
+        "fcf_ni": 0.8219206478627991,
+        "adj_fcf_ni": 0.6891004823040036
+      },
+      {
+        "year": "2024-06-30",
+        "fcf_ni": 0.8404170826903876,
+        "adj_fcf_ni": 0.718628029409095
+      },
+      {
+        "year": "2025-06-30",
+        "fcf_ni": 0.7032268834943829,
+        "adj_fcf_ni": 0.5856410558567051
+      },
+      {
+        "year": "2026-06-30",
+        "fcf_ni": 0.5008411277841329,
+        "adj_fcf_ni": 0.4080927707870713
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": true,
+    "d_valuation": 0.0
+  },
+  {
+    "ticker": "NFLX",
+    "recorded": {
+      "valuation": 49.3,
+      "quality": 69.8,
+      "composite": 39.8
+    },
+    "fcf_ni": 0.8170181313180228,
+    "adj_fcf_ni": 0.7813155832218897,
+    "fcfq_before": 69.50302188633714,
+    "fcfq_after": 63.552597203648276,
+    "d_quality": -0.5950424682688862,
+    "new_quality": 69.20495753173111,
+    "annual": [
+      {
+        "year": "2022-12-31",
+        "fcf_ni": 0.3603195423609126,
+        "adj_fcf_ni": 0.23221140874155485
+      },
+      {
+        "year": "2023-12-31",
+        "fcf_ni": 1.2806512216183832,
+        "adj_fcf_ni": 1.2178981470010115
+      },
+      {
+        "year": "2024-12-31",
+        "fcf_ni": 0.7945499528159538,
+        "adj_fcf_ni": 0.7632598304496597
+      },
+      {
+        "year": "2025-12-31",
+        "fcf_ni": 0.8615681472363542,
+        "adj_fcf_ni": 0.8280154420267875
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 0.6629943863811832
+  },
+  {
+    "ticker": "NKE",
+    "recorded": {
+      "valuation": 55.2,
+      "quality": 39.1,
+      "composite": 58.1
+    },
+    "fcf_ni": 0.7027027027027027,
+    "adj_fcf_ni": 0.47265122265122267,
+    "fcfq_before": 50.450450450450454,
+    "fcfq_after": 12.108537108537108,
+    "d_quality": -3.8341913341913347,
+    "new_quality": 35.26580866580866,
+    "annual": [
+      {
+        "year": "2023-05-31",
+        "fcf_ni": 0.9609467455621302,
+        "adj_fcf_ni": 0.8120315581854043
+      },
+      {
+        "year": "2024-05-31",
+        "fcf_ni": 1.1608771929824562,
+        "adj_fcf_ni": 1.0198245614035089
+      },
+      {
+        "year": "2025-05-31",
+        "fcf_ni": 1.0152221186703945,
+        "adj_fcf_ni": 0.7949673811742777
+      },
+      {
+        "year": "2026-05-31",
+        "fcf_ni": 0.7027027027027027,
+        "adj_fcf_ni": 0.47265122265122267
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 5.447801731815668
+  },
+  {
+    "ticker": "NOW",
+    "recorded": {
+      "valuation": 75.9,
+      "quality": 73.2,
+      "composite": 51.4
+    },
+    "fcf_ni": 2.737125748502994,
+    "adj_fcf_ni": 1.4287425149700599,
+    "fcfq_before": 100.0,
+    "fcfq_after": 100.0,
+    "d_quality": 0.0,
+    "new_quality": 73.2,
+    "annual": [
+      {
+        "year": "2022-12-31",
+        "fcf_ni": 6.686153846153847,
+        "adj_fcf_ni": 2.375384615384615
+      },
+      {
+        "year": "2023-12-31",
+        "fcf_ni": 1.560369728480647,
+        "adj_fcf_ni": 0.633737723859041
+      },
+      {
+        "year": "2024-12-31",
+        "fcf_ni": 2.3684210526315788,
+        "adj_fcf_ni": 1.1431578947368422
+      },
+      {
+        "year": "2025-12-31",
+        "fcf_ni": 2.59324942791762,
+        "adj_fcf_ni": 1.4748283752860412
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 6.0259035046775695
+  },
+  {
+    "ticker": "NVDA",
+    "recorded": {
+      "valuation": 36.2,
+      "quality": 90.3,
+      "composite": 23.0
+    },
+    "fcf_ni": 0.6584750024626839,
+    "adj_fcf_ni": 0.6209333312594943,
+    "fcfq_before": 43.07916707711398,
+    "fcfq_after": 36.82222187658239,
+    "d_quality": -0.625694520053159,
+    "new_quality": 89.67430547994684,
+    "annual": [
+      {
+        "year": "2023-01-31",
+        "fcf_ni": 0.8717948717948718,
+        "adj_fcf_ni": 0.2516025641025641
+      },
+      {
+        "year": "2024-01-31",
+        "fcf_ni": 0.9079637096774194,
+        "adj_fcf_ni": 0.7887096774193548
+      },
+      {
+        "year": "2025-01-31",
+        "fcf_ni": 0.8349753018660813,
+        "adj_fcf_ni": 0.7699780461031833
+      },
+      {
+        "year": "2026-01-31",
+        "fcf_ni": 0.8051837723937468,
+        "adj_fcf_ni": 0.7519968017856696
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 0.5299957970300682,
+    "combined": {
+      "new_quality": 89.67430547994684,
+      "new_valuation": 36.72999579703007,
+      "new_composite": 23.527845158541616,
+      "band_change": false
+    }
+  },
+  {
+    "ticker": "NVO",
+    "recorded": {
+      "valuation": 51.4,
+      "quality": 67.2,
+      "composite": 42.1
+    },
+    "error": "missing TTM SBC"
+  },
+  {
+    "ticker": "SPGI",
+    "recorded": {
+      "valuation": 31.3,
+      "quality": 67.7,
+      "composite": 31.8
+    },
+    "fcf_ni": 1.132263307598537,
+    "adj_fcf_ni": 1.0837058106460788,
+    "fcfq_before": 100.0,
+    "fcfq_after": 100.0,
+    "d_quality": 0.0,
+    "new_quality": 67.7,
+    "annual": [
+      {
+        "year": "2022-12-31",
+        "fcf_ni": 0.7740147783251231,
+        "adj_fcf_ni": 0.708128078817734
+      },
+      {
+        "year": "2023-12-31",
+        "fcf_ni": 1.3583396801218584,
+        "adj_fcf_ni": 1.2932216298552932
+      },
+      {
+        "year": "2024-12-31",
+        "fcf_ni": 1.4447040498442367,
+        "adj_fcf_ni": 1.3805815160955348
+      },
+      {
+        "year": "2025-12-31",
+        "fcf_ni": 1.2203086557817042,
+        "adj_fcf_ni": 1.1675240438380676
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 0.787105962977978
+  },
+  {
+    "ticker": "TRN",
+    "recorded": {
+      "valuation": 10.0,
+      "quality": 66.4,
+      "composite": 21.8
+    },
+    "error": "missing TTM Net Income, FCF, SBC"
+  },
+  {
+    "ticker": "UBER",
+    "recorded": {
+      "valuation": 37.4,
+      "quality": 59.3,
+      "composite": 39.1
+    },
+    "fcf_ni": 1.0560601315377387,
+    "adj_fcf_ni": 0.8536381668232592,
+    "fcfq_before": 100.0,
+    "fcfq_after": 75.60636113720986,
+    "d_quality": -2.4393638862790143,
+    "new_quality": 56.860636113720986,
+    "annual": [
+      {
+        "year": "2023-12-31",
+        "fcf_ni": 1.7816640169581346,
+        "adj_fcf_ni": 0.7562268150503445
+      },
+      {
+        "year": "2024-12-31",
+        "fcf_ni": 0.6995738636363636,
+        "adj_fcf_ni": 0.5173498376623377
+      },
+      {
+        "year": "2025-12-31",
+        "fcf_ni": 0.9711528896846713,
+        "adj_fcf_ni": 0.7895155674922909
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 5.311134249086483
+  },
+  {
+    "ticker": "VEEV",
+    "recorded": {
+      "valuation": 65.9,
+      "quality": 86.0,
+      "composite": 40.0
+    },
+    "fcf_ni": 1.641214972427304,
+    "adj_fcf_ni": 1.15382568695234,
+    "fcfq_before": 100.0,
+    "fcfq_after": 100.0,
+    "d_quality": 0.0,
+    "new_quality": 86.0,
+    "annual": [
+      {
+        "year": "2023-01-31",
+        "fcf_ni": 1.6002878783529422,
+        "adj_fcf_ni": 0.8787322690309326
+      },
+      {
+        "year": "2024-01-31",
+        "fcf_ni": 1.733555891612216,
+        "adj_fcf_ni": 0.9845940213617903
+      },
+      {
+        "year": "2025-01-31",
+        "fcf_ni": 1.5263870568433553,
+        "adj_fcf_ni": 0.9139704090805979
+      },
+      {
+        "year": "2026-01-31",
+        "fcf_ni": 1.5570642068596752,
+        "adj_fcf_ni": 1.0369851227739721
+      }
+    ],
+    "gate_change": false,
+    "disq_now": false,
+    "disq_after_sbc": false,
+    "d_valuation": 4.131932023681162,
+    "combined": {
+      "new_quality": 86.0,
+      "new_valuation": 70.03193202368116,
+      "new_composite": 42.01596601184058,
+      "band_change": false
+    }
+  },
+  {
+    "ticker": "ZS",
+    "recorded": {
+      "valuation": 65.7,
+      "quality": 59.4,
+      "composite": 53.2
+    },
+    "error": "TTM net income <= 0 (FCF/NI undefined)"
+  }
+]
