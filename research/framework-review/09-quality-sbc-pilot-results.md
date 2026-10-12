@@ -35,6 +35,10 @@
 4. **Unstable denominators.** When net income is tiny or depressed (CSGP: ratios of 586% and −2186% in FY2025) FCF/NI is meaningless either way. A fix is needed regardless: a floor on net income, or a 3-year average, or use net income before SBC for the denominator. Not decided here.
 5. **Sub-score calibration is a placeholder.** The 40%–100% scale was built for a world where FCF/NI is mostly above 70%. After SBC many good businesses sit at 60–80%, in the steep part of the curve. The pilot used the scale unchanged.
 
+## Update — DUOL checked against SEC filings
+
+See [10-duol-filings-check.md](10-duol-filings-check.md): the yfinance inputs are correct, but DUOL's reported net income includes a one-time $245.7M tax benefit (Q3 2025). On normalised net income DUOL's after-SBC FCF/NI is 126–165%, so **the gate flip above does not occur**; finding 4 (net-income normalisation) is therefore required, not optional.
+
 ## Recommendation
 
 - **Valuation side (B1 + B2): proceed** — passed in 08.
