@@ -74,6 +74,8 @@ Rate Regime Modifier (active): [e.g. +0.5]
 Ticker | Sector | FCF Yield (OE-adj?) | EV/EBIT | Fwd PE | 5yr Avg PE | Rev CAGR 3yr | ROIC | Gross Margin | Net Margin | Net Debt/EBITDA | FCF/NI Conv | Current Weight% | Last Score | Last Review
 [TICK] | [...]  | [X.X%] (OE: Y/N)   | [XX×]  | [XX×]  | [XX×]  | [X%] | [X%] | [X%] | [X%] | [X×] | [X%] | [X%] | [X] | [MMM YYYY]
 
+SBC yield %: [X%] (0 only if no SBC reported; n/a for Owner-Earnings names)   Gross cash buyback yield %: [X%]
+
 Fundamental changes since last review:
 [List any: earnings beat/miss, guidance revision, M&A, management change, margin trend, organic revenue check, EPS vs revenue gap]
 ```
@@ -96,7 +98,8 @@ Quality Gate (Phase 01):
   Gross margin: [X%]  (threshold: >40% or expanding)
   FCF positive 3 consecutive years: [Y/N]
   Net debt/EBITDA: [X×]  (threshold: <2x)
-  FCF/NI conversion ratio 2yr: [X%]  (threshold: >70%)
+  FCF/NI conversion ratio 2yr: [X%]  (threshold: >70%; plain ratio, SBC not deducted)
+  (FCF - SBC)/NI TTM: [X%]  SBC TTM: [$]  SBC/FCF: [X%] (hard disqualifier at >=100%)  NI normalised? [N / Y: what was removed, amounts, filing]
   Share issuance pattern: [dilutive Y/N]
 
 Valuation Inputs (Phase 02):

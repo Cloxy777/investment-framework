@@ -14,6 +14,8 @@ JSON input schema (all fields required unless noted):
 
 {
   "fcf_yield_pct": float,
+  "owner_earnings_used": bool,         # optional (default false): true if Upgrade 1 replaced FCF with Owner Earnings
+  "sbc_yield_pct": float,              # required unless owner_earnings_used: SBC TTM / market cap x100 (0 only if no SBC reported)
   "ev_ebit": float,
   "fast_grower": bool,                 # PEG sub-score applicable (EPS growth >15% for 3+ yrs, clean earnings base)
   "peg": float,                        # required if fast_grower is true
@@ -35,8 +37,14 @@ JSON input schema (all fields required unless noted):
   "catalyst_window_years": float,      # optional; Rule 10 default is 2yr if no narrower window documented
   "intrinsic_growth_pct": float,       # FCF or EPS CAGR
   "dividend_yield_pct": float,
-  "net_buyback_yield_pct": float
+  "buyback_yield_pct": float,          # GROSS cash buybacks / market cap x100 (SBC is already deducted in the FCF yield)
+  "buyback_yield_basis": "gross_cash"  # required; a net-of-issuance figure would count SBC dilution twice
 }
+
+SBC treatment (methodology 2026-10-12, framework/valuation-scoring.md "FCF Yield"): stock-based
+compensation is treated as a real cost. FCF_Score uses (FCF yield - SBC yield) unless the
+Owner Earnings basis is used (its net-income base already deducts SBC). The legacy key
+`net_buyback_yield_pct` is refused: pass `buyback_yield_pct` on a gross-cash basis.
 
 Note on the Historical PE Modifier's undocumented middle band: framework/strategy.md's
 Upgrade 2 table only defines three buckets (>20% below -> -10, within +-10% -> 0,
@@ -59,8 +67,18 @@ HURDLE = 10.0  # H, percentage points
 
 def _fcf_yield(d: dict) -> tuple[float, list]:
     fy = require(d, "fcf_yield_pct")
-    score = clamp(100 * (1 - fy / 10))
-    return score, [f"FCF_Score = clamp(100x(1 - {fy}/10)) = {score:.3f}"]
+    if d.get("owner_earnings_used"):
+        used = fy
+        steps = ["Owner Earnings basis (Upgrade 1): net income already bears SBC - no further SBC deduction"]
+    else:
+        sbc_y = require(d, "sbc_yield_pct", "SBC TTM / market cap x100; pass 0 only if the company reports no SBC")
+        if sbc_y < 0:
+            raise MissingInputError("'sbc_yield_pct' must be >= 0 (pass the SBC cost as a positive yield)")
+        used = fy - sbc_y
+        steps = [f"FCF yield after SBC = {fy}% - {sbc_y}% (SBC yield) = {used:.4f}%"]
+    score = clamp(100 * (1 - used / 10))
+    steps.append(f"FCF_Score = clamp(100x(1 - {used:.4f}/10)) = {score:.3f}")
+    return score, steps
 
 
 def _ev_ebit(d: dict) -> tuple[float, list]:
@@ -178,7 +196,16 @@ def _upside_downside(d: dict) -> tuple[float, list]:
     window = d.get("catalyst_window_years", 2.0)
     growth = require(d, "intrinsic_growth_pct")
     div_yield = require(d, "dividend_yield_pct")
-    buyback_yield = require(d, "net_buyback_yield_pct")
+    if "net_buyback_yield_pct" in d:
+        raise MissingInputError(
+            "'net_buyback_yield_pct' was replaced by 'buyback_yield_pct' (methodology 2026-10-12): pass GROSS cash "
+            "buybacks / market cap, with buyback_yield_basis='gross_cash' - SBC is now deducted in the FCF yield, "
+            "so a net-of-issuance figure would count the dilution twice"
+        )
+    basis = require(d, "buyback_yield_basis", "must be 'gross_cash'")
+    if basis != "gross_cash":
+        raise MissingInputError(f"buyback_yield_basis must be 'gross_cash' (got {basis!r}); net-of-issuance double counts SBC")
+    buyback_yield = require(d, "buyback_yield_pct")
 
     pw_fv = 0.25 * bull + 0.50 * base + 0.25 * bear
     gap_pct = (pw_fv / live - 1) * 100

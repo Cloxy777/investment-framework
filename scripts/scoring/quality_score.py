@@ -32,10 +32,22 @@ JSON input schema (all fields required unless noted):
       "switching_costs":                {"true": bool, "evidence": str},
       "scale_cost_advantage":           {"true": bool, "evidence": str}
   },
-  "fcf_ni_ttm_pct": float,                  # TTM FCF/Net Income ratio, e.g. 82 for 82%, feeds the continuous sub-score
-  "fcf_ni_annual_pct": [float, ...],        # trailing fiscal years, OLDEST FIRST, for the hard-disqualifier check
-  "fcf_ni_low_conversion_explanation": str  # required only if 2+ CONSECUTIVE annual years are <70%
+  "fcf_after_sbc_ni_ttm_pct": float,        # TTM (FCF - SBC) / Net Income, e.g. 82 for 82%, feeds the continuous sub-score
+  "ni_normalised": bool,                    # optional: true if net income excludes one-time items (e.g. a tax valuation-allowance release)
+  "ni_normalisation_text": str,             # required (cited, with the amounts) if ni_normalised is true
+  "fcf_ni_annual_pct": [float, ...],        # trailing fiscal years, OLDEST FIRST, plain FCF/NI, for the hard-disqualifier check
+  "fcf_ni_low_conversion_explanation": str, # required only if 2+ CONSECUTIVE annual years are <70%
+  "sbc_ttm": float,                         # TTM stock-based compensation (same currency/units as fcf_ttm)
+  "fcf_ttm": float,                         # TTM free cash flow
+  "sbc_one_off_documented": bool,           # optional: waives the SBC >= 100% of FCF disqualifier for a documented one-off (e.g. IPO grants)
+  "sbc_one_off_text": str                   # required (cited, with the amounts) if sbc_one_off_documented is true
 }
+
+SBC treatment (methodology 2026-10-12, framework/quality-scoring.md "FCF Quality"): FCF Quality uses
+(FCF - SBC)/Net Income - GAAP net income already deducts SBC while FCF adds it back, so the plain
+ratio compares unlike things. The hard disqualifier on FCF/NI <70% keeps the PLAIN annual ratio
+(after-SBC would wrongly disqualify capex-heavy names whose FCF is depressed by growth capex).
+A new disqualifier fires when SBC >= 100% of TTM FCF (or FCF <= 0 with SBC > 0).
 """
 
 from __future__ import annotations
@@ -70,6 +82,19 @@ def _check_hard_disqualifiers(d: dict) -> None:
             "FCF/Net Income conversion ratio <70% for 2+ consecutive years "
             f"({annual}) with no documented growth-capex explanation"
         )
+
+    # 1b. SBC >= 100% of TTM FCF (or FCF <= 0 with SBC > 0): the cash the business generates is consumed by paying staff in shares.
+    sbc = require(d, "sbc_ttm", "hard disqualifier: SBC vs FCF")
+    fcf = require(d, "fcf_ttm", "hard disqualifier: SBC vs FCF")
+    if sbc < 0:
+        raise MissingInputError("'sbc_ttm' must be >= 0 (pass the cost as a positive number)")
+    if sbc > 0 and (fcf <= 0 or sbc >= fcf):
+        if d.get("sbc_one_off_documented"):
+            require(d, "sbc_one_off_text", "required when sbc_one_off_documented is true")
+        else:
+            raise FailsGate(
+                f"SBC {sbc:,.0f} is >= 100% of TTM FCF {fcf:,.0f} (or FCF <= 0) with no documented one-off explanation"
+            )
 
     # 2. Net debt/EBITDA over its applicable threshold.
     net_debt_ebitda = require(d, "net_debt_to_ebitda", "hard disqualifier: balance sheet")
@@ -194,10 +219,18 @@ def _moat(d: dict) -> tuple[float, list]:
 
 
 def _fcf_quality(d: dict) -> tuple[float, list]:
-    ratio_pct = require(d, "fcf_ni_ttm_pct")
+    if "fcf_ni_ttm_pct" in d and "fcf_after_sbc_ni_ttm_pct" not in d:
+        raise MissingInputError(
+            "'fcf_ni_ttm_pct' was replaced by 'fcf_after_sbc_ni_ttm_pct' (methodology 2026-10-12): pass (FCF - SBC)/Net Income"
+        )
+    ratio_pct = require(d, "fcf_after_sbc_ni_ttm_pct")
     ratio = ratio_pct / 100
     score = clamp(((ratio - 0.40) / 0.60) * 100)
-    steps = [f"FCFQuality_Score = clamp((({ratio:.4f} - 0.40)/0.60)x100) = {score:.2f}"]
+    steps = []
+    if d.get("ni_normalised"):
+        text = require(d, "ni_normalisation_text", "required when ni_normalised is true")
+        steps.append(f"Net income normalised: {text}")
+    steps.append(f"FCFQuality_Score = clamp((({ratio:.4f} - 0.40)/0.60)x100) = {score:.2f}  [ratio = (FCF - SBC)/NI]")
     return score, steps
 
 

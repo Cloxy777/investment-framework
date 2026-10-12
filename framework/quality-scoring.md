@@ -2,7 +2,7 @@
 
 How to compute Phase 01 quality score (0–100.0) for a candidate company, and the **strict 80.0+ quality gate** a company must clear before being eligible for Phase 02 valuation scoring at all. See [strategy.md](strategy.md) for where this fits, and [valuation-scoring.md](valuation-scoring.md) for how it combines with the valuation score into the Composite Score.
 
-> **Scoring methodology version: 2026-06-29.** Same versioning/stale-score rules as [valuation-scoring.md](valuation-scoring.md) — bump this date whenever a sub-score, weight, or the gate threshold changes, and record why in `decisions/`.
+> **Scoring methodology version: 2026-10-12.** *(2026-10-12: stock-based compensation treated as a cost - see [decisions/2026-10-12-framework-change-sbc-as-a-cost.md](../decisions/2026-10-12-framework-change-sbc-as-a-cost.md).)* Same versioning/stale-score rules as [valuation-scoring.md](valuation-scoring.md) — bump this date whenever a sub-score, weight, or the gate threshold changes, and record why in `decisions/`.
 
 ## Why Quality Gets Its Own Score
 
@@ -20,6 +20,7 @@ A deliberately high bar, set per explicit user instruction (2026-06-29) — stri
 - FCF/Net Income conversion ratio <70% for 2+ consecutive years without a documented growth-capex explanation (existing Phase 01 FCF Quality Check)
 - Net debt/EBITDA over its applicable threshold (2.5× standard, or 4× under the Upgrade 5 asset-light override) — see Balance Sheet sub-score
 - Not FCF-positive for 3+ consecutive years
+- **SBC ≥ 100% of TTM FCF (or FCF ≤ 0 with SBC > 0)** without a documented one-off (e.g. IPO-year grants, cited with amounts) — added 2026-10-12: the cash the business generates is consumed by paying staff in shares
 
 These mirror the existing Phase 01 non-negotiables — a weighted average can't average away an outright balance-sheet or cash-flow-quality failure.
 
@@ -112,22 +113,28 @@ Moat_Score = (count of TRUE signals / 5) × 100
 | Switching costs | Documented mechanism (integration depth, contractual lock-in, data/workflow migration cost) |
 | Scale cost advantage | Cost-per-unit data showing a gap vs. smaller competitors |
 
-**FCF Quality (10% weight)** — FCF/Net Income conversion ratio (Phase 01's FCF Quality Check, made continuous):
+**FCF Quality (10% weight)** — **(FCF − SBC)/Net Income** conversion ratio (Phase 01's FCF Quality Check, made continuous; SBC deducted since 2026-10-12):
 
 ```
-FCFQuality_Score = clamp(((FCF/NI Ratio − 0.40) / 0.60) × 100, 0, 100)
+FCFQuality_Score = clamp((((FCF − SBC)/NI Ratio − 0.40) / 0.60) × 100, 0, 100)
 ```
 
-| FCF/NI Ratio | Score |
+| (FCF − SBC)/NI Ratio | Score |
 |---|---|
 | ≤40% | 0.0 |
 | 70% | 50.0 |
 | 85% | 75.0 |
 | ≥100% | 100.0 |
 
-Remember: a ratio below 70% for 2+ consecutive years without a documented growth-capex explanation is a **hard disqualifier** (see above), independent of this continuous score.
+Why SBC is deducted: GAAP net income already deducts SBC as an expense, while free cash flow adds it back, so the plain FCF/NI ratio compares cash *before* SBC with profit *after* SBC and flatters any company that pays in shares. (FCF − SBC)/NI compares like with like.
+
+**Normalise net income before dividing (Rule 6, [fair-value-methodology.md](fair-value-methodology.md)).** If reported net income carries a one-time item — e.g. a deferred-tax valuation-allowance release — use net income without it and cite what was removed, the amounts and the filing (`ni_normalised` / `ni_normalisation_text`). Without this the ratio misfires: DUOL's reported TTM net income included a $245.7M one-time tax benefit, which alone would have taken its FCF Quality from 100 to 35.9 ([10-duol-filings-check.md](../research/framework-review/10-duol-filings-check.md)). Normalisation is a documented judgement, never a default.
+
+Remember: a plain FCF/NI ratio (SBC **not** deducted) below 70% for 2+ consecutive years without a documented growth-capex explanation is a **hard disqualifier** (see above), independent of this continuous score. The disqualifier deliberately keeps the plain ratio: on the after-SBC ratio it would disqualify capex-heavy AI-infrastructure names (MSFT, META, GOOG) whose FCF is depressed by growth capex rather than by SBC.
 
 ## Worked Example
+
+*(Illustrative figures predating the 2026-10-12 SBC treatment: read the FCF/NI ratio below as (FCF − SBC)/NI with SBC taken as zero.)*
 
 A candidate: Net Margin 18%, ROIC 22%, Gross Margin 55% (flat, no structural trend), Revenue 3yr CAGR 14% (documented TAM expansion), Net Debt/EBITDA 0.8×, 4 of 5 moat signals documented true, FCF/NI ratio 82%, FCF-positive 5 consecutive years.
 
@@ -166,7 +173,9 @@ TAM expansion / pricing power evidence (qualitative, cited)
 Net Debt/EBITDA (consolidated per conglomerate rule if applicable)
 Asset-light override eligibility (if applicable): interest coverage, credit rating
 Moat signal evidence (cited, per signal)
-FCF/Net Income ratio, 2+ years
+FCF/Net Income ratio, 2+ years (plain, for the <70% disqualifier)
+(FCF − SBC)/Net Income, TTM — with net-income normalisation evidence if a one-time item is removed
+SBC (TTM) and FCF (TTM) — for the SBC ≥ 100% of FCF disqualifier (pass SBC = 0 only if none is reported)
 FCF positive/negative, 3+ years
 ```
 

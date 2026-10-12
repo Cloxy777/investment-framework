@@ -1,5 +1,7 @@
 # ASML.AS — ASML Holding N.V. (Euronext Amsterdam listing)
 
+> ⚠️ **STALE SCORE** — this entry predates the 2026-10-12 scoring-methodology change ([SBC treated as a cost in FCF yield and FCF Quality (methodology 2026-10-12)](../../../decisions/2026-10-12-framework-change-sbc-as-a-cost.md)) and is not comparable to current scores. Pending rescore — see the [staleness registry](../../STALE.md) (path relative to a ticker's entry file — adjust if nesting differs). _Remove this banner when the ticker is rescored under the current methodology._
+
 **Sector:** Technology — Semiconductor Capital Equipment. Sole global manufacturer of EUV (Extreme Ultraviolet) lithography systems. **Same legal entity as the existing [`ASML`](../ASML/) watchlist folder (Nasdaq, NY Registry Share)** — see the prominent duplicate-entity flag in the linked session below. Not a separate company or a parent/subsidiary relationship: one global ordinary share, dual-listed.
 **Status:** Not held
 

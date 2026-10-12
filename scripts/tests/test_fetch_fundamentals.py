@@ -262,3 +262,41 @@ def test_advisory_block_renders_in_markdown():
     text = render_markdown("TEST", fetch(t))
     assert "SBC block" in text and "SEVERE" in text  # SBC 80B > FCF 67B
     assert "cycle_peak" in text
+
+
+# --- SBC inputs for the scores (methodology 2026-10-12) ---
+
+
+def test_sbc_score_inputs_present_and_correct():
+    qf, qcf = _eight_quarters([2.0] * 8, [2_000_000_000] * 8)
+    qcf.loc["Repurchase Of Capital Stock"] = [-1_000_000_000] * 8
+    t, _ = _build_fake_ticker(quarterly_financials=qf, quarterly_cashflow=qcf)
+    r = fetch(t)
+    mc = 3_800_000_000_000
+    assert r["sbc_ttm"] == pytest.approx(8e9)
+    assert r["sbc_yield_pct"] == pytest.approx(8e9 / mc * 100)
+    # FCF TTM = 4 x 67e9/4 ; NI TTM = 132e9 ; (FCF - SBC)/NI
+    assert r["fcf_after_sbc_ni_ttm_pct"] == pytest.approx((r["fcf_ttm"] - 8e9) / r["ni_ttm"] * 100)
+    assert r["gross_buyback_yield_pct"] == pytest.approx(4e9 / mc * 100)
+    assert r["ni_normalised"] is False
+
+
+def test_sbc_inputs_none_when_yfinance_lacks_them():
+    t, _ = _build_fake_ticker()
+    r = fetch(t)
+    assert r["sbc_ttm"] is None and r["sbc_yield_pct"] is None
+    assert r["fcf_after_sbc_ni_ttm_pct"] is None and r["gross_buyback_yield_pct"] is None
+
+
+def test_normalised_ni_changes_only_the_after_sbc_ratio_and_requires_a_note():
+    qf, qcf = _eight_quarters([2.0] * 8, [2_000_000_000] * 8)
+    t, _ = _build_fake_ticker(quarterly_financials=qf, quarterly_cashflow=qcf)
+    base = fetch(t)
+    norm = fetch(t, normalised_ni=60e9, normalisation_note="excludes $72B one-time tax benefit (10-Q 0000000000-00-000000)")
+    assert norm["fcf_ni_ttm_pct"] == pytest.approx(base["fcf_ni_ttm_pct"])  # plain ratio untouched
+    assert norm["fcf_after_sbc_ni_ttm_pct"] == pytest.approx((base["fcf_ttm"] - 8e9) / 60e9 * 100)
+    assert norm["ni_normalised"] is True and "tax benefit" in norm["ni_normalisation_text"]
+    with pytest.raises(MissingInputError):
+        fetch(t, normalised_ni=60e9)
+    with pytest.raises(MissingInputError):
+        fetch(t, normalised_ni=-5.0, normalisation_note="x")

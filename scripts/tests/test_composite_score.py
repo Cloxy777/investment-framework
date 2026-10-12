@@ -49,11 +49,11 @@ def test_compute_from_raw_input_blocks_end_to_end():
             "switching_costs": {"true": True, "evidence": "x"},
             "scale_cost_advantage": {"true": False, "evidence": ""},
         },
-        "fcf_ni_ttm_pct": 65.85,
+        "fcf_after_sbc_ni_ttm_pct": 65.85, "sbc_ttm": 0, "fcf_ttm": 100,
         "fcf_ni_annual_pct": [83.50, 80.51],
     }
     valuation_inputs = {
-        "fcf_yield_pct": 2.4096,
+        "fcf_yield_pct": 2.4096, "sbc_yield_pct": 0,
         "ev_ebit": 26.560,
         "fast_grower": True,
         "peg": 0.2001,
@@ -69,7 +69,7 @@ def test_compute_from_raw_input_blocks_end_to_end():
         "catalyst_window_years": 2,
         "intrinsic_growth_pct": 10.0,
         "dividend_yield_pct": 0.4572,
-        "net_buyback_yield_pct": 1.007,
+        "buyback_yield_pct": 1.007, "buyback_yield_basis": "gross_cash",
     }
     result = compute({"quality": quality_inputs, "valuation": valuation_inputs})
     assert result["composite_score"] == pytest.approx(23.0, abs=0.1)

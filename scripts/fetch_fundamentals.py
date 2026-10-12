@@ -19,6 +19,9 @@ TAM evidence, fair values, and the Rate Gate 10Y input are NOT produced here, Cl
     roic_pct, net_margin_pct, gross_margin_pct, revenue_cagr_3yr_pct
     net_debt_to_ebitda
     shares_outstanding, market_cap, enterprise_value
+    SBC inputs for the scores (methodology 2026-10-12; None when yfinance lacks them -> the scorers stop and ask):
+        fcf_ttm, ni_ttm, sbc_ttm, sbc_yield_pct, fcf_after_sbc_ni_ttm_pct (+ ni_normalised/ni_normalisation_text),
+        gross_buyback_yield_pct (gross cash repurchases / market cap)
     advisory (no score effect): eps_ttm_now, eps_ttm_1y_ago, sbc_ttm, sbc {SBC/FCF, FCF yield
         reported vs after SBC, severity}, cycle_peak, value_trap_candidate; each None/UNKNOWN
         when yfinance lacks the quarters needed (see scripts/scoring/flags_common.py, sbc.py)
@@ -296,8 +299,12 @@ def _pe_history(ticker) -> dict:
     }
 
 
-def fetch(ticker) -> dict:
+def fetch(ticker, normalised_ni: float | None = None, normalisation_note: str | None = None) -> dict:
     """Compute the Stage 2 fundamentals bundle from a yfinance.Ticker-like object.
+
+    `normalised_ni` / `normalisation_note`: analyst-supplied net income excluding one-time items (e.g. a tax
+    valuation-allowance release) and the cited reason; used ONLY for the FCF-after-SBC / net-income ratio.
+    The note is mandatory with the value: normalisation is a documented judgement, never a default.
 
     `ticker` needs: .info, .financials, .cashflow, .balance_sheet, .quarterly_financials,
     .quarterly_cashflow, .get_earnings_dates(limit=...), .history(...).
@@ -345,6 +352,18 @@ def fetch(ticker) -> dict:
     pe_history = _pe_history(ticker)
     advisory = _advisory(qf, qcf, forward_pe, fcf_ttm, market_cap)
 
+    if normalised_ni is not None:
+        if not normalisation_note:
+            raise MissingInputError("normalised net income needs a cited normalisation note (what was removed, amounts, filing)")
+        if normalised_ni <= 0:
+            raise MissingInputError("normalised net income must be > 0 for the FCF/NI ratio")
+        ni_basis = float(normalised_ni)
+    else:
+        ni_basis = ni_ttm
+    sbc_ttm = advisory["sbc_ttm"]
+    buyback_q = _quarters(qcf, "Repurchase Of Capital Stock", 4)
+    gross_buyback_yield_pct = max(0.0, -sum(buyback_q)) / market_cap * 100 if buyback_q else None
+
     result = {
         "market_cap": market_cap,
         "enterprise_value": enterprise_value,
@@ -361,6 +380,14 @@ def fetch(ticker) -> dict:
         "fcf_ni_annual_pct": fcf_ni_annual_pct,
         "fcf_positive_3yr_or_more": fcf_positive_3yr_or_more,
         "ebitda_ttm": ebitda_ttm,
+        "fcf_ttm": fcf_ttm,
+        "ni_ttm": ni_ttm,
+        "sbc_ttm": sbc_ttm,
+        "sbc_yield_pct": sbc_ttm / market_cap * 100 if sbc_ttm is not None else None,
+        "fcf_after_sbc_ni_ttm_pct": (fcf_ttm - sbc_ttm) / ni_basis * 100 if sbc_ttm is not None and ni_basis > 0 else None,
+        "ni_normalised": normalised_ni is not None,
+        "ni_normalisation_text": normalisation_note if normalised_ni is not None else None,
+        "gross_buyback_yield_pct": gross_buyback_yield_pct,
         "_roic_detail": roic_detail,
         "advisory": advisory,
     }
@@ -386,7 +413,13 @@ def render_markdown(ticker_symbol: str, result: dict) -> str:
     )
     lines.append(f"Revenue 3yr CAGR %    = {result['revenue_cagr_3yr_pct']:.3f}")
     lines.append(f"Net Debt/EBITDA       = {result['net_debt_to_ebitda']:.3f}  [EBITDA_ttm={result['ebitda_ttm']:,.0f}]")
-    lines.append(f"FCF/NI TTM %          = {result['fcf_ni_ttm_pct']:.3f}")
+    lines.append(f"FCF/NI TTM % (plain)  = {result['fcf_ni_ttm_pct']:.3f}")
+    fmt = lambda v, f: "UNKNOWN - supply manually; scorers will stop and ask" if v is None else f.format(v)
+    lines.append("(FCF - SBC)/NI TTM %  = " + fmt(result["fcf_after_sbc_ni_ttm_pct"], "{:.3f}")
+                 + ("  [NI NORMALISED: " + result["ni_normalisation_text"] + "]" if result["ni_normalised"] else "  [reported NI]"))
+    lines.append("SBC yield %           = " + fmt(result["sbc_yield_pct"], "{:.3f}"))
+    lines.append("Gross buyback yield % = " + fmt(result["gross_buyback_yield_pct"], "{:.3f}")
+                 + ("" if result["gross_buyback_yield_pct"] is not None else "  (enter 0 only if the filings show no repurchases)"))
     annual = ", ".join(f"{v:.1f}%" for v in result["fcf_ni_annual_pct"])
     lines.append(f"FCF/NI annual (oldest first) = [{annual}]")
     lines.append(f"FCF positive 3yr+     = {result['fcf_positive_3yr_or_more']}")
@@ -425,6 +458,8 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("ticker", help="Ticker symbol, e.g. MSFT, 0388.HK")
     parser.add_argument("--json", action="store_true", help="Print raw JSON instead of the markdown block")
+    parser.add_argument("--normalised-ni", type=float, help="Net income (TTM, same units as the statements) excluding one-time items; requires --normalisation-note")
+    parser.add_argument("--normalisation-note", help="Cited reason: what was removed, amounts, source filing")
     args = parser.parse_args(argv)
 
     import yfinance as yf
@@ -432,7 +467,7 @@ def main(argv: list[str] | None = None) -> int:
     t = yf.Ticker(args.ticker)
 
     try:
-        result = fetch(t)
+        result = fetch(t, normalised_ni=args.normalised_ni, normalisation_note=args.normalisation_note)
     except MissingInputError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2
