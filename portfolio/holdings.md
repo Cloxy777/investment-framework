@@ -64,7 +64,7 @@ Framework account Net Liquidation Value = **$47,820.23** (IBKR U19421206, broker
 |--------|----------|------------|----------------|------------------|-------------|--------|
 | **ADBE** | 10.26%🚨 | 0.0 | 83.3 | 8.4 | 11 Sep 2026 | IBKR |
 | AMZN | 6.32% | 82.7 | 56.7 | 63.0 | 01 Aug 2026 | IBKR (Freedom24 leg sold — see note above) |
-| AVGO | 4.17% | 71.4 | 86.3 | 42.6 | 12 Oct 2026 | IBKR |
+| AVGO | 4.17% | 67.1 | 83.1 | 42.0 | 24 Oct 2026 | IBKR |
 | **BKNG** | 3.42%🚨 | 20.8 | 91.9 | 14.4 | 11 Oct 2026 | IBKR |
 | CASH (Freedom24) | n/a — outside framework account | | | | | Freedom24 |
 | CASH (IBKR) | 6.19% | | | | | IBKR |
@@ -121,4 +121,4 @@ Framework account Net Liquidation Value = **$47,820.23** (IBKR U19421206, broker
 
 **AVGO has a prior, untracked history on this account:** `get_account_trades` shows a 1-share AVGO position sold on 2026-05-26 (predating this framework's records). The 6-share position now held is a fresh, separate buy from 2026-06-16 — see the override flag in [override-log.md](override-log.md).
 
-*Run `/sync-portfolio` (see [sync-sop.md](sync-sop.md)) to refresh weights/cash/brokers from the live [snapshots](snapshots/); run `/rescore` to populate score and review-date columns (VEEV scored 2026-07-01 — see [session](../sessions/2026-07-01-rescore-veev.md); AVGO rescored 2026-10-12, current — see [session](../sessions/2026-10-12-rescore-avgo.md)).*
+*Run `/sync-portfolio` (see [sync-sop.md](sync-sop.md)) to refresh weights/cash/brokers from the live [snapshots](snapshots/); run `/rescore` to populate score and review-date columns (VEEV scored 2026-07-01 — see [session](../sessions/2026-07-01-rescore-veev.md); AVGO rescored 2026-10-24, current — see [session](../sessions/2026-10-24-rescore-avgo.md)).*
