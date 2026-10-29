@@ -199,6 +199,18 @@ def test_fewer_than_4_quarters_raises_missing_input_error():
         fetch(ticker)
 
 
+def test_unreported_all_nan_quarter_column_is_ignored():
+    ticker, _ = _build_fake_ticker()
+    ref = fetch(_build_fake_ticker()[0])
+    for name in ("quarterly_financials", "quarterly_cashflow"):
+        df = getattr(ticker, name)
+        placeholder = pd.Series(float("nan"), index=df.index, name=df.columns[0] + pd.Timedelta(days=90))
+        if name == "quarterly_financials":
+            placeholder["Diluted EPS"] = 0.79  # stray per-share line, as yfinance emits for an unreported quarter
+        setattr(ticker, name, pd.concat([placeholder.to_frame(), df], axis=1))
+    assert fetch(ticker)["ev_ebit"] == ref["ev_ebit"]
+
+
 # --- advisory block (SBC disclosure + cycle-peak / value-trap flags; no score effect) ---
 
 
