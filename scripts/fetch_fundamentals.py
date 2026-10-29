@@ -75,6 +75,24 @@ def _info_value(info: dict, key: str, context: str) -> float:
     return float(value)
 
 
+def _drop_unreported_quarters(quarterly_df: "pd.DataFrame", anchor_row: str) -> "pd.DataFrame":
+    """Drop leading (newest) quarter columns whose `anchor_row` is NaN.
+
+    yfinance can emit a column for a quarter that has ended but not yet been reported; it may carry only stray
+    per-share lines (e.g. EPS) while income/cash-flow lines are NaN. Only the newest columns are dropped, so a
+    gap in the middle of the history still raises downstream instead of silently stitching non-adjacent quarters.
+    """
+    if anchor_row not in quarterly_df.index:
+        return quarterly_df
+    anchor = quarterly_df.loc[anchor_row]
+    n_unreported = 0
+    for value in anchor:
+        if not pd.isna(value):
+            break
+        n_unreported += 1
+    return quarterly_df.iloc[:, n_unreported:]
+
+
 def _ttm_sum(quarterly_df: "pd.DataFrame", row_name: str, context: str) -> float:
     series = _row(quarterly_df, row_name, context)
     if len(series) < 4:
@@ -313,8 +331,8 @@ def fetch(ticker, normalised_ni: float | None = None, normalisation_note: str | 
     financials = ticker.financials
     cashflow = ticker.cashflow
     balance_sheet = ticker.balance_sheet
-    qf = ticker.quarterly_financials
-    qcf = ticker.quarterly_cashflow
+    qf = _drop_unreported_quarters(ticker.quarterly_financials, "Total Revenue")
+    qcf = _drop_unreported_quarters(ticker.quarterly_cashflow, "Free Cash Flow")
 
     market_cap = _info_value(info, "marketCap", "market cap")
     enterprise_value = _info_value(info, "enterpriseValue", "enterprise value")
