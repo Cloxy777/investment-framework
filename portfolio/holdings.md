@@ -75,7 +75,7 @@ Framework account Net Liquidation Value = **$47,714.19** (IBKR U19421206, broker
 | ~~CSGP~~ | n/a — fully sold 2026-10-22 (25 sh @ $35.55, standing GTC order), position closed | n/a | | | 11 Oct 2026 | IBKR |
 | **DOCS (short put)** | n/a — expired worthless 2026-08-21, position closed | n/a | | | n/a | IBKR |
 | DUOL | 8.99% | 85.1 | 83.2 | 51.0 | 01 Sep 2026 | IBKR + Freedom24 |
-| GOOG | 0.67% | 64.2 | 71.4 | 46.4 | 22 Jul 2026 | IBKR |
+| GOOG | 0.67% | 37.1 | 70.7 (gate fail + SBC≥FCF hard DQ) | 33.2 (ref only, gate fail) | 29 Oct 2026 | IBKR |
 | **BULL (Feb19'27 $5 put, short 2)** | -0.19% | not scored — ungoverned option position, no evaluation ever run | | | n/a | IBKR |
 | **MBGL** | 0.04% | not scored — fails quality gates | 51.0 | | 09 Aug 2026 | IBKR |
 | META | 6.74% | 39.4 | 87.5 | 26.0 | 26 Aug 2026 (PM) | IBKR (Freedom24 leg sold — see note above) |
