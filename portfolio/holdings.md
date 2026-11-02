@@ -84,9 +84,9 @@ Framework account Net Liquidation Value = **$46,102.05** (IBKR U19421206, broker
 | **MBGL** | 0.04% | not scored — fails quality gates | 51.0 | | 09 Aug 2026 | IBKR |
 | META | 6.62% | 39.4 | 87.5 | 26.0 | 26 Aug 2026 (PM) | IBKR (Freedom24 leg sold — see note above) |
 | MSFT | 19.25% | 38.9 | 79.9 | 29.5 (ref only, gate fail) | 30 Jul 2026 | IBKR (Freedom24 leg sold — see note above) |
-| NFLX | 1.62% | 49.3 | 69.8 | 39.8 | 17 Jul 2026 | IBKR |
+| NFLX | 1.62% | 41.3 | 69.0 (gate fail) | n/a (gate fail) | 02 Nov 2026 | IBKR |
 | NKE | 1.68% | 55.2 | 39.1 | 58.1 (ref only, gate fail) | 11 Oct 2026 | IBKR |
-| NOW | 2.07% | 75.9 | 73.2 | 51.4 (ref only, gate fail) | 09 Aug 2026 | IBKR |
+| NOW | 2.07% | 78.4 | 71.3 (gate fail) | n/a (gate fail) | 02 Nov 2026 | IBKR |
 | NVDA | 8.47% | 36.2 | 90.3 | 23.0 | 17 Sep 2026 | IBKR |
 | NVO | 0.43% | 51.4 | 67.2 | 42.1 (ref only, gate fail) | 09 Aug 2026 | IBKR |
 | RBRK | 0.81% | not scored — fails quality gates | | | 11 Oct 2026 | IBKR |
