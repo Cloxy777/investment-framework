@@ -58,7 +58,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 | META | in-portfolio/META/META-2026-08-26.md | 2026-08-26 |
 | MSFT | in-portfolio/MSFT/MSFT-2026-07-30.md | 2026-07-30 |
 | NKE | in-portfolio/NKE/NKE-2026-10-11.md | 2026-10-11 |
-| NVDA | in-portfolio/NVDA/NVDA-2026-09-17.md | 2026-09-17 |
 | NVO | in-portfolio/NVO/NVO-2026-08-09.md | 2026-08-09 |
 | SPGI | in-portfolio/SPGI/SPGI-2026-08-09.md | 2026-08-09 |
 | TRN | in-portfolio/TRN/TRN-2026-09-10.md | 2026-09-10 |
