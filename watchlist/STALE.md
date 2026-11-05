@@ -136,7 +136,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 | SOUN | not-in-portfolio/SOUN/SOUN-2026-08-24.md | 2026-08-24 |
 | SPOT | not-in-portfolio/SPOT/SPOT-2026-08-04.md | 2026-08-04 |
 | TM | not-in-portfolio/TM/TM-2026-07-12.md | 2026-07-12 |
-| TSM | not-in-portfolio/TSM/TSM-2026-09-06.md | 2026-09-06 |
 | TTD | not-in-portfolio/TTD/TTD-2026-09-11.md | 2026-09-11 |
 | TTWO | not-in-portfolio/TTWO/TTWO-2026-08-07.md | 2026-08-07 |
 | VOW3 | not-in-portfolio/VOW3/VOW3-2026-09-04.md | 2026-09-04 |
