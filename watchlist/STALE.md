@@ -49,7 +49,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 | Ticker | Location | Scored (date) |
 |--------|----------|----------------|
 | Ticker | Location | Scored (date) |
-| Ticker | Location | Scored (date) |
 | ADBE | in-portfolio/ADBE/ADBE-2026-09-11.md | 2026-09-11 |
 | AMZN | in-portfolio/AMZN/AMZN-2026-08-01.md | 2026-08-01 |
 | BKNG | in-portfolio/BKNG/BKNG-2026-10-11.md | 2026-10-11 |
