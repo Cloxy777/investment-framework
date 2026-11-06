@@ -49,6 +49,7 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 | Ticker | Location | Scored (date) |
 |--------|----------|----------------|
 | Ticker | Location | Scored (date) |
+| Ticker | Location | Scored (date) |
 | ADBE | in-portfolio/ADBE/ADBE-2026-09-11.md | 2026-09-11 |
 | AMZN | in-portfolio/AMZN/AMZN-2026-08-01.md | 2026-08-01 |
 | BKNG | in-portfolio/BKNG/BKNG-2026-10-11.md | 2026-10-11 |
@@ -132,7 +133,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 | SCHW | not-in-portfolio/SCHW/SCHW-2026-07-19.md | 2026-07-19 |
 | SHOP | not-in-portfolio/SHOP/SHOP-2026-08-05.md | 2026-08-05 |
 | SKHY | not-in-portfolio/SKHY/SKHY-2026-07-17.md | 2026-07-17 |
-| SNDK | not-in-portfolio/SNDK/SNDK-2026-08-05.md | 2026-08-13 |
 | SOUN | not-in-portfolio/SOUN/SOUN-2026-08-24.md | 2026-08-24 |
 | SPOT | not-in-portfolio/SPOT/SPOT-2026-08-04.md | 2026-08-04 |
 | TM | not-in-portfolio/TM/TM-2026-07-12.md | 2026-07-12 |
