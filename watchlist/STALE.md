@@ -49,6 +49,7 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 | Ticker | Location | Scored (date) |
 |--------|----------|----------------|
 | Ticker | Location | Scored (date) |
+| Ticker | Location | Scored (date) |
 | ADBE | in-portfolio/ADBE/ADBE-2026-09-11.md | 2026-09-11 |
 | AMZN | in-portfolio/AMZN/AMZN-2026-08-01.md | 2026-08-01 |
 | BKNG | in-portfolio/BKNG/BKNG-2026-10-11.md | 2026-10-11 |
@@ -98,7 +99,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 | HIMS | not-in-portfolio/HIMS/HIMS-2026-08-11.md | 2026-08-11 |
 | HOOD | not-in-portfolio/HOOD/HOOD-2026-07-25.md | 2026-07-30 |
 | HTO | not-in-portfolio/HTO/HTO-2026-06-30.md | 2026-06-30 |
-| INTU | not-in-portfolio/INTU/INTU-2026-08-23.md | 2026-08-23 |
 | JPM | not-in-portfolio/JPM/JPM-2026-07-14.md | 2026-07-14 |
 | KO | not-in-portfolio/KO/KO-2026-07-28.md | 2026-07-28 |
 | LITE | not-in-portfolio/LITE/LITE-2026-08-14.md | 2026-08-14 |
