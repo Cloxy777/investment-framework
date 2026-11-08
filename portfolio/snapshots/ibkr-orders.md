@@ -1,8 +1,8 @@
 # IBKR Active Orders Snapshot
 
 **Account:** U19421206 (framework account — see [accounts.md](../accounts.md))
-**Last synced:** 2026-11-01 (live via Interactive Brokers MCP — `get_account_orders`, via scheduled Weekly sync)
-**Active orders:** 6 working (status `NEW`) · 4 non-active orders shown in this fetch (NVDA 1346804726, UUUU 334148737, AVGO 123100566, NKE 1907120519 — all `REPLACED`, excluded).
+**Last synced:** 2026-11-08 (live via Interactive Brokers MCP — `get_account_orders`, via scheduled Weekly sync)
+**Active orders:** 8 working (status `NEW`) · 2 non-active orders shown in this fetch (AVGO 123100566, NKE 1907120519 — both `REPLACED`, excluded).
 
 | Order ID | Side | Ticker | Qty | Order Type | Limit Price | Time in Force | Status | Order Placed (UTC) |
 |----------|------|--------|-----|------------|--------------|---------------|--------|---------------------|
@@ -11,18 +11,18 @@
 | 349985387 | BUY | AVGO | 1 | LIMIT | 243.00 | GTC | NEW | 2026-10-12T18:51:56Z |
 | 1907120509 | SELL | GOOG | 1 | LIMIT | 389.00 | GTC | NEW | 2026-09-30T20:06:06Z |
 | 1206895879 | BUY | NFLX | 20 | LIMIT | 46.97 | GTC | NEW | 2026-10-03T16:45:08Z |
-| 166895475 | SELL | NOW (Feb 19 '27 $85 Put, short 1 contract) | 1 | LIMIT | 5.00 | GTC | NEW | 2026-10-29T14:31:49Z |
+| 66340895 | SELL | NVDA | 10 | LIMIT | 200.50 | GTC | NEW | 2026-11-05T19:10:09Z |
+| 981278704 | BUY | SNDK | 2 | LIMIT | 780.00 | GTC | NEW | 2026-11-06T08:29:33Z |
+| 868411121 | BUY | SNDK | 1 | LIMIT | 800.00 | GTC | NEW | 2026-11-06T11:14:37Z |
 
-**Changes vs. 2026-10-25 sync:**
-- **New:** BUY 1 AMZN @ 216.00 GTC (1346804730, placed 2026-11-01); SELL 1 NOW Feb 19 '27 $85 Put @ 5.00 GTC (166895475, placed 2026-10-29 — a short-put opening order, undocumented; ~$8,500 assignment notional).
-- **No longer present (not filled — share counts unchanged):** UUUU SELL 300 @ 8.99 (902130509); MA BUY 4 @ 464 (862563682); NOW BUY 20 @ 80 (862563683); V BUY 9 @ 285 (862563681). Cancelled/expired — confirm intent in TWS.
-- **Replaced, no live successor:** NVDA BUY 1 @ 196.70 (1346804726, `REPLACED` 2026-11-01); UUUU SELL 3 Jan 15 '27 $9 Call @ 0.68 (334148737, `REPLACED`).
-- No order references RGL, LM8 or TLT (transferred out in-kind).
+**Changes vs. 2026-11-01 sync:**
+- **New:** SELL 10 NVDA @ 200.50 (66340895, 2026-11-05); BUY 2 SNDK @ 780 (981278704) and BUY 1 SNDK @ 800 (868411121), both 2026-11-06 — consistent with the [2026-11-06 SNDK evaluation](../../sessions/2026-11-06-new-position-sndk.md) (its log says no order was placed; verify these are intended). SNDK is not held.
+- **No longer present:** SELL 1 NOW Feb19'27 $85 put @ 5.00 (166895475) — not filled (no NOW option position appears).
 
 **Carried-forward flags:**
 - **⚠️ NKE:** the only NKE order (1907120519, SELL 20 @ 54.44) is still `REPLACED` with no live successor — NKE has **no working sell order**.
-- **Margin note:** USD cash is +$981.49; NFLX BUY 20 @ 46.97 (~$939), AMZN, AVGO buys and the NOW short put would exceed it if filled together — run `/safe-guard`.
-- **No order** exists for the BULL short put.
+- **Margin note:** USD cash is **-$850.77**; any BUY fill (SNDK ×3 ≈ $2,360, NFLX ≈ $939, AVGO, AMZN) deepens the margin debit — run `/safe-guard`.
+- **No order** exists for the BULL short put or the UUUU Jan'27 $9 short call.
 
 > **No tool in this repo places, modifies, or cancels a broker order** — flagged for the user to resolve directly in TWS/Client Portal.
 
