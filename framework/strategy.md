@@ -207,7 +207,7 @@ Its protective intent — don't buy into a deteriorating situation — is alread
 
 ### 🔵 Upgrade 7 — Hard Position Cap at 15%
 
-Hard cap: never exceed 15% in a single position under any circumstances. (Note: Verdad research empirically validated 8% across 10,000 simulated portfolios; 15% is a deliberate user override of that backing — see [decisions/2026-06-07-framework-change-position-cap.md](../decisions/2026-06-07-framework-change-position-cap.md) for the rationale.)
+Hard cap: never exceed **15% of the cap base** in a single position under any circumstances, where **cap base = max(account Net Liquidation Value, $100,000)**. While the account is below $100k, the cap is therefore a flat **$15,000** per position (15% of $100k); once NLV exceeds $100k it reverts to a plain 15% of NLV. Rationale: at the current account size a pure-percentage cap forces sub-scale positions (e.g. ~$7k at 15% of ~$46k), which is too small for a high-conviction name. (Amended 2026-11-13 — see [decisions/2026-11-13-framework-change-position-cap-floor.md](../decisions/2026-11-13-framework-change-position-cap-floor.md).) (Note: Verdad research empirically validated 8% across 10,000 simulated portfolios; 15% is a deliberate user override of that backing — see [decisions/2026-06-07-framework-change-position-cap.md](../decisions/2026-06-07-framework-change-position-cap.md) for the rationale.)
 
 ---
 

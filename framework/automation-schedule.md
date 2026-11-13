@@ -377,7 +377,7 @@ above) - this prompt must self-gate to that one day.
    Score is stale (no review since its most recent earnings, per
    framework/operating-calendar.md), and for holdings with current scores
    apply Phase 05 dynamic trimming and Phase 06 exit triggers from
-   framework/strategy.md. Check the 15% single-position cap (Upgrade 7).
+   framework/strategy.md. Check the single-position cap (Upgrade 7: 15% × max(NLV, $100k)).
    Propose a recycling plan into current Score 0.0-29.9 names, with full
    reasoning per position - no black-box output.
 
