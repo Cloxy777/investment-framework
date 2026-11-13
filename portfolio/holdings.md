@@ -92,7 +92,7 @@ Framework account Net Liquidation Value = **$46,477.10** (IBKR U19421206, broker
 | NKE | 1.66% | 68.7 | 35.4 | 66.7 (ref only, gate fail) | 13 Nov 2026 | IBKR |
 | NOW | 1.98% | 78.4 | 71.3 (gate fail) | n/a (gate fail) | 02 Nov 2026 | IBKR |
 | NVDA | 15.49% | 25.8 | 89.7 | 18.0 | 12 Nov 2026 | IBKR |
-| NVO | 0.43% | 51.4 | 67.2 | 42.1 (ref only, gate fail) | 09 Aug 2026 | IBKR |
+| NVO | 0.43% | 52.3 | 67.1 | 42.6 (ref only, gate fail) | 13 Nov 2026 | IBKR |
 | RBRK | 0.68% | not scored — fails quality gates | | | 11 Oct 2026 | IBKR |
 | ~~SOFI (Oct30'26 $13 put)~~ | n/a — expired 2026-10-30, position closed | n/a | | | n/a | IBKR |
 | SPGI | 1.01% | 31.3 | 67.7 | 31.8 | 09 Aug 2026 | IBKR |
