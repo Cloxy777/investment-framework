@@ -1,44 +1,44 @@
 # IBKR Portfolio Snapshot
 
 **Account:** U19421206 — the framework account (see [accounts.md](../accounts.md)); the other two IBKR accounts are out of scope.
-**Positions last synced:** 2026-11-08 (live via Interactive Brokers MCP — `get_account_positions`, via scheduled Weekly sync)
-**Cash balances last synced:** 2026-11-08 (live via Interactive Brokers MCP — `get_account_balances`, via scheduled Weekly sync)
-**Account summary:** Net Liquidation $46,477.10 (broker-reported, BASE) · Gross Position Value $44,129.05 (sum of positions below, non-USD converted at live FX; includes the -$140.42 BULL and -$105.00 UUUU short-option marks) · Total Cash (USD-equiv) **$1,992.38** (broker-reported, BASE; **USD cash -$850.77 = margin debit**) · Unrealized P&L +$2,463.49 (broker-reported, BASE/USD-consolidated)
+**Positions last synced:** 2026-11-15 (live via Interactive Brokers MCP — `get_account_positions`, via scheduled Weekly sync)
+**Cash balances last synced:** 2026-11-15 (live via Interactive Brokers MCP — `get_account_balances`, via scheduled Weekly sync)
+**Account summary:** Net Liquidation $45,697.84 (broker-reported, BASE) · Gross Position Value $45,985.30 (sum of positions below, non-USD converted at live FX; includes the -$112.38 BULL and -$83.15 UUUU short-option marks) · Total Cash (USD-equiv) **-$12.95** (broker-reported, BASE; all in USD — **small margin debit**; EUR and AUD cash balances are now zero) · Unrealized P&L +$1,716.79 (broker-reported, BASE/USD-consolidated)
 
-**Ticker resolution note:** ticker-lookup CSV fetched live from IBKR (HTTP 200, 24,313 rows) and the stored fallback was refreshed. All rows resolved from the MCP's `contract_description` field — no `CONID_XXXXXXX` placeholders. `TRN @LSE`, `XEON @IBIS2` normalized; option rows kept as option rows.
+**Ticker resolution note:** ticker-lookup CSV fetched live from IBKR (HTTP 200, 24,352 rows) and the stored fallback was refreshed. All rows resolved from the MCP's `contract_description` field — no `CONID_XXXXXXX` placeholders. `TRN @LSE`, `XEON @IBIS2` normalized; option rows kept as option rows.
 
-> **Changes vs. 2026-11-01 sync:** **NVDA 19 → 40 sh (+21, avg cost $182.51 → $182.89)**; **MSFT 17 → 13 sh (-4)**; **new TSM 1 sh @ $364.50**; **new short UUUU Jan15'27 $9 CALL ×3** (covered by the 300 UUUU shares; the earlier order for it was `REPLACED`). 24 → 26 rows. **Net Liquidation $46,102.05 → $46,477.10 (+0.8%)**. **USD cash +$981.49 → -$850.77** (NVDA buying outweighed MSFT sale proceeds). Price moves: NOW 106.00 → 102.36, ADBE 250.23 → 239.10, DUOL 131.59 → 160.35 (+22%), AVGO 327.00 → 294.94, NVDA 205.40 → 180.00, MSFT 521.91 → 530.00, AMZN 240.35 → 259.30. Unrealized P&L +$2,565.09 → +$2,463.49. RGL/LM8/TLT remain absent (in-kind transfers, scope guard passed).
+> **Changes vs. 2026-11-08 sync:** **NVDA 40 → 50 sh (+10, avg cost $182.89 → $180.64)**; no other share-count changes (26 rows, same tickers). **Net Liquidation $46,477.10 → $45,697.84 (-1.7%)**. **Cash: USD -$850.77 → -$12.95; EUR €1,964 and AUD A$951 → 0** (both converted to USD, evidently funding the NVDA buy). Total cash $1,992.38 → -$12.95. Price moves: AVGO 294.94 → 345.00 (+17%), ADBE 239.10 → 242.60, AMZN 259.30 → 264.88, META 610.46 → 637.01, NVDA 180.00 → 165.20 (-8.2%), MSFT 530.00 → 523.00, TSM 375 → 396, MBGL 19.64 → 23.28 (+18.5%, earnings 11-12), VEEV 303.73 → 301.53, GOOG 283.89 → 292.52, UUUU 6.66 → 6.50. Unrealized P&L +$2,463.49 → +$1,716.79. RGL/LM8/TLT remain absent (in-kind transfers, scope guard passed).
 
 | Ticker | Shares | Market Price | Market Value | Avg Cost | Unrealized P&L | P&L % | Currency | Contract ID |
 |--------|--------|--------------|--------------|----------|----------------|-------|----------|-------------|
-| ADBE | 20 | 239.1000 | 4,782.00 | 221.0850 | +360.30 | +8.15% | USD | 265768 |
-| AMZN | 12 | 259.3000 | 3,111.60 | 210.5885 | +584.54 | +23.13% | USD | 3691937 |
-| AVGO | 6 | 294.9400 | 1,769.64 | 382.4417 | -525.01 | -22.88% | USD | 313130367 |
-| BKNG | 10 | 165.0000 | 1,650.00 | 159.1000 | +59.00 | +3.71% | USD | 308728373 |
-| BULL Feb19'27 5 PUT (short) | -2 | 0.7021 | -140.42 | 0.5432 | -31.79 | -2926.3% (of credit) | USD | 893374059 |
-| DUOL | 30 | 160.3500 | 4,810.50 | 168.2479 | -236.94 | -4.69% | USD | 505002183 |
-| GOOG | 1 | 283.8900 | 283.89 | 295.7000 | -11.81 | -3.99% | USD | 208813720 |
-| MBGL | 1 | 19.6400 | 19.64 | 19.8924 | -0.25 | -1.27% | USD | 893054611 |
-| META | 5 | 610.4600 | 3,052.30 | 575.0560 | +177.02 | +6.16% | USD | 107113386 |
-| MSFT | 13 | 530.0000 | 6,890.00 | 382.7254 | +1,914.57 | +38.48% | USD | 272093 |
-| NFLX | 12 | 63.4100 | 760.92 | 87.7905 | -292.57 | -27.77% | USD | 15124833 |
-| NKE | 20 | 38.5900 | 771.80 | 43.3100 | -94.40 | -10.90% | USD | 10291 |
-| NOW | 9 | 102.3600 | 921.24 | 87.6100 | +132.75 | +16.84% | USD | 109911821 |
-| NVDA | 40 | 180.0000 | 7,200.00 | 182.8903 | -115.61 | -1.58% | USD | 4815747 |
-| NVO | 5 | 40.3100 | 201.55 | 42.5400 | -11.15 | -5.24% | USD | 10611 |
-| RBRK | 3 | 105.7500 | 317.25 | 58.0962 | +142.96 | +82.03% | USD | 699030013 |
-| SPGI | 1 | 467.8000 | 467.80 | 391.1076 | +76.69 | +19.61% | USD | 229629397 |
-| TRN | 600 | 1.9630 | 1,177.80 | 2.1195 | -93.91 | -7.38% | GBP | 371871705 |
-| TSM | 1 | 375.0000 | 375.00 | 364.5000 | +10.50 | +2.88% | USD | 6223250 |
-| UBER | 3 | 68.7800 | 206.34 | 82.0233 | -39.73 | -16.15% | USD | 365207014 |
-| UUUU | 300 | 6.6600 | 1,998.00 | 8.4784 | -545.52 | -21.45% | USD | 137823153 |
-| UUUU Jan15'27 9 CALL (short) | -3 | 0.3500 | -105.00 | 0.6845 | +100.35 | +4886.8% (of credit) | USD | 890272443 |
-| V | 1 | 422.6500 | 422.65 | 319.5100 | +103.14 | +32.28% | USD | 49462172 |
-| VEEV | 3 | 303.7300 | 911.19 | 164.8333 | +416.69 | +84.26% | USD | 136254493 |
-| XEON | 10 | 150.7200 | 1,507.20 | 149.0250 | +16.95 | +1.14% | EUR | 46041702 |
-| ZS | 1 | 199.0000 | 199.00 | 157.1600 | +41.84 | +26.62% | USD | 310621426 |
+| ADBE | 20 | 242.6000 | 4,852.00 | 221.0850 | +430.30 | +9.73% | USD | 265768 |
+| AMZN | 12 | 264.8800 | 3,178.56 | 210.5885 | +651.50 | +25.78% | USD | 3691937 |
+| AVGO | 6 | 345.0000 | 2,070.00 | 382.4417 | -224.65 | -9.79% | USD | 313130367 |
+| BKNG | 10 | 159.5800 | 1,595.80 | 159.1000 | +4.80 | +0.30% | USD | 308728373 |
+| BULL Feb19'27 5 PUT (short) | -2 | 0.5619 | -112.38 | 0.5432 | -3.75 | -3.5% (of credit) | USD | 893374059 |
+| DUOL | 30 | 165.0000 | 4,950.00 | 168.2479 | -97.44 | -1.93% | USD | 505002183 |
+| GOOG | 2 | 292.5200 | 585.04 | 294.5550 | -4.07 | -0.69% | USD | 208813720 |
+| MBGL | 1 | 23.2800 | 23.28 | 19.8924 | +3.39 | +17.03% | USD | 893054611 |
+| META | 5 | 637.0100 | 3,185.05 | 575.0560 | +309.77 | +10.77% | USD | 107113386 |
+| MSFT | 13 | 523.0000 | 6,799.00 | 382.7254 | +1,823.57 | +36.65% | USD | 272093 |
+| NFLX | 12 | 62.3500 | 748.20 | 87.7905 | -305.29 | -28.98% | USD | 15124833 |
+| NKE | 20 | 37.7800 | 755.60 | 43.3100 | -110.60 | -12.77% | USD | 10291 |
+| NOW | 9 | 102.1100 | 918.99 | 87.6100 | +130.50 | +16.55% | USD | 109911821 |
+| NVDA | 50 | 165.2000 | 8,260.00 | 180.6422 | -772.11 | -8.55% | USD | 4815747 |
+| NVO | 5 | 41.6300 | 208.15 | 42.5400 | -4.55 | -2.14% | USD | 10611 |
+| RBRK | 3 | 109.8800 | 329.64 | 58.0962 | +155.35 | +89.13% | USD | 699030013 |
+| SPGI | 1 | 473.5900 | 473.59 | 391.1076 | +82.48 | +21.09% | USD | 229629397 |
+| TRN | 600 | 1.9000 | 1,140.00 | 2.1195 | -131.71 | -10.36% | GBP | 371871705 |
+| TSM | 1 | 396.0000 | 396.00 | 364.5000 | +31.50 | +8.64% | USD | 6223250 |
+| UBER | 3 | 69.6900 | 209.07 | 82.0233 | -37.00 | -15.04% | USD | 365207014 |
+| UUUU | 300 | 6.5000 | 1,950.00 | 8.4784 | -593.52 | -23.33% | USD | 137823153 |
+| UUUU Jan15'27 9 CALL (short) | -3 | 0.2772 | -83.15 | 0.6845 | +122.20 | +59.5% (of credit) | USD | 890272443 |
+| V | 1 | 425.7600 | 425.76 | 319.5100 | +106.25 | +33.25% | USD | 49462172 |
+| VEEV | 3 | 301.5300 | 904.59 | 164.8333 | +410.09 | +82.93% | USD | 136254493 |
+| XEON | 10 | 150.7930 | 1,507.93 | 149.0250 | +17.68 | +1.19% | EUR | 46041702 |
+| ZS | 1 | 194.0200 | 194.02 | 157.1600 | +36.86 | +23.45% | USD | 310621426 |
 
-> **Note on Gross Position Value vs. Net Liquidation:** Gross Position Value ($44,129.05) plus Total Cash ($1,992.38) = $46,121.43 vs. broker-reported Net Liquidation ($46,477.10) — difference +355.67 is FX rounding / price timing between calls.
+> **Note on Gross Position Value vs. Net Liquidation:** Gross Position Value ($45,985.30) plus Total Cash (-$12.95) = $45,972.35 vs. broker-reported Net Liquidation ($45,697.84) — difference +274.51 is FX rounding / price timing between calls (position market values vs. the broker's NLV timestamp).
 
 > **Currency note:** all positions are USD except **TRN** (GBP, LSE) and **XEON** (EUR). USD-equivalents use the live FX rates below, fetched directly from `get_account_balances` — never assumed.
 
@@ -48,14 +48,14 @@ Source: `get_account_balances` (one entry per currency, plus a `BASE` row consol
 
 | Currency | Cash Balance | Settled Cash | FX Rate → USD | USD Equivalent |
 |----------|--------------|--------------|----------------|-----------------|
-| USD | -850.77 | -850.77 | 1.0000000 | -850.77 |
-| EUR | 1,964.38 | 1,964.38 | 1.1143507 | 2,189.01 |
-| GBP | 0.00 | 0.00 | 1.3352076 | 0.00 |
-| AUD | 951.35 | 951.35 | 0.6866136 | 653.21 |
-| **Total (USD-equiv)** | | | | **1,992.38** |
+| USD | -12.95 | -12.95 | 1.0000000 | -12.95 |
+| EUR | 0.00 | 0.00 | 1.1022632 | 0.00 |
+| GBP | 0.00 | 0.00 | 1.3213624 | 0.00 |
+| AUD | 0.00 | 0.00 | 0.6771329 | 0.00 |
+| **Total (USD-equiv)** | | | | **-12.95** |
 
-*Row-by-row FX sum is $1,991.45 vs. broker-reported BASE `cash_balance` of $1,992.38 (≈$0.94 FX rounding); the BASE figure is used. USD cash is negative (margin debit) while €1,964 and A$951 sit in other currencies. See `/safe-guard` for worst-case simultaneous-fill exposure.*
+*Matches broker-reported BASE `cash_balance` of -$12.95. USD cash is a small margin debit; no other currency holds cash. See `/safe-guard` for worst-case simultaneous-fill exposure.*
 
-*Live-FX USD-equivalents of non-USD positions: TRN £1,177.80 × 1.3352076 = **$1,572.61**; XEON €1,507.20 × 1.1143507 = **$1,679.55**.*
+*Live-FX USD-equivalents of non-USD positions: TRN £1,140.00 × 1.3213624 = **$1,506.35**; XEON €1,507.93 × 1.1022632 = **$1,662.14**.*
 
 *This file has two independently-refreshed sections — the positions table and the Cash Balances table, each with its own "last synced" timestamp above. See [sync-sop.md](../sync-sop.md). Prior snapshots live in git history.*
