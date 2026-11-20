@@ -95,7 +95,7 @@ Framework account Net Liquidation Value = **$45,697.84** (IBKR U19421206, broker
 | NFLX | 1.64% | 41.3 | 69.0 (gate fail) | n/a (gate fail) | 02 Nov 2026 | IBKR |
 | NKE | 1.65% | 68.7 | 35.4 | 66.7 (ref only, gate fail) | 13 Nov 2026 | IBKR |
 | NOW | 2.01% | 78.4 | 71.3 (gate fail) | n/a (gate fail) | 02 Nov 2026 | IBKR |
-| NVDA | 18.08% | 25.8 | 89.7 | 18.0 | 12 Nov 2026 | IBKR |
+| NVDA | 18.08% at the 11-15 sync; live 2026-11-20: 50 sh = $7,160 = 16.92% of $42,316.86 — under the $15,000 hard cap (Upgrade 7 as amended 2026-11-13), but ~2.5× the 19.7-sh risk-based target — see [2026-11-20 rescore](../sessions/2026-11-20-rescore-nvda.md) | 21.2 | 89.8 | 15.7 | 20 Nov 2026 | IBKR |
 | NVO | 0.46% | 52.3 | 67.1 | 42.6 (ref only, gate fail) | 13 Nov 2026 | IBKR |
 | RBRK | 0.72% | not scored — fails quality gates | | | 11 Oct 2026 | IBKR |
 | ~~SOFI (Oct30'26 $13 put)~~ | n/a — expired 2026-10-30, position closed | n/a | | | n/a | IBKR |
