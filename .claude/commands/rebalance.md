@@ -13,7 +13,7 @@ Steps:
    - Score 80.0–89.9 → trim to 50%
    - Score 90.0–100.0 → trim to 1–2% tracking
    - Score 90.0–100.0 sustained 2+ quarters → full exit review
-4. Check the 15% single-position hard cap (Upgrade 7) across the whole book.
+4. Check the single-position hard cap (Upgrade 7) across the whole book: cap = 15% × max(NLV, $100,000), i.e. $15,000 while NLV < $100k.
 5. Propose a recycling plan: where trimmed capital should go (current Score 0.0–29.9 names only), and the resulting target weights.
 6. Show full reasoning per position — no black-box recommendations.
 

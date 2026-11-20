@@ -4,10 +4,14 @@
 
 > **2026-10-12 — account segregation (synced).** The framework now governs only IBKR account **U19421206** ([accounts.md](accounts.md)). **RGL, LM8 and TLT were transferred out in-kind** to the non-framework accounts — not sales or exits — and their rows are removed below. **Weights are now `position value ÷ U19421206 Net Liquidation Value`** ($48,635.06), not a blended IBKR+Freedom24 total. Statistics baseline: 2026-10-12.
 
-**As of 2026-11-08 — live sync from [IBKR](snapshots/ibkr.md) account U19421206 (positions, cash balances, and active orders all refreshed 2026-11-08).** [Freedom Finance](snapshots/freedom-finance.md) is **not** part of the framework account and was not resynced (last snapshot 2026-08-22) — see the Freedom24 note below.
+**As of 2026-11-15 — live sync from [IBKR](snapshots/ibkr.md) account U19421206 (positions, cash balances, and active orders all refreshed 2026-11-15).** [Freedom Finance](snapshots/freedom-finance.md) is **not** part of the framework account and was not resynced (last snapshot 2026-08-22) — see the Freedom24 note below.
 
-Framework account Net Liquidation Value = **$46,477.10** (IBKR U19421206, broker-reported BASE). Weight % = each row's USD-equivalent value ÷ this figure. *Score and review-date columns are intentionally blank/unchanged — they're populated by [/rescore](../.claude/commands/rescore.md), not by sync.**not** a broker-labeled "Net Asset Valuation", see prior flag in [freedom-finance.md](snapshots/freedom-finance.md)). Weight % = each row's combined USD-equivalent value ÷ this total. *Score and review-date columns are intentionally blank/unchanged — they're populated by [/rescore](../.claude/commands/rescore.md), not by sync.*
+Framework account Net Liquidation Value = **$45,697.84** (IBKR U19421206, broker-reported BASE). Weight % = each row's USD-equivalent value ÷ this figure. *Score and review-date columns are intentionally blank/unchanged — they're populated by [/rescore](../.claude/commands/rescore.md), not by sync.**not** a broker-labeled "Net Asset Valuation", see prior flag in [freedom-finance.md](snapshots/freedom-finance.md)). Weight % = each row's combined USD-equivalent value ÷ this total. *Score and review-date columns are intentionally blank/unchanged — they're populated by [/rescore](../.claude/commands/rescore.md), not by sync.*
 
+> ## 2026-11-15 sync — NVDA 40→50 sh (now 18.08%), EUR/AUD cash converted away, cash ≈ -$13
+>
+> **NVDA +10 sh** (avg $182.89 → $180.64; weight **18.08%** — highest single name, price -8.2% on the week); no other share-count changes (26 rows). **Cash:** EUR €1,964 and AUD A$951 are now zero and USD cash is **-$12.95** (was -$850.77; total cash $1,992.38 → -$12.95, -0.03%) — consistent with funding the NVDA buy. NLV $46,477.10 → **$45,697.84**. AVGO +17% ($294.94 → $345.00), MBGL +18.5% on earnings. **Orders (6 working, was 8):** SELL 10 NVDA @ 200.50 and both SNDK buys are gone unfilled; **new SELL 1 NVDA Dec18'26 $125 put @ 6.10** (undocumented; verify); NVO's SELL 5 @ 45.54 is `REPLACED` with no live successor (NVO and NKE both have no working sell). Confirm the NVDA add against `decisions/` (no matching entry found). See [ibkr.md](snapshots/ibkr.md), [ibkr-orders.md](snapshots/ibkr-orders.md).
+>
 > ## 2026-11-08 sync — NVDA doubled (19→40 sh), MSFT trimmed (17→13), TSM opened, USD cash now -$850.77
 >
 > **NVDA +21 sh** (avg $182.89; now 15.49%) and **MSFT -4 sh** (now 14.82%, down from 19.25%); **new TSM 1 sh @ $364.50**; **new short UUUU Jan15'27 $9 call ×3** against the 300 shares. **USD cash +$981.49 → -$850.77** (margin debit); total IBKR cash $1,992.38 (4.29%). NLV $46,102.05 → **$46,477.10**. **Orders:** new SELL 10 NVDA @ 200.50, BUY 2 SNDK @ 780, BUY 1 SNDK @ 800; NOW short-put order gone unfilled. Confirm the NVDA/MSFT share changes against `decisions/` (see [2026-11-02 rebalance](../sessions/2026-11-02-rebalance.md), [NVDA rescore](../sessions/2026-11-05-rescore-nvda.md)). See [ibkr.md](snapshots/ibkr.md), [ibkr-orders.md](snapshots/ibkr-orders.md).
@@ -74,37 +78,37 @@ Framework account Net Liquidation Value = **$46,477.10** (IBKR U19421206, broker
 
 | Ticker | Weight % | Last Score | Quality Score | Composite Score | Last Review | Broker |
 |--------|----------|------------|----------------|------------------|-------------|--------|
-| **ADBE** | 10.29% | 0.0 | 83.3 | 8.4 | 11 Sep 2026 | IBKR |
-| AMZN | 6.69% | 82.7 | 56.7 | 63.0 | 01 Aug 2026 | IBKR (Freedom24 leg sold — see note above) |
-| AVGO | 3.81% | 67.1 | 83.1 | 42.0 | 24 Oct 2026 | IBKR |
-| **BKNG** | 3.55% | 20.8 | 91.9 | 14.4 | 11 Oct 2026 | IBKR |
+| **ADBE** | 10.62% | 0.0 | 83.3 | 8.4 | 11 Sep 2026 | IBKR |
+| AMZN | 6.96% | 82.7 | 56.7 | 63.0 | 01 Aug 2026 | IBKR (Freedom24 leg sold — see note above) |
+| AVGO | 4.53% | 67.1 | 83.1 | 42.0 | 24 Oct 2026 | IBKR |
+| **BKNG** | 3.49% | 20.8 | 91.9 | 14.4 | 11 Oct 2026 | IBKR |
 | CASH (Freedom24) | n/a — outside framework account | | | | | Freedom24 |
-| CASH (IBKR) | 4.29% | | | | | IBKR |
+| CASH (IBKR) | -0.03% | | | | | IBKR |
 | ~~CSGP~~ | n/a — fully sold 2026-10-22 (25 sh @ $35.55, standing GTC order), position closed | n/a | | | 11 Oct 2026 | IBKR |
 | **DOCS (short put)** | n/a — expired worthless 2026-08-21, position closed | n/a | | | n/a | IBKR |
-| DUOL | 10.35% | 85.1 | 83.2 | 51.0 | 01 Sep 2026 | IBKR + Freedom24 |
-| GOOG | 0.61% | 37.1 | 70.7 (gate fail + SBC≥FCF hard DQ) | 33.2 (ref only, gate fail) | 29 Oct 2026 | IBKR |
-| **BULL (Feb19'27 $5 put, short 2)** | -0.30% | not scored — ungoverned option position, no evaluation ever run | | | n/a | IBKR |
-| **MBGL** | 0.04% | not scored — fails quality gates | 51.0 | | 09 Aug 2026 | IBKR |
-| META | 6.57% | 39.4 | 87.5 | 26.0 | 26 Aug 2026 (PM) | IBKR (Freedom24 leg sold — see note above) |
-| MSFT | 14.82% | 38.9 | 79.9 | 29.5 (ref only, gate fail) | 30 Jul 2026 | IBKR (Freedom24 leg sold — see note above) |
+| DUOL | 10.83% | 85.1 | 83.2 | 51.0 | 01 Sep 2026 | IBKR + Freedom24 |
+| GOOG | 1.28% | 39.7 | 70.7 (gate fail + SBC≥FCF hard DQ) | 34.5 (ref only, gate fail) | 12 Nov 2026 | IBKR |
+| **BULL (Feb19'27 $5 put, short 2)** | -0.25% | not scored — ungoverned option position, no evaluation ever run | | | n/a | IBKR |
+| **MBGL** | 0.05% | not scored — fails quality gates | 51.0 | | 09 Aug 2026 | IBKR |
+| META | 6.97% | 39.4 | 87.5 | 26.0 | 26 Aug 2026 (PM) | IBKR (Freedom24 leg sold — see note above) |
+| MSFT | 14.88% | 38.9 | 79.9 | 29.5 (ref only, gate fail) | 30 Jul 2026 | IBKR (Freedom24 leg sold — see note above) |
 | NFLX | 1.64% | 41.3 | 69.0 (gate fail) | n/a (gate fail) | 02 Nov 2026 | IBKR |
-| NKE | 1.66% | 55.2 | 39.1 | 58.1 (ref only, gate fail) | 11 Oct 2026 | IBKR |
-| NOW | 1.98% | 78.4 | 71.3 (gate fail) | n/a (gate fail) | 02 Nov 2026 | IBKR |
-| NVDA | 15.49% (⚠️ pre-rescore sync figure; live 2026-11-20: 50 sh = 16.92% of $42,316.86 — **over the 15% hard cap**, see [2026-11-20 rescore](../sessions/2026-11-20-rescore-nvda.md)) | 21.2 | 89.8 | 15.7 | 20 Nov 2026 | IBKR |
-| NVO | 0.43% | 51.4 | 67.2 | 42.1 (ref only, gate fail) | 09 Aug 2026 | IBKR |
-| RBRK | 0.68% | not scored — fails quality gates | | | 11 Oct 2026 | IBKR |
+| NKE | 1.65% | 68.7 | 35.4 | 66.7 (ref only, gate fail) | 13 Nov 2026 | IBKR |
+| NOW | 2.01% | 78.4 | 71.3 (gate fail) | n/a (gate fail) | 02 Nov 2026 | IBKR |
+| NVDA | 18.08% at the 11-15 sync; live 2026-11-20: 50 sh = $7,160 = 16.92% of $42,316.86 — under the $15,000 hard cap (Upgrade 7 as amended 2026-11-13), but ~2.5× the 19.7-sh risk-based target — see [2026-11-20 rescore](../sessions/2026-11-20-rescore-nvda.md) | 21.2 | 89.8 | 15.7 | 20 Nov 2026 | IBKR |
+| NVO | 0.46% | 52.3 | 67.1 | 42.6 (ref only, gate fail) | 13 Nov 2026 | IBKR |
+| RBRK | 0.72% | not scored — fails quality gates | | | 11 Oct 2026 | IBKR |
 | ~~SOFI (Oct30'26 $13 put)~~ | n/a — expired 2026-10-30, position closed | n/a | | | n/a | IBKR |
-| SPGI | 1.01% | 31.3 | 67.7 | 31.8 | 09 Aug 2026 | IBKR |
+| SPGI | 1.04% | 31.3 | 67.7 | 31.8 | 09 Aug 2026 | IBKR |
 | TLT (Freedom24 leg only) | n/a — outside framework account | not scored — non-equity, framework gap | | | Jun 2026 | Freedom24 |
-| TRN | 3.38% | 10.0 | 66.4 | 21.8 (ref only, gate fail) | 10 Sep 2026 | IBKR |
-| TSM | 0.81% | not scored — see [2026-11-05 evaluation](../sessions/2026-11-05-new-position-tsm.md) | | | 05 Nov 2026 | IBKR |
-| UBER | 0.44% | 37.4 | 59.3 | 39.1 (ref only, gate fail) | 15 Sep 2026 | IBKR |
-| **UUUU** | 4.07% (300 sh + short Jan'27 $9 call ×3 marked -$105) | not scored as held — prior [2026-09-10 evaluation](../sessions/2026-09-10-new-position-uuuu.md) pre-dates the position | | | 10 Sep 2026 | IBKR |
-| V | 0.91% | 54.5 | 85.6 | 34.5 | 29 Jul 2026 | IBKR |
-| VEEV | 1.96% | 65.9 | 86.0 | 40.0 | 30 Aug 2026 | IBKR |
-| XEON | 3.61% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
-| ZS | 0.43% | 65.7 | 59.4 | 53.2 (ref only, gate fail) | 11 Oct 2026 | IBKR |
+| TRN | 3.30% | 10.0 | 66.4 | 21.8 (ref only, gate fail) | 10 Sep 2026 | IBKR |
+| TSM | 0.87% | not scored — see [2026-11-05 evaluation](../sessions/2026-11-05-new-position-tsm.md) | | | 05 Nov 2026 | IBKR |
+| UBER | 0.46% | 37.4 | 59.3 | 39.1 (ref only, gate fail) | 15 Sep 2026 | IBKR |
+| **UUUU** | 4.27% (300 sh + short Jan'27 $9 call ×3 marked -$83; call = -0.18%) | not scored as held — prior [2026-09-10 evaluation](../sessions/2026-09-10-new-position-uuuu.md) pre-dates the position | | | 10 Sep 2026 | IBKR |
+| V | 0.93% | 54.5 | 85.6 | 34.5 | 29 Jul 2026 | IBKR |
+| VEEV | 1.98% | 65.9 | 86.0 | 40.0 | 30 Aug 2026 | IBKR |
+| XEON | 3.64% | not scored — cash-equivalent, out of scope | | | Jun 2026 | IBKR |
+| ZS | 0.42% | 65.7 | 59.4 | 53.2 (ref only, gate fail) | 11 Oct 2026 | IBKR |
 
 **🚨 RBRK and ZS weights above are pre-Rule-9-rescore** — see the flag at the top of this file; both are overdue for `/rescore` per [#801](https://github.com/Cloxy777/investment-framework/issues/801) and [#802](https://github.com/Cloxy777/investment-framework/issues/802).
 
@@ -120,13 +124,13 @@ Framework account Net Liquidation Value = **$46,477.10** (IBKR U19421206, broker
 
 **TRN's weight (⚠️) still reflects the 22.4% price drop from the 08-16→08-22 window** — caused by a CMA "drip pricing" investigation opened 2026-08-19, still open with no finding as of the [2026-09-10 rescore](../sessions/2026-09-10-rescore-trn.md). **HOLD, no top-up** — Quality Gate already blocked adding before this news; the CMA probe adds a second, independent reason. New CEO Ian Brown started 7 Sept 2026 (full handover 28 Sept). FY2026 FCF fell −17.0% YoY (£79.5M vs £95.9M FY2025) — flagged, not yet explained by disclosed management commentary.
 
-**XEON is EUR-denominated** (€1,504.75 market value). USD-equivalent (**$1,685.57**) uses the live EUR→USD rate (1.1201705) from `get_account_balances`.
+**XEON is EUR-denominated** (€1,507.93 market value). USD-equivalent (**$1,662.14**) uses the live EUR→USD rate (1.1022632) from `get_account_balances`.
 
-**TRN is GBP-denominated** (£1,246.80 market value, LSE — 600 shares). USD-equivalent (**$1,651.38**) uses the live GBP→USD rate (1.3244739) from `get_account_balances`.
+**TRN is GBP-denominated** (£1,140.00 market value, LSE — 600 shares). USD-equivalent (**$1,506.35**) uses the live GBP→USD rate (1.3213624) from `get_account_balances`.
 
 
 
-**`CASH (IBKR)`** = **$1,992.38** (2026-11-08; USD **-$850.77** margin debit, EUR €1,964.38 ≈ $2,189.0, AUD A$951.35 ≈ $653.2; weight 4.29%). *Prior figure:* $3,841.98 (2026-11-01).
+**`CASH (IBKR)`** = **-$12.95** (2026-11-15; USD -$12.95 margin debit, EUR/AUD/GBP balances all zero; weight -0.03%). *Prior figure:* $1,992.38 (2026-11-08).
 
 **`CASH (Freedom24)`** = $44.98 (last snapshot 2026-08-22; **outside the framework account — no weight computed**).
 

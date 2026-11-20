@@ -34,7 +34,7 @@ HYBRID UPGRADES IN FORCE
   Upgrade 4 — Turnaround Sub-Gate: max 2–3% position. Requires all 5 conditions (historical ROIC, insider buy, 40% MOS, debt <3×, moat identifiable). 2-quarter mandatory review.
   Upgrade 5 — Debt Gate: payment networks and asset-light financials use Net Debt/EBITDA <4× if interest coverage >15× and investment grade. All others use <2.5×.
   Upgrade 6 — RETIRED 2026-06-07 (was a 200-day MA price-action gate; conflicted with Rule 0 "never act on price movement alone" and with Buffett/Munger/Graham's rejection of technical signals — see decisions/2026-06-07-framework-fixes-investor-philosophy-alignment.md). Its protective intent is already covered by Phase 04's Quality/Narrative/Short-thesis checks.
-  Upgrade 7 — Hard 15% single-position cap. Never exceed under any circumstances. (User override of the Verdad-validated 8% figure — see decisions/2026-06-07-framework-change-position-cap.md.)
+  Upgrade 7 — Hard single-position cap = 15% × max(account NLV, $100,000) (flat $15,000 while NLV < $100k; plain 15% of NLV above). Never exceed under any circumstances. (User override of the Verdad-validated 8% figure — see decisions/2026-06-07-framework-change-position-cap.md.)
 
 VALUATION SCORE — CALCULATION RULES
 Each input is a continuous 0–100.0 sub-score (0 = cheapest/most attractive, 100.0 = most expensive). Weight each, sum to raw score, then apply modifiers:
