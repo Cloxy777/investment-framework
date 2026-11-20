@@ -55,7 +55,6 @@ This version adds a new score (Quality Score) and a new combined number (Composi
 | BKNG | in-portfolio/BKNG/BKNG-2026-10-11.md | 2026-10-11 |
 | BULL | in-portfolio/BULL/BULL-2026-08-20.md | 2026-08-20 |
 | CSGP | not-in-portfolio/CSGP/CSGP-2026-10-11.md | 2026-10-11 |
-| DUOL | in-portfolio/DUOL/DUOL-2026-09-01.md | 2026-09-01 |
 | META | in-portfolio/META/META-2026-08-26.md | 2026-08-26 |
 | MSFT | in-portfolio/MSFT/MSFT-2026-07-30.md | 2026-07-30 |
 | SPGI | in-portfolio/SPGI/SPGI-2026-08-09.md | 2026-08-09 |
